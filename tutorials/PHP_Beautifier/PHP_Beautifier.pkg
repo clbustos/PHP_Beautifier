@@ -1,7 +1,7 @@
 <refentry id="{@id}">
   <refnamediv>
     <refname>Introduction to PHP_Beautifier</refname>
-    <refpurpose>PHP_Beautifier: A tool to beautify php source code, for Php 5</refpurpose>
+    <refpurpose>PHP_Beautifier: A tool to beautify PHP 4 and PHP 5 source code. Written in PHP 5.</refpurpose>
   </refnamediv>
   <refsynopsisdiv>
     <refsynopsisdivinfo>
@@ -21,7 +21,7 @@
 {@toc}
  <refsect1 id="{@id intro}">
   <title>What is PHP_Beautifier?</title>
-    <para>PHP_Beautifier is a Open Source PHP aplication, distributed under the terms of PHP Licence 3.0. This program try to reformat and beautify Php code automatically. </para>
+    <para>PHP_Beautifier is a Open Source PHP aplication, distributed under the terms of PHP Licence 3.0. This program try to reformat and beautify PHP 4 and PHP 5 code automatically. </para>
     <refsect2 id="{@id history}">
       <title>Who needs it?</title>
       <itemizedlist>
@@ -48,16 +48,20 @@
     <itemizedlist>
       <title>Basic features</title>
         <listitem>
+        <para>Version independent: Needs PHP5 to work, but can handle PHP 4 and PHP 5 scripts. Should beautify PHP 3, too (if anyone test it, please send a report)</para>
+      </listitem>
+
+	  <listitem>
         <para>Plataform-independent: Should work on all the plataforms that supports PHP 5. Tested on Windows 98,2000,XP and Linux Gentoo 1.4.6 </para>
       </listitem>
       <listitem>
-        <para>automatic indentation of PHP source code according to given number of spaces </para>
+        <para>Automatic indentation of PHP source code according to given number of spaces </para>
       </listitem>
       <listitem>
-        <para>automatic newlines, if required </para>
+        <para>Automatic newlines, if required </para>
       </listitem>
       <listitem>
-        <para>you can use the web frontend, command line or, if you prefer, could use the class directly</para>
+        <para>You can use the web frontend, command line or, if you prefer, could use the class directly</para>
       </listitem>
 
     </itemizedlist>
@@ -92,8 +96,16 @@
     </itemizedlist>
   </refsect1>
   <refsect1 id="{@id php4}">
-  <title>Will be a PHP 4 version?</title>
+  <title>Works with PHP 4 scripts? Will be a PHP 4 version?</title>
+  <para>This package needs PHP 5 to run, but can handle any PHP file, including PHP 4 and PHP 5 scripts.</para>
   <para>In the near future, no. The use of exceptions, overloading &amp; tokenizer  - both experimental on PHP 4 - and passing by reference by default for objects could be simulated, but I prefer to focus my effort on PHP 5. But this only affect the installation of the package; you can beautify script written for PHP 4 and PHP 5, without any problem.</para>
   </refsect1>
+  <refsect1 id="{@id security}">
+  <title>Is secure to use?</title>
+  <para>The source code of the package beautify itself without any problem. I work with an application with more than 40.000 lines of PHP 4 source code and I did't have any broken file since 0.0.6 version.</para>
+  <para>The package have a test suite to verify all the important functions. Any bug have a test to verify the fix.</para>
+  <para>So, IMHO, you can use this application with confidence. Anyway, you always should make regular backups of your files and use some control version system, like CVS or Subversion.</para>
+  </refsect1>
+  
 </refentry>
 

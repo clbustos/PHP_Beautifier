@@ -74,6 +74,10 @@
         */
         protected $bOn = true;
         /**
+        * Current token
+        */
+        protected $aToken=false;
+        /**
         * Constructor
         * If you need to overload this (for example, to create a
         * definition for setting with {@link addSettingDefinition()}
@@ -171,6 +175,7 @@
         */
         public function handleToken($token) 
         {
+            $this->aToken=$token;
             if (!$this->bOn) {
                 return false;
             }

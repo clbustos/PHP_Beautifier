@@ -2,7 +2,7 @@
 <head>
 <title>PHP_Beautifier</title>
 	<style type="text/css" media="screen">
-		@import url( http://apsique.virtuabyte.cl/php/wp-layout.css );
+		@import url(style.css );
 	</style>
 
 </head>

@@ -26,7 +26,9 @@
     */
 	// First, test if the interpreter is the cli one
 	if (php_sapi_name() != 'cli') {
-        echo "You have to use php_beautifier with cli version of php.\n";
+        echo "You have to use php_beautifier with cli version of php. 
+		If you only have the cgi version, see Beautifier.php to
+		use this software within a script\n";
 		exit();
     }
 
@@ -235,7 +237,7 @@
           "     --recursive         or -r           Search in subdir recursively\n".
           "     --help              or -?           display help/usage (this message)\n\n".
           "Filter definition:\n".
-          "     --filters \"Filter1(setting1=value1,setting2='value2') Filter2()\"".
+          "     --filters \"Filter1(setting1=value1,setting2=value2) Filter2()\"".
           "\n");
         // php_beautifier->setBeautify(true)
         exit;

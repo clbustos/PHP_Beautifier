@@ -3,7 +3,7 @@
 <package version="1.0">
 	<name>PHP_Beautifier</name>
 	<summary>Beautifier for Php</summary>
-	<description>This program reformat and beautify PHP source code files automatically. The program is Open Source and distributed under the terms of PHP Licence. It is written in PHP 5 and has a command line tool.
+	<description>This program reformat and beautify PHP 4 and PHP 5 source code files automatically. The program is Open Source and distributed under the terms of PHP Licence. It is written in PHP 5 and has a command line tool.
 </description>
 	<license>PHP License</license>
 	<maintainers>
@@ -15,11 +15,16 @@
 		</maintainer>
 	</maintainers>
 	<release>
-		<version>0.1.3</version>
-		<date>2005-02-04</date>
-		<notes>+ Added test on script 'php_beautifier', to verify that the php interpreter is the 'cli' one.
-* Bug fix: References of STDIN and STDOUT generates Notices on cgi mode. Reported by Tobias Bielohlawek (ted42 at web.de). 
-    </notes>
+		<version>0.1.4</version>
+		<date>2005-04-01</date>
+		<notes>Improved Filter NewLines release
++ Added support for tokens.
++ Added optional dependency on bz2
+- Bug fix: You could use, now, colons to separate contents and/or tokens
+* Example of use with command line: 
+php_beautifier --filters "NewLines(before=if:switch:T_CLASS,after=T_COMMENT:function)
+! Know issue: the comments have special rules for spacing. So, newlines before a token after a comment won't be created. ¿Feature? ¿Bug? You decide
+</notes>
 		<state>beta</state>
 		<filelist>
 			<dir name="/" role="php" baseinstalldir="PHP">
@@ -138,7 +143,7 @@
 			<dir name="scripts" role="script" baseinstalldir="/">
 				<file name="php_beautifier" install-as="php_beautifier">
 					<replace from='"@php_bin@"' to="php_bin" type="pear-config"/>
-					<replace from="@package_version@" to="version" type="package-info" />					
+					<replace from="@package_version@" to="version" type="package-info" />
 				</file>
 				<file platform="windows" name="php_beautifier.bat" install-as="php_beautifier.bat">
 					<replace from='"@php_bin@"' to="php_bin" type="pear-config"/>
@@ -153,12 +158,34 @@
 		<dep type="pkg" rel="gt" optional="yes" version="1">Console_Getopt</dep>
 		<dep type="pkg" rel="ge" optional="yes" version="1.2">Archive_Tar</dep>
 		<dep type="ext" rel="has" optional="no" version="0">tokenizer</dep>
+		<dep type="ext" rel="has" optional="yes" version="0">bz2</dep>
 	</deps>
 	<changelog>
+	<release>
+		<version>0.1.4</version>
+		<date>2005-04-01</date>
+		<notes>Improved Filter NewLines release
++ Added support for tokens.
++ Added optional dependency on bz2
+- Bug fix: You could use, now, colons to separate contents and/or tokens
+* Example of use with command line: 
+php_beautifier --filters "NewLines(before=if:switch:T_CLASS,after=T_COMMENT:function)
+! Know issue: the comments have special rules for spacing. So, newlines before a token after a comment won't be created. ¿Feature? ¿Bug? You decide
+</notes>
+		<state>beta</state>
+		</release>	
 		<release>
-		<version>0.1.2</version>
-		<date>2005-02-04</date>
-		<notes>
+			<version>0.1.3</version>
+			<date>2005-02-04</date>
+			<notes>Bug fix release for CGI mode
++ Added test on script 'php_beautifier', to verify that the php interpreter is the 'cli' one.
+* Bug fix: References of STDIN and STDOUT generates Notices on cgi mode. Reported by Tobias Bielohlawek (ted42 at web.de). 
+    </notes>
+		</release>
+		<release>
+			<version>0.1.2</version>
+			<date>2005-02-04</date>
+			<notes>
 1+)New Filter NewLines: Request by Michael Mayer (michael at liquidbytes.net).
    Allows to include an extra line before/after some contents. Please, use with
    case, because is a preliminary release.
@@ -170,7 +197,7 @@
    changed to adjust. A new license is available on licences, for PEAR Filter.
 4-)Bug fix [3257]: Comments between if and elseif screws up formatting.
     </notes>
-		<state>beta</state>
+			<state>beta</state>
 		</release>
 		<release>
 			<version>0.1.1</version>

@@ -990,7 +990,7 @@
         * Activate or deactivate this ominous hack
         * If you need to maintain some special whitespace
         * you can activate this hack and use (delete the space between * and /)
-        * <code>/*ndps* /</code>
+        * <code>/**ndps** /</code>
         * in {@link get()}, this text will be erased.
         * @see removeWhitespace()
         * @see PHP_Beautifier_Filter_NewLines
