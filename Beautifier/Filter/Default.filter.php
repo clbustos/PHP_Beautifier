@@ -42,7 +42,7 @@
     * @link     http://pear.php.net/package/PHP_Beautifier
     * @link     http://clbustos.dotgeek.org
     * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
-    * @version    Release: @package_version@
+    * @version    Release: 0.1.3
     */
     final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter {
         protected $sDescription = 'Default Filter for PHP_Beautifier';

@@ -32,7 +32,7 @@
     * @link     http://pear.php.net/package/PHP_Beautifier
     * @link     http://clbustos.dotgeek.org
     * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
-    * @version    Release: @package_version@
+    * @version    Release: 0.1.3
     */
     class PHP_Beautifier_Batch_Output_Files extends PHP_Beautifier_Batch_Output {
         public function get() 
@@ -65,8 +65,9 @@
         }
         public function save() 
         {
+            $bCli=php_sapi_name()=='cli';
             $sFile = $this->oBatch->getOutputPath();
-            if ($sFile == STDOUT) {
+            if ($bCli and $sFile == STDOUT) {
                 $fp = STDOUT;
             } else {
                 $fp = fopen($this->oBatch->getOutputPath() , "w");
@@ -76,7 +77,7 @@
             }
             $sText = $this->get();
             fputs($fp, $sText, strlen($sText));
-            if ($fp != STDOUT) {
+            if (!($bCli and $fp == STDOUT)) {
                 fclose($fp);
             }
             return true;

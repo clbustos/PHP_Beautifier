@@ -33,7 +33,7 @@
     * @link     http://pear.php.net/package/PHP_Beautifier
     * @link     http://clbustos.dotgeek.org
     * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
-    * @version    Release: @package_version@
+    * @version    Release: 0.1.3
     */
     interface PHP_Beautifier_Tokeniker_Interface {
         public function __construct($sText);

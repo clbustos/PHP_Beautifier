@@ -76,7 +76,7 @@
     * @link     http://pear.php.net/package/PHP_Beautifier
     * @link     http://clbustos.dotgeek.org
     * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
-    * @version    Release: @package_version@
+    * @version    Release: 0.1.3
     */
     class PHP_Beautifier implements PHP_Beautifier_Interface {
         // public
@@ -543,12 +543,13 @@
         */
         public function setInputFile($sFile) 
         {
-            if (strpos($sFile, '://') === FALSE and $sFile != STDIN and !file_exists($sFile)) {
+            $bCli=(php_sapi_name()=='cli');
+            if (strpos($sFile, '://') === FALSE and !file_exists($sFile) and !($bCli and $sFile == STDIN)) {
                 throw (new Exception("File '$sFile' doesn't exists"));
             }
             $this->sText = '';
             $this->sInputFile = $sFile;
-            $fp = ($sFile == STDIN) ? STDIN : fopen($sFile, 'r');
+            $fp = ($bCli and $sFile == STDIN) ? STDIN : fopen($sFile, 'r');
             do {
                 $data = fread($fp, 8192);
                 if (strlen($data) == 0) {
@@ -557,7 +558,7 @@
                 $this->sText.= $data;
             }
             while (true);
-            if ($fp != STDIN) {
+            if (!($bCli and $fp == STDIN)) {
                 fclose($fp);
             }
             return true;
@@ -578,6 +579,7 @@
         */
         public function save($sFile = null) 
         {
+            $bCli=(php_sapi_name()=='cli');
             if (!$sFile) {
                 if (!$this->sOutputFile) {
                     throw (new Exception("Can't save without a output file"));
@@ -586,12 +588,12 @@
                 }
             }
             $sText = $this->get();
-            $fp = ($sFile == STDOUT) ? STDOUT : @fopen($sFile, "w");
+            $fp = ($bCli and $sFile == STDOUT) ? STDOUT : @fopen($sFile, "w");
             if (!$fp) {
                 throw (new Exception("Can't save file $sFile"));
             }
             fputs($fp, $sText, strlen($sText));
-            if ($sFile != STDOUT) {
+            if (!($bCli and $sFile == STDOUT)) {
                 fclose($fp);
             }
             $this->oLog->log("Success: $sFile saved", PEAR_LOG_INFO);

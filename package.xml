@@ -15,19 +15,11 @@
 		</maintainer>
 	</maintainers>
 	<release>
-		<version>0.1.2</version>
-		<date>2005-02-04</date>
-		<notes>
-1+)New Filter NewLines: Request by Michael Mayer (michael at liquidbytes.net).
-   Allows to include an extra line before/after some contents. Please, use with
-   case, because is a preliminary release.
-2+)New Functions in PHP_Beautifier to support PHP_Beautifier_Files_NewLines:
-   2.1) setBeforeNewLine()
-   2.2) setNoDeletePreviousSpaceHack() : an ominous hack. 
-        Children, don't do it at home!
-3*)The new "RFC Header Comment Blocks" is a success, so all the headers are
-   changed to adjust. A new license is available on licences, for PEAR Filter.
-4-)Bug fix [3257]: Comments between if and elseif screws up formatting.
+			<version>0.1.3</version>
+			<date>2005-02-04</date>
+			<notes>Bug fix release for CGI mode
++ Added test on script 'php_beautifier', to verify that the php interpreter is the 'cli' one.
+* Bug fix: References of STDIN and STDOUT generates Notices on cgi mode. Reported by Tobias Bielohlawek (ted42 at web.de).
     </notes>
 		<state>beta</state>
 		<filelist>
@@ -163,6 +155,14 @@
 		<dep type="ext" rel="has" optional="no" version="0">tokenizer</dep>
 	</deps>
 	<changelog>
+	         <release>
+			<version>0.1.3</version>
+			<date>2005-02-04</date>
+			<notes>Bug fix release for CGI mode
++ Added test on script 'php_beautifier', to verify that the php interpreter is the 'cli' one.
+* Bug fix: References of STDIN and STDOUT generates Notices on cgi mode. Reported by Tobias Bielohlawek (ted42 at web.de).
+    </notes>
+		</release>
 		<release>
 		<version>0.1.2</version>
 		<date>2005-02-04</date>
@@ -172,7 +172,7 @@
    case, because is a preliminary release.
 2+)New Functions in PHP_Beautifier to support PHP_Beautifier_Files_NewLines:
    2.1) setBeforeNewLine()
-   2.2) setNoDeletePreviousSpaceHack() : an ominous hack. 
+   2.2) setNoDeletePreviousSpaceHack() : an ominous hack.
         Children, don't do it at home!
 3*)The new "RFC Header Comment Blocks" is a success, so all the headers are
    changed to adjust. A new license is available on licences, for PEAR Filter.
