@@ -15,19 +15,9 @@
 		</maintainer>
 	</maintainers>
 	<release>
-		<version>0.1.2</version>
+		<version>0.1.3</version>
 		<date>2005-02-04</date>
-		<notes>
-1+)New Filter NewLines: Request by Michael Mayer (michael at liquidbytes.net).
-   Allows to include an extra line before/after some contents. Please, use with
-   case, because is a preliminary release.
-2+)New Functions in PHP_Beautifier to support PHP_Beautifier_Files_NewLines:
-   2.1) setBeforeNewLine()
-   2.2) setNoDeletePreviousSpaceHack() : an ominous hack. 
-        Children, don't do it at home!
-3*)The new "RFC Header Comment Blocks" is a success, so all the headers are
-   changed to adjust. A new license is available on licences, for PEAR Filter.
-4-)Bug fix [3257]: Comments between if and elseif screws up formatting.
+		<notes>+ Added test on script 'php_beautifier', to verify that the php interpreter is the 'cli' one.
     </notes>
 		<state>beta</state>
 		<filelist>
@@ -147,6 +137,7 @@
 			<dir name="scripts" role="script" baseinstalldir="/">
 				<file name="php_beautifier" install-as="php_beautifier">
 					<replace from='"@php_bin@"' to="php_bin" type="pear-config"/>
+					<replace from="@package_version@" to="version" type="package-info" />					
 				</file>
 				<file platform="windows" name="php_beautifier.bat" install-as="php_beautifier.bat">
 					<replace from='"@php_bin@"' to="php_bin" type="pear-config"/>
@@ -203,122 +194,6 @@ Devel state: No bugs reported in months.... The next release will be stable, pro
 - Bug fix: Addes T_OBJECT_OPERATOR as token and t_object_operator on Default Filter.
     </notes>
 			<state>beta</state>
-		</release>
-		<release>
-			<version>0.0.9</version>
-			<date>2004-10-07</date>
-			<notes>
-Summary: Bug fix release
-- Bug fix[2301]: Whitespace ommited after 'throw'
-- Bug fix[2104]: Fixed problems with BSD brace style.
-- Bug fix: Fixed support for GNU brace style
-+ Extra documentation
-* Replaced addNewLine + addIndent for addNewLineIndent
-
-    </notes>
-			<state>devel</state>
-		</release>
-		<release>
-			<version>0.0.8</version>
-			<date>2004-08-06</date>
-			<notes>
-+ Added Filter: Indent Styles. You can indent braces in 4 styles: K&amp;r, BSD, Whitesmiths and GNU. (Req #1707)
-* New stack-based method to handle indents (Break BC)
-* Some extra documentation
-- Bug fix: Get the description (PHP_Beautifier::getFilterDescription() ) for Default Filter sends an error when you execute the scripts from other dir. Fixed method PHP_Beautifier::addFilterFile() to handle this.
-    </notes>
-		</release>
-		<release>
-			<version>0.0.7</version>
-			<date>2004-06-16</date>
-			<notes>
-- Bug fix: Shorts comments after T_END_HEREDOC or another short comment starts in the same line.
-- Bug fix[1597]: Open brace after short comment starts in the same line.
-* Bug fix[1598]: With Default Filter, open and close tags maintains current whitespace. So, html with included php looks better
-* Custom streams in PHP5RC.x have a bug on stream_feof. setInputFile() on PHP_Beautifier not use feof.
-+ Added support for input tgz and tar.bz2 files. This feature is handled by streams (PHP_Beautifier_StreamWrapper_Tarz-&gt;tarz://file.tgz#myfile.php)
-+ Added more standard and internal tests with mock-a-like object in
-+ Added Beautifier_Bugs.phpt for bug fix test.
-+ Added Beautifier_StreamWrapper.phpt for streams tests.
-+ Added example: example_html
-    test/Beautifier.phpt
-    </notes>
-			<state>devel</state>
-		</release>
-		<release>
-			<version>0.0.6.1</version>
-			<date>2004-06-04</date>
-			<notes>- Bug fix's fix: fix incorrect solution on 0.0.6 for incorrect new life after ending curly brace inside double quotes. (Simon Mundy)
-- Bug fix: space after T_EXIT and T_EVAL
-- Documentation error: Fixed some errors on command line docs.
-+ Added new test (very limited): Beautifier_Common.phpt
-    </notes>
-			<state>devel</state>
-		</release>
-		<release>
-			<version>0.0.6</version>
-			<date>2004-06-02</date>
-			<notes>+Log support. Add dependency on Pear package Log (version&gt;=1.8). You should call PHP_Beautifier_Common::getLog to get a singleton instance of Log_composite.
-+ Added option '--compress' on console tool. You should use 'gz'(default) or 'bz2'
-* Security: callbacks to php_beautifier inside beautified code can only be methods which start on 'add' and 'set', except 'setInputFile' and 'setOutputFile'
-- Bug fix: Fixed dependency for Archive_Tar (from &gt; 1.19 to &gt;=1.2).(Simon Mundy)
-- Bug fix: Incorrect definition for short options on command line.(Simon Mundy)
-- Bug fix: incorrect new life after ending curly brace inside double quotes new line (Simon Mundy)
-    </notes>
-			<state>devel</state>
-		</release>
-		<release>
-			<version>0.0.5</version>
-			<date>2004-06-01</date>
-			<notes>* Deep changes of PHP_Beautifier_Batch: All the real work is done by subclasses of PHP_Beautifier_Batch (Strategy Pattern?)
-    * Add dependency on Archive_Tar, version 1.19 for batch output.
-    </notes>
-			<state>devel</state>
-		</release>
-		<release>
-			<version>0.0.4</version>
-			<date>2004-05-22</date>
-			<notes>-Bug fix: The installer have the correct dependency for PHP version
-* On install, script php_beautifier automaticaly changes the first line, based on path to PHP
-* Changed structure of dirs and name files to adhere to PEAR standars
-+ New functions: is(Previous|Next)Token(Constant|Content)
-+ Pear Filter can add headers for Apache, BSD, LGPL and PHP licenses, or any file do you need. Use the name of the license (php,bsd,apache,lgpl) or a path in the setting 'add_header'.
-    </notes>
-			<state>devel</state>
-		</release>
-		<release>
-			<version>0.0.3</version>
-			<date>2004-05-05</date>
-			<notes>+ New Filter_Pear (to beautify code for PEAR)
-+ PhpBeautify_Decorator, for ... decorate PhpBeautify :P
-+ PhpBeautify_Batch, to manage the beautify of multiple files and dirs...
-+ Command line can accepts *,?, multiple inputs and merge files in one output.
-+ Better support for parenthesis (look for *Parenthesis methods).
-* The Default behaviour for array is not indent. To do it, use 'ArrayNested' filter.
-* Deleted mode 'for'
-	</notes>
-			<state>devel</state>
-		</release>
-		<release>
-			<version>0.0.2</version>
-			<date>2004-04-24</date>
-			<notes>- Added settings for Filters
-- Support for Command Line</notes>
-			<state>devel</state>
-		</release>
-		<release>
-			<version>0.01b</version>
-			<date>2004-04-22</date>
-			<notes>+Added three filters
-+Assoc between tokens and output array
-+ Postprocessing method for Filters</notes>
-			<state>devel</state>
-		</release>
-		<release>
-			<version>0.01</version>
-			<date>2004-04-21</date>
-			<notes>First version.Non stable, yet</notes>
-			<state>devel</state>
 		</release>
 	</changelog>
 </package>
