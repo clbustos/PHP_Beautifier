@@ -132,9 +132,10 @@
         */
         public function setInputFile($mFiles) 
         {
-            if ($this->mPreInputFiles == STDIN and $mFiles != STDIN) {
+            $bCli=(php_sapi_name()=='cli');
+            if ($bCli and $this->mPreInputFiles == STDIN and $mFiles != STDIN) {
                 throw(new Exception("Hey, you already defined STDIN,dude"));
-            } elseif ($mFiles == STDIN) {
+            } elseif ($bCli and $mFiles == STDIN) {
                 $this->mPreInputFiles = STDIN;
             } else {
                 // ArrayNested->off()
@@ -154,7 +155,7 @@
         */
         public function setOutputFile($sFile) 
         {
-            if (!is_string($sFile) and $sFile != STDOUT) {
+            if (!is_string($sFile) and !(php_sapi_name()=='cli' and $sFile == STDOUT)) {
                 throw(new Exception("Accept only string or STDOUT"));
             }
             $this->sPreOutputFile = $sFile;
@@ -162,8 +163,9 @@
         }
         private function setInputFilePost() 
         {
+            $bCli=php_sapi_name()=='cli';
             // ArrayNested->off()
-            if ($this->mPreInputFiles == STDIN) {
+            if ($bCli and $this->mPreInputFiles == STDIN) {
                 $mInputFiles = array(STDIN);
             } else {
                 $mInputFiles = array();
@@ -174,7 +176,7 @@
             // now, we create stream references for compressed files....
             foreach($mInputFiles as $sFile) {
                 // First, tar files
-                if ($sFile!=STDIN and preg_match("/(.tgz|\.tar\.gz|\.tar\.bz2|\.tar)$/",$sFile,$aMatch)) {
+                if (!($bCli and $sFile==STDIN) and preg_match("/(.tgz|\.tar\.gz|\.tar\.bz2|\.tar)$/",$sFile,$aMatch)) {
                     if (strpos($aMatch[1], 'gz') !== FALSE) {
                     $sCompress = 'gz';
                 } elseif (strpos($aMatch[1], 'bz2') !== FALSE) {

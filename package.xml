@@ -18,6 +18,7 @@
 		<version>0.1.3</version>
 		<date>2005-02-04</date>
 		<notes>+ Added test on script 'php_beautifier', to verify that the php interpreter is the 'cli' one.
+* Bug fix: References of STDIN and STDOUT generates Notices on cgi mode. Reported by Tobias Bielohlawek (ted42 at web.de). 
     </notes>
 		<state>beta</state>
 		<filelist>

@@ -2,7 +2,6 @@
     error_reporting(E_ALL|E_STRICT);
     require_once ('./Beautifier.php');
     require_once ('./Beautifier/Batch.php');
-    
     try {
         $oBeaut = new PHP_Beautifier();
         $oBatch = new PHP_Beautifier_Batch($oBeaut);
@@ -24,7 +23,7 @@
             //echo '<pre>'.$oBatch->show() .'</pre>';
         }
         // php_beautifier->setBeautify(true);
-        
+
     }
     catch(Exception $oExp) {
         echo ($oExp);

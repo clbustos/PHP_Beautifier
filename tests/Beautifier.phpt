@@ -101,6 +101,7 @@
             $aEspFilters = array(
                 'Default',
                 'ListClassFunction',
+                'NewLines',
                 'Pear',
                 'ArrayNested',
                 'IndentStyles'

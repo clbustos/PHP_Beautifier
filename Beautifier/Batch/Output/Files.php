@@ -65,8 +65,9 @@
         }
         public function save() 
         {
+            $bCli=php_sapi_name()=='cli';
             $sFile = $this->oBatch->getOutputPath();
-            if ($sFile == STDOUT) {
+            if ($bCli and $sFile == STDOUT) {
                 $fp = STDOUT;
             } else {
                 $fp = fopen($this->oBatch->getOutputPath() , "w");
@@ -76,7 +77,7 @@
             }
             $sText = $this->get();
             fputs($fp, $sText, strlen($sText));
-            if ($fp != STDOUT) {
+            if (!($bCli and $fp == STDOUT)) {
                 fclose($fp);
             }
             return true;
