@@ -1,36 +1,29 @@
 <?php
-    /* vim: set expandtab tabstop=4 shiftwidth=4: */
-    // +----------------------------------------------------------------------+
-    // | PHP version 5                                                        |
-    // +----------------------------------------------------------------------+
-    // | Copyright (c) 1997-2004 The PHP Group                                |
-    // +----------------------------------------------------------------------+
-    // | This source file is subject to version 3.0 of the PHP license,       |
-    // | that is bundled with this package in the file LICENSE, and is        |
-    // | available through the world-wide-web at the following url:           |
-    // | http://www.php.net/license/3_0.txt.                                  |
-    // | If you did not receive a copy of the PHP license and are unable to   |
-    // | obtain it through the world-wide-web, please send a note to          |
-    // | license@php.net so we can mail you a copy immediately.               |
-    // +----------------------------------------------------------------------+
-    // | Authors: Claudio Bustos <cdx@users.sourceforge.net>                  |
-    // |          Jens Bierkandt <schtorch@users.sourceforge.net>             |
-    // +----------------------------------------------------------------------+
-    //
-    // $Id:
-    
+    /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
     /**
-    * Php Beautifier: Class to beautify php source code
+    * Contents Php_Beautifier class and make some tests
     *
+    * PHP version 5
+    *
+    * LICENSE: This source file is subject to version 3.0 of the PHP license
+    * that is available through the world-wide-web at the following URI:
+    * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
+    * the PHP License and are unable to obtain it through the web, please
+    * send a note to license@php.net so we can mail you a copy immediately.
+    * @category   PHP
     * @package PHP_Beautifier
-    * @author Claudio Bustos <cdx@users.sourceforge.net>
-    * @author Jens Bierkandt <jens@bierkandt.org>
-    * @link http://clbustos.dotgeek.org
+    * @author Claudio Bustos <clbustos@dotgeek.org>
+    * @copyright  2004-2005 Claudio Bustos
+    * @link     http://pear.php.net/package/PHP_Beautifier
+    * @link     http://clbustos.dotgeek.org
+    * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+    * @version    CVS: $Id:$
     */
+    
     error_reporting(E_ALL);
     // Before all, test the tokenizer extension
-    if(!extension_loaded('tokenizer')) {
-        throw(new Exception("Compile php with tokenizer extension. Use --enable-tokenizer or don't use --disable-all on configure."));
+    if (!extension_loaded('tokenizer')) {
+        throw (new Exception("Compile php with tokenizer extension. Use --enable-tokenizer or don't use --disable-all on configure."));
     }
     /**
     * Require PHP_Beautifier_Filter
@@ -76,8 +69,14 @@
     * $oToken->show();
     * </code>
     * @todo create a web interface.
+    * @category   PHP
     * @package PHP_Beautifier
-    * @link http://clbustos.dotgeek.org    
+    * @author Claudio Bustos <clbustos@dotgeek.org>
+    * @copyright  2004-2005 Claudio Bustos
+    * @link     http://pear.php.net/package/PHP_Beautifier
+    * @link     http://clbustos.dotgeek.org
+    * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+    * @version    Release: @package_version@
     */
     class PHP_Beautifier implements PHP_Beautifier_Interface {
         // public
@@ -216,6 +215,10 @@
         private $bBeautify = true;
         /** Log */
         private $oLog;
+        /** Before new line holder */
+        private $sBeforeNewLine = null;
+        /** Activate or deactivate 'no delete previous space' */
+        private $bNdps = false;
         // Methods
         
         /**
@@ -334,14 +337,15 @@
             $this->oLog = PHP_Beautifier_Common::getLog();
         }
         /**
-        * Start the log for debug 
+        * Start the log for debug
         * @param    string  filename
         * @param    int     debug level. See {@link Log}
         */
-        public function startLog($sFile='php_beautifier.log', $iLevel=PEAR_LOG_DEBUG) {
-                @unlink($sFile);
-                $oLogFile = Log::factory('file', $sFile, 'php_beautifier', array() , PEAR_LOG_DEBUG);
-                $this->oLog->addChild($oLogFile);
+        public function startLog($sFile = 'php_beautifier.log', $iLevel = PEAR_LOG_DEBUG) 
+        {
+            @unlink($sFile);
+            $oLogFile = Log::factory('file', $sFile, 'php_beautifier', array() , PEAR_LOG_DEBUG);
+            $this->oLog->addChild($oLogFile);
         }
         /**
         * Add a filter directory
@@ -700,11 +704,10 @@
             } // ~for
             // generate the last assoc
             if (count($this->aOut) == 0) {
-                if($this->sFile) {
-                throw (new Exception("Nothing on output for ".$this->sFile."!"));
-
+                if ($this->sFile) {
+                    throw (new Exception("Nothing on output for ".$this->sFile."!"));
                 } else {
-                throw (new Exception("Nothing on output!"));
+                    throw (new Exception("Nothing on output!"));
                 }
             }
             $this->aAssocs[$iPrevAssoc]['length'] = (count($this->aOut) -1) -$this->aAssocs[$iPrevAssoc]['offset'];
@@ -982,12 +985,30 @@
             echo $this->get();
         }
         /**
-        * Returns the beutified code
+        * Activate or deactivate this ominous hack
+        * If you need to maintain some special whitespace
+        * you can activate this hack and use (delete the space between * and /)
+        * <code>/*ndps* /</code>
+        * in {@link get()}, this text will be erased.
+        * @see removeWhitespace()
+        * @see PHP_Beautifier_Filter_NewLines
+        */
+        function setNoDeletePreviousSpaceHack($bFlag = true) 
+        {
+            $this->bNdps = $bFlag;
+        }
+        /**
+        * Returns the beautified code
+        * @see setNoDeletePreviousSpaceHack()
         * @return string
         */
         public function get() 
         {
-            return implode('', $this->aOut);
+            if (!$this->bNdps) {
+                return implode('', $this->aOut);
+            } else {
+                return str_replace('/**ndps**/', '', implode('', $this->aOut));
+            }
         }
         /**
         * Returns the value of a settings
@@ -1072,14 +1093,6 @@
             return $sLast;
         }
         /**
-        * Add a new line to the output
-        * @see $sNewLine
-        */
-        public function addNewLine() 
-        {
-            $this->aOut[] = $this->sNewLine;
-        }
-        /**
         * Add Indent to the output
         * @see $sIndentChar
         * @see $iIndentNumber
@@ -1090,6 +1103,27 @@
             $this->aOut[] = str_repeat($this->sIndentChar, $this->iIndent);
         }
         /**
+        * Set a string to put before a new line
+        * You could use this to put a standard comment after some sentences
+        * or to add extra newlines
+        */
+        public function setBeforeNewLine($sText) 
+        {
+            $this->sBeforeNewLine = $sText;
+        }
+        /**
+        * Add a new line to the output
+        * @see $sNewLine
+        */
+        public function addNewLine() 
+        {
+            if (!is_null($this->sBeforeNewLine)) {
+                $this->aOut[] = $this->sBeforeNewLine;
+                $this->sBeforeNewLine = null;
+            }
+            $this->aOut[] = $this->sNewLine;
+        }
+        /**
         * Add a new line and a indent to output
         * @see $sIndentChar
         * @see $iIndentNumber
@@ -1098,6 +1132,10 @@
         */
         public function addNewLineIndent() 
         {
+            if (!is_null($this->sBeforeNewLine)) {
+                $this->aOut[] = $this->sBeforeNewLine;
+                $this->sBeforeNewLine = null;
+            }
             $this->aOut[] = $this->sNewLine;
             $this->aOut[] = str_repeat($this->sIndentChar, $this->iIndent);
         }
@@ -1309,16 +1347,19 @@
             // - a short comment
             // - heredoc
             // don't remove whitespace!
-            if ($this->isPreviousTokenConstant(T_COMMENT) and preg_match("/^(\/\/|#)/", $this->getPreviousTokenContent())) {
+            //
+            if ($this->isPreviousTokenConstant(T_COMMENT) and preg_match("/^(\/\/|#)/", $this->getPreviousTokenContent())) { // Here for short comment
                 return false;
-            } elseif ($this->getPreviousTokenConstant(2) == T_END_HEREDOC) {
+            } elseif ($this->getPreviousTokenConstant(2) == T_END_HEREDOC) { // And here for heredoc
                 return false;
             }
-            for ($i = count($this->aOut) -1;$i >= 0;$i--) {
-                if (strlen(trim($this->aOut[$i])) == 0) {
-                    array_pop($this->aOut);
-                } else {
-                    $this->aOut[$i] = rtrim($this->aOut[$i]);
+            for ($i = count($this->aOut) -1;$i >= 0;$i--) { // go backwards
+                $cNow = &$this->aOut[$i];
+                if (strlen(trim($cNow)) == 0) { // only space
+                    array_pop($this->aOut); // delete it!
+                    
+                } else { // we find something!
+                    $cNow = rtrim($cNow); // rtrim out
                     break;
                 }
             }

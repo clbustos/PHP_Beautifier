@@ -1,30 +1,28 @@
 <?php
-    /* vim: set expandtab tabstop=4 shiftwidth=4: */
-    // +----------------------------------------------------------------------+
-    // | PHP version 5                                                        |
-    // +----------------------------------------------------------------------+
-    // | Copyright (c) 1997-2004 The PHP Group                                |
-    // +----------------------------------------------------------------------+
-    // | This source file is subject to version 3.0 of the PHP license,       |
-    // | that is bundled with this package in the file LICENSE, and is        |
-    // | available through the world-wide-web at the following url:           |
-    // | http://www.php.net/license/3_0.txt.                                  |
-    // | If you did not receive a copy of the PHP license and are unable to   |
-    // | obtain it through the world-wide-web, please send a note to          |
-    // | license@php.net so we can mail you a copy immediately.               |
-    // +----------------------------------------------------------------------+
-    // | Authors: Claudio Bustos <cdx@users.sourceforge.net>                  |
-    // |          Jens Bierkandt <schtorch@users.sourceforge.net>             |
-    // +----------------------------------------------------------------------+
-    //
-    // $Id:
-    
+    /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
     /**
+    * Default Filter: Handle all the tokens. Uses K & R style
+    *
+    * PHP version 5
+    *
+    * LICENSE: This source file is subject to version 3.0 of the PHP license
+    * that is available through the world-wide-web at the following URI:
+    * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
+    * the PHP License and are unable to obtain it through the web, please
+    * send a note to license@php.net so we can mail you a copy immediately.
+    * @category   PHP
     * @package PHP_Beautifier
     * @subpackage Filter
+    * @author Claudio Bustos <clbustos@dotgeek.org>
+    * @copyright  2004-2005 Claudio Bustos
+    * @link     http://pear.php.net/package/PHP_Beautifier
+    * @link     http://clbustos.dotgeek.org
+    * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+    * @version    CVS: $Id:$
     */
     /**
-    * Default Filter
+    * Default Filter: Handle all the tokens. Uses K & R style
+    * 
     * This filters is loaded by default in {@link PHP_Beautifier}. Can handle all the tokens.
     * If one of the tokens doesn't have a function, is added wihout modification (See {@link __call()})
     * The most important modifications are:
@@ -36,15 +34,22 @@
     * </CODE>
     * - All the comments in new lines are indented. In multi-line comments, all the lines are indented, too.
     * This class is final, so don't try to extend it!
+    * @category   PHP
     * @package PHP_Beautifier
     * @subpackage Filter
+    * @author Claudio Bustos <clbustos@dotgeek.org>
+    * @copyright  2004-2005 Claudio Bustos
+    * @link     http://pear.php.net/package/PHP_Beautifier
+    * @link     http://clbustos.dotgeek.org
+    * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+    * @version    Release: @package_version@
     */
     final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter {
         protected $sDescription = 'Default Filter for PHP_Beautifier';
         function __call($sMethod, $aArgs) 
         {
             if (!is_array($aArgs) or count($aArgs) != 1) {
-                throw (new Exception('Llamada a Filter::__call con argumento erroneo'));
+                throw (new Exception('Call to Filter::__call with wrong argument'));
             }
             PHP_Beautifier_Common::getLog()->log('Default Filter:unhandled['.$aArgs[0].']', PEAR_LOG_DEBUG);
             $this->oBeaut->add($aArgs[0]);

@@ -1,28 +1,24 @@
 <?php
-    /* vim: set expandtab tabstop=4 shiftwidth=4: */
-    // +----------------------------------------------------------------------+
-    // | PHP version 5                                                        |
-    // +----------------------------------------------------------------------+
-    // | Copyright (c) 1997-2004 The PHP Group                                |
-    // +----------------------------------------------------------------------+
-    // | This source file is subject to version 3.0 of the PHP license,       |
-    // | that is bundled with this package in the file LICENSE, and is        |
-    // | available through the world-wide-web at the following url:           |
-    // | http://www.php.net/license/3_0.txt.                                  |
-    // | If you did not receive a copy of the PHP license and are unable to   |
-    // | obtain it through the world-wide-web, please send a note to          |
-    // | license@php.net so we can mail you a copy immediately.               |
-    // +----------------------------------------------------------------------+
-    // | Authors: Claudio Bustos <cdx@users.sourceforge.net>                  |
-    // |          Jens Bierkandt <schtorch@users.sourceforge.net>             |
-    // +----------------------------------------------------------------------+
-    //
-    // $Id:
-    
+    /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
     /**
-    * Definition of class PHP_Beautifier_Filter_Pear
+    * Filter the code to make it compatible with PEAR Coding Standars
+    *
+    * PHP version 5
+    *
+    * LICENSE: This source file is subject to version 3.0 of the PHP license
+    * that is available through the world-wide-web at the following URI:
+    * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
+    * the PHP License and are unable to obtain it through the web, please
+    * send a note to license@php.net so we can mail you a copy immediately.
+    * @category   PHP
     * @package PHP_Beautifier
     * @subpackage Filter
+    * @author Claudio Bustos <clbustos@dotgeek.org>
+    * @copyright  2004-2005 Claudio Bustos
+    * @link     http://pear.php.net/package/PHP_Beautifier
+    * @link     http://clbustos.dotgeek.org
+    * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+    * @version    CVS: $Id:$
     */
     /**
     * Require PEAR_Config
@@ -39,13 +35,20 @@
     * - Comments started with '#' are replaced with '//'
     * - Open tags are replaced with '<?php'
     * - With setting 'add_header', the filter add one of the standard PEAR comment header
-    *   (php, bsd, apache, lgpl) or any file as licence header. Use:
+    *   (php, bsd, apache, lgpl, pear) or any file as licence header. Use:
     * <code>
     * $oBeaut->addFilter('Pear',array('add_header'=>'php'));
     * </code>
-    * @link http://pear.php.net/manual/en/standards.php
+    * @category   PHP
     * @package PHP_Beautifier
     * @subpackage Filter
+    * @author Claudio Bustos <clbustos@dotgeek.org>
+    * @copyright  2004-2005 Claudio Bustos
+    * @link     http://pear.php.net/package/PHP_Beautifier
+    * @link     http://clbustos.dotgeek.org
+    * @link http://pear.php.net/manual/en/standards.php    
+    * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+    * @version    CVS: $Id:$
     */
     class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter {
         protected $aSettings = array('add_header'=>false);

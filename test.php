@@ -7,10 +7,11 @@
         $oBatch = new PHP_Beautifier_Batch($oBeaut);
         //$oBatch->setFileType('js');
         //$oBatch->addFilter('Pear');
+        $oBatch->addFilter('NewLines',array('after'=>'for,class'));
         //$oBatch->addFilter('ListClassFunction');
         //$oBatch->setRecursive(true);
         //unlink('test2.php');
-        $oBatch->setInputFile('./examples/example_array.php');
+        $oBatch->setInputFile('./examples/example_main.php');
         $oBatch->setOutputFile('test2.php');
         //$oBatch->setCompress('gz');
         $oBatch->process();
