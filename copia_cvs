@@ -1,0 +1,9 @@
+#!/bin/bash
+DESTINO=/home/cdx/cvs/PHP_Beautifier
+cp -rp *.php  $DESTINO
+cp -rp Beautifier/* $DESTINO/Beautifier
+cp -rp tutorials/*  $DESTINO/tutorials
+cp -rp scripts/* $DESTINO/scripts
+cp -rp licenses/* $DESTINO/licenses
+cp -rp package.xml $DESTINO/
+cp -rp tests/* $DESTINO/tests

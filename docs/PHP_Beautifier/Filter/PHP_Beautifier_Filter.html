@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class PHP_Beautifier_Filter</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../../media/images/AbstractClass_logo.png"
+														alt="Abstract Class"
+														title="Abstract Class"
+														style="vertical-align: middle"> PHP_Beautifier_Filter</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|											<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">PHP_Beautifier_Filter</p>
+<p class="description"><p>Definition for creation of Filters  For concrete details, please see <a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_Default.html">PHP_Beautifier_Filter_Default</a></p></p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_usr_local_php5_lib_php_PHP_Beautifier_Filter_php.html">/usr/local/php5/lib/php/PHP/Beautifier/Filter.php</a> (line <span class="field">37</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+								|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; white-space: nowrap">
+						<img src="../../media/images/Class.png"
+								 alt=" class"
+								 title=" class"
+								 style="vertical-align: center"/>
+						<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_ArrayNested.html">PHP_Beautifier_Filter_ArrayNested</a>
+					</td>
+					<td>
+											Indent the array structures  Ex.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; white-space: nowrap">
+						<img src="../../media/images/Class.png"
+								 alt=" class"
+								 title=" class"
+								 style="vertical-align: center"/>
+						<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_Default.html">PHP_Beautifier_Filter_Default</a>
+					</td>
+					<td>
+											Default Filter  This filters is loaded by default in <a href="../../PHP_Beautifier/PHP_Beautifier.html">PHP_Beautifier</a>. Can handle all the tokens.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; white-space: nowrap">
+						<img src="../../media/images/Class.png"
+								 alt=" class"
+								 title=" class"
+								 style="vertical-align: center"/>
+						<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_ListClassFunction.html">PHP_Beautifier_Filter_ListClassFunction</a>
+					</td>
+					<td>
+											Create a list of functions and classes in the script  By default, this Filter puts the list at the beggining of the script.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; white-space: nowrap">
+						<img src="../../media/images/Class.png"
+								 alt=" class"
+								 title=" class"
+								 style="vertical-align: center"/>
+						<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_Pear.html">PHP_Beautifier_Filter_Pear</a>
+					</td>
+					<td>
+											Filter the code to make it compatible with PEAR Coding Standars
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; white-space: nowrap">
+						<img src="../../media/images/Class.png"
+								 alt=" class"
+								 title=" class"
+								 style="vertical-align: center"/>
+						<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_IndentStyles.html">PHP_Beautifier_Filter_IndentStyles</a>
+					</td>
+					<td>
+											Indent the code in 4 styles.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#BYPASS" title="details" class="const-name">BYPASS</a> = 					<span class="var-type"> 'BYPASS'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+								<div class="var-title">
+					<img src="../../media/images/Variable.png" alt=" " />
+					<span class="var-type">array</span>
+					<a href="#$aFilterTokenFunctions" title="details" class="var-name">$aFilterTokenFunctions</a>
+				</div>
+								<div class="var-title">
+					<img src="../../media/images/Variable.png" alt=" " />
+					<span class="var-type">array</span>
+					<a href="#$aSettings" title="details" class="var-name">$aSettings</a>
+				</div>
+								<div class="var-title">
+					<img src="../../media/images/Variable.png" alt=" " />
+					<span class="var-type">array</span>
+					<a href="#$aSettingsDefinition" title="details" class="var-name">$aSettingsDefinition</a>
+				</div>
+								<div class="var-title">
+					<img src="../../media/images/Variable.png" alt=" " />
+					<span class="var-type">bool</span>
+					<a href="#$bOn" title="details" class="var-name">$bOn</a>
+				</div>
+								<div class="var-title">
+					<img src="../../media/images/Variable.png" alt=" " />
+					<span class="var-type"><a href="../../PHP_Beautifier/PHP_Beautifier.html">PHP_Beautifier</a></span>
+					<a href="#$oBeaut" title="details" class="var-name">$oBeaut</a>
+				</div>
+								<div class="var-title">
+					<img src="../../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$sDescription" title="details" class="var-name">$sDescription</a>
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+					<img src="../../media/images/Constructor.png" alt=" "/>
+											<span class="method-result">PHP_Beautifier_Filter</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">PHP_Beautifier</span>&nbsp;<span class="var-name">$oBeaut</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$aSettings</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#addSettingDefinition" title="details" class="method-name">addSettingDefinition</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sSetting</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$sType</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$sDescription</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#getDescription" title="details" class="method-name">getDescription</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#getName" title="details" class="method-name">getName</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">mixed</span>
+										<a href="#getSetting" title="details" class="method-name">getSetting</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sSetting</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">bool</span>
+										<a href="#handleToken" title="details" class="method-name">handleToken</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$token</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#off" title="details" class="method-name">off</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#on" title="details" class="method-name">on</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#postProcess" title="details" class="method-name">postProcess</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setSetting" title="details" class="method-name">setSetting</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sSetting</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$sValue</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">mixed</span>
+										<a href="#__call" title="details" class="method-name">__call</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sMethod</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$aArgs</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#__sleep" title="details" class="method-name">__sleep</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$aFilterTokenFunctions" id="$aFilterTokenFunctions"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$aFilterTokenFunctions</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">47</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Associative array of functions to use when some token are found</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_ListClassFunction.html#var$aFilterTokenFunctions">PHP_Beautifier_Filter_ListClassFunction::$aFilterTokenFunctions</a>
+							</li>
+				</ul>
+		
+
+</div>
+<a name="var$aSettings" id="$aSettings"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$aSettings</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">52</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Settings for the Filter</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_ListClassFunction.html#var$aSettings">PHP_Beautifier_Filter_ListClassFunction::$aSettings</a>
+							</li>
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_Pear.html#var$aSettings">PHP_Beautifier_Filter_Pear::$aSettings</a>
+							</li>
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_IndentStyles.html#var$aSettings">PHP_Beautifier_Filter_IndentStyles::$aSettings</a>
+							</li>
+				</ul>
+		
+
+</div>
+<a name="var$aSettingsDefinition" id="$aSettingsDefinition"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$aSettingsDefinition</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">59</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Definition of the settings</p>
+<p class="description"><p>Should be an associative array. The keys are the names of settings  and the values are an array with the keys 'type' and '</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$bOn" id="$bOn"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$bOn</span>
+			 = <span class="var-default"> true</span>			(line <span class="line-number">74</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Switch to 'turn' on and off the filter</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$oBeaut" id="$oBeaut"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type"><a href="../../PHP_Beautifier/PHP_Beautifier.html">PHP_Beautifier</a></span>
+			<span class="var-name">$oBeaut</span>
+						(line <span class="line-number">42</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Stores a reference to main PHP_Beautifier</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$sDescription" id="$sDescription"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$sDescription</span>
+			 = <span class="var-default"> 'Filter for PHP_Beautifier'</span>			(line <span class="line-number">64</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Description of the Filter</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_Default.html#var$sDescription">PHP_Beautifier_Filter_Default::$sDescription</a>
+							</li>
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_ListClassFunction.html#var$sDescription">PHP_Beautifier_Filter_ListClassFunction::$sDescription</a>
+							</li>
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_Pear.html#var$sDescription">PHP_Beautifier_Filter_Pear::$sDescription</a>
+							</li>
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_IndentStyles.html#var$sDescription">PHP_Beautifier_Filter_IndentStyles::$sDescription</a>
+							</li>
+				</ul>
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Constructor.png" />
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">86</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor  If you need to overload this (for example, to create a  definition for setting with addSettingDefinition()  remember call the parent constructor.</p>
+<p class="description"><p><pre><ol><code><pre><li> <span class="src-id">parent</span><span class="src-sym">::</span><span class="src-id">__construct</span><span class="src-sym">(</span><span class="src-var">$oBeaut</span><span class="src-sym">, </span><span class="src-var">$aSettings</span><span class="src-sym">)</span></li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">PHP_Beautifier_Filter</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">PHP_Beautifier</span>&nbsp;<span class="var-name">$oBeaut</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$aSettings</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../PHP_Beautifier/PHP_Beautifier.html">PHP_Beautifier</a></span>
+				<span class="var-name">$oBeaut</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$aSettings</span><span class="var-description">: settings for the Filter</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_ListClassFunction.html#method__construct">PHP_Beautifier_Filter_ListClassFunction::__construct()</a>
+							</li>
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_IndentStyles.html#method__construct">PHP_Beautifier_Filter_IndentStyles::__construct()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodaddSettingDefinition" id="addSettingDefinition"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">addSettingDefinition</span> (line <span class="line-number">97</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add a setting definition</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addSettingDefinition
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sSetting</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$sType</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$sDescription</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sSetting</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetDescription" id="getDescription"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">getDescription</span> (line <span class="line-number">223</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getDescription
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetName" id="getName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">getName</span> (line <span class="line-number">107</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return @string</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getName
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSetting" id="getSetting"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">getSetting</span> (line <span class="line-number">144</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get a setting of the Filter</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> value of setting or false</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getSetting
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sSetting</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sSetting</span><span class="var-description">: name of setting</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodhandleToken" id="handleToken"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">handleToken</span> (line <span class="line-number">171</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Function called from <a href="../../PHP_Beautifier/PHP_Beautifier.html#methodprocess">PHP_Beautifier::process()</a> to process the tokens.</p>
+<p class="description"><p>If the received token is one of the keys of <a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$aFilterTokenFunctions">$aFilterTokenFunctions</a>  a function with the same name of the value of that key is called.  If the method doesn't exists, <a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#method__call">__call()</a> is called, and return  <a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#constBYPASS">PHP_Beautifier_Filter::BYPASS</a>. PHP_Beautifier, now, call the next Filter is its list.  If the method exists, it can return true or <a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#constBYPASS">PHP_Beautifier_Filter::BYPASS</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the token is processed, false bypass to the next Filter</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">see:</span> <a href="../../PHP_Beautifier/PHP_Beautifier.html#methodprocess">PHP_Beautifier::process()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			handleToken
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$token</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$token</span><span class="var-description">: token</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodoff" id="off"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">off</span> (line <span class="line-number">135</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Turn off the Filter  Use inside the code to beautify  Ex.</p>
+<p class="description"><p><pre><ol><code><pre><li> ...<span class="src-id">some code</span>...</li>
+<li> <span class="src-comm">// ArrayNested-&gt;off()</span></li>
+<li> ...<span class="src-id">other code </span>...</li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			off
+		</span>
+				()
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_Default.html#methodoff">PHP_Beautifier_Filter_Default::off()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodon" id="on"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">on</span> (line <span class="line-number">121</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Turn on the Filter  Use inside the code to beautify  Ex.</p>
+<p class="description"><p><pre><ol><code><pre><li> ...<span class="src-id">some code</span>...</li>
+<li> <span class="src-comm">// ArrayNested-&gt;on()</span></li>
+<li> ...<span class="src-id">other code </span>...</li>
+</pre></code></ol></pre></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			on
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodpostProcess" id="postProcess"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">postProcess</span> (line <span class="line-number">214</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Called from <a href="../../PHP_Beautifier/PHP_Beautifier.html#methodprocess">PHP_Beautifier::process()</a> at the end of processing</p>
+<p class="description"><p>The post-process must be made in <a href="../../PHP_Beautifier/PHP_Beautifier.html#var$aOut">PHP_Beautifier::$aOut</a></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			postProcess
+		</span>
+				()
+			</div>
+	
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_ListClassFunction.html#methodpostProcess">PHP_Beautifier_Filter_ListClassFunction::postProcess()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodsetSetting" id="setSetting"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">setSetting</span> (line <span class="line-number">153</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set a value of a Setting</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setSetting
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sSetting</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$sValue</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sSetting</span><span class="var-description">: name of setting</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$sValue</span><span class="var-description">: value of setting</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method__call" id="__call"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">__call</span> (line <span class="line-number">205</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> null or <a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#constBYPASS">PHP_Beautifier_Filter::BYPASS</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__call
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sMethod</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$aArgs</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sMethod</span><span class="var-description">: metodo</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$aArgs</span><span class="var-description">: arguments</span>			</li>
+				</ul>
+		
+		
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_Default.html#method__call">PHP_Beautifier_Filter_Default::__call()</a>
+							</li>
+					<li>
+				<a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_IndentStyles.html#method__call">PHP_Beautifier_Filter_IndentStyles::__call()</a>
+							</li>
+				</ul>
+	</div>
+<a name="method__sleep" id="__sleep"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">__sleep</span> (line <span class="line-number">217</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__sleep
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">__toString</span> (line <span class="line-number">227</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+						
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constBYPASS" id="BYPASS"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">BYPASS</span>
+			 = <span class="const-default"> 'BYPASS'</span>
+			(line <span class="line-number">69</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">If a method for parse Tokens of a Filter returns this, the control of the process</p>
+<p class="description"><p>is handle by the next Filter</p></p>
+	
+	
+</div>
+						
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Sat, 15 Jan 2005 21:30:18 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE package SYSTEM "package.dtd">
+<package version="1.0">
+  <name>PHP_Beautifier</name>
+  <summary>Beautifier for Php</summary>
+  <description>This program reformat and beautify PHP source code files automatically. The program is Open Source and distributed under the terms of PHP Licence. It is written in PHP 5 and has a command line tool.
+</description>
+  <license>PHP License</license>
+  <maintainers>
+    <maintainer>
+      <user>clbustos</user>
+      <role>lead</role>
+      <name>Claudio Bustos</name>
+      <email>clbustos@dotgeek.org</email>
+    </maintainer>
+  </maintainers>
+  <release>
+    <version>0.1.2</version>
+    <date>2005-01-22</date>
+    <notes>
+Bug fix release.
+- Bug fix [3257]: Comments between if and elseif screws up formatting.
+    </notes>
+    <state>beta</state>
+    <filelist>
+	<dir name="/" role="php" baseinstalldir="PHP">
+		<file name="Beautifier.php" />
+		<dir name="Beautifier" role="php">
+			<file name="Filter.php" />
+			<file name="Decorator.php" />
+			<file name="Batch.php" />
+			<file name="Common.php" />
+			<file name="Exception.php" />
+            <file name="StreamWrapper.php" />
+			<file name="Tokenizer.php" />
+			<dir name='Filter' role='php'>
+				<file name="ArrayNested.filter.php" />
+				<file name="Default.filter.php" />
+				<file name="ListClassFunction.filter.php" />
+				<file name="Pear.filter.php" />
+				<file name="IndentStyles.filter.php" />
+			</dir>
+			<dir name='Batch' role='php'>
+                <file name="Output.php" />
+                <dir name='Output' role='php'>
+                  <file name="Directory.php" />
+                  <file name="DirectoryBz2.php" />
+                  <file name="DirectoryGz.php" />
+                  <file name="DirectoryTar.php" />
+                  <file name="Files.php" />
+                  <file name="FilesBz2.php" />
+                  <file name="FilesGz.php" />
+                  <file name="FilesTar.php" />
+                </dir>
+			</dir>
+            <dir name='StreamWrapper' role='php'>
+                <file name='Tarz.php' />
+            </dir>
+		</dir>
+		<dir name='examples' role='doc'>
+			<file name="run_me.php" />
+			<file name="example_main.php" />
+			<file name="example_pear.php" />
+			<file name="example_array.php" />
+            <file name="example_comments.php" />
+            <file name="example_html.php" />
+		</dir>
+        <dir name='licenses' role='data'>
+            <file name='apache.txt'/>
+            <file name='bsd.txt' />
+            <file name='lgpl.txt' />
+            <file name='php.txt' />
+        </dir>
+		<dir name='tests' role='test'>
+			<file name="Beautifier.phpt" />
+			<file name="Beautifier_Common.phpt" />
+            <file name="Beautifier_Bugs.phpt" />
+            <file name="Beautifier_StreamWrapper.phpt" />
+		</dir>
+	</dir>
+	<dir name="scripts" role="script" baseinstalldir="/">
+        <file name="php_beautifier" install-as="php_beautifier">
+        	  <replace from='"@php_bin@"' to="php_bin" type="pear-config"/>
+        </file>
+        <file platform="windows" name="php_beautifier.bat" install-as="php_beautifier.bat">
+            <replace from='"@php_bin@"' to="php_bin" type="pear-config"/>
+            <replace from='"@bin_dir@"' to="bin_dir" type="pear-config"/>
+        </file>
+	</dir>
+	</filelist>
+  </release>
+ <deps>
+  <dep type="php" rel="ge" version="5" />
+  <dep type="pkg" rel="ge" optional="no" version="1.8">Log</dep>
+  <dep type="pkg" rel="gt" optional="yes" version="1">Console_Getopt</dep>
+  <dep type="pkg" rel="ge" optional="yes" version="1.2">Archive_Tar</dep>
+  <dep type="ext" rel="has" optional="no" version="0">tokenizer</dep>
+  </deps>
+  <changelog>
+<release>
+    <version>0.1.2</version>
+    <date>2005-01-22</date>
+    <notes>
+Bug fix release.
+- Bug fix [3257]: Comments between if and elseif screws up formatting.
+    </notes>
+</release>
+  <release>
+    <version>0.1.1</version>
+    <date>2005-01-15</date>
+    <notes>
+- Bug fix [3181]: Added dependency for tokenizer extension on package.xml and a test in PHP_Beautifier.php. The tokenizer extension is disabled in FreeBsd, so, if application can't find de tokenizer, throws an exception.
+- Bug fix [3186]: Replaced custom glob function with standard PHP glob function. Advice: RTFM!
+    </notes>
+    <state>beta</state>
+	</release>
+    <release>
+    <version>0.1.0</version>
+    <date>2005-01-10</date>
+    <notes>
+Devel state: No bugs reported in months.... The next release will be stable, probably.
+
++ More documentation on PHP_Beautifier, StreamWrapper
++ Added PHP_Beautifier::removeFilter()
++ Added preliminary support for tokenikers. See PHP_Beautifier::process() and PHP_Beautifier_Tokenizer()
+* Test for package can use the version on include path or a local one, on ../Beautifier.php. Useful for debug.
+- Bug fix: HP_Beautifier_Filter_IndentStyles::_call() doesn't have to return a value on success
+- Bug fix: Addes T_OBJECT_OPERATOR as token and t_object_operator on Default Filter.
+    </notes>
+    <state>beta</state>
+</release>
+<release>
+<version>0.0.9</version>
+    <date>2004-10-07</date>
+    <notes>
+Summary: Bug fix release
+- Bug fix[2301]: Whitespace ommited after 'throw'
+- Bug fix[2104]: Fixed problems with BSD brace style.
+- Bug fix: Fixed support for GNU brace style
++ Extra documentation
+* Replaced addNewLine + addIndent for addNewLineIndent
+
+    </notes>
+    <state>devel</state>
+</release>
+<release>
+    <version>0.0.8</version>
+    <date>2004-08-06</date>
+    <notes>
++ Added Filter: Indent Styles. You can indent braces in 4 styles: K&amp;r, BSD, Whitesmiths and GNU. (Req #1707)
+* New stack-based method to handle indents (Break BC)
+* Some extra documentation
+- Bug fix: Get the description (PHP_Beautifier::getFilterDescription() ) for Default Filter sends an error when you execute the scripts from other dir. Fixed method PHP_Beautifier::addFilterFile() to handle this.
+    </notes>
+	</release>
+  <release>
+    <version>0.0.7</version>
+    <date>2004-06-16</date>
+    <notes>
+- Bug fix: Shorts comments after T_END_HEREDOC or another short comment starts in the same line.
+- Bug fix[1597]: Open brace after short comment starts in the same line.
+* Bug fix[1598]: With Default Filter, open and close tags maintains current whitespace. So, html with included php looks better
+* Custom streams in PHP5RC.x have a bug on stream_feof. setInputFile() on PHP_Beautifier not use feof.
++ Added support for input tgz and tar.bz2 files. This feature is handled by streams (PHP_Beautifier_StreamWrapper_Tarz-&gt;tarz://file.tgz#myfile.php)
++ Added more standard and internal tests with mock-a-like object in
++ Added Beautifier_Bugs.phpt for bug fix test.
++ Added Beautifier_StreamWrapper.phpt for streams tests.
++ Added example: example_html
+    test/Beautifier.phpt
+    </notes>
+    <state>devel</state>
+    </release>
+  <release>
+    <version>0.0.6.1</version>
+    <date>2004-06-04</date>
+    <notes>- Bug fix's fix: fix incorrect solution on 0.0.6 for incorrect new life after ending curly brace inside double quotes. (Simon Mundy)
+- Bug fix: space after T_EXIT and T_EVAL
+- Documentation error: Fixed some errors on command line docs.
++ Added new test (very limited): Beautifier_Common.phpt
+    </notes>
+    <state>devel</state>
+    </release>
+  <release>
+    <version>0.0.6</version>
+    <date>2004-06-02</date>
+    <notes>+Log support. Add dependency on Pear package Log (version&gt;=1.8). You should call PHP_Beautifier_Common::getLog to get a singleton instance of Log_composite.
++ Added option '--compress' on console tool. You should use 'gz'(default) or 'bz2'
+* Security: callbacks to php_beautifier inside beautified code can only be methods which start on 'add' and 'set', except 'setInputFile' and 'setOutputFile'
+- Bug fix: Fixed dependency for Archive_Tar (from &gt; 1.19 to &gt;=1.2).(Simon Mundy)
+- Bug fix: Incorrect definition for short options on command line.(Simon Mundy)
+- Bug fix: incorrect new life after ending curly brace inside double quotes new line (Simon Mundy)
+    </notes>
+    <state>devel</state>
+    </release>
+  <release>
+    <version>0.0.5</version>
+    <date>2004-06-01</date>
+    <notes>* Deep changes of PHP_Beautifier_Batch: All the real work is done by subclasses of PHP_Beautifier_Batch (Strategy Pattern?)
+    * Add dependency on Archive_Tar, version 1.19 for batch output.
+    </notes>
+    <state>devel</state>
+	</release>
+  <release>
+    <version>0.0.4</version>
+    <date>2004-05-22</date>
+    <notes>-Bug fix: The installer have the correct dependency for PHP version
+* On install, script php_beautifier automaticaly changes the first line, based on path to PHP
+* Changed structure of dirs and name files to adhere to PEAR standars
++ New functions: is(Previous|Next)Token(Constant|Content)
++ Pear Filter can add headers for Apache, BSD, LGPL and PHP licenses, or any file do you need. Use the name of the license (php,bsd,apache,lgpl) or a path in the setting 'add_header'.
+    </notes>
+    <state>devel</state>
+    </release>
+  <release>
+    <version>0.0.3</version>
+    <date>2004-05-05</date>
+    <notes>+ New Filter_Pear (to beautify code for PEAR)
++ PhpBeautify_Decorator, for ... decorate PhpBeautify :P
++ PhpBeautify_Batch, to manage the beautify of multiple files and dirs...
++ Command line can accepts *,?, multiple inputs and merge files in one output.
++ Better support for parenthesis (look for *Parenthesis methods).
+* The Default behaviour for array is not indent. To do it, use 'ArrayNested' filter.
+* Deleted mode 'for'
+	</notes>
+    <state>devel</state>
+	</release>
+  <release>
+    <version>0.0.2</version>
+    <date>2004-04-24</date>
+    <notes>- Added settings for Filters
+- Support for Command Line</notes>
+    <state>devel</state>
+  </release>
+    <release>
+      <version>0.01b</version>
+      <date>2004-04-22</date>
+      <notes>+Added three filters
++Assoc between tokens and output array
++ Postprocessing method for Filters</notes>
+      <state>devel</state>
+    </release>
+    <release>
+      <version>0.01</version>
+      <date>2004-04-21</date>
+	  <notes>First version.Non stable, yet</notes>
+      <state>devel</state>
+    </release>
+  </changelog>
+</package>

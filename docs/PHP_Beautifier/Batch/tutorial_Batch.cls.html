@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>PHP_Beautifier_Batch documentation</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+	<table class="tutorial-nav-box">
+	<tr>
+		<td style="width: 30%">
+							<a href="../../PHP_Beautifier/Filter/tutorial_Filter.create.pkg.html"><img src="../../media/images/previous_button.png" alt="Previous"></a>
+					</td>
+		<td style="text-align: center">
+					</td>
+		<td style="text-align: right; width: 30%">
+							<span class="disabled"><img src="../../media/images/next_button_disabled.png" alt="Next"></span>
+					</td>
+	</tr>
+	<tr>
+		<td style="width: 30%">
+							<span class="detail">Create Filters</span>
+					</td>
+		<td style="text-align: center">
+					</td>
+		<td style="text-align: right; width: 30%">
+					</td>
+	</tr>
+</table>
+	
+<div><a name=""></a><div class="ref-title-box">PHP_Beautifier_Batch documentation<h1 class="ref-title">PHP_Beautifier_Batch documentation</h1>
+    <h2 class="ref-purpose">Describe flow of process PHP_Beautifier_Batch</h2></div>
+  <div class="ref-synopsis"><span class="author">Claudio
+        Bustos
+        cdx@users.sourceforge.com</span>
+      <span class="author">Jens
+        Bierkandt
+        scortch@users.sourceforge.com</span></div>
+ <span><a name="introduction"></a><h2 class="title">Introduction</h2><p>PHP_Batch, on <a href="../../PHP_Beautifier/Batch/PHP_Beautifier_Batch.html#methodsave">PHP_Beautifier_Batch::save()</a> and <a href="../../PHP_Beautifier/Batch/PHP_Beautifier_Batch.html#methodget">PHP_Beautifier_Batch::get()</a>, call PHP_Beautifier_Batch::getBatchEngine(). This include a file inside /Beautifier/Batch/ with name equal to mode (File or Directory) plus the compression mode, if exists and create a instance of a subclass of PHP_Beautifier_Batch_Engine. For example, for output to a file with .gz compress, PHP_Beautifier_Batch::getBatchEngine() call the file /Beautifier/Batch/FileGz.php and create a instance of PHP_Beautifier_Batch_FilesGz.</p>
+    <p>The instance of <a href="../../PHP_Beautifier/PHP_Beautifier.html">PHP_Beautifier</a> inside Batch should be called with <a href="../../PHP_Beautifier/Batch/PHP_Beautifier_Batch.html#methodcallBeautifier">PHP_Beautifier_Batch::callBeautifier()</a>. Some commons methods are included in the definition of PHP_Beautifier_Batch_Engine.</p></span></div>
+
+	<table class="tutorial-nav-box">
+	<tr>
+		<td style="width: 30%">
+							<a href="../../PHP_Beautifier/Filter/tutorial_Filter.create.pkg.html"><img src="../../media/images/previous_button.png" alt="Previous"></a>
+					</td>
+		<td style="text-align: center">
+					</td>
+		<td style="text-align: right; width: 30%">
+							<span class="disabled"><img src="../../media/images/next_button_disabled.png" alt="Next"></span>
+					</td>
+	</tr>
+	<tr>
+		<td style="width: 30%">
+							<span class="detail">Create Filters</span>
+					</td>
+		<td style="text-align: center">
+					</td>
+		<td style="text-align: right; width: 30%">
+					</td>
+	</tr>
+</table>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Sat, 15 Jan 2005 21:30:16 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</div></body>
+</html>

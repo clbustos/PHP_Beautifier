@@ -1,0 +1,1517 @@
+Jan 10 00:40:26 php_beautifier [debug] Init process of file ./examples/example_main.php
+Jan 10 00:40:26 php_beautifier [debug] Token:T_INLINE_HTML[<html>\r\n</html>\r\n]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[<html>
+</html>
+]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_OPEN_TAG[<?php\r\n]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// Class and Function List    \r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 2
+Jan 10 00:40:26 php_beautifier [debug] 1
+Jan 10 00:40:26 php_beautifier [debug] +space-token-with-sp:[\r\n    \r\n]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// First, the ugly code from the homepage\r\n]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_FOR[for]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[=]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[0]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[0]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[<]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[strlen]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[strlen]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$str]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_INC[++]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[++]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IF[if]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$new_line_counter]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IS_EQUAL[==]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[0]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[0]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IF[if]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[1]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[1]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[<]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[sizeof]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[sizeof]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IF[if]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[[]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[1]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[1]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[]]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IS_EQUAL[==]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING["?"]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LOGICAL_AND[AND]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[[]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[]]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IS_EQUAL[==]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING["<"]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[out]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[out]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$outstr]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[out]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[out]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING["<?php"]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$indent]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_INC[++]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[++]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$new_line_counter]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_INC[++]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[++]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IF[if]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[4]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[4]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[<]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[sizeof]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[sizeof]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IF[if]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[[]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[2]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[2]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[]]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IS_EQUAL[==]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING["p"]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LOGICAL_AND[AND]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[[]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[3]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[3]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[]]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IS_EQUAL[==]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING["h"]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LOGICAL_AND[AND]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[[]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[4]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[4]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[]]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IS_EQUAL[==]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING["p"]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[=]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[3]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[3]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_INC[++]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[++]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONTINUE[continue]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[continue]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ELSE[else]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$outstr]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONCAT_EQUAL[.=]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[[]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[]]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONTINUE[continue]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[continue]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// Without Beautify\r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 208
+Jan 10 00:40:26 php_beautifier [debug] 207
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// PHP_Beautifier->setBeautify(false);\r\n]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_FOR[for]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[=]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[0]
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:[<]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[strlen]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$str]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_INC[++]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IF[if]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$new_line_counter]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IS_EQUAL[==]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[0]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IF[if]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[1]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[<]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[sizeof]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IF[if]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Token:[[]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[1]
+Jan 10 00:40:26 php_beautifier [debug] Token:[]]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IS_EQUAL[==]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING["?"]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LOGICAL_AND[AND]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Token:[[]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:[]]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IS_EQUAL[==]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING["<"]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[out]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$outstr]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[out]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING["<?php"]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$indent]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_INC[++]
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$new_line_counter]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_INC[++]
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IF[if]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[4]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[<]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[sizeof]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IF[if]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Token:[[]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[2]
+Jan 10 00:40:26 php_beautifier [debug] Token:[]]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IS_EQUAL[==]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING["p"]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LOGICAL_AND[AND]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Token:[[]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[3]
+Jan 10 00:40:26 php_beautifier [debug] Token:[]]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IS_EQUAL[==]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING["h"]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LOGICAL_AND[AND]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Token:[[]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[4]
+Jan 10 00:40:26 php_beautifier [debug] Token:[]]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IS_EQUAL[==]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING["p"]
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[=]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:[+]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[3]
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_INC[++]
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONTINUE[continue]
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ELSE[else]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$outstr]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONCAT_EQUAL[.=]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Token:[[]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$i]
+Jan 10 00:40:26 php_beautifier [debug] Token:[]]
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONTINUE[continue]
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// And beautify again!\r\n]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// PHP_Beautifier->setBeautify(true);\r\n]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// Second, the comments!\r\n]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ECHO[echo]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// inline\r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 424
+Jan 10 00:40:26 php_beautifier [debug] 423
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ECHO[echo]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// inline\r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 431
+Jan 10 00:40:26 php_beautifier [debug] 430
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_DOC_COMMENT[/**\r\n* Multiline\r\n    */]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// and the old folding markers!\r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 435
+Jan 10 00:40:26 php_beautifier [debug] 434
+Jan 10 00:40:26 php_beautifier [debug] 433
+Jan 10 00:40:26 php_beautifier [debug] 432
+Jan 10 00:40:26 php_beautifier [debug] +space-token-with-sp:[\r\n        \r\n]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_FUNCTION[function]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[folder]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[folder]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ \r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[/*{{{{*/]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 445
+Jan 10 00:40:26 php_beautifier [debug] 444
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[   ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[/*}}}*/]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 449
+Jan 10 00:40:26 php_beautifier [debug] 448
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[   ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// The power of callbacks: the next line deactivate the Filter ListClassFunction for functions\r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 451
+Jan 10 00:40:26 php_beautifier [debug] 450
+Jan 10 00:40:26 php_beautifier [debug] 449
+Jan 10 00:40:26 php_beautifier [debug] 448
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[\r\n       ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// ListClassFunction->includeInList('functions',false);\r\n]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_FUNCTION[function]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[notInList]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[notInList]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ \r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// ListClassFunction->includeInList('functions',true);\r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 465
+Jan 10 00:40:26 php_beautifier [debug] 464
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_FUNCTION[function]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[InList]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[InList]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ \r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CLASS[class]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[class_1]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[class_1]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_EXTENDS[extends]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[class_0]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[class_0]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// Third, do you remember Pascal?\r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 489
+Jan 10 00:40:26 php_beautifier [debug] 488
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IF[if]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[:]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n        ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ECHO[echo]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['a']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n        ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ECHO[echo]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['n']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ELSE[else]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[:]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n        ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ECHO[echo]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['b']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ENDIF[endif]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHILE[while]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$japan]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[:]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n        ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ECHO[echo]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['nothing']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ENDWHILE[endwhile]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// Fourth.... The horrible switch inside switch! ... break includes!\r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 534
+Jan 10 00:40:26 php_beautifier [debug] 533
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_SWITCH[switch]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n        ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CASE[case]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['a']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[:]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n        ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CASE[case]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['b']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[:]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n        ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_BREAK[break]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n\r\n        ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_DEFAULT[default]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[:]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n            ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_FOREACH[foreach]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[foreach]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$a]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_AS[as]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$b]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_IF[if]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$x]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_BREAK[break]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n            ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n            ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_SWITCH[switch]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$b]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[{]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CASE[case]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['a']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[:]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CASE[case]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['b']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[:]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ECHO[echo]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['a']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_BREAK[break]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n\r\n                ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_DEFAULT[default]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[:]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ECHO[echo]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['b']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_BREAK[break]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n            ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n        ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_BREAK[break]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[}]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// Fifth: Nested arrays...\r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 630
+Jan 10 00:40:26 php_beautifier [debug] 629
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$aMyArray]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[=]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ARRAY[array]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n        ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ARRAY[array]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n            ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ARRAY[array]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ARRAY[array]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['el']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_DOUBLE_ARROW[=>]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[=>]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[1]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[1]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[,]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['el']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_DOUBLE_ARROW[=>]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[=>]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[2]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[2]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n                ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n            ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n        ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// Somebody remember callbacks?\r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 666
+Jan 10 00:40:26 php_beautifier [debug] 665
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// ArrayNested->off()\r\n]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$aMyArray]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[=]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ARRAY[array]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ARRAY[array]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ARRAY[array]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ARRAY[array]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['el']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_DOUBLE_ARROW[=>]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[=>]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[1]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[1]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[,]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CONSTANT_ENCAPSED_STRING['el']
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_DOUBLE_ARROW[=>]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[=>]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LNUMBER[2]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[2]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_COMMENT[// PHP5, dude!\r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 695
+Jan 10 00:40:26 php_beautifier [debug] 694
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\t]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_THROW[throw]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_NEW[new]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[Exception]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[Exception]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_VARIABLE[$o]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_OBJECT_OPERATOR[->]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[getArray]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[getArray]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_OBJECT_OPERATOR[->]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[createNewThing]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[createNewThing]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[MyFunction]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[MyFunction]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_DOUBLE_COLON[::]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[singleton]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[singleton]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_OBJECT_OPERATOR[->]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_STRING[record]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[record]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n    ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_ECHO[echo]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[ ]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[(]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_FUNC_C[__FUNCTION__]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[__FUNCTION__]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[.]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_LINE[__LINE__]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[__LINE__]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[.]
+Jan 10 00:40:26 php_beautifier [debug] Filter:IndentStyles
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CLASS_C[__CLASS__]
+Jan 10 00:40:26 php_beautifier [debug] Default Filter:unhandled[__CLASS__]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[)]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:[;]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_WHITESPACE[\r\n]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] Token:T_CLOSE_TAG[?>\r\n]
+Jan 10 00:40:26 php_beautifier [debug] -space
+Jan 10 00:40:26 php_beautifier [debug] 743
+Jan 10 00:40:26 php_beautifier [debug] 742
+Jan 10 00:40:26 php_beautifier [debug] +space-token-without-sp:[\r\n]
+Jan 10 00:40:26 php_beautifier [debug] Filter:Default
+Jan 10 00:40:26 php_beautifier [debug] End process

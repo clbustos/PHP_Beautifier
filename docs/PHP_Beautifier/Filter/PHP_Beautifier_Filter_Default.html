@@ -1,0 +1,1436 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class PHP_Beautifier_Filter_Default</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> PHP_Beautifier_Filter_Default</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Default Filter  This filters is loaded by default in <a href="../../PHP_Beautifier/PHP_Beautifier.html">PHP_Beautifier</a>. Can handle all the tokens.</p>
+<p class="description"><p>If one of the tokens doesn't have a function, is added wihout modification (See <a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter_Default.html#method__call">__call()</a>)  The most important modifications are: <ul><li>All the statements inside control structures, functions and class are indented with K&amp;R style
+ <pre><ol><code><pre><li> <span class="src-key">function </span><span class="src-id">myFunction</span><span class="src-sym">(</span><span class="src-sym">) </span><span class="src-sym">{</span></li>
+<li>     echo <span class="src-str">'hi'</span><span class="src-sym">;</span></li>
+<li> <span class="src-sym">}</span></li>
+</pre></code></ol></pre></li><li>All the comments in new lines are indented. In multi-line comments, all the lines are indented, too.</li></ul> This class is final, so don't try to extend it!</p></p>
+		<p class="notes">
+			Located in <a class="field" href="_usr_local_php5_lib_php_PHP_Beautifier_Filter_Default_filter_php.html">/usr/local/php5/lib/php/PHP/Beautifier/Filter/Default.filter.php</a> (line <span class="field">42</span>)
+		</p>
+		
+				
+		<pre><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html">PHP_Beautifier_Filter</a>
+   |
+   --PHP_Beautifier_Filter_Default</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-consts">Constants</a>
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+								<div class="var-title">
+					<img src="../../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$sDescription" title="details" class="var-name">$sDescription</a>
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#comment_large" title="details" class="method-name">comment_large</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#comment_short" title="details" class="method-name">comment_short</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#off" title="details" class="method-name">off</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_access" title="details" class="method-name">t_access</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_array" title="details" class="method-name">t_array</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_as" title="details" class="method-name">t_as</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_assigment" title="details" class="method-name">t_assigment</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_break" title="details" class="method-name">t_break</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_close_brace" title="details" class="method-name">t_close_brace</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_close_tag" title="details" class="method-name">t_close_tag</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_colon" title="details" class="method-name">t_colon</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_comma" title="details" class="method-name">t_comma</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_comment" title="details" class="method-name">t_comment</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_constant_encapsed_string" title="details" class="method-name">t_constant_encapsed_string</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_control" title="details" class="method-name">t_control</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_default" title="details" class="method-name">t_default</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_doc_comment" title="details" class="method-name">t_doc_comment</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_double_colon" title="details" class="method-name">t_double_colon</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_else" title="details" class="method-name">t_else</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_end_heredoc" title="details" class="method-name">t_end_heredoc</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_end_suffix" title="details" class="method-name">t_end_suffix</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_equal" title="details" class="method-name">t_equal</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_equal_sign" title="details" class="method-name">t_equal_sign</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_extends" title="details" class="method-name">t_extends</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_for" title="details" class="method-name">t_for</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_implements" title="details" class="method-name">t_implements</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_include" title="details" class="method-name">t_include</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_instanceof" title="details" class="method-name">t_instanceof</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_language_construct" title="details" class="method-name">t_language_construct</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_logical" title="details" class="method-name">t_logical</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_new" title="details" class="method-name">t_new</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_object_operator" title="details" class="method-name">t_object_operator</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_open_brace" title="details" class="method-name">t_open_brace</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_open_tag" title="details" class="method-name">t_open_tag</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_parenthesis_close" title="details" class="method-name">t_parenthesis_close</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_parenthesis_open" title="details" class="method-name">t_parenthesis_open</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_question" title="details" class="method-name">t_question</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_semi_colon" title="details" class="method-name">t_semi_colon</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_switch" title="details" class="method-name">t_switch</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_variable" title="details" class="method-name">t_variable</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_whitespace" title="details" class="method-name">t_whitespace</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#__call" title="details" class="method-name">__call</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sMethod</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$aArgs</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-consts">Constants</a>
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$sDescription" id="$sDescription"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$sDescription</span>
+			 = <span class="var-default"> 'Default Filter for PHP_Beautifier'</span>			(line <span class="line-number">43</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$sDescription">PHP_Beautifier_Filter::$sDescription</a></dt>
+						<dd>Description of the Filter</dd>
+					</dl>
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html">PHP_Beautifier_Filter</a></span></p>
+					<blockquote>
+													<img src="../../media/images/Variable.png" />
+							<span class="var-title">
+								<span class="var-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$aFilterTokenFunctions">PHP_Beautifier_Filter::$aFilterTokenFunctions</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="var-title">
+								<span class="var-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$aSettings">PHP_Beautifier_Filter::$aSettings</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="var-title">
+								<span class="var-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$aSettingsDefinition">PHP_Beautifier_Filter::$aSettingsDefinition</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="var-title">
+								<span class="var-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$bOn">PHP_Beautifier_Filter::$bOn</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="var-title">
+								<span class="var-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$oBeaut">PHP_Beautifier_Filter::$oBeaut</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodcomment_large" id="comment_large"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">comment_large</span> (line <span class="line-number">198</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			comment_large
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcomment_short" id="comment_short"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">comment_short</span> (line <span class="line-number">193</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			comment_short
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodoff" id="off"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">off</span> (line <span class="line-number">53</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			off
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodoff">PHP_Beautifier_Filter::off()</a></dt>
+						<dd>Turn off the Filter  Use inside the code to beautify  Ex.</dd>
+					</dl>
+		
+	</div>
+<a name="methodt_access" id="t_access"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_access</span> (line <span class="line-number">56</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_access
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_array" id="t_array"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_array</span> (line <span class="line-number">330</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_array
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_as" id="t_as"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_as</span> (line <span class="line-number">141</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_as
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_assigment" id="t_assigment"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_assigment</span> (line <span class="line-number">325</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_assigment
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_break" id="t_break"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_break</span> (line <span class="line-number">283</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_break
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_close_brace" id="t_close_brace"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_close_brace</span> (line <span class="line-number">121</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_close_brace
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_close_tag" id="t_close_tag"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_close_tag</span> (line <span class="line-number">78</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_close_tag
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_colon" id="t_colon"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_colon</span> (line <span class="line-number">266</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_colon
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_comma" id="t_comma"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_comma</span> (line <span class="line-number">237</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_comma
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_comment" id="t_comment"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_comment</span> (line <span class="line-number">178</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_comment
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_constant_encapsed_string" id="t_constant_encapsed_string"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_constant_encapsed_string</span> (line <span class="line-number">250</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_constant_encapsed_string
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_control" id="t_control"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_control</span> (line <span class="line-number">92</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_control
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_default" id="t_default"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_default</span> (line <span class="line-number">294</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_default
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_doc_comment" id="t_doc_comment"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_doc_comment</span> (line <span class="line-number">153</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_doc_comment
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_double_colon" id="t_double_colon"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_double_colon</span> (line <span class="line-number">279</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_double_colon
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_else" id="t_else"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_else</span> (line <span class="line-number">211</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_else
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_end_heredoc" id="t_end_heredoc"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_end_heredoc</span> (line <span class="line-number">60</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_end_heredoc
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_end_suffix" id="t_end_suffix"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_end_suffix</span> (line <span class="line-number">298</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_end_suffix
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_equal" id="t_equal"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_equal</span> (line <span class="line-number">223</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_equal
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_equal_sign" id="t_equal_sign"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_equal_sign</span> (line <span class="line-number">320</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_equal_sign
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_extends" id="t_extends"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_extends</span> (line <span class="line-number">305</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_extends
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_for" id="t_for"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_for</span> (line <span class="line-number">233</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_for
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_implements" id="t_implements"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_implements</span> (line <span class="line-number">310</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_implements
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_include" id="t_include"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_include</span> (line <span class="line-number">242</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_include
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_instanceof" id="t_instanceof"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_instanceof</span> (line <span class="line-number">315</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_instanceof
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_language_construct" id="t_language_construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_language_construct</span> (line <span class="line-number">246</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_language_construct
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_logical" id="t_logical"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_logical</span> (line <span class="line-number">228</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_logical
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_new" id="t_new"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_new</span> (line <span class="line-number">146</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_new
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_object_operator" id="t_object_operator"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_object_operator</span> (line <span class="line-number">334</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_object_operator
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_open_brace" id="t_open_brace"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_open_brace</span> (line <span class="line-number">107</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_open_brace
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_open_tag" id="t_open_tag"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_open_tag</span> (line <span class="line-number">65</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_open_tag
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_parenthesis_close" id="t_parenthesis_close"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_parenthesis_close</span> (line <span class="line-number">100</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_parenthesis_close
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_parenthesis_open" id="t_parenthesis_open"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_parenthesis_open</span> (line <span class="line-number">96</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_parenthesis_open
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_question" id="t_question"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_question</span> (line <span class="line-number">261</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_question
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_semi_colon" id="t_semi_colon"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_semi_colon</span> (line <span class="line-number">133</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_semi_colon
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_switch" id="t_switch"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_switch</span> (line <span class="line-number">88</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_switch
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_variable" id="t_variable"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_variable</span> (line <span class="line-number">254</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_variable
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_whitespace" id="t_whitespace"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_whitespace</span> (line <span class="line-number">150</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_whitespace
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="method__call" id="__call"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">__call</span> (line <span class="line-number">44</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__call
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sMethod</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$aArgs</span>)
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#method__call">PHP_Beautifier_Filter::__call()</a></dt>
+					</dl>
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html">PHP_Beautifier_Filter</a></span></p>
+					<blockquote>
+													<img src="../../media/images/Constructor.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#method__construct">PHP_Beautifier_Filter::__construct()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodaddSettingDefinition">PHP_Beautifier_Filter::addSettingDefinition()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodgetDescription">PHP_Beautifier_Filter::getDescription()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodgetName">PHP_Beautifier_Filter::getName()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodgetSetting">PHP_Beautifier_Filter::getSetting()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodhandleToken">PHP_Beautifier_Filter::handleToken()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodoff">PHP_Beautifier_Filter::off()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodon">PHP_Beautifier_Filter::on()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodpostProcess">PHP_Beautifier_Filter::postProcess()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodsetSetting">PHP_Beautifier_Filter::setSetting()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#method__call">PHP_Beautifier_Filter::__call()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#method__sleep">PHP_Beautifier_Filter::__sleep()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#method__toString">PHP_Beautifier_Filter::__toString()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html">PHP_Beautifier_Filter</a></span></p>
+					<blockquote>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Sat, 15 Jan 2005 21:30:17 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</div></body>
+</html>

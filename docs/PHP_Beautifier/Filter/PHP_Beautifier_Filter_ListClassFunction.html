@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class PHP_Beautifier_Filter_ListClassFunction</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> PHP_Beautifier_Filter_ListClassFunction</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a list of functions and classes in the script  By default, this Filter puts the list at the beggining of the script.</p>
+<p class="description"><p>If you want it in another position, put a comment like that  <pre> // Class and Function List</pre>  The script lookup for the string 'Class and Function List' in a comment and replace the entire comment with the list  The settings are <ul><li>list_functions: List functions (0 or 1). Default:1</li><li>list_classes:   List classes (0 or 1).   Default:1</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> List functions inside classes as methods</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_usr_local_php5_lib_php_PHP_Beautifier_Filter_ListClassFunction_filter_php.html">/usr/local/php5/lib/php/PHP/Beautifier/Filter/ListClassFunction.filter.php</a> (line <span class="field">41</span>)
+		</p>
+		
+				
+		<pre><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html">PHP_Beautifier_Filter</a>
+   |
+   --PHP_Beautifier_Filter_ListClassFunction</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-consts">Constants</a>
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+								<div class="var-title">
+					<img src="../../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$aFilterTokenFunctions" title="details" class="var-name">$aFilterTokenFunctions</a>
+				</div>
+								<div class="var-title">
+					<img src="../../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$aSettings" title="details" class="var-name">$aSettings</a>
+				</div>
+								<div class="var-title">
+					<img src="../../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$sDescription" title="details" class="var-name">$sDescription</a>
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+					<img src="../../media/images/Constructor.png" alt=" "/>
+											<span class="method-result">PHP_Beautifier_Filter_ListClassFunction</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">PHP_Beautifier</span>&nbsp;<span class="var-name">$oBeaut</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$aSettings</span> = <span class="var-default">array()</span>])
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#includeInList" title="details" class="method-name">includeInList</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$sValue</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#postProcess" title="details" class="method-name">postProcess</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_class" title="details" class="method-name">t_class</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_comment" title="details" class="method-name">t_comment</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_function" title="details" class="method-name">t_function</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#t_open_tag" title="details" class="method-name">t_open_tag</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-consts">Constants</a>
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$aFilterTokenFunctions" id="$aFilterTokenFunctions"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$aFilterTokenFunctions</span>
+			 = <span class="var-default">array(<br />            T_CLASS=&gt;'t_class',<br />            T_FUNCTION=&gt;'t_function',<br />            T_COMMENT=&gt;'t_comment',<br />            T_OPEN_TAG=&gt;'t_open_tag'<br />        )</span>			(line <span class="line-number">42</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$aFilterTokenFunctions">PHP_Beautifier_Filter::$aFilterTokenFunctions</a></dt>
+						<dd>Associative array of functions to use when some token are found</dd>
+					</dl>
+		
+		
+
+</div>
+<a name="var$aSettings" id="$aSettings"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$aSettings</span>
+			 = <span class="var-default">array(<br />            'list_functions'=&gt;true,<br />            'list_classes'=&gt;true<br />        )</span>			(line <span class="line-number">52</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$aSettings">PHP_Beautifier_Filter::$aSettings</a></dt>
+						<dd>Settings for the Filter</dd>
+					</dl>
+		
+		
+
+</div>
+<a name="var$sDescription" id="$sDescription"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$sDescription</span>
+			 = <span class="var-default">'Create a list of functions and classes in the script'</span>			(line <span class="line-number">56</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$sDescription">PHP_Beautifier_Filter::$sDescription</a></dt>
+						<dd>Description of the Filter</dd>
+					</dl>
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html">PHP_Beautifier_Filter</a></span></p>
+					<blockquote>
+													<img src="../../media/images/Variable.png" />
+							<span class="var-title">
+								<span class="var-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$aSettingsDefinition">PHP_Beautifier_Filter::$aSettingsDefinition</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="var-title">
+								<span class="var-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$bOn">PHP_Beautifier_Filter::$bOn</a></span><br>
+							</span>
+													<img src="../../media/images/Variable.png" />
+							<span class="var-title">
+								<span class="var-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#var$oBeaut">PHP_Beautifier_Filter::$oBeaut</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Constructor.png" />
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">61</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">PHP_Beautifier_Filter_ListClassFunction</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">PHP_Beautifier</span>&nbsp;<span class="var-name">$oBeaut</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$aSettings</span> = <span class="var-default">array()</span>])
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#method__construct">PHP_Beautifier_Filter::__construct()</a></dt>
+						<dd>Constructor  If you need to overload this (for example, to create a  definition for setting with addSettingDefinition()  remember call the parent constructor.</dd>
+					</dl>
+		
+	</div>
+<a name="methodincludeInList" id="includeInList"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">includeInList</span> (line <span class="line-number">77</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			includeInList
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$sValue</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodpostProcess" id="postProcess"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">postProcess</span> (line <span class="line-number">106</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			postProcess
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodpostProcess">PHP_Beautifier_Filter::postProcess()</a></dt>
+						<dd>Called from <a href="../../PHP_Beautifier/PHP_Beautifier.html#methodprocess">PHP_Beautifier::process()</a> at the end of processing</dd>
+					</dl>
+		
+	</div>
+<a name="methodt_class" id="t_class"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_class</span> (line <span class="line-number">81</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_class
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_comment" id="t_comment"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_comment</span> (line <span class="line-number">92</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_comment
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_function" id="t_function"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_function</span> (line <span class="line-number">66</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_function
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodt_open_tag" id="t_open_tag"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">t_open_tag</span> (line <span class="line-number">99</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			t_open_tag
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$sTag</span>)
+			</div>
+	
+		
+		
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html">PHP_Beautifier_Filter</a></span></p>
+					<blockquote>
+													<img src="../../media/images/Constructor.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#method__construct">PHP_Beautifier_Filter::__construct()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodaddSettingDefinition">PHP_Beautifier_Filter::addSettingDefinition()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodgetDescription">PHP_Beautifier_Filter::getDescription()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodgetName">PHP_Beautifier_Filter::getName()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodgetSetting">PHP_Beautifier_Filter::getSetting()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodhandleToken">PHP_Beautifier_Filter::handleToken()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodoff">PHP_Beautifier_Filter::off()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodon">PHP_Beautifier_Filter::on()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodpostProcess">PHP_Beautifier_Filter::postProcess()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#methodsetSetting">PHP_Beautifier_Filter::setSetting()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#method__call">PHP_Beautifier_Filter::__call()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#method__sleep">PHP_Beautifier_Filter::__sleep()</a></span><br>
+													<img src="../../media/images/Method.png" alt=" "/>
+							<span class="method-name"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html#method__toString">PHP_Beautifier_Filter::__toString()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../PHP_Beautifier/Filter/PHP_Beautifier_Filter.html">PHP_Beautifier_Filter</a></span></p>
+					<blockquote>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Sat, 15 Jan 2005 21:30:18 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</div></body>
+</html>

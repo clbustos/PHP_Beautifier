@@ -1,0 +1,5 @@
+rm *.tgz &> /dev/null
+/usr/local/bin/pear-5 package
+/usr/local/bin/pear-5 uninstall PHP_Beautifier
+/usr/local/bin/pear-5 install -f PHP_Beautifier-0.1.0.tgz
+echo 'Ok'
