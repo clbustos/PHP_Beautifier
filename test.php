@@ -6,8 +6,12 @@
         $oBeaut = new PHP_Beautifier();
         $oBatch = new PHP_Beautifier_Batch($oBeaut);
         //$oBatch->setFileType('js');
-        //$oBatch->addFilter('Pear');
-        $oBatch->addFilter('NewLines',array('after'=>'for,class'));
+        $oBatch->addFilter('Pear');
+        $oBatch->addFilter('ArrayNested');
+        
+        /*$oBatch->addFilter('NewLines', array(
+            'after'=>'for,class'
+        ));*/
         //$oBatch->addFilter('ListClassFunction');
         //$oBatch->setRecursive(true);
         //unlink('test2.php');
@@ -23,7 +27,7 @@
             //echo '<pre>'.$oBatch->show() .'</pre>';
         }
         // php_beautifier->setBeautify(true);
-
+        
     }
     catch(Exception $oExp) {
         echo ($oExp);

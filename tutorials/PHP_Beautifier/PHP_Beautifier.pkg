@@ -21,7 +21,7 @@
 {@toc}
  <refsect1 id="{@id intro}">
   <title>What is PHP_Beautifier?</title>
-    <para>PHP_Beautifier is a Open Source PHP aplication, distributed under the terms of PHP Licence 3.0. This program try to reformat and beautify PHP 4 and PHP 5 code automatically. </para>
+    <para>PHP_Beautifier is a Open Source PHP aplication, distributed under the terms of PHP Licence 3.0. This program tries to reformat and beautify PHP 4 and PHP 5 code automatically. </para>
     <refsect2 id="{@id history}">
       <title>Who needs it?</title>
       <itemizedlist>

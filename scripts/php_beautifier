@@ -3,11 +3,11 @@
     /**
     * Console script to use PHP_Beautifier from the command line
     *
-	* Get more information using 
-	*
+    * Get more information using
+    *
     * - php_beautifier --help (*nix)
-    * - php_beautifier.bat --help (Windows)	
-	* 
+    * - php_beautifier.bat --help (Windows)
+    *
     * PHP version 5
     *
     * LICENSE: This source file is subject to version 3.0 of the PHP license
@@ -24,14 +24,13 @@
     * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
     * @version    CVS: $Id:$
     */
-	// First, test if the interpreter is the cli one
-	if (php_sapi_name() != 'cli') {
+    // First, test if the interpreter is the cli one
+    if (php_sapi_name() != 'cli') {
         echo "You have to use php_beautifier with cli version of php. 
 		If you only have the cgi version, see Beautifier.php to
 		use this software within a script\n";
-		exit();
+        exit();
     }
-
     /**
     * Require PEAR Class
     */
@@ -48,9 +47,9 @@
     * Require the beautify_php class....
     */
     require_once 'PHP/Beautifier.php';
-	/**
-	* Require for PHP_Beautifier_Batch
-	*/
+    /**
+    * Require for PHP_Beautifier_Batch
+    */
     require_once 'PHP/Beautifier/Batch.php';
     define('PHP_Beautifier_WINDOWS', substr(PHP_OS, 0, 3) == 'WIN');
     error_reporting(E_ALL);
@@ -143,7 +142,7 @@
 
             case 'recursive':
             case 'r':
-				$oLog->log('Recursive: on');
+                $oLog->log('Recursive: on');
                 $bRecursive = true;
             break;
 
@@ -199,10 +198,10 @@
         $oBeaut->save();
         $sNameOut = ($sOutputFile == STDOUT) ? 'STDOUT' : $sOutputFile;
         $sNameIn = ($aInputFiles == STDIN) ? 'STDIN' : implode(',', $aInputFiles);
-	// Log
-	if ($aFilters) {
-	    $oLog->log("Filters used: ".implode(',',array_keys($aFilters)),PEAR_LOG_INFO);
-	}
+        // Log
+        if ($aFilters) {
+            $oLog->log("Filters used: ".implode(',', array_keys($aFilters)) , PEAR_LOG_INFO);
+        }
         $oLog->log($sNameIn." to $sNameOut done");
         $oLog->log(round(time() -$start, 2) ." seconds needed\n");
     }

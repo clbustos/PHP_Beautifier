@@ -66,6 +66,7 @@
             }
         break;
     }
+    // ArrayNested->off()    
     // Fifth: Nested arrays...
     $aMyArray = array(
         array(
@@ -78,7 +79,7 @@
         )
     );
     // Somebody remember callbacks?
-    // ArrayNested->off()
+    // ArrayNested->on()
     $aMyArray = array(array(array(array('el'=>1,'el'=>2))));
     // PHP5, dude!
 	throw new Exception();

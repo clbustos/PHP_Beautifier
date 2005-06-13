@@ -53,7 +53,7 @@ $ php_beautifier [commandline]
         </optional>
         <optional>-o <replaceable>output_path</replaceable>
         </optional>
-        <optional>-c <replaceable>compress_type</replaceable>
+        <optional>-c <replaceable>compression_type</replaceable>
         </optional>        
         <optional>-t <optional><replaceable>number</replaceable>
           </optional>
@@ -186,11 +186,11 @@ $ php_beautifier [commandline]
     </refsect3>
 
     <refsect3 id="{@id indent-tabs}">
-    <title>--indent-tabs</title>
+    <title>--indent_tabs</title>
     <para>Tabs are used as indent char. Without a param, the number of tabs for indent is 1</para>
     </refsect3>
         <refsect3 id="{@id indent-spaces}">
-    <title>--indent-spaces</title>
+    <title>--indent_spaces</title>
     <para>Spaces are used as indent char. Without a param, the number of spaces for indent is 4</para>
     </refsect3>
     <refsect3 id="{@id filters}">
@@ -203,7 +203,7 @@ $ php_beautifier --filters "ArrayNested Pear(add_header=php)"
      </screen>
     </refsect3>
     <refsect3 id="{@id filters-directory}">
-    <title>--filters-directory</title>
+    <title>--directory_filters</title>
     <para>Add a path to lookup for filters. See {@link PHP_Beautifier::addFilterDirectory()}.</para>
     </refsect3>
     <refsect3 id="{@id recursive}">

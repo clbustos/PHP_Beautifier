@@ -14,17 +14,15 @@
 			<email>clbustos@dotgeek.org</email>
 		</maintainer>
 	</maintainers>
+	
 	<release>
-		<version>0.1.4</version>
-		<date>2005-04-01</date>
-		<notes>Improved Filter NewLines release
-+ Added support for tokens.
-+ Added optional dependency on bz2
-- Bug fix: You could use, now, colons to separate contents and/or tokens
-* Example of use with command line: 
-php_beautifier --filters "NewLines(before=if:switch:T_CLASS,after=T_COMMENT:function)
-! Know issue: the comments have special rules for spacing. So, newlines before a token after a comment won't be created. ¿Feature? ¿Bug? You decide
-</notes>
+		<version>0.1.5</version>
+		<date>2005-04-15</date>
+		<notes>- Bug fix [#4151]: Lot of NOTICES when use IndentStyles filter(silly me!)
+- Bug fix [#4501]: Fixed online docs and command line arguments mismatch
+- Bug fix [#4572]: Verify cli before access to STDOUT on Batch.php
+- Bug fix [#4573]: Removed default indent, to maintain coding standars of PEAR.
+		</notes>
 		<state>beta</state>
 		<filelist>
 			<dir name="/" role="php" baseinstalldir="PHP">
@@ -162,6 +160,15 @@ php_beautifier --filters "NewLines(before=if:switch:T_CLASS,after=T_COMMENT:func
 	</deps>
 	<changelog>
 	<release>
+<release>
+		<version>0.1.5</version>
+		<date>2005-04-15</date>
+		<notes>- Bug fix [#4151]: Lot of NOTICES when use IndentStyles filter(silly me!)
+- Bug fix [#4501]: Fixed online docs and command line arguments mismatch
+- Bug fix [#4572]: Verify cli before access to STDOUT on Batch.php
+- Bug fix [#4573]: Removed default indent, to maintain coding standars of PEAR.
+		</notes>
+		</release>
 		<version>0.1.4</version>
 		<date>2005-04-01</date>
 		<notes>Improved Filter NewLines release
