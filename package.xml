@@ -16,12 +16,22 @@
 	</maintainers>
 	
 	<release>
-		<version>0.1.5</version>
-		<date>2005-04-15</date>
-		<notes>- Bug fix [#4151]: Lot of NOTICES when use IndentStyles filter(silly me!)
-- Bug fix [#4501]: Fixed online docs and command line arguments mismatch
-- Bug fix [#4572]: Verify cli before access to STDOUT on Batch.php
-- Bug fix [#4573]: Removed default indent, to maintain coding standars of PEAR.
+		<version>0.1.6</version>
+		<date>2005-06-15</date>
+		<notes>- Fixed suite of test, to respond to the changes implemented on v0.1.5
+- Bug fix on PHP_Beautifier_Common::getSavePath : the MCD of the files is based on the complete dirs, not only the last common char.
++ Correct implementation of compressed output files (.tar, .tgz, .tar.bz2). Now, you can do something like
+	$oBeaut = new PHP_Beautifier();
+    $oBatch = new PHP_Beautifier_Batch($oBeaut);
+	$oBatch->setRecursive(true);
+    $oBatch->setInputFile('files/*.php');
+    $oBatch->setOutputFile('files.tar');
+	$oBatch->save();
+    $oBatch->setOutputFile('files.tar.bz2');
+	$oBatch->save();
+    $oBatch->setOutputFile('files.tgz');
+	$oBatch->save();
++ Using get() or show() on a Batch object send the contents of the files, one after another.
 		</notes>
 		<state>beta</state>
 		<filelist>
@@ -160,15 +170,35 @@
 	</deps>
 	<changelog>
 	<release>
+<version>0.1.6</version>
+		<date>2005-06-15</date>
+		<notes>- Fixed suite of test, to respond to the changes implemented on v0.1.5
+- Bug fix on PHP_Beautifier_Common::getSavePath : the MCD of the files is based on the complete dirs, not only the last common char.
++ Correct implementation of compressed output files (.tar, .tgz, .tar.bz2). Now, you can do something like
+	$oBeaut = new PHP_Beautifier();
+    $oBatch = new PHP_Beautifier_Batch($oBeaut);
+	$oBatch->setRecursive(true);
+    $oBatch->setInputFile('files/*.php');
+    $oBatch->setOutputFile('files.tar');
+	$oBatch->save();
+    $oBatch->setOutputFile('files.tar.bz2');
+	$oBatch->save();
+    $oBatch->setOutputFile('files.tgz');
+	$oBatch->save();
++ Using get() or show() on a Batch object send the contents of the files, one after another.
+		</notes>
+		<state>beta</state>
+		</release>
 <release>
 		<version>0.1.5</version>
-		<date>2005-04-15</date>
+		<date>2005-06-13</date>
 		<notes>- Bug fix [#4151]: Lot of NOTICES when use IndentStyles filter(silly me!)
 - Bug fix [#4501]: Fixed online docs and command line arguments mismatch
 - Bug fix [#4572]: Verify cli before access to STDOUT on Batch.php
 - Bug fix [#4573]: Removed default indent, to maintain coding standars of PEAR.
 		</notes>
 		</release>
+		<release>
 		<version>0.1.4</version>
 		<date>2005-04-01</date>
 		<notes>Improved Filter NewLines release

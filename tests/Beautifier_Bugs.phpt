@@ -74,9 +74,9 @@ SCRIPT;
             $this->setText($sText);
             $sExpected = <<<SCRIPT
 <?php
-    if (\$_POST["url"] != "") //inserting data
-    {
-    }
+if (\$_POST["url"] != "") //inserting data
+{
+}
 ?>
 SCRIPT;
             $this->assertEquals($sExpected, $this->oBeaut->get());
@@ -97,7 +97,7 @@ SCRIPT;
             $this->setText($sText);
             $sExpected = <<<SCRIPT
 <?php
-    throw new AccountFindException();
+throw new AccountFindException();
 ?>
 SCRIPT;
             $this->assertEquals($sExpected, $this->oBeaut->get());
@@ -120,7 +120,7 @@ SCRIPT;
             $this->setText($sText);
             $sExpected = <<<SCRIPT
 <?php
-    \$o->_test1(\$c->test2()->test3());
+\$o->_test1(\$c->test2()->test3());
 ?>
 SCRIPT;
             $this->assertEquals($sExpected, $this->oBeaut->get());
@@ -161,25 +161,25 @@ SCRIPT;
             $this->setText($sText);
             $sExpected = <<<SCRIPT
 <?php
-    class Foo {
-        var \$foobar = 0;
-        function Foo(\$a, \$b) {
-            if (\$a) {
-                dostuff();
-            }
-            // \$a no good
-            elseif {
-                dootherstuff();
-            }
-            // \$c maybe
-            elseif {
-                yea();
-            }
+class Foo {
+    var \$foobar = 0;
+    function Foo(\$a, \$b) {
+        if (\$a) {
+            dostuff();
         }
-        function bar() {
-            echo "Hello";
+        // \$a no good
+        elseif {
+            dootherstuff();
+        }
+        // \$c maybe
+        elseif {
+            yea();
         }
     }
+    function bar() {
+        echo "Hello";
+    }
+}
 ?>
 SCRIPT;
             $this->assertEquals($sExpected, $this->oBeaut->get());

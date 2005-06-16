@@ -39,7 +39,7 @@ require_once ('DirectoryTar.php');
 * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
 * @version    Release: @package_version@
 */
-class PHP_Beautifier_Batch_Output_DirectoryGz extends PHP_Beautifier_Batch_DirectoryTar {
+class PHP_Beautifier_Batch_Output_DirectoryGz extends PHP_Beautifier_Batch_Output_DirectoryTar {
     protected function getTar($sFileName) 
     {
         return new Archive_Tar($sFileName.'.tgz', 'gz');

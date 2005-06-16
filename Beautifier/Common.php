@@ -130,14 +130,11 @@ class PHP_Beautifier_Common {
                 $sPrevious = dirname($sFile);
                 continue;
             }
-            for ($x = 0;$x<strlen($sPrevious);$x++) {
-                $sDir = dirname($sFile);
-                if (strlen($sDir) <$x+1) {
-                    $sPrevious = '';
-                    break(2);
-                } elseif ($sDir{$x} != $sPrevious{$x}) {
-                    $sPrevious = substr($sDir, 0, $x);
-                    continue;
+            $aPreviousParts=explode("/",$sPrevious);
+            $aCurrentParts=explode("/",dirname($sFile));
+            for($x=0;$x<count($aPreviousParts);$x++) {
+                if($aPreviousParts[$x]!=$aCurrentParts[$x]) {
+                    $sPrevious=implode("/",array_slice($aPreviousParts,0,$x));                    
                 }
             }
         }

@@ -40,6 +40,9 @@ require_once ('Batch/Output.php');
 *   - Without '/' at the end, same as STDOUT.
 *   - With '/' at the end, copy the base structure and copy all the scripts
 *
+* You must define an input file. By default, the output is "./", so the saving
+* of files will be done on the directory of your command prompt.
+*
 * If the file out end in .tgz, the output will be a tar archive. The same action
 * will be obtained with {@link setCompress()} to true
 * Use:
@@ -49,8 +52,9 @@ require_once ('Batch/Output.php');
 * $oBeaut= new PHP_Beautifier();
 * $oBatch= new PHP_Beautifier_Batch($oBeaut); // Decorator
 * $oBatch->setInputFile(__FILE__);
+* $oBatch->setOutputFile(dirname(__FILE__)."/beautified/");
 * $oBatch->process();
-* $oBatch->show();
+* $oBatch->save();
 * </code>
 *
 * @category     PHP
@@ -214,7 +218,7 @@ class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
             if (substr($sPath, -1) != '/' and !is_dir($sPath)) {
                 $this->sOutputMode = PHP_Beautifier_Batch::FILES;
                 // Define compression mode
-                if (preg_match("/\.(gz|bz2)$/", $sPath, $aMatch)) {
+                if (preg_match("/\.(gz|bz2|tar)$/", $sPath, $aMatch)) {
                     $this->sCompress = $aMatch[1];
                 }
             } else {
@@ -236,7 +240,6 @@ class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
             $this->setInputFilePost();
             $this->setOutputFilePost();
         }
-        return;
         if (!$this->mInputFiles) {
             throw (new Exception(implode(',', $this->mPreInputFiles) ." doesn't match any files"));
         } else {

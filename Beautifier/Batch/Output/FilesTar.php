@@ -35,14 +35,15 @@ include_once 'Archive/Tar.php';
 * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
 * @version    Release: @package_version@
 */
-abstract class PHP_Beautifier_Batch_Output_FilesTar extends PHP_Beautifier_Batch_Output {
+class PHP_Beautifier_Batch_Output_FilesTar extends PHP_Beautifier_Batch_Output {
     protected $oTar;
-    protected $sCompress;
+    protected $sCompress=false;
+    protected $sExt="tar";
     public function __construct(PHP_Beautifier_Batch $oBatch) 
     {
         parent::__construct($oBatch);
         $sOutput = $this->oBatch->getOutputPath();
-        $sOutput = preg_replace("/(\.tar\.gz|\.tgz|\.gz|\.tar\.bz2)$/", '', $sOutput) .".tgz";
+        $sOutput = preg_replace("/(\.tar|\.tar\.gz|\.tgz|\.gz|\.tar\.bz2)$/", '', $sOutput) .".".$this->sExt;
         PHP_Beautifier_Common::createDir($sOutput);
         $this->oTar = new Archive_Tar($sOutput, $this->sCompress);
     }

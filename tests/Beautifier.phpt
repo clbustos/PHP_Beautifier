@@ -173,13 +173,13 @@ Long comment 3
 SCRIPT;
             $sTextExpected = <<<SCRIPT
 <?php
-    // short comment
-    /* Long comment */
-    \$a = 5; // short comment 2
-    \$b = 6; /* long comment 2 */
-    /*
-    Long comment 3
-    */
+// short comment
+/* Long comment */
+\$a = 5; // short comment 2
+\$b = 6; /* long comment 2 */
+/*
+Long comment 3
+*/
 ?>
 SCRIPT;
             $sTextExpected = str_replace("\r\n", "\n", $sTextExpected);
@@ -207,15 +207,15 @@ function testDocComment()
 SCRIPT;
             $sTextExpected = <<<SCRIPT
 <?php
-    /** Doc comment inline */
-    /** First line
-    * Other line
-    */
-    /**
-    * Doc normal comment
-    *
-    * Other line
-    */
+/** Doc comment inline */
+/** First line
+* Other line
+*/
+/**
+* Doc normal comment
+*
+* Other line
+*/
 ?>
 SCRIPT;
             $sTextExpected = str_replace("\r\n", "\n", $sTextExpected);

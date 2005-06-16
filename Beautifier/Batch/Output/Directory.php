@@ -54,12 +54,21 @@ class PHP_Beautifier_Batch_Output_Directory extends PHP_Beautifier_Batch_Output 
         }
         return true;
     }
+    /**
+    * Send the output of the files, one after another
+    * With a little header
+    * @return string
+    */
     public function get() 
     {
         $aInputFiles = $this->oBatch->getInputFiles();
-        $sOutputPath = $this->oBatch->getOutputPath();
-        print_r($sOutputPath);
-        return false;
+        $sText = '';
+        foreach($aInputFiles as $sFile) {
+            $this->beautifierSetInputFile($sFile);
+            $this->beautifierProcess();
+            $sText.= $this->beautifierGet()."\n";
+        }
+        return $sText;
     }
 }
 ?>
