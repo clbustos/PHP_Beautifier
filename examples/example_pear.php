@@ -20,6 +20,10 @@ default:
 defaultaction();
 break;
 }
+
+for($x=0;$x<50;$x++) {
+    if($x==25) { break;}
+}
 // function call
 $var = foo($bar, $baz, $quux);
 // function definition

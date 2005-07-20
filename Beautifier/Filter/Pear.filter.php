@@ -30,7 +30,7 @@ require_once ('PEAR/Config.php');
 * The default filter, {@link PHP_Beautifier_Filter_Default} have most of the specs
 * but adhere more to GNU C.
 * So, this filter make the following modifications:
-* - Add 2 newlines after Break in switch statements
+* - Add 2 newlines after Break in switch statements. Break indent is the same of previous line
 * - Brace in function definition put on a new line, same indent of 'function' construct
 * - Comments started with '#' are replaced with '//'
 * - Open tags are replaced with '<?php'
@@ -55,6 +55,7 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter {
         'add_header'=>false
     );
     protected $sDescription = 'Filter the code to make it compatible with PEAR Coding Specs';
+    private $bOpenTag = false;
     function t_semi_colon($sTag) 
     {
         if (!$this->oBeaut->isPreviousTokenConstant(T_BREAK)) {
@@ -64,6 +65,17 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter {
         $this->oBeaut->add($sTag);
         $this->oBeaut->addNewLine();
         $this->oBeaut->addNewLineIndent();
+    }
+    function t_break($sTag) 
+    {
+        if ($this->oBeaut->getControlSeq() == T_CASE or $this->oBeaut->getControlSeq() == T_DEFAULT) {
+            $this->oBeaut->removeWhitespace();
+            $this->oBeaut->addNewLineIndent();
+            $this->oBeaut->decIndent();
+            $this->oBeaut->add($sTag);
+        } else {
+            return PHP_Beautifier_Filter::BYPASS;
+        }
     }
     function t_open_brace($sTag) 
     {
@@ -86,12 +98,11 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter {
     }
     function t_open_tag($sTag) 
     {
-        static $bOpenTag = false;
         // find PEAR header comment
         $this->oBeaut->add("<?php");
         $this->oBeaut->addNewLineIndent();
-        if (!$bOpenTag) {
-            $bOpenTag = true;
+        if (!$this->bOpenTag) {
+            $this->bOpenTag = true;
             // store the comment and search for word 'license'
             $sComment = '';
             $x = 1;
@@ -103,6 +114,10 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter {
                 $this->addHeaderComment();
             }
         }
+    }
+    function preProcess() 
+    {
+        $this->bOpenTag = false;
     }
     function addHeaderComment() 
     {

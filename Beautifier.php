@@ -661,6 +661,10 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
         $this->aOut = array();
         $iTotal = count($this->aTokens);
         $iPrevAssoc = false;
+        // Send a signal to the filter, announcing the init of the processing of a file
+        foreach($this->aFilters as $oFilter) {
+            $oFilter->preProcess();
+        }
         for ($this->iCount = 0;$this->iCount<$iTotal;$this->iCount++) {
             $aCurrentToken = $this->aTokens[$this->iCount];
             if (is_string($aCurrentToken)) {

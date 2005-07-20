@@ -213,6 +213,13 @@ abstract class PHP_Beautifier_Filter {
         return PHP_Beautifier_Filter::BYPASS;
     }
     /**
+    * Called from {@link PHP_Beautifier::process()} at the beginning 
+    * of the processing
+    * @return void
+    */
+    public function preProcess() {
+    }    
+    /**
     * Called from {@link PHP_Beautifier::process()} at the end of processing
     * The post-process must be made in {@link PHP_Beautifier::$aOut}
     * @return void
@@ -246,5 +253,6 @@ abstract class PHP_Beautifier_Filter {
         // php_beautifier->setBeautify(true);
         return $sOut;
     }
+
 }
 ?>

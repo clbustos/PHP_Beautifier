@@ -16,23 +16,12 @@
 	</maintainers>
 	
 	<release>
-		<version>0.1.6</version>
-		<date>2005-06-15</date>
-		<notes>- Fixed suite of test, to respond to the changes implemented on v0.1.5
-- Bug fix on PHP_Beautifier_Common::getSavePath : the MCD of the files is based on the complete dirs, not only the last common char.
-+ Correct implementation of compressed output files (.tar, .tgz, .tar.bz2). Now, you can do something like
-	$oBeaut = new PHP_Beautifier();
-    $oBatch = new PHP_Beautifier_Batch($oBeaut);
-	$oBatch->setRecursive(true);
-    $oBatch->setInputFile('files/*.php');
-    $oBatch->setOutputFile('files.tar');
-	$oBatch->save();
-    $oBatch->setOutputFile('files.tar.bz2');
-	$oBatch->save();
-    $oBatch->setOutputFile('files.tgz');
-	$oBatch->save();
-+ Using get() or show() on a Batch object send the contents of the files, one after another.
-		</notes>
+		<version>0.1.7</version>
+		<date>2005-06-22</date>
+		<notes>- Bug fix [Daniel Convissor,June 20] Pear Filter: Switch structures according to coding standars(http://pear.php.net/manual/en/standards.control.php)
+- Bug fix [#4621]: I ran the command line to update my pages and wanted to add the php license to them. The only problem is it only added the license to the
+first file and not the rest of the files.
+-</notes>
 		<state>beta</state>
 		<filelist>
 			<dir name="/" role="php" baseinstalldir="PHP">
