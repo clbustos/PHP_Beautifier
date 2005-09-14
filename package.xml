@@ -17,10 +17,11 @@
 	
 	<release>
 		<version>0.1.7</version>
-		<date>2005-06-22</date>
+		<date>2005-09-14</date>
 		<notes>- Bug fix [Daniel Convissor,June 20] Pear Filter: Switch structures according to coding standars(http://pear.php.net/manual/en/standards.control.php)
 - Bug fix [#4621]: I ran the command line to update my pages and wanted to add the php license to them. The only problem is it only added the license to the
 first file and not the rest of the files.
+- Bug fix [#4931]: Switch again! empty case before a  default statement breaks the indentation
 -</notes>
 		<state>beta</state>
 		<filelist>
@@ -158,6 +159,15 @@ first file and not the rest of the files.
 		<dep type="ext" rel="has" optional="yes" version="0">bz2</dep>
 	</deps>
 	<changelog>
+<release>
+		<version>0.1.7</version>
+		<date>2005-09-14</date>
+		<notes>- Bug fix [Daniel Convissor,June 20] Pear Filter: Switch structures according to coding standars(http://pear.php.net/manual/en/standards.control.php)
+- Bug fix [#4621]: I ran the command line to update my pages and wanted to add the php license to them. The only problem is it only added the license to the
+first file and not the rest of the files.
+- Bug fix [#4931]: Switch again! empty case before a  default statement breaks the indentation
+-</notes>
+</release>
 	<release>
 <version>0.1.6</version>
 		<date>2005-06-15</date>
