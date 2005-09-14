@@ -303,7 +303,7 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter {
             $this->oBeaut->add(' '.$sTag.' ');
         } else {
             $this->oBeaut->add($sTag);
-            if (!$this->oBeaut->isNextTokenConstant(T_CASE)) {
+            if (!$this->oBeaut->isNextTokenConstant(T_CASE) and !$this->oBeaut->isNextTokenConstant(T_DEFAULT)) {
                 $this->oBeaut->incIndent();
             }
             $this->oBeaut->addNewLineIndent();

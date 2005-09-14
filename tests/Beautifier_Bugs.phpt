@@ -197,6 +197,7 @@ SCRIPT;
     *       $publiceventsOn = "on";
     *       break;
     * }
+    * </code>
     */
     function testBugConvissor_2005_06_20() 
     {
@@ -225,6 +226,49 @@ switch (\$subId) {
         \$publiceventsOn = "on";
         break;
 }
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    function testBugJustinh_2005_07_26() 
+    {
+        $sText = <<<SCRIPT
+<?php
+switch (\$var) {
+case 1:
+print "hi";
+break;
+case 2:
+default:
+break;
+}
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+switch (\$var) {
+    case 1:
+        print "hi";
+    break;
+    case 2:
+    default:
+    break;
+}
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    function testBugjuancarlos2005_09_13() {
+        $this->oBeaut->addFilter("ArrayNested");
+        $this->oBeaut->addFilter('IndentStyles',array('style'=>'allman'));
+        $sText = <<<SCRIPT
+<?php include_once ("turnos.conf.php")
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php include_once ("turnos.conf.php")
 ?>
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
