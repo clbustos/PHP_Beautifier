@@ -825,7 +825,9 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
             case T_FUNCTION:
                 $this->setMode('function');
             break;
-
+            case T_CLASS:
+                $this->setMode('class');
+            break;
             case T_ARRAY:
                 $this->iArray++;
             break;

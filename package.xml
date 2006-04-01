@@ -11,18 +11,16 @@
 			<user>clbustos</user>
 			<role>lead</role>
 			<name>Claudio Bustos</name>
-			<email>clbustos@dotgeek.org</email>
+			<email>clbustos+php_beautifier@gmail.com</email>
 		</maintainer>
 	</maintainers>
 	
 	<release>
-		<version>0.1.7</version>
-		<date>2005-09-14</date>
-		<notes>- Bug fix [Daniel Convissor,June 20] Pear Filter: Switch structures according to coding standars(http://pear.php.net/manual/en/standards.control.php)
-- Bug fix [#4621]: I ran the command line to update my pages and wanted to add the php license to them. The only problem is it only added the license to the
-first file and not the rest of the files.
-- Bug fix [#4931]: Switch again! empty case before a  default statement breaks the indentation
--</notes>
+		<version>0.1.8</version>
+		<date>2006-04-01</date>
+		<notes>Bug fix release
+- Bug fix [#6237]: Extra space before a variable inside a double quote section
+- Bug fix [#5711]: Add newline with indent after class definition, with pear filter.</notes>
 		<state>beta</state>
 		<filelist>
 			<dir name="/" role="php" baseinstalldir="PHP">
@@ -159,6 +157,14 @@ first file and not the rest of the files.
 		<dep type="ext" rel="has" optional="yes" version="0">bz2</dep>
 	</deps>
 	<changelog>
+	<release>
+		<version>0.1.8</version>
+		<date>2006-04-01</date>
+		<notes>Bug fix release
+- Bug fix [#6237]: Extra space before a variable inside a double quote section
+- Bug fix [#5711]: Add newline with indent after class definition, with pear filter.</notes>
+		<state>beta</state>
+		</release>
 <release>
 		<version>0.1.7</version>
 		<date>2005-09-14</date>

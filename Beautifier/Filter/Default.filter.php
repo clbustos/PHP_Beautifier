@@ -286,7 +286,7 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter {
     }
     function t_variable($sTag) 
     {
-        if ($this->oBeaut->isPreviousTokenConstant(T_STRING)) {
+        if ($this->oBeaut->isPreviousTokenConstant(T_STRING) and !$this->oBeaut->getMode("double_quote")) {
             $this->oBeaut->add(' ');
         }
         $this->oBeaut->add($sTag);

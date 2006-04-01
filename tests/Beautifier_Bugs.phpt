@@ -273,6 +273,57 @@ SCRIPT;
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
+    function testBug5711() {
+        $this->oBeaut->addFilter("Pear");
+        $sText = <<<SCRIPT
+<?php
+
+class CampaignManagerConfig {
+    
+    const BLOCKSIZE_ALL = 9999999;
+    
+    public static function getStagingUrl(\$liveUrl) {
+        return true;
+    }
+        
+}
+
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+class CampaignManagerConfig
+{
+    const BLOCKSIZE_ALL = 9999999;
+    public static function getStagingUrl(\$liveUrl) 
+    {
+        return true;
+    }
+}
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    function testBug6237() {
+        $this->oBeaut->addFilter("Pear");
+        $sText = <<<SCRIPT
+<?php
+\$_SESSION["test\$i"];
+\$_SESSION["test_\$i"];
+\$_SESSION['test_\$i'];
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+\$_SESSION["test\$i"];
+\$_SESSION["test_\$i"];
+\$_SESSION['test_\$i'];
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
 }
 $suite = new PHPUnit_TestSuite('Beautifier_Bugs');
 $result = PHPUnit::run($suite);

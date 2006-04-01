@@ -79,7 +79,7 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter {
     }
     function t_open_brace($sTag) 
     {
-        if (!$this->oBeaut->getMode('function')) {
+        if (!($this->oBeaut->getMode('function') or $this->oBeaut->getMode('class'))) {
             return PHP_Beautifier_Filter::BYPASS;
         }
         $this->oBeaut->addNewLineIndent();
