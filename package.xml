@@ -16,18 +16,14 @@
 	</maintainers>
 	
 	<release>
-		<version>0.1.9</version>
-		<date>2006-06-05</date>
-		<notes>¡The one before stable!		
-- Bug fix[Internal 2]: Code to detect default token constant was wrong. This solve strange extra white lines on output.
-- Bug fix[#7305]: add spaces before and after array key-value pair assignator (=>)
-- Bug fix[#7307]: first lines are intended if ListClassFunction is enabled
-- Bug fix[#7308]:  	typo in "How to use PHP_Beautifier": 'standar' should be 'standard'
-- Bug fix[#7312]: missing spaces with lower and greater than operator. missing spaces with after ; in for statemants
-- Bug fix[#7759]: Adding a comment after a case statement in a switch causes the
-indenting to be wrong.
-+ New Lowercase Filter[requested on #7348]: Lowercase all control structures. Parse the output of this filter with a new instance of the object or with a pipe in a new php_beautifier.
-
+		<version>0.1.10</version>
+		<date>2006-06-06</date>
+		<notes>The one NOT before stable: ( The day of the AC!		
+- Bug fix[7818]: Where curly brackets are used to indicate a variable class 
+property, PHP_Beautifier adds extra whitespace as if it were 
+parsing a class method or function.
+- Internal Bug 3: Removed log messages on command line. Use -v to get the verbose output (messages with PEAR_DEBUG_INFO level).
+! Bug 7759 remains open, only when one or more case doesn't ends with a break.
 </notes>
 		<state>beta</state>
 		<filelist>
@@ -176,10 +172,21 @@ indenting to be wrong.
 		<dep type="ext" rel="has" optional="yes" version="0">bz2</dep>
 	</deps>
 	<changelog>
+	<release>
+		<version>0.1.10</version>
+		<date>2006-06-06</date>
+		<notes>The one NOT before stable: ( The day of the AC!		
+- Bug fix[7818]: Where curly brackets are used to indicate a variable class 
+property, PHP_Beautifier adds extra whitespace as if it were 
+parsing a class method or function.
+- Internal Bug 3: Removed log messages on command line. Use -v to get the verbose output (messages with PEAR_DEBUG_INFO level).
+! Bug 7759 remains open, only when one or more case doesn't ends with a break.
+</notes>
+</release>
 <release>
 		<version>0.1.9</version>
 		<date>2006-06-05</date>
-		<notes>¡The one before stable!		
+		<notes>The one before stable!		
 - Bug fix[Internal 2]: Code to detect default token constant was wrong. This solve strange extra white lines on output.
 - Bug fix[#7305]: add spaces before and after array key-value pair assignator (=>)
 - Bug fix[#7307]: first lines are intended if ListClassFunction is enabled

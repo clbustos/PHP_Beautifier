@@ -98,6 +98,9 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter {
     {
         $this->oBeaut->add($sTag.' ');
     }
+    function t_case($sTag) {
+        $this->oBeaut->add($sTag.' ');
+    }
     function t_parenthesis_open($sTag) 
     {
         $this->oBeaut->add($sTag);

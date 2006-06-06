@@ -345,6 +345,8 @@ case 5:
 echo 1;
 break;
 case 2: //2
+echo "something";
+echo "something";
 case 3: /*3 */ /* 3? */
 case 4: //3
 default:
@@ -366,6 +368,8 @@ switch (1) {
         echo 1;
     break;
     case 2: //2
+        echo "something";
+        echo "something";
     case 3: /*3 */ /* 3? */
     case 4: //3
     default:
@@ -376,6 +380,22 @@ echo 1;
 ?>
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());        
+    }
+    function test7818() {
+        $this->oBeaut->startLog();
+        $sText=<<<SCRIPT
+<?php
+\$field->createElement(\$form, \$this->_table->{\$field->id}, \$defaults);
+?>
+SCRIPT;
+$this->setText($sText);
+
+        $sExpected = <<<SCRIPT
+<?php
+\$field->createElement(\$form, \$this->_table->{\$field->id}, \$defaults);
+?>
+SCRIPT;
+    $this->assertEquals($sExpected, $this->oBeaut->get());    
     }
 }
 $suite = new PHPUnit_TestSuite('Beautifier_Bugs');

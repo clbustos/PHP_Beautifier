@@ -56,8 +56,9 @@
             }
             switch ($b) {
                 case 'a':
+                echo 'a';
                 case 'b':
-                    echo 'a';
+                echo 'b';
                 break;
 
                 default:

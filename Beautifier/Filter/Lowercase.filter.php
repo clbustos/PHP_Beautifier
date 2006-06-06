@@ -111,7 +111,7 @@ class PHP_Beautifier_Filter_Lowercase extends PHP_Beautifier_Filter {
         $iToken = $this->aToken[0];
         $sContent = $this->aToken[1];
         if(in_array($iToken,$this->aControlSeq)) {
-            $this->oLog->log("Lowercase:".$sContent);
+            $this->oLog->log("Lowercase:".$sContent, PEAR_LOG_DEBUG);
             $this->oBeaut->add(" ".strtolower($sContent)." ");
         } else {
             return PHP_Beautifier_Filter::BYPASS;

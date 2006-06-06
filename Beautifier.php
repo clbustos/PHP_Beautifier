@@ -288,7 +288,6 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
             T_DO=>'T_CONTROL',
             T_WHILE=>'T_CONTROL',
             T_SWITCH=>'T_CONTROL',
-            T_CASE=>'T_CONTROL',
             /* ELSE */
             T_ELSEIF=>'T_ELSE',
             T_ELSE=>'T_ELSE',
@@ -844,13 +843,15 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
             break;
 
             case '{':
-                if ($this->getPreviousTokenConstant() == T_VARIABLE or ($this->getPreviousTokenConstant() == T_STRING and $this->getPreviousTokenConstant(2) == T_OBJECT_OPERATOR)) {
+                if ($this->isPreviousTokenConstant(T_VARIABLE) or ($this->isPreviousTokenConstant(T_STRING) and $this->getPreviousTokenConstant(2) == T_OBJECT_OPERATOR)
+                or $this->isPreviousTokenConstant(T_OBJECT_OPERATOR)
+                ) {
                     $this->setMode('string_index');
                 }
             break;
 
             case '}':
-                $this->oLog->log('end bracket:'.$this->getPreviousTokenContent() ."\n");
+                $this->oLog->log('end bracket:'.$this->getPreviousTokenContent(),PEAR_LOG_DEBUG);
                 if ($this->getPreviousTokenContent() == ';' or $this->getPreviousTokenContent() == '}' or $this->getPreviousTokenContent() == '{') {
                     $this->popControlSeq();
                 }
@@ -935,7 +936,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
     */
     private function pushControlSeq($aToken) 
     {
-        $this->oLog->log('Push:'.$aToken[0]."->".$aToken[1]);
+        $this->oLog->log('Push:'.$aToken[0]."->".$aToken[1],PEAR_LOG_DEBUG);
         array_push($this->aControlSeq, $aToken[0]);
     }
     /**
@@ -945,7 +946,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
     private function popControlSeq() 
     {
         $aEl = array_pop($this->aControlSeq);
-            $this->oLog->log('Pop:'.$aEl);
+            $this->oLog->log('Pop:'.$aEl,PEAR_LOG_DEBUG);
         return $aEl;
     }
     /**
@@ -954,7 +955,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
     private function pushControlParenthesis() 
     {
         $iPrevious = $this->getPreviousTokenConstant();
-        $this->oLog->log("Push Parenthesis: $iPrevious ->".$this->getPreviousTokenContent());
+        $this->oLog->log("Push Parenthesis: $iPrevious ->".$this->getPreviousTokenContent(),PEAR_LOG_DEBUG);
         array_push($this->aControlParenthesis, $iPrevious);
     }
     /**
@@ -964,7 +965,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
     private function popControlParenthesis() 
     {
         $iPop = array_pop($this->aControlParenthesis);
-        $this->oLog->log('Pop Parenthesis:'.$iPop);
+        $this->oLog->log('Pop Parenthesis:'.$iPop,PEAR_LOG_DEBUG);
         return $iPop;
     }
     /**
