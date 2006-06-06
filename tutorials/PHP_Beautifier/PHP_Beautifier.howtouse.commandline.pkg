@@ -272,13 +272,13 @@ $ php_beautifier --filters "ArrayNested Pear(add_header=php)"
   </refsect2>
 <refsect2 id="{@id filters}">
   <title>Use Filters</title>
-  <para>Use PEAR standars</para>
+  <para>Use PEAR standards</para>
   <screen>
   <![CDATA[
   php_beautifier -l "Pear()" index.php index_pear.php
   ]]>
   </screen>
-  <para>Use PEAR standars, add Apache license, nest arrays and list the functions and classes of file</para>
+  <para>Use PEAR standards, add Apache license, nest arrays and list the functions and classes of file</para>
   <screen>
   <![CDATA[
   php_beautifier -l "Pear(add_header=apache) ArrayNested() ListClassFunction()" index.php index_new.php

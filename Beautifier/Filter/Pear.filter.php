@@ -58,13 +58,17 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter {
     private $bOpenTag = false;
     function t_semi_colon($sTag) 
     {
-        if (!$this->oBeaut->isPreviousTokenConstant(T_BREAK)) {
-            return PHP_Beautifier_Filter::BYPASS;
-        }
+        if ($this->oBeaut->isPreviousTokenConstant(T_BREAK)) {
         $this->oBeaut->removeWhitespace();
         $this->oBeaut->add($sTag);
         $this->oBeaut->addNewLine();
         $this->oBeaut->addNewLineIndent();
+        } elseif($this->oBeaut->getControlParenthesis() == T_FOR) {
+            $this->oBeaut->removeWhitespace();
+            $this->oBeaut->add(" ".$sTag." ");
+        } else {
+            return PHP_Beautifier_Filter::BYPASS;
+        }
     }
     function t_break($sTag) 
     {

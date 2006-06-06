@@ -76,8 +76,12 @@
         }
         function testaddFilter() 
         {
+            if(file_exists('../Beautifier/Filter/ArrayNested.filter.php')) {
+                include_once('../Beautifier/Filter/ArrayNested.filter.php');
+            } else {
             include_once ('PHP/Beautifier/Filter/ArrayNested.filter.php');
-            // Include filter by string
+
+            }            // Include filter by string
             $this->oBeaut->addFilter('Pear');
             $aFilterList = array(
                 'Pear',
@@ -104,7 +108,8 @@
                 'NewLines',
                 'Pear',
                 'ArrayNested',
-                'IndentStyles'
+                'IndentStyles',
+                'Lowercase'
             );
             sort($aEspFilters);
             $aRealFilters = $this->oBeaut->getFilterListTotal();
@@ -186,45 +191,43 @@ SCRIPT;
             $this->oBeaut->setInputString($sTextOriginal);
             $this->oBeaut->process();
             $sTextActual = $this->oBeaut->get();
-            for ($x = 0;$x<strlen($sTextExpected);$x++) {
+            /*for ($x = 0;$x<strlen($sTextExpected);$x++) {
                 $this->assertEquals($sTextExpected{$x}, $sTextActual{$x});
-            }
+            }*/
+                $this->assertEquals($sTextExpected, $sTextActual);
+
         }
 function testDocComment() 
         {
             $sTextOriginal = <<<SCRIPT
 <?php
 /** Doc comment inline */
-/** First line
-* Other line
-*/
+                      /** First line
+  * Other line
+                   */
 /**
-* Doc normal comment
-*
-* Other line
-*/
+       * Doc normal comment
+ *
+            * Other line
+ */
 ?>
 SCRIPT;
             $sTextExpected = <<<SCRIPT
 <?php
 /** Doc comment inline */
 /** First line
-* Other line
-*/
+ * Other line
+ */
 /**
-* Doc normal comment
-*
-* Other line
-*/
+ * Doc normal comment
+ *
+ * Other line
+ */
 ?>
 SCRIPT;
-            $sTextExpected = str_replace("\r\n", "\n", $sTextExpected);
             $this->oBeaut->setInputString($sTextOriginal);
             $this->oBeaut->process();
-            $sTextActual = $this->oBeaut->get();
-            for ($x = 0;$x<strlen($sTextExpected);$x++) {
-                $this->assertEquals($sTextExpected{$x}, $sTextActual{$x});
-            }
+            $this->assertEquals($sTextExpected,$this->oBeaut->get());
         }        
         /*
         function testresetProperties() {

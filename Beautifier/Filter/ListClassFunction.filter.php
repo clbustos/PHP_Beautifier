@@ -139,7 +139,7 @@ class PHP_Beautifier_Filter_ListClassFunction extends PHP_Beautifier_Filter {
             $sText = implode($sPrevio, $aOut) .$sNL;
             $this->oBeaut->replaceTokenAssoc($this->iComment, $sText);
         } else {
-            $sPrevio = $sNL.str_repeat($this->oBeaut->sIndentChar, $this->oBeaut->iIndentNumber);
+            $sPrevio = $sNL/*.str_repeat($this->oBeaut->sIndentChar, $this->oBeaut->iIndentNumber)*/;
             $sTag = trim($this->oBeaut->getTokenAssocText($this->iOpenTag)) ."\n";
             $sText = $sPrevio.implode($sPrevio, $aOut);
             $this->oBeaut->replaceTokenAssoc($this->iOpenTag, rtrim($sTag) .$sText.$sPrevio);

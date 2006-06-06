@@ -250,7 +250,10 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
             T_ENDSWITCH,
             T_ENDIF
         );
-        $this->aTokenFunctions = preg_grep('/^T_/', array_flip(array_filter(get_defined_constants() , 'is_integer')));
+        $aPreTokens=preg_grep('/^T_/',array_keys(get_defined_constants()));
+        foreach($aPreTokens as $sToken) {
+            $this->aTokenFunctions[constant($sToken)]=$sToken;
+        }
         $aTokensToChange = array(
             /* PUNCTUATION */
             '('=>'T_PARENTHESIS_OPEN',
@@ -261,7 +264,9 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
             ','=>'T_COMMA',
             '?'=>'T_QUESTION',
             ':'=>'T_COLON',
-            '='=>'T_EQUAL_SIGN',
+            '='=>'T_ASSIGMENT',
+            '<'=>'T_EQUAL',
+            '>'=>'T_EQUAL',
             T_OBJECT_OPERATOR=>'T_OBJECT_OPERATOR',
             /* INCLUDE */
             T_INCLUDE=>'T_INCLUDE',
@@ -297,15 +302,16 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
             T_CONST=>'T_ACCESS',
             T_STATIC=>'T_ACCESS',
             /* COMPARATORS */
-            T_PLUS_EQUAL=>'T_ASSIGMENT',
-            T_MINUS_EQUAL=>'T_ASSIGMENT',
-            T_MUL_EQUAL=>'T_ASSIGMENT',
-            T_DIV_EQUAL=>'T_ASSIGMENT',
-            T_CONCAT_EQUAL=>'T_ASSIGMENT',
-            T_MOD_EQUAL=>'T_ASSIGMENT',
-            T_AND_EQUAL=>'T_ASSIGMENT',
-            T_OR_EQUAL=>'T_ASSIGMENT',
-            T_XOR_EQUAL=>'T_ASSIGMENT',
+            T_PLUS_EQUAL=>'T_ASSIGMENT_PRE',
+            T_MINUS_EQUAL=>'T_ASSIGMENT_PRE',
+            T_MUL_EQUAL=>'T_ASSIGMENT_PRE',
+            T_DIV_EQUAL=>'T_ASSIGMENT_PRE',
+            T_CONCAT_EQUAL=>'T_ASSIGMENT_PRE',
+            T_MOD_EQUAL=>'T_ASSIGMENT_PRE',
+            T_AND_EQUAL=>'T_ASSIGMENT_PRE',
+            T_OR_EQUAL=>'T_ASSIGMENT_PRE',
+            T_XOR_EQUAL=>'T_ASSIGMENT_PRE',
+            T_DOUBLE_ARROW=>'T_ASSIGMENT',
             T_SL_EQUAL=>'T_EQUAL',
             T_SR_EQUAL=>'T_EQUAL',
             T_IS_EQUAL=>'T_EQUAL',
@@ -314,6 +320,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
             T_IS_NOT_IDENTICAL=>'T_EQUAL',
             T_IS_SMALLER_OR_EQUAL=>'T_EQUAL',
             T_IS_GREATER_OR_EQUAL=>'T_EQUAL',
+
             /* LOGICAL*/
             T_LOGICAL_OR=>'T_LOGICAL',
             T_LOGICAL_XOR=>'T_LOGICAL',
@@ -843,9 +850,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
             break;
 
             case '}':
-                if ($this->iVerbose) {
-                    echo 'end bracket:'.$this->getPreviousTokenContent() ."\n";
-                }
+                $this->oLog->log('end bracket:'.$this->getPreviousTokenContent() ."\n");
                 if ($this->getPreviousTokenContent() == ';' or $this->getPreviousTokenContent() == '}' or $this->getPreviousTokenContent() == '{') {
                     $this->popControlSeq();
                 }
@@ -930,9 +935,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
     */
     private function pushControlSeq($aToken) 
     {
-        if ($this->iVerbose>0) {
-            echo 'Push:'.$aToken[0]."->".$aToken[1]."\n";
-        }
+        $this->oLog->log('Push:'.$aToken[0]."->".$aToken[1]);
         array_push($this->aControlSeq, $aToken[0]);
     }
     /**
@@ -942,9 +945,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
     private function popControlSeq() 
     {
         $aEl = array_pop($this->aControlSeq);
-        if ($this->iVerbose>0) {
-            echo 'Pop:'.$aEl."\n";
-        }
+            $this->oLog->log('Pop:'.$aEl);
         return $aEl;
     }
     /**
@@ -953,9 +954,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
     private function pushControlParenthesis() 
     {
         $iPrevious = $this->getPreviousTokenConstant();
-        if ($this->iVerbose>0) {
-            echo "Push Parenthesis: $iPrevious ->".$this->getPreviousTokenContent() ."\n";
-        }
+        $this->oLog->log("Push Parenthesis: $iPrevious ->".$this->getPreviousTokenContent());
         array_push($this->aControlParenthesis, $iPrevious);
     }
     /**
@@ -965,9 +964,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
     private function popControlParenthesis() 
     {
         $iPop = array_pop($this->aControlParenthesis);
-        if ($this->iVerbose>0) {
-            echo 'Pop Parenthesis:'.$iPop."\n";
-        }
+        $this->oLog->log('Pop Parenthesis:'.$iPop);
         return $iPop;
     }
     /**
@@ -1291,6 +1288,14 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
         $mToken = $this->getPreviousToken($iPrev);
         return (is_string($mToken)) ? $mToken : $mToken[1];
     }
+    public function getNextTokenNonCommentConstant($iPrev = 1) {
+        do {
+        $aToken = $this->getNextToken($iPrev);
+        $iPrev++;
+        } while($aToken[0]==T_COMMENT);
+        return $aToken[0];
+    }
+    
     /**
     * Get the 'x' significant (non whitespace) next token constant
     * @param  int   current+x token
@@ -1323,7 +1328,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
     {
         $sWhiteSpace = '';
         for ($x = $this->iCount-1;$x >= 0;$x--) {
-            $this->oLog->log($x, PEAR_LOG_DEBUG);
+            $this->oLog->log("sp n:$x", PEAR_LOG_DEBUG);
             $aToken = $this->getToken($x);
             if (is_array($aToken)) {
                 if ($aToken[0] == T_WHITESPACE) {
@@ -1362,17 +1367,18 @@ class PHP_Beautifier implements PHP_Beautifier_Interface {
         } elseif ($this->getPreviousTokenConstant(2) == T_END_HEREDOC) { // And here for heredoc
             return false;
         }
+        $pop=0;
         for ($i = count($this->aOut) -1;$i >= 0;$i--) { // go backwards
             $cNow = &$this->aOut[$i];
             if (strlen(trim($cNow)) == 0) { // only space
                 array_pop($this->aOut); // delete it!
-                
+                $pop++;
             } else { // we find something!
                 $cNow = rtrim($cNow); // rtrim out
                 break;
             }
         }
-        $this->oLog->log('-space', PEAR_LOG_DEBUG);
+        $this->oLog->log("-space $pop", PEAR_LOG_DEBUG);
         return true;
     }
     /**

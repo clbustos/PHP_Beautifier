@@ -172,11 +172,11 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter {
             foreach($aLines as $sLine) {
                 if ($sLine = trim($sLine)) {
                     $this->oBeaut->addNewLineIndent();
-                    $this->oBeaut->add($sLine);
+                    $this->oBeaut->add(" ".$sLine);
                 }
             }
             $this->oBeaut->addNewLineIndent();
-            $this->oBeaut->add($aMatch[3]);
+            $this->oBeaut->add(" ".$aMatch[3]);
             $this->oBeaut->addNewLineIndent();
         }
     }
@@ -303,7 +303,8 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter {
             $this->oBeaut->add(' '.$sTag.' ');
         } else {
             $this->oBeaut->add($sTag);
-            if (!$this->oBeaut->isNextTokenConstant(T_CASE) and !$this->oBeaut->isNextTokenConstant(T_DEFAULT)) {
+            $iNextConstant=$this->oBeaut->getNextTokenNonCommentConstant();
+            if ($iNextConstant!=T_CASE and $iNextConstant!=T_DEFAULT) {
                 $this->oBeaut->incIndent();
             }
             $this->oBeaut->addNewLineIndent();
@@ -356,6 +357,11 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter {
         $this->oBeaut->add(' '.$sTag.' ');
     }
     function t_assigment($sTag) 
+    {
+        $this->oBeaut->removeWhitespace();
+        $this->oBeaut->add(' '.$sTag.' ');
+    }
+    function t_assigment_pre($sTag) 
     {
         $this->oBeaut->removeWhitespace();
         $this->oBeaut->add($sTag.' ');

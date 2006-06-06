@@ -16,11 +16,19 @@
 	</maintainers>
 	
 	<release>
-		<version>0.1.8</version>
-		<date>2006-04-01</date>
-		<notes>Bug fix release
-- Bug fix [#6237]: Extra space before a variable inside a double quote section
-- Bug fix [#5711]: Add newline with indent after class definition, with pear filter.</notes>
+		<version>0.1.9</version>
+		<date>2006-06-05</date>
+		<notes>¡The one before stable!		
+- Bug fix[Internal 2]: Code to detect default token constant was wrong. This solve strange extra white lines on output.
+- Bug fix[#7305]: add spaces before and after array key-value pair assignator (=>)
+- Bug fix[#7307]: first lines are intended if ListClassFunction is enabled
+- Bug fix[#7308]:  	typo in "How to use PHP_Beautifier": 'standar' should be 'standard'
+- Bug fix[#7312]: missing spaces with lower and greater than operator. missing spaces with after ; in for statemants
+- Bug fix[#7759]: Adding a comment after a case statement in a switch causes the
+indenting to be wrong.
++ New Lowercase Filter[requested on #7348]: Lowercase all control structures. Parse the output of this filter with a new instance of the object or with a pipe in a new php_beautifier.
+
+</notes>
 		<state>beta</state>
 		<filelist>
 			<dir name="/" role="php" baseinstalldir="PHP">
@@ -68,6 +76,10 @@
 						<file name="NewLines.filter.php">
 							<replace from="@package_version@" to="version" type="package-info" />
 						</file>
+						<file name="Lowercase.filter.php">
+							<replace from="@package_version@" to="version" type="package-info" />
+						</file>
+
 					</dir>
 					<dir name="Batch" role="php">
 						<file name="Output.php">
@@ -110,6 +122,7 @@
 					<file name="run_me.php"></file>
 					<file name="example_main.php" />
 					<file name="example_pear.php" />
+					<file name="example_lowercase.php" />
 					<file name="example_array.php" />
 					<file name="example_comments.php" />
 					<file name="example_html.php" />
@@ -134,6 +147,12 @@
 					<file name="Beautifier_StreamWrapper.phpt">
 						<replace from="@package_version@" to="version" type="package-info" />
 					</file>
+					<file name="Beautifier_Pear.phpt">
+						<replace from="@package_version@" to="version" type="package-info" />
+					</file>
+					<file name="pear_sample_file.phps">
+						<replace from="@package_version@" to="version" type="package-info" />
+					</file>								
 				</dir>
 			</dir>
 			<dir name="scripts" role="script" baseinstalldir="/">
@@ -157,6 +176,22 @@
 		<dep type="ext" rel="has" optional="yes" version="0">bz2</dep>
 	</deps>
 	<changelog>
+<release>
+		<version>0.1.9</version>
+		<date>2006-06-05</date>
+		<notes>¡The one before stable!		
+- Bug fix[Internal 2]: Code to detect default token constant was wrong. This solve strange extra white lines on output.
+- Bug fix[#7305]: add spaces before and after array key-value pair assignator (=>)
+- Bug fix[#7307]: first lines are intended if ListClassFunction is enabled
+- Bug fix[#7308]:  	typo in "How to use PHP_Beautifier": 'standar' should be 'standard'
+- Bug fix[#7312]: missing spaces with lower and greater than operator. missing spaces with after ; in for statemants
+- Bug fix[#7759]: Adding a comment after a case statement in a switch causes the
+indenting to be wrong.
++ New Lowercase Filter[requested on #7348]: Lowercase all control structures. Parse the output of this filter with a new instance of the object or with a pipe in a new php_beautifier.
+
+</notes>
+		<state>beta</state>
+		</release>
 	<release>
 		<version>0.1.8</version>
 		<date>2006-04-01</date>

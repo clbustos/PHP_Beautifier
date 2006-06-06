@@ -195,9 +195,7 @@ abstract class PHP_Beautifier_Filter {
             return ($this->$sMethod($sValue) !== PHP_Beautifier_Filter::BYPASS);
         } else { // WEIRD!!! -> Add the same received
             $this->oBeaut->add($token[1]);
-            if ($this->oBeaut->iVerbose>5) {
-                echo trim($token) ."\n";
-            }
+            PHP_Beautifier_Common::getLog()->log("Add same received:".trim($token[1]));
             return true;
         }
         // never go here

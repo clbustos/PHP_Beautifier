@@ -324,6 +324,59 @@ SCRIPT;
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
+    /**
+    * Bad code to detect tokens
+    */
+    
+    function testInternal2() {
+        $this->assertTrue(array_key_exists(T_COMMENT,$this->oBeaut->aTokenFunctions));
+    }
+    /**
+    * Adding a comment after a case statement in a switch causes 
+    * the indenting to be wrong.
+    */
+    function testBug7759() {
+        $sText = <<<SCRIPT
+<?php
+echo 0;
+switch(1) {
+case 1:
+case 5:
+echo 1;
+break;
+case 2: //2
+case 3: /*3 */ /* 3? */
+case 4: //3
+default:
+echo '2';
+break;
+}
+echo 1;
+?>
+SCRIPT;
+
+$this->setText($sText);
+
+        $sExpected = <<<SCRIPT
+<?php
+echo 0;
+switch (1) {
+    case 1:
+    case 5:
+        echo 1;
+    break;
+    case 2: //2
+    case 3: /*3 */ /* 3? */
+    case 4: //3
+    default:
+        echo '2';
+    break;
+}
+echo 1;
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());        
+    }
 }
 $suite = new PHPUnit_TestSuite('Beautifier_Bugs');
 $result = PHPUnit::run($suite);

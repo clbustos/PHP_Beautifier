@@ -78,6 +78,11 @@
             )
         )
     );
+    // =
+    $a=5;
+    $b="";
+    $c=$a.$b;
+    $d.=" ".$b;
     // Somebody remember callbacks?
     // ArrayNested->on()
     $aMyArray = array(array(array(array('el'=>1,'el'=>2))));
