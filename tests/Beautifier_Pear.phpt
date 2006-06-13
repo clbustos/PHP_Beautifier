@@ -46,6 +46,7 @@ class Beautifier_Pear_TestCase extends PHPUnit_TestCase {
         $this->oBeaut->process();
         $this->assertEquals($sContent,$this->oBeaut->get());
     }
+    
 	}
     $suite = new PHPUnit_TestSuite('Beautifier_Pear_TestCase');
     $result = PHPUnit::run($suite);

@@ -228,7 +228,65 @@ SCRIPT;
             $this->oBeaut->setInputString($sTextOriginal);
             $this->oBeaut->process();
             $this->assertEquals($sTextExpected,$this->oBeaut->get());
-        }        
+        }
+        function testNestedSwitch() {
+$sTextOriginal = <<<SCRIPT
+<?php
+switch(\$a) {
+    case 1:
+    case 2:
+    switch(\$b) {
+        case 1:
+        case 2:
+            switch(\$c) {
+                case 1:
+                case 2:
+                    echo "hola";
+                break;
+                default:
+                    echo "leso";
+                break;
+            }
+        break;
+        case 3:
+            echo "hola";
+        break;
+    }
+    break;
+}
+?>
+SCRIPT;
+            $sTextExpected = <<<SCRIPT
+<?php
+switch (\$a) {
+    case 1:
+    case 2:
+        switch (\$b) {
+            case 1:
+            case 2:
+                switch (\$c) {
+                    case 1:
+                    case 2:
+                        echo "hola";
+                    break;
+                    default:
+                        echo "leso";
+                    break;
+                }
+            break;
+            case 3:
+                echo "hola";
+            break;
+        }
+    break;
+}
+?>
+SCRIPT;
+            $this->oBeaut->setInputString($sTextOriginal);
+            $this->oBeaut->process();
+            $this->assertEquals($sTextExpected,$this->oBeaut->get());            
+        
+        }
         /*
         function testresetProperties() {
         }

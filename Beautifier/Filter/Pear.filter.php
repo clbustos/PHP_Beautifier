@@ -34,6 +34,7 @@ require_once ('PEAR/Config.php');
 * - Brace in function definition put on a new line, same indent of 'function' construct
 * - Comments started with '#' are replaced with '//'
 * - Open tags are replaced with '<?php'
+* - T_OPEN_TAG_WITH_ECHO replaced with <?php echo 
 * - With setting 'add_header', the filter add one of the standard PEAR comment header
 *   (php, bsd, apache, lgpl, pear) or any file as licence header. Use:
 * <code>
@@ -56,6 +57,9 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter {
     );
     protected $sDescription = 'Filter the code to make it compatible with PEAR Coding Specs';
     private $bOpenTag = false;
+    function t_open_tag_with_echo($sTag) {
+        $this->oBeaut->add("<?php echo ");
+    }
     function t_semi_colon($sTag) 
     {
         if ($this->oBeaut->isPreviousTokenConstant(T_BREAK)) {
@@ -70,20 +74,28 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter {
             return PHP_Beautifier_Filter::BYPASS;
         }
     }
+    function t_case($sTag) {
+        $this->oBeaut->removeWhitespace();
+        $this->oBeaut->decIndent();
+        if($this->oBeaut->isPreviousTokenConstant(T_BREAK,2)) {
+            $this->oBeaut->addNewLine();
+        }
+        $this->oBeaut->addNewLineIndent();
+
+        $this->oBeaut->add($sTag.' ');
+        //$this->oBeaut->incIndent();
+    }
+    function t_default($sTag) {
+        $this->t_case($sTag);
+    }
     function t_break($sTag) 
     {
-        if ($this->oBeaut->getControlSeq() == T_CASE or $this->oBeaut->getControlSeq() == T_DEFAULT) {
-            $this->oBeaut->removeWhitespace();
-            $this->oBeaut->addNewLineIndent();
-            $this->oBeaut->decIndent();
-            $this->oBeaut->add($sTag);
-        } else {
-            return PHP_Beautifier_Filter::BYPASS;
-        }
+        $this->oBeaut->add($sTag);
     }
+
     function t_open_brace($sTag) 
     {
-        if (!($this->oBeaut->getMode('function') or $this->oBeaut->getMode('class'))) {
+        if ($this->oBeaut->getControlSeq() != T_CLASS and $this->oBeaut->getControlSeq() != T_FUNCTION) {
             return PHP_Beautifier_Filter::BYPASS;
         }
         $this->oBeaut->addNewLineIndent();

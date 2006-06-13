@@ -325,6 +325,43 @@ SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
+    * according to: http://pear.php.net/manual/en/standards.control.php
+    * control strutures should be indented in K&R style
+    *
+    * if (<cond>) {
+    * <body>
+    *   }
+    *   however, are getting indented in Allman style
+    * all control structures are affected.
+    */
+    function testBug7347() {
+        $this->oBeaut->addFilter("Pear");
+        $sText = <<<SCRIPT
+<?php
+class Foo { 
+    public function __construct() {
+        if(\$foo && \$bar) { echo "FUBAR"; }
+    }
+}
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+class Foo
+{
+    public function __construct() 
+    {
+        if (\$foo && \$bar) {
+            echo "FUBAR";
+        }
+    }
+}
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    /**
     * Bad code to detect tokens
     */
     
@@ -341,14 +378,14 @@ SCRIPT;
 echo 0;
 switch(1) {
 case 1:
-case 5:
+case 5: // 5
 echo 1;
 break;
 case 2: //2
 echo "something";
 echo "something";
 case 3: /*3 */ /* 3? */
-case 4: //3
+case 4: 
 default:
 echo '2';
 break;
@@ -364,14 +401,14 @@ $this->setText($sText);
 echo 0;
 switch (1) {
     case 1:
-    case 5:
+    case 5: // 5
         echo 1;
     break;
     case 2: //2
         echo "something";
         echo "something";
     case 3: /*3 */ /* 3? */
-    case 4: //3
+    case 4:
     default:
         echo '2';
     break;
@@ -381,8 +418,8 @@ echo 1;
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());        
     }
-    function test7818() {
-        $this->oBeaut->startLog();
+    function testBug7818() {
+        $this->oBeaut->startLog();        
         $sText=<<<SCRIPT
 <?php
 \$field->createElement(\$form, \$this->_table->{\$field->id}, \$defaults);
@@ -394,6 +431,23 @@ $this->setText($sText);
 <?php
 \$field->createElement(\$form, \$this->_table->{\$field->id}, \$defaults);
 ?>
+SCRIPT;
+    $this->assertEquals($sExpected, $this->oBeaut->get());    
+    }
+    /**
+    * Will be great if you can rewrite T_OPEN_TAG_WITH_ECHO in the default
+    filter, specially "<?=" because it will be removed in
+    PHP6.
+    */
+    function testBug7854() {
+        $this->oBeaut->addFilter("Pear");
+        $sText=<<<SCRIPT
+<?= \$var ?>
+SCRIPT;
+$this->setText($sText);
+
+        $sExpected = <<<SCRIPT
+<?php echo \$var ?>
 SCRIPT;
     $this->assertEquals($sExpected, $this->oBeaut->get());    
     }
