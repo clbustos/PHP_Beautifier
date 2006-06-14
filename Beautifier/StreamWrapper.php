@@ -15,7 +15,7 @@
 * @author Claudio Bustos <clbustos@dotgeek.org>
 * @copyright  2004-2005 Claudio Bustos
 * @link     http://pear.php.net/package/PHP_Beautifier
-* @link     http://clbustos.dotgeek.org
+* @link     http://beautifyphp.sourceforge.net
 * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
 * @version    CVS: $Id:$
 */
@@ -29,7 +29,7 @@
 * @author Claudio Bustos <clbustos@dotgeek.org>
 * @copyright  2004-2005 Claudio Bustos
 * @link     http://pear.php.net/package/PHP_Beautifier
-* @link     http://clbustos.dotgeek.org
+* @link     http://beautifyphp.sourceforge.net
 * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
 * @version    Release: @package_version@
 */

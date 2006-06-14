@@ -17,14 +17,13 @@
 	
 	<release>
 		<version>0.1.11</version>
-		<date></date>
+		<date>2006-06-13</date>
 		<notes>Bug fix release (damn switch)
 * Reimplemented switch, case and default control logic. Now, almost all the switch stamements should be managed well. Please, give feedback!
 - Bug fix[7759]: Adding a comment after a case statement in a switch causes the
 indenting to be wrong. Know issue: Line comment after a case cause a extra new line if the next statement is a case or default token.
 - Bug fix[7818]: Where curly brackets are used to indicate a variable class  property, PHP_Beautifier adds extra whitespace as if it were  parsing a class method or function.
-- Feature Request [#7854]: Rewrite T_OPEN_TAG_WITH_ECHO in the default filter, specially "&lt%=" because it will be removed in PHP6. Currently implemented on Pear filter
-
+- Feature Request [#7854]: Rewrite T_OPEN_TAG_WITH_ECHO in the default filter, specially "&lt;%=" because it will be removed in PHP6. Currently implemented on Pear filter
 		</notes>
 		<state>beta</state>
 		<filelist>

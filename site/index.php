@@ -22,42 +22,32 @@ pre {
 <h1 id="header">PHP_Beautifier</h1>
 <h2>Purpose</h2>
 <p>This program reformat and beautify PHP source code files automatically. The program is Open Source and distributed under the terms of PHP Licence. It is written in PHP 5 and has a command line tool.</p>
-<h2>Package</h2>
-<p><b>Pear: 'Stable' release. </b> <a href='http://pear.php.net/package/PHP_Beautifier'>http://pear.php.net/package/PHP_Beautifier</a></p>
-<p><b>Local:The latest, but maybe broken. </b> <?php
-    function getUrl($sFile) 
+<p>If you need a PHP 4 tool to beautify files, use <a href='http://www.bierkandt.org/beautify/'>Beautify PHP</a>, made by Jens Bierkandt</p>
+<h2>Pear</h2>
+<ul>
+<li>Main page:<a href='http://pear.php.net/package/PHP_Beautifier'>http://pear.php.net/package/PHP_Beautifier</a></li>
+<li>Download: <a href='http://pear.php.net/package/PHP_Beautifier/download'>http://pear.php.net/package/PHP_Beautifier/download</a></li>
+<li>Bugs: <a href='http://pear.php.net/package/PHP_Beautifier/bugs'>http://pear.php.net/package/PHP_Beautifier/bugs</a>
+</li>
+</ul>
+<!--<h2>Demostration</h2>
+<p>Test the code on <a href='demo/'>demo page</a></p>
+-->
+<h2>Sourceforge</h2>
+<ul><li>Project page:<a href='http://sourceforge.net/projects/beautifyphp'>http://sourceforge.net/projects/beautifyphp</a></li>
+<li>News:<a href='http://sourceforge.net/news/?group_id=65412'>http://sourceforge.net/news/?group_id=65412</a></li>
+<li>CVS (obsolete): <a href='http://beautifyphp.cvs.sourceforge.net/beautifyphp'>http://beautifyphp.cvs.sourceforge.net/beautifyphp</a></li>
+<li>SVN: <a href="http://svn.sourceforge.net/viewcvs.cgi/beautifyphp/">http://svn.sourceforge.net/viewcvs.cgi/beautifyphp/</a></p>
+</li>
+<li>Forum: <a href='http://sourceforge.net/forum/?group_id=65412'>http://sourceforge.net/forum/?group_id=65412</a></li>
+</ul>
+<ul>
+<?php
+function getUrl($sFile) 
     {
         return 'http://'.$_SERVER['SERVER_NAME']."/".$sFile;
     }
-    $oDir = new DirectoryIterator("./");
-    for (;$oDir->valid();$oDir->next()) {
-        $sFile = $oDir->getFileName();
-        if ($oDir->isFile() and preg_match("/PHP_Beautifier-.*\.tgz/", $sFile)) {
-            $sTgz = getUrl($sFile);
-            break;
-        } else {
-            $sTgz = '<b>Error</b>';
-        }
-    }
-    unset($oDir);
-?>  <a href="<?php
-    echo $sTgz
-?>"><?php
-    echo $sTgz
-?></a></p>
-<p>Install with</p>
-<pre>pear install -f <?php
-    echo $sTgz
-?></pre>
-<h2>Demostration</h2>
-<p>Test the code on </p>
-<p><a href='http://clbustos.dotgeek.org/demo/'>http://clbustos.dotgeek.org/demo/</a></p>
-<h2>Source code</h2>
-<p><b>CVS:</b> <a href="http://cvs.sourceforge.net/viewcvs.py/beautifyphp/PHP_Beautifier/">http://cvs.sourceforge.net/viewcvs.py/beautifyphp/PHP_Beautifier/</a></p>
-<p>Beautified with</p>
-<pre>php_beautifier -l "Pear() ArrayNested" -r *.php ./phps/</pre>
-<ul>
-<?php
+
     function recurse($it) 
     {
         echo '<ul>';
@@ -74,42 +64,34 @@ pre {
         }
         echo '</ul>';
     }
-    recurse(new RecursiveDirectoryIterator('phps/'));
+    // recurse(new RecursiveDirectoryIterator('phps/'));
 ?>
 </ul>
 <h2>Documentation</h2>
 <h3>API</h3>
-<p><a href='docs/HTMLframesConverter/index.html'>Documentation made by PhpDocumentor</a></p>
-<h3>UML</h3>
-<ul>
-<?
-$oDir = new DirectoryIterator("./uml");
-    for (;$oDir->valid();$oDir->next()) {
-        $sFile = $oDir->getFileName();
-        if ($oDir->isFile()) {
-            $sFile = getUrl($sFile);
-            ?><li><a href='uml/<?php echo $oDir->getFileName(); ?>'><?php echo $oDir->getFileName(); ?></a></li><?
-        }
-    }
-    unset($oDir);
-    ?>
-    </ul>
+<p><a href='docs/'>Documentation made by PhpDocumentor</a></p>
+<h2>Bugs Report</h2>
+<p><a href='http://pear.php.net/package/PHP_Beautifier/bugs'>http://pear.php.net/package/PHP_Beautifier/bugs</a></p>
 <h2>Example</h2>
 <p>A script that beautify itself: <a href='example.phps'>This file</a> generate this <a href='example_output.phps'>output</a></p>
 <h2>Banners</h2>
 <p>If you use PHP_Beautifier on your site, use one of the following banners</p>
-<p><img src='images/buttons/button-php_beautifier.png' /> 
+<p><img src='button-php_beautifier.png' /> 
 <br />
 <code>
-&lt;a href='http://clbustos.dotgeek.org/'&gt;&lt;img src='http://clbustos.dotgeek.org/images/buttons/button-php_beautifier.png' /&gt;&lt;/a&gt;
+&lt;a href='http://beautifyphp.sourceforge.net/'&gt;&lt;img src='http://beautifyphp.sourceforge.net/button-php_beautifier.png' /&gt;&lt;/a&gt;
 </code>
 </p>
 <hr />
+
 <a href="http://www.jedit.org">
 <img src="http://www.jedit.org/made-with-jedit-4.png"
 alt="Developed with jEdit"
 border="0" width="96" height="36">
 </a>
+</p>
+<p>
+<a href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=65412&amp;type=2" width="125" height="37" border="0" alt="SourceForge.net Logo" /></a>
 </p>
 </body>
 </html>
