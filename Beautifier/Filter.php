@@ -12,8 +12,8 @@
 * @category   PHP
 * @package PHP_Beautifier
 * @subpackage Filter
-* @author Claudio Bustos <clbustos@dotgeek.org>
-* @copyright  2004-2005 Claudio Bustos
+* @author Claudio Bustos <cdx@users.sourceforge.com>
+* @copyright  2004-2006 Claudio Bustos
 * @link     http://pear.php.net/package/PHP_Beautifier
 * @link     http://beautifyphp.sourceforge.net
 * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
@@ -24,12 +24,12 @@
 *
 * Definition for creation of Filters
 * For concrete details, please see {@link PHP_Beautifier_Filter_Default}
-*
 * @category     PHP
 * @package      PHP_Beautifier
 * @subpackage   Filter
-* @author       Claudio Bustos <clbustos@dotgeek.org>
-* @copyright    2004-2005 Claudio Bustos
+* @tutorial     PHP_Beautifier/Filter/Filter.create.pkg
+* @author       Claudio Bustos <cdx@users.sourceforge.com>
+* @copyright    2004-2006 Claudio Bustos
 * @link         http://pear.php.net/package/PHP_Beautifier
 * @link         http://beautifyphp.sourceforge.net
 * @license      http://www.php.net/license/3_0.txt  PHP License 3.0

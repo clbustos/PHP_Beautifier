@@ -41,6 +41,18 @@
       <para>The first version of the program, PhpBeautify, was developed on Php 4 by Jens Bierkandt. In 2003 reached the 'stable' state and is the recomended version for the Php 4 users. This version works almost flawlessy, but was difficult to enhance, and have some problem with strange structures, like pascal-like control instructions and 'switch' structures</para>
       <para>With the stabilization of tokenizer and incoming of PHP 5, the need of a new version of the program arise. So, the code for the new version was developed from scratch by Claudio Bustos in 2004, based on the Php Tokenizer and the use of a Plug-in architecture.</para>
     </refsect2>
+    <refsect2 id="{@id where}">
+		<title>Where I can get PHP_Beautifier?</title>
+	<para>PHP_Beautifier resources are distributed on two sites: </para>
+	<itemizedlist>
+	<listitem>
+	<para>{@link http://pear.php.net/package/PHP_Beautifier PEAR}: Download, Change Log and bug report</para></listitem>
+	<listitem>
+	<para>{@link http://sourceforge.net/projects/beautifyphp Sourceforge}: News, Control Version (SVN) and Forum 
+	</para></listitem>
+	</itemizedlist>
+	</refsect2>
+	
   </refsect1>
   <refsect1 id="{@id features}">
     <title>Features of PHP_Beautifier</title>
