@@ -192,14 +192,14 @@
         $oBeaut->setIndentChar($sIndentChar);
         $oBeaut->setIndentNumber($iIndentNumber);
         $oBeaut->setCompress($sCompress);
-        if ($aFilters) {
-            foreach($aFilters as $sName=>$aArgs) {
-                $oBeaut->addFilter($sName, $aArgs);
-            }
-        }
         if ($aFiltersDirectory) {
             foreach($aFiltersDirectory as $sDirectory) {
                 $oBeaut->addFilterDirectory($sDirectory);
+            }
+        }		
+        if ($aFilters) {
+            foreach($aFilters as $sName=>$aArgs) {
+                $oBeaut->addFilter($sName, $aArgs);
             }
         }
         $oBeaut->process();

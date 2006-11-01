@@ -43,6 +43,7 @@ include_once ('Log.php');
 /**
  * Require Exceptions
  */
+
 include_once ('Beautifier/Exception.php');
 /**
  * Require StreamWrapper
