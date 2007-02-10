@@ -434,6 +434,7 @@ $this->setText($sText);
 SCRIPT;
     $this->assertEquals($sExpected, $this->oBeaut->get());    
     }
+    
     /**
     * Will be great if you can rewrite T_OPEN_TAG_WITH_ECHO in the default
     filter, specially "<?=" because it will be removed in
@@ -451,6 +452,119 @@ $this->setText($sText);
 SCRIPT;
     $this->assertEquals($sExpected, $this->oBeaut->get());    
     }
+    /**
+    * the first lines are intended if -l "ListClassFunction()" 
+    * is enabled
+    */
+    function testBug7307() {
+        // $this->oBeaut->startLog();
+        $this->oBeaut->addFilter("ListClassFunction");        
+        $sText=<<<SCRIPT
+<?php
+/**
+ * Class and Function List:
+ * Function list:
+ * Classes list:
+ */
+require_once 'dbobject.class.php';
+require_once 'kfp-globals.inc.php';
+class test {
+    function m1() {}
+    function m2() {}
+}
+function f1() {
+}
+?>
+SCRIPT;
+$this->setText($sText);
+
+        $sExpected = <<<SCRIPT
+<?php
+/**
+ * Class and Function List:
+ * Function list:
+ * - m1()
+ * - m2()
+ * - f1()
+ * Classes list:
+ * - test
+ */
+require_once 'dbobject.class.php';
+require_once 'kfp-globals.inc.php';
+class test {
+    function m1() {
+    }
+    function m2() {
+    }
+}
+function f1() {
+}
+?>
+SCRIPT;
+    $this->assertEquals($sExpected, $this->oBeaut->get());    
+    }
+    /**
+    * When using the "break" command, the command takes an optional parameter, see http://de.php.net/break for details. But this doesn't work when using the beautifier, because, for example "break 2;" morphs to "break2;" (notice the missing space, which makes the PHP interpreter quite sour :-(
+    */
+    function testBug_rolfhub_2007_02_07_1() {
+        $sText=<<<SCRIPT
+<?php
+\$i = 0;
+while (++\$i) {
+    switch (\$i) {
+        case 5:
+            echo "At 5<br />";
+        break 1; /* Exit only the switch. */
+        case 10:
+            echo "At 10; quitting<br />";
+        break 2; /* Exit the switch and the while. */
+        default:
+        break;
+    }
+}
+?>
+SCRIPT;
+$this->setText($sText);
+
+        $sExpected = <<<SCRIPT
+<?php
+\$i = 0;
+while (++\$i) {
+    switch (\$i) {
+        case 5:
+            echo "At 5<br />";
+        break 1; /* Exit only the switch. */
+        case 10:
+            echo "At 10; quitting<br />";
+        break 2; /* Exit the switch and the while. */
+        default:
+        break;
+    }
+}
+?>
+SCRIPT;
+    $this->assertEquals($sExpected, $this->oBeaut->get());    
+    }
+
+    /**
+    * The beautifer removes the whitespaces left and right of the operator, so for example "echo 2 . 1 . 0 . "\n";" becomes "echo 2.1.0."\n";"
+    */
+    function testBug_rolfhub_2007_02_07_2() {
+        $sText=<<<SCRIPT
+<?php
+echo (1.0 . " " . 2 . 3);
+?>
+SCRIPT;
+$this->setText($sText);
+
+        $sExpected = <<<SCRIPT
+<?php
+echo (1.0 . " " . 2 . 3);
+?>
+SCRIPT;
+    $this->assertEquals($sExpected, $this->oBeaut->get());    
+    }
+    
 }
 $suite = new PHPUnit_TestSuite('Beautifier_Bugs');
 $result = PHPUnit::run($suite);

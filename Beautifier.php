@@ -43,7 +43,6 @@ include_once ('Log.php');
 /**
  * Require Exceptions
  */
-
 include_once ('Beautifier/Exception.php');
 /**
  * Require StreamWrapper
@@ -275,6 +274,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
             '=' => 'T_ASSIGMENT',
             '<' => 'T_EQUAL',
             '>' => 'T_EQUAL',
+            '.' => 'T_DOT',
             T_OBJECT_OPERATOR => 'T_OBJECT_OPERATOR',
             /* INCLUDE */
             T_INCLUDE => 'T_INCLUDE',
@@ -344,7 +344,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
         foreach($aTokensToChange as $iToken => $sFunction) {
             $this->aTokenFunctions[$iToken] = $sFunction;
         }
-        $this->addFilterDirectory(dirname(__FILE__) .'/Beautifier/Filter');
+        $this->addFilterDirectory(dirname(__FILE__) . '/Beautifier/Filter');
         $this->addFilter('Default');
         $this->oLog = PHP_Beautifier_Common::getLog();
     }
@@ -404,7 +404,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
         if ($mFilter instanceOf PHP_Beautifier_Filter) {
             return $this->addFilterObject($mFilter);
         }
-        $sFilterClass = 'PHP_Beautifier_Filter_'.$mFilter;
+        $sFilterClass = 'PHP_Beautifier_Filter_' . $mFilter;
         if (!class_exists($sFilterClass)) {
             $this->addFilterFile($mFilter);
         }
@@ -425,7 +425,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
      */
     public function removeFilter($sFilter) 
     {
-        $sFilterName = strtolower('PHP_Beautifier_Filter_'.$sFilter);
+        $sFilterName = strtolower('PHP_Beautifier_Filter_' . $sFilter);
         foreach($this->aFilters as $sId => $oFilter) {
             if (strtolower(get_class($oFilter)) == $sFilterName) {
                 unset($this->aFilters[$sId]);
@@ -445,7 +445,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
         $aFilters = $this->getFilterListTotal();
         if (in_array($sFilter, $aFilters)) {
             $this->addFilterFile($sFilter);
-            $sFilterClass = 'PHP_Beautifier_Filter_'.$sFilter;
+            $sFilterClass = 'PHP_Beautifier_Filter_' . $sFilter;
             $oTemp = new $sFilterClass($this, array());
             return $oTemp;
         } else {
@@ -462,12 +462,12 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
      */
     private function addFilterFile($sFilter) 
     {
-        $sFilterClass = 'PHP_Beautifier_Filter_'.$sFilter;
+        $sFilterClass = 'PHP_Beautifier_Filter_' . $sFilter;
         if (class_exists($sFilterClass)) {
             return true;
         }
         foreach($this->aFilterDirs as $sDir) {
-            $sFile = $sDir.$sFilter.'.filter.php';
+            $sFile = $sDir . $sFilter . '.filter.php';
             if (file_exists($sFile)) {
                 include_once ($sFile);
                 if (class_exists($sFilterClass)) {
@@ -658,7 +658,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
      */
     public function process() 
     {
-        $this->oLog->log('Init process of '.(($this->sInputFile) ? 'file '.$this->sInputFile : 'string') , PEAR_LOG_DEBUG);
+        $this->oLog->log('Init process of ' . (($this->sInputFile) ? 'file ' . $this->sInputFile : 'string') , PEAR_LOG_DEBUG);
         $this->resetProperties();
         // if file type is php, use token_get_all
         // else, use a class named PHP_Beautifier_Tokenizer_XXX
@@ -667,12 +667,12 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
         if ($this->sFileType == 'php') {
             $this->aTokens = token_get_all($this->sText);
         } else {
-            $sClass = 'PHP_Beautifier_Tokeniker_'.ucfirst($this->sFileType);
+            $sClass = 'PHP_Beautifier_Tokeniker_' . ucfirst($this->sFileType);
             if (class_exists($sClass)) {
                 $oTokenizer = new $sClass($this->sText);
                 $this->aTokens = $oTokenizer->getTokens();
             } else {
-                throw (new Exception("File type ".$this->sFileType." not implemented"));
+                throw (new Exception("File type " . $this->sFileType . " not implemented"));
             }
         }
         $this->aOut = array();
@@ -694,7 +694,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
             $sTextLog = PHP_Beautifier_Common::wsToString($aCurrentToken[1]);
             // ArrayNested->on();
             $sTokenName = (is_numeric($aCurrentToken[0])) ? token_name($aCurrentToken[0]) : '';
-            $this->oLog->log("Token:".$sTokenName."[".$sTextLog."]", PEAR_LOG_DEBUG);
+            $this->oLog->log("Token:" . $sTokenName . "[" . $sTextLog . "]", PEAR_LOG_DEBUG);
             $this->controlToken($aCurrentToken);
             $iFirstOut = count($this->aOut); //5
             $bError = false;
@@ -702,7 +702,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
                 foreach($this->aFilters as $oFilter) {
                     $bError = true;
                     if ($oFilter->handleToken($aCurrentToken) !== FALSE) {
-                        $this->oLog->log('Filter:'.$oFilter->getName() , PEAR_LOG_DEBUG);
+                        $this->oLog->log('Filter:' . $oFilter->getName() , PEAR_LOG_DEBUG);
                         $bError = false;
                         break;
                     }
@@ -723,13 +723,13 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
                 $iPrevAssoc = $this->iCount;
             }
             if ($bError) {
-                throw (new Exception("Can'process token: ".var_dump($aCurrentToken)));
+                throw (new Exception("Can'process token: " . var_dump($aCurrentToken)));
             }
         } // ~for
         // generate the last assoc
         if (count($this->aOut) == 0) {
             if ($this->sFile) {
-                throw (new Exception("Nothing on output for ".$this->sFile."!"));
+                throw (new Exception("Nothing on output for " . $this->sFile . "!"));
             } else {
                 throw (new Exception("Nothing on output!"));
             }
@@ -799,13 +799,13 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
     {
         if (stristr('php_beautifier', $aMatch[1]) and method_exists($this, $aMatch[3])) {
             if (preg_match("/^(set|add)/i", $aMatch[3]) and !stristr('file', $aMatch[3])) {
-                eval('$this->'.$aMatch[2].";");
+                eval('$this->' . $aMatch[2] . ";");
                 return true;
             }
         } else {
             foreach($this->aFilters as $iIndex => $oFilter) {
-                if (strtolower(get_class($oFilter)) == 'php_beautifier_filter_'.strtolower($aMatch[1]) and method_exists($oFilter, $aMatch[3])) {
-                    eval('$this->aFilters['.$iIndex.']->'.$aMatch[2].";");
+                if (strtolower(get_class($oFilter)) == 'php_beautifier_filter_' . strtolower($aMatch[1]) and method_exists($oFilter, $aMatch[3])) {
+                    eval('$this->aFilters[' . $iIndex . ']->' . $aMatch[2] . ";");
                     return true;
                 }
             }
@@ -908,7 +908,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
                 if ($this->getMode('string_index')) {
                     $this->unsetMode('string_index');
                 } else {
-                    $this->oLog->log('end bracket:'.$this->getPreviousTokenContent() , PEAR_LOG_DEBUG);
+                    $this->oLog->log('end bracket:' . $this->getPreviousTokenContent() , PEAR_LOG_DEBUG);
                     if ($this->getPreviousTokenContent() == ';' or $this->getPreviousTokenContent() == '}' or $this->getPreviousTokenContent() == '{') {
                         $this->popControlSeq();
                     }
@@ -929,7 +929,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
      */
     private function pushControlSeq($aToken) 
     {
-        $this->oLog->log('Push Control:'.$aToken[0]."->".$aToken[1], PEAR_LOG_DEBUG);
+        $this->oLog->log('Push Control:' . $aToken[0] . "->" . $aToken[1], PEAR_LOG_DEBUG);
         array_push($this->aControlSeq, $aToken[0]);
     }
     /**
@@ -939,7 +939,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
     private function popControlSeq() 
     {
         $aEl = array_pop($this->aControlSeq);
-        $this->oLog->log('Pop Control:'.$this->getTokenName($aEl) , PEAR_LOG_DEBUG);
+        $this->oLog->log('Pop Control:' . $this->getTokenName($aEl) , PEAR_LOG_DEBUG);
         return $aEl;
     }
     /**
@@ -948,7 +948,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
     private function pushControlParenthesis() 
     {
         $iPrevious = $this->getPreviousTokenConstant();
-        $this->oLog->log("Push Parenthesis: $iPrevious ->".$this->getPreviousTokenContent() , PEAR_LOG_DEBUG);
+        $this->oLog->log("Push Parenthesis: $iPrevious ->" . $this->getPreviousTokenContent() , PEAR_LOG_DEBUG);
         array_push($this->aControlParenthesis, $iPrevious);
     }
     /**
@@ -958,7 +958,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
     private function popControlParenthesis() 
     {
         $iPop = array_pop($this->aControlParenthesis);
-        $this->oLog->log('Pop Parenthesis:'.$iPop, PEAR_LOG_DEBUG);
+        $this->oLog->log('Pop Parenthesis:' . $iPop, PEAR_LOG_DEBUG);
         return $iPop;
     }
     /**
@@ -1331,17 +1331,17 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
                 } elseif (preg_match("/([\s\r\n]+)$/", $aToken[1], $aMatch)) {
                     $sWhiteSpace.= $aMatch[0];
                     // ArrayNested->off();
-                    $this->oLog->log("+space-token-with-sp:[".PHP_Beautifier_Common::wsToString($sWhiteSpace) ."]", PEAR_LOG_DEBUG);
+                    $this->oLog->log("+space-token-with-sp:[" . PHP_Beautifier_Common::wsToString($sWhiteSpace) . "]", PEAR_LOG_DEBUG);
                     // ArrayNested->on();
                     return $sWhiteSpace;
                 }
             } else {
-                $this->oLog->log("+space-token-without-sp:[".PHP_Beautifier_Common::wsToString($sWhiteSpace) ."]", PEAR_LOG_DEBUG);
+                $this->oLog->log("+space-token-without-sp:[" . PHP_Beautifier_Common::wsToString($sWhiteSpace) . "]", PEAR_LOG_DEBUG);
                 return $sWhiteSpace;
             }
         }
         // Strange, but...
-        $this->oLog->log("+space:[".PHP_Beautifier_Common::wsToString($sWhiteSpace) ."]", PEAR_LOG_DEBUG);
+        $this->oLog->log("+space:[" . PHP_Beautifier_Common::wsToString($sWhiteSpace) . "]", PEAR_LOG_DEBUG);
         return $sWhiteSpace;
     }
     /**

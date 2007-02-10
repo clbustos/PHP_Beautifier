@@ -287,6 +287,11 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter {
         $this->oBeaut->removeWhitespace();
         $this->oBeaut->add($sTag.' ');
     }
+    function t_dot($sTag) 
+    {
+        $this->oBeaut->removeWhitespace();
+        $this->oBeaut->add(' '.$sTag.' ');
+    }    
     function t_include($sTag) 
     {
         $this->oBeaut->add($sTag.' ');
@@ -299,6 +304,7 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter {
     {
         $this->oBeaut->add($sTag);
     }
+    
     function t_variable($sTag) 
     {
         if ($this->oBeaut->isPreviousTokenConstant(T_STRING) and !$this->oBeaut->getMode("double_quote")) {
@@ -332,11 +338,16 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter {
             $this->oBeaut->removeWhitespace();
             $this->oBeaut->decIndent();
             $this->oBeaut->addNewLineIndent();
+
             $this->oBeaut->add($sTag);
             $this->oBeaut->incIndent();
         } else {
             $this->oBeaut->add($sTag);
         }
+        if($this->oBeaut->isNextTokenConstant(T_LNUMBER)) {
+            $this->oBeaut->add(" ");
+        }            
+        
     }
     function t_default($sTag) 
     {

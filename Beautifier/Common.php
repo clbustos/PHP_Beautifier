@@ -158,6 +158,8 @@ class PHP_Beautifier_Common {
             return glob($sPath);
         } else {
             $sDir = (dirname($sPath)) ? realpath(dirname($sPath)) : realpath('./');
+            $sDir = PHP_Beautifier_Common::normalizeDir($sDir);
+			$sDir = substr($sDir, 0, -1); // strip last slash
             $sGlob = basename($sPath);
             $dh = @opendir($sDir);
             if (!$dh) {

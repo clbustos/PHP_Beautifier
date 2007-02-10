@@ -94,7 +94,7 @@ class PHP_Beautifier_Filter_ListClassFunction extends PHP_Beautifier_Filter {
         }
         return PHP_Beautifier_Filter::BYPASS;
     }
-    function t_comment($sTag) 
+    function t_doc_comment($sTag) 
     {
         if (strpos($sTag, 'Class and Function List') !== FALSE) {
             $this->iComment = $this->oBeaut->iCount;
@@ -112,7 +112,7 @@ class PHP_Beautifier_Filter_ListClassFunction extends PHP_Beautifier_Filter {
     {
         $sNL = $this->oBeaut->sNewLine;
         $aOut = array(
-            "/*",
+            "/**",
             "* Class and Function List:"
         );
         if ($this->getSetting('list_functions')) {

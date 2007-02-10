@@ -17,7 +17,7 @@
 	
 	<release>
 		<version>0.1.12</version>
-		<date>?</date>
+		<date>2007-02-10</date>
 		<notes>Bug fix release
 - Bug fix[9078]:php_beautifier script use addFilter defore addFilterDirectory. Fixed file php_beautifier
 </notes>

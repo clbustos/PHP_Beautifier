@@ -80,7 +80,7 @@
         'compress==',
 		'verbose'
     );
-    $options = Console_Getopt::getopt($argv, "f:o:d:l:t::s::c::r?v", $aLongOptions);
+    $options = Console_Getopt::getopt($argv, "f:o:d:l:t::s::c::r?hv", $aLongOptions);
     if (PEAR::isError($options)) {
         usage($options);
     }
@@ -151,6 +151,7 @@
 
             case 'help':
             case '?':
+			case 'h':
                 usage();
             break;
 			case 'v':
