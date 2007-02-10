@@ -73,7 +73,7 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
             $this->oBeaut->addNewLineIndent();
         } elseif ($this->oBeaut->getControlParenthesis() == T_FOR) {
             $this->oBeaut->removeWhitespace();
-            $this->oBeaut->add(" ".$sTag." ");
+            $this->oBeaut->add(" " . $sTag . " ");
         } else {
             return PHP_Beautifier_Filter::BYPASS;
         }
@@ -86,7 +86,7 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
             $this->oBeaut->addNewLine();
         }
         $this->oBeaut->addNewLineIndent();
-        $this->oBeaut->add($sTag.' ');
+        $this->oBeaut->add($sTag . ' ');
         //$this->oBeaut->incIndent();
         
     }
@@ -114,7 +114,7 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
             return PHP_Beautifier_Filter::BYPASS;
         }
         $oFilterDefault = new PHP_Beautifier_Filter_Default($this->oBeaut);
-        $sTag = '//'.substr($sTag, 1);
+        $sTag = '//' . substr($sTag, 1);
         return $oFilterDefault->t_comment($sTag);
     }
     function t_open_tag($sTag) 
@@ -150,12 +150,12 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
             $sDataPath = $sLicense;
         } else {
             $oConfig = PEAR_Config::singleton();
-            $sDataPath = PHP_Beautifier_Common::normalizeDir($oConfig->get('data_dir')) .'PHP_Beautifier/licenses/'.$sLicense.'.txt';
+            $sDataPath = PHP_Beautifier_Common::normalizeDir($oConfig->get('data_dir')) . 'PHP_Beautifier/licenses/' . $sLicense . '.txt';
         }
         if (file_exists($sDataPath)) {
             $sLicenseText = file_get_contents($sDataPath);
         } else {
-            throw (new Exception("Can't load license '".$sLicense."'"));
+            throw (new Exception("Can't load license '" . $sLicense . "'"));
         }
         $this->oBeaut->removeWhitespace();
         $this->oBeaut->addNewLine();

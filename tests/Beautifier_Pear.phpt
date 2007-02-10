@@ -24,7 +24,8 @@ if (file_exists('../Beautifier.php')) {
 } else {
     include_once "PHP/Beautifier.php";
 }
-class Beautifier_Pear_TestCase extends PHPUnit_TestCase {
+class Beautifier_Pear_TestCase extends PHPUnit_TestCase
+{
     function Beautifier_Pear($name) 
     {
         $this->PHPUnit_TestCase($name);
@@ -34,21 +35,21 @@ class Beautifier_Pear_TestCase extends PHPUnit_TestCase {
         $this->oBeaut = new PHP_Beautifier();
     }
     /**
-    * Almost identical to original. The space after o before comment 
-    * is arbitrary, so I can't predict when I have to put a new line
-    * 
-    */
-    function testPearSample() {
-        $sSample=dirname(__FILE__).'/pear_sample_file.phps';
-        $sContent=file_get_contents($sSample);
+     * Almost identical to original. The space after o before comment
+     * is arbitrary, so I can't predict when I have to put a new line
+     *
+     */
+    function testPearSample() 
+    {
+        $sSample = dirname(__FILE__) . '/pear_sample_file.phps';
+        $sContent = file_get_contents($sSample);
         $this->oBeaut->setInputFile($sSample);
         $this->oBeaut->addFilter("Pear");
         $this->oBeaut->process();
-        $this->assertEquals($sContent,$this->oBeaut->get());
+        $this->assertEquals($sContent, $this->oBeaut->get());
     }
-    
-	}
-    $suite = new PHPUnit_TestSuite('Beautifier_Pear_TestCase');
-    $result = PHPUnit::run($suite);
-    echo $result->toString();
+}
+$suite = new PHPUnit_TestSuite('Beautifier_Pear_TestCase');
+$result = PHPUnit::run($suite);
+echo $result->toString();
 ?>
