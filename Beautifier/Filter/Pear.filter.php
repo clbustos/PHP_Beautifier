@@ -73,7 +73,7 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
             $this->oBeaut->addNewLineIndent();
         } elseif ($this->oBeaut->getControlParenthesis() == T_FOR) {
             $this->oBeaut->removeWhitespace();
-            $this->oBeaut->add(" " . $sTag . " ");
+            $this->oBeaut->add($sTag . " "); // Bug 8327
         } else {
             return PHP_Beautifier_Filter::BYPASS;
         }
