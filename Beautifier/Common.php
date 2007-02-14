@@ -192,7 +192,7 @@ class PHP_Beautifier_Common {
     * @param string
     * @return string
     */
-    function wsToString($sText) 
+    public static function wsToString($sText) 
     {
         // ArrayNested->off();
         return str_replace(array("\r", "\n", "\t"), array('\r', '\n', '\t'), $sText);

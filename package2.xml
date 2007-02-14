@@ -15,10 +15,10 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <email>clbustos+php_beautifier@gmail.com</email>
   <active>yes</active>
  </lead>
- <date>2007-02-10</date>
- <time>01:30:00</time>
+ <date>2007-02-14</date>
+ <time>03:00:00</time>
  <version>
-  <release>0.1.12</release>
+  <release>0.1.13</release>
   <api>0.1.12</api>
  </version>
  <stability>
@@ -26,15 +26,10 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <api>beta</api>
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
- <notes>Bug fix release
-- Bug fix[9078]:php_beautifier script use addFilter defore addFilterDirectory. Fixed file php_beautifier
-- Bug fix[7706 and rolfhub_at_web.de 2007-02-07-1]: The beautifer removes the whitespaces left and right of the operator, so for example "echo 2 . 1 . 0 . "\n";" becomes "echo 2.1.0."\n";". Added space after and before questions.
-- Bug fix[rolfhub_at_web.de 2007-02-07-2]: When using the "break" command, the command takes an optional parameter, see http://de.php.net/break for details. But this doesn't work when using the beautifier, because, for example "break 2;" morphs to "break2;"
-- Bug fix[rolfhub_at_web.de 2007-01-31]: I think that I have found and fixed a bug in the PHP Beautifier, in the file Common.php in the function getFilesByGlob(). It fails if used under MS-Windows because of the different path separators.
-- Bug fix[8327]: There is one extra space before semicolon in Pear filter
-+ Added -h option on php_beautifier for usage message
-+ New package2.xml 
-
+ <notes>Small Rolf bug fix release:
+- Bug fix[rolfhub_at_web.de 2007-02-07-2/pear]: Pear filter delete the space between break and a number.
+- Bug fix[rolfhub_at_web.de 2007-02-12]: function wsToString($sText) to public static function wsToString($sText)
++ Two new settings on Pear filter: "newline_class" and "newline_class"
  </notes>
  <contents>
   <dir name="/">
@@ -224,6 +219,28 @@ http://pear.php.net/dtd/package-2.0.xsd">
   </filelist>
  </phprelease>
  <changelog>
+ <release>
+<version>
+  <release>0.1.12</release>
+  <api>0.1.12</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+<date>2007-02-10</date>
+ <license uri="http://www.php.net/license">PHP License</license>
+ <notes>Bug fix release
+- Bug fix[9078]:php_beautifier script use addFilter defore addFilterDirectory. Fixed file php_beautifier
+- Bug fix[7706 and rolfhub_at_web.de 2007-02-07-1]: The beautifer removes the whitespaces left and right of the operator, so for example "echo 2 . 1 . 0 . "\n";" becomes "echo 2.1.0."\n";". Added space after and before questions.
+- Bug fix[rolfhub_at_web.de 2007-02-07-2]: When using the "break" command, the command takes an optional parameter, see http://de.php.net/break for details. But this doesn't work when using the beautifier, because, for example "break 2;" morphs to "break2;"
+- Bug fix[rolfhub_at_web.de 2007-01-31]: I think that I have found and fixed a bug in the PHP Beautifier, in the file Common.php in the function getFilesByGlob(). It fails if used under MS-Windows because of the different path separators.
+- Bug fix[8327]: There is one extra space before semicolon in Pear filter
++ Added -h option on php_beautifier for usage message
++ New package2.xml 
+
+ </notes> 
+ </release>
   <release>
    <version>
     <release>0.1.11</release>

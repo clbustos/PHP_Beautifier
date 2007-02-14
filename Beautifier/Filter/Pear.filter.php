@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 /**
- * Filter the code to make it compatible with PEAR Coding Standars
+ * Filter the code to make it compatible with PEAR Coding Standards
  *
  * PHP version 5
  *
@@ -25,7 +25,7 @@
  */
 require_once ('PEAR/Config.php');
 /**
- * Filter the code to make it compatible with PEAR Coding Standars
+ * Filter the code to make it compatible with PEAR Coding Standards
  *
  * The default filter, {@link PHP_Beautifier_Filter_Default} have most of the specs
  * but adhere more to GNU C.
@@ -40,6 +40,11 @@ require_once ('PEAR/Config.php');
  * <code>
  * $oBeaut->addFilter('Pear',array('add_header'=>'php'));
  * </code>
+ * Two extra options allows to break the spec about newline before braces
+ * on function and classes. By default, they are set to true. Use 
+ * <code>
+ * $oBeaut->addFilter('Pear',array('newline_class'=>false, 'newline_function'=>false));
+ * </code> 
  * @category   PHP
  * @package PHP_Beautifier
  * @subpackage Filter
@@ -53,9 +58,7 @@ require_once ('PEAR/Config.php');
  */
 class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
 {
-    protected $aSettings = array(
-        'add_header' => false
-    );
+    protected $aSettings = array('add_header' => false, 'newline_class' => true, 'newline_function' => true);
     protected $sDescription = 'Filter the code to make it compatible with PEAR Coding Specs';
     private $bOpenTag = false;
     function t_open_tag_with_echo($sTag) 
@@ -64,16 +67,17 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
     }
     function t_semi_colon($sTag) 
     {
-        // TODO: What is the function of this structure?
-        // I don't remember it....
+        // A break statement and the next statement are separated by an empty line
         if ($this->oBeaut->isPreviousTokenConstant(T_BREAK)) {
             $this->oBeaut->removeWhitespace();
-            $this->oBeaut->add($sTag);
-            $this->oBeaut->addNewLine();
+            $this->oBeaut->add($sTag); // add the semicolon
+            $this->oBeaut->addNewLine(); // empty line
             $this->oBeaut->addNewLineIndent();
         } elseif ($this->oBeaut->getControlParenthesis() == T_FOR) {
+            // The three terms in the head of a for loop are separated by the string "; "
             $this->oBeaut->removeWhitespace();
             $this->oBeaut->add($sTag . " "); // Bug 8327
+            
         } else {
             return PHP_Beautifier_Filter::BYPASS;
         }
@@ -97,10 +101,20 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
     function t_break($sTag) 
     {
         $this->oBeaut->add($sTag);
+        if ($this->oBeaut->isNextTokenConstant(T_LNUMBER)) {
+            $this->oBeaut->add(" ");
+        }        
     }
     function t_open_brace($sTag) 
     {
-        if ($this->oBeaut->getControlSeq() != T_CLASS and $this->oBeaut->getControlSeq() != T_FUNCTION) {
+        $bypass = true;
+		if ($this->oBeaut->getControlSeq() == T_CLASS and $this->getSetting('newline_class')) {
+            $bypass = false;
+        }
+        if ($this->oBeaut->getControlSeq() == T_FUNCTION and $this->getSetting('newline_function')) {
+            $bypass = false;
+        }
+        if ($bypass) {
             return PHP_Beautifier_Filter::BYPASS;
         }
         $this->oBeaut->addNewLineIndent();

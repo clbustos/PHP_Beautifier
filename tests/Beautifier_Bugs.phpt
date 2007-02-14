@@ -545,7 +545,49 @@ while (++\$i) {
 SCRIPT;
     $this->assertEquals($sExpected, $this->oBeaut->get());    
     }
+    /**
+    * When using the "break" command, the command takes an optional parameter, see http://de.php.net/break for details. But this doesn't work when using the beautifier, because, for example "break 2;" morphs to "break2;" (notice the missing space, which makes the PHP interpreter quite sour :-(
+    */
+    function testBug_rolfhub_2007_02_07_1_pear() {
+        $this->oBeaut->addFilter("Pear");
+        $sText=<<<SCRIPT
+<?php
+\$i = 0;
+while (++\$i) {
+    switch (\$i) {
+        case 5:
+            echo "At 5<br />";
+        break 1; /* Exit only the switch. */
+        case 10:
+            echo "At 10; quitting<br />";
+        break 2; /* Exit the switch and the while. */
+        default:
+        break;
+    }
+}
+?>
+SCRIPT;
+$this->setText($sText);
 
+        $sExpected = <<<SCRIPT
+<?php
+\$i = 0;
+while (++\$i) {
+    switch (\$i) {
+        case 5:
+            echo "At 5<br />";
+            break 1; /* Exit only the switch. */
+        case 10:
+            echo "At 10; quitting<br />";
+            break 2; /* Exit the switch and the while. */
+        default:
+            break;
+    }
+}
+?>
+SCRIPT;
+    $this->assertEquals($sExpected, $this->oBeaut->get());    
+    }
     /**
     * The beautifer removes the whitespaces left and right of the operator, so for example "echo 2 . 1 . 0 . "\n";" becomes "echo 2.1.0."\n";"
     */
