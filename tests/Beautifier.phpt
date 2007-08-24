@@ -403,6 +403,7 @@ SCRIPT;
                 $this->assertTrue($this->oFilter->aModes[$x]['double_quote'], $x);
             }
         }
+        
     }
     $suite = new PHPUnit_TestSuite('Beautifier_TestCase');
     $result = PHPUnit::run($suite);

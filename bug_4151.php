@@ -1,5 +1,5 @@
 <?php
-require_once('PHP/Beautifier.php');
+require_once 'PHP/Beautifier.php';
 
 $php = new PHP_Beautifier();
 $php->addFilter('Pear',array('add_header'=>'pear'));

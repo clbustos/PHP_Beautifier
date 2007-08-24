@@ -24,7 +24,8 @@ if (file_exists('../Beautifier.php')) {
 } else {
     include_once "PHP/Beautifier.php";
 }
-class Beautifier_Bugs extends PHPUnit_TestCase {
+class Beautifier_Bugs extends PHPUnit_TestCase
+{
     function Beautifier_Bugs($name) 
     {
         $this->PHPUnit_TestCase($name);
@@ -39,11 +40,11 @@ class Beautifier_Bugs extends PHPUnit_TestCase {
         $this->oBeaut->process();
     }
     /**
-    * HeredocBeforeCloseTag
-    * Close tag after heredoc remove whitespace,
-    * breaking the script.
-    *
-    */
+     * HeredocBeforeCloseTag
+     * Close tag after heredoc remove whitespace,
+     * breaking the script.
+     *
+     */
     function testBugInternal1() 
     {
         $sText = <<<SCRIPT
@@ -58,10 +59,10 @@ SCRIPT;
         $this->assertTrue(preg_match("/HEREDOC;\n\s*?\?>/ms", $sActual));
     }
     /**
-    * Bug 1597
-    * Brace after short comment in new line was appended to
-    * the comment, breaking the code
-    */
+     * Bug 1597
+     * Brace after short comment in new line was appended to
+     * the comment, breaking the code
+     */
     function testBug1597() 
     {
         $sText = <<<SCRIPT
@@ -82,11 +83,11 @@ SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
-    * Bug 2301
-    * When I try to beautify PHP5 code with the 'throw new Exception'
-    * statement, the code is not formatted correctly. The
-    * whitespace between throw AND new is deleted.
-    */
+     * Bug 2301
+     * When I try to beautify PHP5 code with the 'throw new Exception'
+     * statement, the code is not formatted correctly. The
+     * whitespace between throw AND new is deleted.
+     */
     function testBug2301() 
     {
         $sText = <<<SCRIPT
@@ -103,13 +104,13 @@ SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
-    * Bug from Pavel Chtchevaev, 2004-11-17
-    * There's one more issue about the default filter, try beautifying with
-    * it the following string:
-    * "<?php\n\$o->_test1(\$c->test2()->test3())\n?>"
-    * It will return:
-    * "<?php\n    \$o->_test1(\$c->test2() ->test3())\n?>"
-    */
+     * Bug from Pavel Chtchevaev, 2004-11-17
+     * There's one more issue about the default filter, try beautifying with
+     * it the following string:
+     * "<?php\n\$o->_test1(\$c->test2()->test3())\n?>"
+     * It will return:
+     * "<?php\n    \$o->_test1(\$c->test2() ->test3())\n?>"
+     */
     function testBugChtchevaev_2004_11_17() 
     {
         $sText = <<<SCRIPT
@@ -126,11 +127,11 @@ SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
-    * Bug 3257
-    * Comments between if and elseif screws up formatting.
-    * The beautifier will cascade and start moving the indentations over
-    * if there is a comment between if {} and elseif {}
-    */
+     * Bug 3257
+     * Comments between if and elseif screws up formatting.
+     * The beautifier will cascade and start moving the indentations over
+     * if there is a comment between if {} and elseif {}
+     */
     function testBug3257() 
     {
         $sText = <<<SCRIPT
@@ -185,20 +186,20 @@ SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
-    * Bug from Daniel Convissor, 2005-06-20
-    * Switch statements aren't coming out right.  I, and most PEAR developers
-    * I've asked, partial to them looking like this:
-    * <code>
-    * switch ($subId) {
-    *   case "myevents";
-    *       $myeventsOn = "on";
-    *       break;
-    *   case "publicevents";
-    *       $publiceventsOn = "on";
-    *       break;
-    * }
-    * </code>
-    */
+     * Bug from Daniel Convissor, 2005-06-20
+     * Switch statements aren't coming out right.  I, and most PEAR developers
+     * I've asked, partial to them looking like this:
+     * <code>
+     * switch ($subId) {
+     *   case "myevents";
+     *       $myeventsOn = "on";
+     *       break;
+     *   case "publicevents";
+     *       $publiceventsOn = "on";
+     *       break;
+     * }
+     * </code>
+     */
     function testBugConvissor_2005_06_20() 
     {
         $this->oBeaut->addFilter("Pear");
@@ -259,9 +260,12 @@ switch (\$var) {
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
-    function testBugjuancarlos2005_09_13() {
+    function testBugjuancarlos2005_09_13() 
+    {
         $this->oBeaut->addFilter("ArrayNested");
-        $this->oBeaut->addFilter('IndentStyles',array('style'=>'allman'));
+        $this->oBeaut->addFilter('IndentStyles', array(
+            'style' => 'allman'
+        ));
         $sText = <<<SCRIPT
 <?php include_once ("turnos.conf.php")
 ?>
@@ -273,7 +277,8 @@ SCRIPT;
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
-    function testBug5711() {
+    function testBug5711() 
+    {
         $this->oBeaut->addFilter("Pear");
         $sText = <<<SCRIPT
 <?php
@@ -305,7 +310,8 @@ class CampaignManagerConfig
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
-    function testBug6237() {
+    function testBug6237() 
+    {
         $this->oBeaut->addFilter("Pear");
         $sText = <<<SCRIPT
 <?php
@@ -325,16 +331,17 @@ SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
-    * according to: http://pear.php.net/manual/en/standards.control.php
-    * control strutures should be indented in K&R style
-    *
-    * if (<cond>) {
-    * <body>
-    *   }
-    *   however, are getting indented in Allman style
-    * all control structures are affected.
-    */
-    function testBug7347() {
+     * according to: http://pear.php.net/manual/en/standards.control.php
+     * control strutures should be indented in K&R style
+     *
+     * if (<cond>) {
+     * <body>
+     *   }
+     *   however, are getting indented in Allman style
+     * all control structures are affected.
+     */
+    function testBug7347() 
+    {
         $this->oBeaut->addFilter("Pear");
         $sText = <<<SCRIPT
 <?php
@@ -362,17 +369,18 @@ SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
-    * Bad code to detect tokens
-    */
-    
-    function testInternal2() {
-        $this->assertTrue(array_key_exists(T_COMMENT,$this->oBeaut->aTokenFunctions));
+     * Bad code to detect tokens
+     */
+    function testInternal2() 
+    {
+        $this->assertTrue(array_key_exists(T_COMMENT, $this->oBeaut->aTokenFunctions));
     }
     /**
-    * Adding a comment after a case statement in a switch causes 
-    * the indenting to be wrong.
-    */
-    function testBug7759() {
+     * Adding a comment after a case statement in a switch causes
+     * the indenting to be wrong.
+     */
+    function testBug7759() 
+    {
         $sText = <<<SCRIPT
 <?php
 echo 0;
@@ -393,9 +401,7 @@ break;
 echo 1;
 ?>
 SCRIPT;
-
-$this->setText($sText);
-
+        $this->setText($sText);
         $sExpected = <<<SCRIPT
 <?php
 echo 0;
@@ -416,50 +422,50 @@ switch (1) {
 echo 1;
 ?>
 SCRIPT;
-        $this->assertEquals($sExpected, $this->oBeaut->get());        
+        $this->assertEquals($sExpected, $this->oBeaut->get());
     }
-    function testBug7818() {
-        $this->oBeaut->startLog();        
-        $sText=<<<SCRIPT
+    function testBug7818() 
+    {
+        $this->oBeaut->startLog();
+        $sText = <<<SCRIPT
 <?php
 \$field->createElement(\$form, \$this->_table->{\$field->id}, \$defaults);
 ?>
 SCRIPT;
-$this->setText($sText);
-
+        $this->setText($sText);
         $sExpected = <<<SCRIPT
 <?php
 \$field->createElement(\$form, \$this->_table->{\$field->id}, \$defaults);
 ?>
 SCRIPT;
-    $this->assertEquals($sExpected, $this->oBeaut->get());    
+        $this->assertEquals($sExpected, $this->oBeaut->get());
     }
-    
     /**
-    * Will be great if you can rewrite T_OPEN_TAG_WITH_ECHO in the default
-    filter, specially "<?=" because it will be removed in
-    PHP6.
-    */
-    function testBug7854() {
+     * Will be great if you can rewrite T_OPEN_TAG_WITH_ECHO in the default
+     filter, specially "<?=" because it will be removed in
+     PHP6.
+     */
+    function testBug7854() 
+    {
         $this->oBeaut->addFilter("Pear");
-        $sText=<<<SCRIPT
+        $sText = <<<SCRIPT
 <?= \$var ?>
 SCRIPT;
-$this->setText($sText);
-
+        $this->setText($sText);
         $sExpected = <<<SCRIPT
 <?php echo \$var ?>
 SCRIPT;
-    $this->assertEquals($sExpected, $this->oBeaut->get());    
+        $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
-    * the first lines are intended if -l "ListClassFunction()" 
-    * is enabled
-    */
-    function testBug7307() {
+     * the first lines are intended if -l "ListClassFunction()"
+     * is enabled
+     */
+    function testBug7307() 
+    {
         // $this->oBeaut->startLog();
-        $this->oBeaut->addFilter("ListClassFunction");        
-        $sText=<<<SCRIPT
+        $this->oBeaut->addFilter("ListClassFunction");
+        $sText = <<<SCRIPT
 <?php
 /**
  * Class and Function List:
@@ -476,8 +482,7 @@ function f1() {
 }
 ?>
 SCRIPT;
-$this->setText($sText);
-
+        $this->setText($sText);
         $sExpected = <<<SCRIPT
 <?php
 /**
@@ -501,13 +506,14 @@ function f1() {
 }
 ?>
 SCRIPT;
-    $this->assertEquals($sExpected, $this->oBeaut->get());    
+        $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
-    * When using the "break" command, the command takes an optional parameter, see http://de.php.net/break for details. But this doesn't work when using the beautifier, because, for example "break 2;" morphs to "break2;" (notice the missing space, which makes the PHP interpreter quite sour :-(
-    */
-    function testBug_rolfhub_2007_02_07_1() {
-        $sText=<<<SCRIPT
+     * When using the "break" command, the command takes an optional parameter, see http://de.php.net/break for details. But this doesn't work when using the beautifier, because, for example "break 2;" morphs to "break2;" (notice the missing space, which makes the PHP interpreter quite sour :-(
+     */
+    function testBug_rolfhub_2007_02_07_1() 
+    {
+        $sText = <<<SCRIPT
 <?php
 \$i = 0;
 while (++\$i) {
@@ -524,8 +530,7 @@ while (++\$i) {
 }
 ?>
 SCRIPT;
-$this->setText($sText);
-
+        $this->setText($sText);
         $sExpected = <<<SCRIPT
 <?php
 \$i = 0;
@@ -543,14 +548,15 @@ while (++\$i) {
 }
 ?>
 SCRIPT;
-    $this->assertEquals($sExpected, $this->oBeaut->get());    
+        $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
-    * When using the "break" command, the command takes an optional parameter, see http://de.php.net/break for details. But this doesn't work when using the beautifier, because, for example "break 2;" morphs to "break2;" (notice the missing space, which makes the PHP interpreter quite sour :-(
-    */
-    function testBug_rolfhub_2007_02_07_1_pear() {
+     * When using the "break" command, the command takes an optional parameter, see http://de.php.net/break for details. But this doesn't work when using the beautifier, because, for example "break 2;" morphs to "break2;" (notice the missing space, which makes the PHP interpreter quite sour :-(
+     */
+    function testBug_rolfhub_2007_02_07_1_pear() 
+    {
         $this->oBeaut->addFilter("Pear");
-        $sText=<<<SCRIPT
+        $sText = <<<SCRIPT
 <?php
 \$i = 0;
 while (++\$i) {
@@ -567,8 +573,7 @@ while (++\$i) {
 }
 ?>
 SCRIPT;
-$this->setText($sText);
-
+        $this->setText($sText);
         $sExpected = <<<SCRIPT
 <?php
 \$i = 0;
@@ -586,27 +591,130 @@ while (++\$i) {
 }
 ?>
 SCRIPT;
-    $this->assertEquals($sExpected, $this->oBeaut->get());    
+        $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
-    * The beautifer removes the whitespaces left and right of the operator, so for example "echo 2 . 1 . 0 . "\n";" becomes "echo 2.1.0."\n";"
-    */
-    function testBug_rolfhub_2007_02_07_2() {
-        $sText=<<<SCRIPT
+     * The beautifer removes the whitespaces left and right of the operator, so for example "echo 2 . 1 . 0 . "\n";" becomes "echo 2.1.0."\n";"
+     */
+    function testBug_rolfhub_2007_02_07_2() 
+    {
+        $sText = <<<SCRIPT
 <?php
 echo (1.0 . " " . 2 . 3);
 ?>
 SCRIPT;
-$this->setText($sText);
-
+        $this->setText($sText);
         $sExpected = <<<SCRIPT
 <?php
 echo (1.0 . " " . 2 . 3);
 ?>
 SCRIPT;
-    $this->assertEquals($sExpected, $this->oBeaut->get());    
+        $this->assertEquals($sExpected, $this->oBeaut->get());
     }
-    
+    /**
+     * Description:
+     * ------------
+     * When using the default filter, a T_ARRAY token used as a Type hint
+     * (http://php.net/language.oop5.typehinting) does not get a space
+     * after it.
+     * Similarly the T_CLONE token also misses whitespace after it.
+     */
+    function testBug10839() 
+    {
+        $sText = <<<SCRIPT
+<?php
+class test
+{
+ function test(array \$moo)
+ {
+  return clone \$this;
+ }
+ public function test(OtherClass \$otherclass) {
+        echo \$otherclass->var;
+    }
+
+}
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+class test {
+    function test(array \$moo) {
+        return clone \$this;
+    }
+    public function test(OtherClass \$otherclass) {
+        echo \$otherclass->var;
+    }
+}
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    /**
+     * When processing the T_DOT in the partial tokenized script, and you use
+     * getPreviousWhitespace(), it will go all the back pass the T_ECHO and
+     * pick up the T_WHITESPACE prior to the T_ECHO.  It should actually stop
+     * at the T_CONSTANT_ENCAPSED_STRING.
+     * [NEED AN EXAMPLE]
+     */
+    function testBug11661() 
+    {
+        $sText = <<<SCRIPT
+<?php
+echo '<center>'. _YOUPASSMUSTBE;
+echo '<center>'. _YOUPASSMUSTBE;
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+echo '<center>' . _YOUPASSMUSTBE;
+echo '<center>' . _YOUPASSMUSTBE;
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    /**
+     * Doesn't works!
+     */
+    function testComplexCurlySyntax() 
+    {
+        try {
+            //$this->oBeaut->startLog();
+            $sText = '<?php
+$great = "fantastic";
+echo "This is { $great}";
+echo "This is {$great}";
+echo "This is ${great}";
+echo "This square is {$square->width}00 centimeters broad.";
+echo "This works: {$arr[4][3]}";
+echo "This is wrong: {$arr[foo][3]}";
+echo "This works: {$arr[foo][3]}";
+echo "This works: " . $arr["foo"][3];
+echo "You can even write {$obj->values[3]->name}";
+// echo "This is the value of the var named $name: {${$name}}";
+?>';
+            $this->setText($sText);
+            $sExpected = '<?php
+$great = "fantastic";
+echo "This is { $great}";
+echo "This is {$great}";
+echo "This is ${great}";
+echo "This square is {$square->width}00 centimeters broad.";
+echo "This works: {$arr[4][3]}";
+echo "This is wrong: {$arr[foo][3]}";
+echo "This works: {$arr[foo][3]}";
+echo "This works: " . $arr["foo"][3];
+echo "You can even write {$obj->values[3]->name}";
+// echo "This is the value of the var named $name: {${$name}}";
+?>';
+            $this->assertEquals($sExpected, $this->oBeaut->get());
+        }
+        catch(Exception $oExp) {
+            $this->assertTrue(false);
+        }
+    }
 }
 $suite = new PHPUnit_TestSuite('Beautifier_Bugs');
 $result = PHPUnit::run($suite);

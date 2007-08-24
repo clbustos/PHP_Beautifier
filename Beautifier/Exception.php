@@ -31,6 +31,6 @@
 * @license      http://www.php.net/license/3_0.txt  PHP License 3.0
 * @version      Release: @package_version@
 */
-class Exception_PHP_Beautifier_Filter extends Exception {
+class Exception_PHP_Beautifier_Filter extends PEAR_Exception {
 }
 ?>

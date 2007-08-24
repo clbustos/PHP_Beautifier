@@ -136,10 +136,12 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter
             $this->oBeaut->addNewLineIndent();
         }
     }
+   
     function t_close_brace($sTag) 
     {
         if ($this->oBeaut->getMode('string_index') or $this->oBeaut->getMode('double_quote')) {
             $this->oBeaut->add($sTag);
+
         } else {
             $this->oBeaut->removeWhitespace();
             $this->oBeaut->decIndent();
@@ -388,9 +390,16 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter
         $this->oBeaut->removeWhitespace();
         $this->oBeaut->add($sTag . ' ');
     }
+    function t_clone($sTag) {
+        $this->oBeaut->add($sTag.' ');
+    }
     function t_array($sTag) 
     {
         $this->oBeaut->add($sTag);
+		// Check this, please!
+		if (!$this->oBeaut->isNextTokenContent('(')) {
+            $this->oBeaut->add(" ");
+        }
     }
     function t_object_operator($sTag) 
     {

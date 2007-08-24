@@ -15,10 +15,10 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <email>clbustos+php_beautifier@gmail.com</email>
   <active>yes</active>
  </lead>
- <date>2007-02-14</date>
+ <date>2007-08-24</date>
  <time>03:00:00</time>
  <version>
-  <release>0.1.13</release>
+  <release>0.1.14</release>
   <api>0.1.12</api>
  </version>
  <stability>
@@ -26,10 +26,10 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <api>beta</api>
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
- <notes>Small Rolf bug fix release:
-- Bug fix[rolfhub_at_web.de 2007-02-07-2/pear]: Pear filter delete the space between break and a number.
-- Bug fix[rolfhub_at_web.de 2007-02-12]: function wsToString($sText) to public static function wsToString($sText)
-+ Two new settings on Pear filter: "newline_class" and "newline_class"
+ <notes>Small bug fix release:
+- Bug fix #10091: CS issue: throw should not have parens
+- Bug fix #11662: Please add T_DOUBLE_QUOTE to $aTokensToChange
+- Bug fix #10839: T_CLONE and T_ARRAY formatting bugs with default filter
  </notes>
  <contents>
   <dir name="/">

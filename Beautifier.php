@@ -22,32 +22,34 @@
 error_reporting(E_ALL);
 // Before all, test the tokenizer extension
 if (!extension_loaded('tokenizer')) {
-    throw (new Exception("Compile php with tokenizer extension. Use --enable-tokenizer or don't use --disable-all on configure."));
+    throw new Exception("Compile php with tokenizer extension. Use --enable-tokenizer or don't use --disable-all on configure.");
 }
+include_once 'PEAR.php';
+include_once 'PEAR/Exception.php';
 /**
  * Require PHP_Beautifier_Filter
  */
-include_once ('Beautifier/Filter.php');
+include_once 'Beautifier/Filter.php';
 /**
  * Require PHP_Beautifier_Filter_Default
  */
-include_once ('Beautifier/Filter/Default.filter.php');
+include_once 'Beautifier/Filter/Default.filter.php';
 /**
  * Require PHP_Beautifier_Common
  */
-include_once ('Beautifier/Common.php');
+include_once 'Beautifier/Common.php';
 /**
  * Require Log
  */
-include_once ('Log.php');
+include_once 'Log.php';
 /**
  * Require Exceptions
  */
-include_once ('Beautifier/Exception.php');
+include_once 'Beautifier/Exception.php';
 /**
  * Require StreamWrapper
  */
-include_once ('Beautifier/StreamWrapper.php');
+include_once 'Beautifier/StreamWrapper.php';
 /**
  * PHP_Beautifier
  *
@@ -262,6 +264,9 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
             $this->aTokenFunctions[constant($sToken) ] = $sToken;
         }
         $aTokensToChange = array(
+            /* QUOTES */
+            '"' => "T_DOUBLE_QUOTE",
+            "'" => "T_SINGLE_QUOTE",
             /* PUNCTUATION */
             '(' => 'T_PARENTHESIS_OPEN',
             ')' => 'T_PARENTHESIS_CLOSE',
@@ -350,6 +355,9 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
     }
     public function getTokenName($iToken) 
     {
+        if(!$iToken) {
+            throw new Exception("Token $iToken doesn't exists");
+        }
         return $this->aTokenNames[$iToken];
     }
     /**
@@ -374,7 +382,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
         if (file_exists($sDir)) {
             array_push($this->aFilterDirs, $sDir);
         } else {
-            throw (new Exception_PHP_Beautifier_Filter("Path '$sDir' doesn't exists"));
+            throw new Exception_PHP_Beautifier_Filter("Path '$sDir' doesn't exists");
         }
     }
     /**
@@ -415,7 +423,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
         } elseif ($oTemp instanceof PHP_Beautifier_Filter) {
             $this->addFilterObject($oTemp);
         } else {
-            throw (new Exception_PHP_Beautifier_Filter("'$sFilterClass' isn't a subclass of 'Filter'"));
+            throw new Exception_PHP_Beautifier_Filter("'$sFilterClass' isn't a subclass of 'Filter'");
         }
     }
     /**
@@ -469,15 +477,15 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
         foreach($this->aFilterDirs as $sDir) {
             $sFile = $sDir . $sFilter . '.filter.php';
             if (file_exists($sFile)) {
-                include_once ($sFile);
+                include_once $sFile;
                 if (class_exists($sFilterClass)) {
                     return true;
                 } else {
-                    throw (new Exception_PHP_Beautifier_Filter("File '$sFile' exists,but doesn't exists filter '$sFilterClass'"));
+                    throw new Exception_PHP_Beautifier_Filter("File '$sFile' exists,but doesn't exists filter '$sFilterClass'");
                 }
             }
         }
-        throw (new Exception_PHP_Beautifier_Filter("Doesn't exists filter '$sFilter'"));
+        throw new Exception_PHP_Beautifier_Filter("Doesn't exists filter '$sFilter'");
     }
     /**
      * Get the names of the loaded filters
@@ -561,7 +569,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
     {
         $bCli = (php_sapi_name() == 'cli');
         if (strpos($sFile, '://') === FALSE and !file_exists($sFile) and !($bCli and $sFile == STDIN)) {
-            throw (new Exception("File '$sFile' doesn't exists"));
+            throw new Exception("File '$sFile' doesn't exists");
         }
         $this->sText = '';
         $this->sInputFile = $sFile;
@@ -598,7 +606,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
         $bCli = (php_sapi_name() == 'cli');
         if (!$sFile) {
             if (!$this->sOutputFile) {
-                throw (new Exception("Can't save without a output file"));
+                throw new Exception("Can't save without a output file");
             } else {
                 $sFile = $this->sOutputFile;
             }
@@ -606,7 +614,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
         $sText = $this->get();
         $fp = ($bCli and $sFile == STDOUT) ? STDOUT : @fopen($sFile, "w");
         if (!$fp) {
-            throw (new Exception("Can't save file $sFile"));
+            throw new Exception("Can't save file $sFile");
         }
         fputs($fp, $sText, strlen($sText));
         if (!($bCli and $sFile == STDOUT)) {
@@ -672,7 +680,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
                 $oTokenizer = new $sClass($this->sText);
                 $this->aTokens = $oTokenizer->getTokens();
             } else {
-                throw (new Exception("File type " . $this->sFileType . " not implemented"));
+                throw new Exception("File type " . $this->sFileType . " not implemented");
             }
         }
         $this->aOut = array();
@@ -723,15 +731,15 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
                 $iPrevAssoc = $this->iCount;
             }
             if ($bError) {
-                throw (new Exception("Can'process token: " . var_dump($aCurrentToken)));
+                throw new Exception("Can'process token: " . var_dump($aCurrentToken));
             }
         } // ~for
         // generate the last assoc
         if (count($this->aOut) == 0) {
             if ($this->sFile) {
-                throw (new Exception("Nothing on output for " . $this->sFile . "!"));
+                throw new Exception("Nothing on output for " . $this->sFile . "!");
             } else {
-                throw (new Exception("Nothing on output!"));
+                throw new Exception("Nothing on output!");
             }
         }
         $this->aAssocs[$iPrevAssoc]['length'] = (count($this->aOut) -1) -$this->aAssocs[$iPrevAssoc]['offset'];

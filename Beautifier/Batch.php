@@ -23,11 +23,11 @@
 /**
 * Require PHP_Beautifier_Decorator
 */
-require_once ('Decorator.php');
+require_once 'Decorator.php';
 /**
 * Require PHP_Beautifier_Batch_Output
 */
-require_once ('Batch/Output.php');
+require_once 'Batch/Output.php';
 // ArrayNested->off();
 // ArrayNested->on();
 
