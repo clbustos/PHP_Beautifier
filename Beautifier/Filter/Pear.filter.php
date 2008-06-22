@@ -58,12 +58,24 @@ require_once ('PEAR/Config.php');
  */
 class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
 {
-    protected $aSettings = array('add_header' => false, 'newline_class' => true, 'newline_function' => true);
+    protected $aSettings = array('add_header' => false, 'newline_class' => true, 'newline_function' => true, 'switch_without_indent'=> true);
     protected $sDescription = 'Filter the code to make it compatible with PEAR Coding Specs';
     private $bOpenTag = false;
     function t_open_tag_with_echo($sTag) 
     {
         $this->oBeaut->add("<?php echo ");
+    }
+    function t_close_brace($sTag) 
+    {
+        if($this->oBeaut->getControlSeq() == T_SWITCH and $this->getSetting('switch_without_indent')) {
+            $this->oBeaut->removeWhitespace();
+            $this->oBeaut->decIndent();
+            $this->oBeaut->addNewLineIndent();
+            $this->oBeaut->add($sTag);
+            $this->oBeaut->addNewLineIndent();            
+        } else {
+            return PHP_Beautifier_Filter::BYPASS;
+        }
     }
     function t_semi_colon($sTag) 
     {
@@ -107,20 +119,28 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
     }
     function t_open_brace($sTag) 
     {
-        $bypass = true;
-		if ($this->oBeaut->getControlSeq() == T_CLASS and $this->getSetting('newline_class')) {
-            $bypass = false;
+        if ($this->oBeaut->openBraceDontProcess()) {
+            $this->oBeaut->add($sTag);
+        } elseif ($this->oBeaut->getControlSeq() == T_SWITCH and $this->getSetting('switch_without_indent')) {
+            $this->oBeaut->add($sTag);
+            $this->oBeaut->incIndent();    
+        } else {
+            $bypass = true;
+            if ($this->oBeaut->getControlSeq() == T_CLASS and $this->getSetting('newline_class')) {
+                $bypass = false;
+            }
+            if ($this->oBeaut->getControlSeq() == T_FUNCTION and $this->getSetting('newline_function')) {
+                $bypass = false;
+            }
+            if ($bypass) {
+                return PHP_Beautifier_Filter::BYPASS;
+            }
+            $this->oBeaut->removeWhitespace();
+            $this->oBeaut->addNewLineIndent();
+            $this->oBeaut->add($sTag);
+            $this->oBeaut->incIndent();
+            $this->oBeaut->addNewLineIndent();
         }
-        if ($this->oBeaut->getControlSeq() == T_FUNCTION and $this->getSetting('newline_function')) {
-            $bypass = false;
-        }
-        if ($bypass) {
-            return PHP_Beautifier_Filter::BYPASS;
-        }
-        $this->oBeaut->addNewLineIndent();
-        $this->oBeaut->add($sTag);
-        $this->oBeaut->incIndent();
-        $this->oBeaut->addNewLineIndent();
     }
     function t_comment($sTag) 
     {

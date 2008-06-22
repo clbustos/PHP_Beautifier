@@ -203,6 +203,9 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
             $this->oBeaut->removeWhitespace();
             $this->oBeaut->addNewLineIndent();
             $this->oBeaut->add(trim($sTag));
+            if (!$this->oBeaut->isNextTokenContent('{')) {
+                    $this->oBeaut->add(' ');
+            }
         } else {
             return PHP_Beautifier_Filter::BYPASS;
         }

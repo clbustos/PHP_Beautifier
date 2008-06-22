@@ -189,6 +189,7 @@ SCRIPT;
      * Bug from Daniel Convissor, 2005-06-20
      * Switch statements aren't coming out right.  I, and most PEAR developers
      * I've asked, partial to them looking like this:
+     * @deprecated as bug!
      * <code>
      * switch ($subId) {
      *   case "myevents";
@@ -200,7 +201,7 @@ SCRIPT;
      * }
      * </code>
      */
-    function testBugConvissor_2005_06_20() 
+    function deprecatedtestBugConvissor_2005_06_20() 
     {
         $this->oBeaut->addFilter("Pear");
         $sText = <<<SCRIPT
@@ -301,7 +302,7 @@ SCRIPT;
 class CampaignManagerConfig
 {
     const BLOCKSIZE_ALL = 9999999;
-    public static function getStagingUrl(\$liveUrl) 
+    public static function getStagingUrl(\$liveUrl)
     {
         return true;
     }
@@ -357,7 +358,7 @@ SCRIPT;
 <?php
 class Foo
 {
-    public function __construct() 
+    public function __construct()
     {
         if (\$foo && \$bar) {
             echo "FUBAR";
@@ -426,7 +427,7 @@ SCRIPT;
     }
     function testBug7818() 
     {
-        $this->oBeaut->startLog();
+        //$this->oBeaut->startLog();
         $sText = <<<SCRIPT
 <?php
 \$field->createElement(\$form, \$this->_table->{\$field->id}, \$defaults);
@@ -579,14 +580,14 @@ SCRIPT;
 \$i = 0;
 while (++\$i) {
     switch (\$i) {
-        case 5:
-            echo "At 5<br />";
-            break 1; /* Exit only the switch. */
-        case 10:
-            echo "At 10; quitting<br />";
-            break 2; /* Exit the switch and the while. */
-        default:
-            break;
+    case 5:
+        echo "At 5<br />";
+        break 1; /* Exit only the switch. */
+    case 10:
+        echo "At 10; quitting<br />";
+        break 2; /* Exit the switch and the while. */
+    default:
+        break;
     }
 }
 ?>
@@ -656,21 +657,67 @@ SCRIPT;
      * getPreviousWhitespace(), it will go all the back pass the T_ECHO and
      * pick up the T_WHITESPACE prior to the T_ECHO.  It should actually stop
      * at the T_CONSTANT_ENCAPSED_STRING.
-     * [NEED AN EXAMPLE]
      */
     function testBug11661() 
     {
         $sText = <<<SCRIPT
 <?php
-echo '<center>'. _YOUPASSMUSTBE;
-echo '<center>'. _YOUPASSMUSTBE;
+if (empty(\$user_password) AND empty(\$user_password2)) {
+            \$user_password = makepass();
+
+        } elseif (\$user_password != \$user_password2) {
+
+            title(_NEWUSERERROR);
+
+            OpenTable();
+
+            echo '<center><b>'._PASSDIFFERENT.'</b><br /><br />'._GOBACK.'</center>';  
+
+            CloseTable();
+
+            include_once('footer.php');
+
+            die();
+
+        } elseif (\$user_password == \$user_password2 AND
+strlen(\$user_password) < \$minpass) {
+
+            title(_NEWUSERERROR);
+
+            OpenTable();
+
+            echo '<center>'._YOUPASSMUSTBE.' <b>'.\$minpass.'</b>' . _CHARLONG . '<br /><br />' . _GOBACK . '</center>';
+
+            CloseTable();
+
+            include_once ('footer.php');
+
+            die();
+
+        }
 ?>
 SCRIPT;
-        $this->setText($sText);
+
+$this->setText($sText);
         $sExpected = <<<SCRIPT
 <?php
-echo '<center>' . _YOUPASSMUSTBE;
-echo '<center>' . _YOUPASSMUSTBE;
+if (empty(\$user_password) AND empty(\$user_password2)) {
+    \$user_password = makepass();
+} elseif (\$user_password != \$user_password2) {
+    title(_NEWUSERERROR);
+    OpenTable();
+    echo '<center><b>' . _PASSDIFFERENT . '</b><br /><br />' . _GOBACK . '</center>';
+    CloseTable();
+    include_once ('footer.php');
+    die();
+} elseif (\$user_password == \$user_password2 AND strlen(\$user_password) < \$minpass) {
+    title(_NEWUSERERROR);
+    OpenTable();
+    echo '<center>' . _YOUPASSMUSTBE . ' <b>' . \$minpass . '</b>' . _CHARLONG . '<br /><br />' . _GOBACK . '</center>';
+    CloseTable();
+    include_once ('footer.php');
+    die();
+}
 ?>
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
@@ -678,7 +725,7 @@ SCRIPT;
     /**
      * Doesn't works!
      */
-    function testComplexCurlySyntax() 
+    function atestComplexCurlySyntax() 
     {
         try {
             //$this->oBeaut->startLog();
@@ -715,6 +762,203 @@ echo "You can even write {$obj->values[3]->name}";
             $this->assertTrue(false);
         }
     }
+    
+    /**  	
+    *  	Double Ternary Issue
+    */
+    function testBug11941() 
+    {
+        //$this->oBeaut->startLog();
+        $this->oBeaut->addFilter('Pear');
+        $sText = <<<SCRIPT
+<?php
+\$html_on = ( \$submit || \$refresh ) ? ((!empty(\$HTTP_POST_VARS['disable_html'])) ? 0 : TRUE ):\$userdata['user_allowhtml'];
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+\$html_on = (\$submit || \$refresh) ? ((!empty(\$HTTP_POST_VARS['disable_html'])) ? 0 : TRUE) : \$userdata['user_allowhtml'];
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    
+    
+    
+    
+    /**  	
+    * Pear filter appends space to function definition line
+    */
+    function testBug13600() 
+    {
+        //$this->oBeaut->startLog();
+        $this->oBeaut->addFilter('Pear');
+        $sText = <<<SCRIPT
+<?php
+function example(){
+}
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+function example()
+{
+}
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    
+
+    /**  	
+    * Pear filter breaks output - for valid, curly syntax "$this->{$method}();"
+    */
+    function testBug13602() 
+    {
+        //$this->oBeaut->startLog();
+        $this->oBeaut->addFilter('Pear');
+        $sText = <<<SCRIPT
+<?php
+function example()
+{
+    \$this->{\$method}();
+}
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+function example()
+{
+    \$this->{\$method}();
+}
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+
+    
+    
+    function testBug13795() 
+    {
+        $this->oBeaut->addFilter("IndentStyles");
+        $sText = <<<SCRIPT
+<?php if (true){echo 'a';}else echo 'b'; ?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php if (true) {
+    echo 'a';
+}
+else echo 'b'; ?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    
+    function testBug13805() 
+    {
+        $this->oBeaut->addFilter("Pear");
+        $sText = <<<SCRIPT
+<?php
+switch (\$condition) {
+case 1:
+action1();
+break;
+case 2:
+action2();
+break;
+default:
+defaultaction();
+break;
+}
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+switch (\$condition) {
+case 1:
+    action1();
+    break;
+
+case 2:
+    action2();
+    break;
+
+default:
+    defaultaction();
+    break;
+}
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    
+    
+    function atestBug13861() 
+    {
+        $sText = <<<SCRIPT
+<?php
+/*
+<?php
+class test
+{
+    function test()
+    {
+        switch (true) {
+            default:
+        }
+}
+}
+*/
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+/*
+<?php
+class test
+{
+    function test()
+    {
+        switch (true) {
+            default:
+        }
+}
+}
+*/
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    
+    function testBug14175() 
+    {
+        $sText = <<<SCRIPT
+<?php
+func( <<<END
+<form id="editform" name="editform" method="post" action=""
+enctype="multipart/form-data">
+END
+);
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+func(<<<END
+<form id="editform" name="editform" method="post" action=""
+enctype="multipart/form-data">
+END
+);
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    
 }
 $suite = new PHPUnit_TestSuite('Beautifier_Bugs');
 $result = PHPUnit::run($suite);

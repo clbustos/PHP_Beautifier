@@ -93,4 +93,14 @@
     $o->getArray() -> createNewThing();
     MyFunction :: singleton()->record();
     echo (__FUNCTION__.__LINE__.__CLASS__);
+    // Nested ternary operators!!!
+    $a = ($b) ? ($c ? $d:$e) : $f;
+    // and switch again...
+    switch ($b) {
+case 'a':
+    echo 'a';
+case 'b':
+    echo 'b';
+break;
+    }
 ?>

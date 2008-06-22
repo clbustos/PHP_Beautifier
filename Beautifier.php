@@ -140,6 +140,11 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
      */
     public $iArray = 0;
     /**
+     * Level of ternary operator nesting
+     * @var int
+     */
+    public $iTernary = 0;    
+    /**
      * Level of parenthesis nesting
      * @var int
      */
@@ -163,7 +168,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
      * Type of newline
      * @var string
      */
-    public $sNewLine = "\n";
+    public $sNewLine = PHP_EOL;
     /**
      * Type of whitespace to use for indent
      * @var string
@@ -280,6 +285,20 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
             '<' => 'T_EQUAL',
             '>' => 'T_EQUAL',
             '.' => 'T_DOT',
+            '[' => 'T_OPEN_SQUARE_BRACE',
+            ']' => 'T_CLOSE_SQUARE_BRACE',
+            /* OPERATOR*/
+            '+' => 'T_OPERATOR',
+            '-' => 'T_OPERATOR',
+            '*' => 'T_OPERATOR',
+            '/' => 'T_OPERATOR',
+            '%' => 'T_OPERATOR',
+            '&' => 'T_OPERATOR',
+            '|' => 'T_OPERATOR',
+            '^' => 'T_OPERATOR',
+            '~' => 'T_OPERATOR',
+            T_SL => 'T_OPERATOR',
+            T_SR => 'T_OPERATOR',
             T_OBJECT_OPERATOR => 'T_OBJECT_OPERATOR',
             /* INCLUDE */
             T_INCLUDE => 'T_INCLUDE',
@@ -880,6 +899,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
 
             case '?':
                 $this->setMode('ternary_operator');
+                $this->iTernary++;
                 break;
 
             case '"':
@@ -928,7 +948,12 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
                 break;
         }
         if ($this->getTokenFunction($aCurrentToken[0]) == 't_colon') {
-            $this->unsetMode('ternary_operator');
+            if ($this->iTernary) {
+                    $this->iTernary--;
+            }
+            if(!$this->iTernary) {
+                $this->unsetMode('ternary_operator');
+            }
         }
     }
     /**
@@ -1396,6 +1421,9 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
         } else {
             return $this->aTokens[$iIndex];
         }
+    }
+    public function openBraceDontProcess() {
+        return $this->isPreviousTokenConstant(T_VARIABLE) or $this->isPreviousTokenConstant(T_OBJECT_OPERATOR) or ($this->isPreviousTokenConstant(T_STRING) and $this->getPreviousTokenConstant(2) == T_OBJECT_OPERATOR) or $this->getMode('double_quote');
     }
 }
 ?>

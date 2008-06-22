@@ -89,7 +89,7 @@ abstract class PHP_Beautifier_Filter
      * @param PHP_Beautifier
      * @param array settings for the Filter
      */
-    public function __construct(PHP_Beautifier $oBeaut, $aSettings = array()) 
+    public function __construct(PHP_Beautifier $oBeaut, $aSettings = array())
     {
         $this->oBeaut = $oBeaut;
         if ($aSettings) {
@@ -100,7 +100,7 @@ abstract class PHP_Beautifier_Filter
      * Add a setting definition
      * @param string
      */
-    protected function addSettingDefinition($sSetting, $sType, $sDescription) 
+    protected function addSettingDefinition($sSetting, $sType, $sDescription)
     {
         $this->aSettingsDefinition[$sSetting] = array(
             'type' => $sType,
@@ -110,7 +110,7 @@ abstract class PHP_Beautifier_Filter
     /**
      * return @string
      */
-    public function getName() 
+    public function getName()
     {
         return str_ireplace('PHP_Beautifier_Filter_', '', get_class($this));
     }
@@ -124,7 +124,7 @@ abstract class PHP_Beautifier_Filter
      * ...other code ...
      * </code>
      */
-    final public function on() 
+    final public function on()
     {
         $this->bOn = true;
     }
@@ -138,7 +138,7 @@ abstract class PHP_Beautifier_Filter
      * ...other code ...
      * </code>
      */
-    public function off() 
+    public function off()
     {
         $this->bOn = false;
     }
@@ -147,7 +147,7 @@ abstract class PHP_Beautifier_Filter
      * @param string name of setting
      * @return mixed value of setting or false
      */
-    final public function getSetting($sSetting) 
+    final public function getSetting($sSetting)
     {
         return (array_key_exists($sSetting, $this->aSettings)) ? $this->aSettings[$sSetting] : false;
     }
@@ -156,7 +156,7 @@ abstract class PHP_Beautifier_Filter
      * @param string name of setting
      * @param mixed value of setting
      */
-    final public function setSetting($sSetting, $sValue) 
+    final public function setSetting($sSetting, $sValue)
     {
         if (array_key_exists($sSetting, $this->aSettings)) {
             $this->aSettings[$sSetting] = $sValue;
@@ -174,7 +174,7 @@ abstract class PHP_Beautifier_Filter
      * @return bool true if the token is processed, false bypass to the next Filter
      * @see PHP_Beautifier::process()
      */
-    public function handleToken($token) 
+    public function handleToken($token)
     {
         $this->aToken = $token;
         if (!$this->bOn) {
@@ -207,7 +207,7 @@ abstract class PHP_Beautifier_Filter
      * @param array arguments
      * @return mixed null or {@link PHP_Beautifier_Filter::BYPASS}
      */
-    public function __call($sMethod, $aArgs) 
+    public function __call($sMethod, $aArgs)
     {
         return PHP_Beautifier_Filter::BYPASS;
     }
@@ -216,7 +216,7 @@ abstract class PHP_Beautifier_Filter
      * of the processing
      * @return void
      */
-    public function preProcess() 
+    public function preProcess()
     {
     }
     /**
@@ -224,20 +224,20 @@ abstract class PHP_Beautifier_Filter
      * The post-process must be made in {@link PHP_Beautifier::$aOut}
      * @return void
      */
-    public function postProcess() 
+    public function postProcess()
     {
     }
-    public function __sleep() 
+    public function __sleep()
     {
         return array(
             'aSettings'
         );
     }
-    public function getDescription() 
+    public function getDescription()
     {
         return $this->sDescription;
     }
-    public function __toString() 
+    public function __toString()
     {
         // php_beautifier->setBeautify(false);
             $sOut='Filter:      '.$this->getName()."\n".
