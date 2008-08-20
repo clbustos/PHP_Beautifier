@@ -16,3 +16,11 @@ $php->process();
 echo "<p>Finished</p>\n";
 $php->save();
 ?>
+
+
+<?php
+$bye = "Goodbye";
+echo "Curly {Hello}.";
+echo "Curly {{$bye}}.";
+echo "Curly {". $bye ."}.";
+?>

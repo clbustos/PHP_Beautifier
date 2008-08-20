@@ -24,7 +24,7 @@
  * Default Filter: Handle all the tokens. Uses K & R style
  *
  * This filters is loaded by default in {@link PHP_Beautifier}. Can handle all the tokens.
- * If one of the tokens doesn't have a function, is added wihout modification (See {@link __call()})
+ * If one of the tokens doesn't have a function, is added without modification (See {@link __call()})
  * The most important modifications are:
  * - All the statements inside control structures, functions and class are indented with K&R style
  * <CODE>

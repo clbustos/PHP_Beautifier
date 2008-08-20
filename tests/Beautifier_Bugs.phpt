@@ -958,8 +958,65 @@ END
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
-    
+     function testBug14429() 
+    {
+        $this->oBeaut->addFilter('Pear');
+        
+        $sText = <<<SCRIPT
+<?php
+\$var = new StdClass();
+\$var->text = 'hello';
+\$ok['what'] = 'ok';
+switch (\$something){
+case 'one':
+echo "{\$var->text} world {\$ok['what']}";
+break;
+default:
+break;
 }
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+\$var = new StdClass();
+\$var->text = 'hello';
+\$ok['what'] = 'ok';
+switch (\$something) {
+case 'one':
+    echo "{\$var->text} world {\$ok['what']}";
+    break;
+
+default:
+    break;
+}
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+function testBug14459() 
+    {
+        $sText = <<<SCRIPT
+<?php
+\$bye = "Goodbye";
+echo "Curly {Hello}.";
+echo "Curly {{\$bye}}.";
+echo "Curly {". \$bye ."}.";
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+\$bye = "Goodbye";
+echo "Curly {Hello}.";
+echo "Curly {{\$bye}}.";
+echo "Curly {" . \$bye . "}.";
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+
+    }
 $suite = new PHPUnit_TestSuite('Beautifier_Bugs');
 $result = PHPUnit::run($suite);
 echo $result->toString();

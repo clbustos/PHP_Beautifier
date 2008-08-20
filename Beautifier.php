@@ -1026,7 +1026,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
      * @see removeWhitespace()
      * @see PHP_Beautifier_Filter_NewLines
      */
-    function setNoDeletePreviousSpaceHack($bFlag = true) 
+    public function setNoDeletePreviousSpaceHack($bFlag = true) 
     {
         $this->bNdps = $bFlag;
     }

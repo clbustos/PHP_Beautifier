@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.5.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
-http://pear.php.net/dtd/tasks-1.0.xsd
-http://pear.php.net/dtd/package-2.0
-http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>PHP_Beautifier</name>
  <channel>pear.php.net</channel>
  <summary>Beautifier for Php</summary>
- <description>This program reformat and beautify PHP 4 and PHP 5 source code files automatically. The program is Open Source and distributed under the terms of PHP Licence. It is written in PHP 5 and has a command line tool.
-
- </description>
+ <description>This program reformat and beautify PHP 4 and PHP 5 source code files automatically. The program is Open Source and distributed under the terms of PHP Licence. It is written in PHP 5 and has a command line tool.</description>
  <lead>
   <name>Claudio Bustos</name>
   <user>clbustos</user>
-  <email>clbustos+php_beautifier@gmail.com</email>
+  <email>clbustos@surnet.cl</email>
   <active>yes</active>
  </lead>
- <date>2008-06-22</date>
- <time>04:40:00</time>
+ <date>2008-08-20</date>
+ <time>00:12:35</time>
  <version>
-  <release>0.1.14</release>
+  <release>1.0.0RC1</release>
   <api>0.1.12</api>
  </version>
  <stability>
@@ -26,22 +21,12 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <api>beta</api>
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
- <notes>Big bug fix release: "Thanks for the patience, bug reporters. The fishes were good, too!"
-This is the last beta release, before going to stable. This package has more than 3 years!!!!
- 
-- Bug fix #10091: CS issue: throw should not have parens
-- Bug fix #10839: T_CLONE and T_ARRAY formatting bugs with default filter
-- Bug fix #11661: Function getPreviousWhitespace Overly Aggressive
-- Bug fix #11662: Please add T_DOUBLE_QUOTE to $aTokensToChange
-- Bug fix #11941: Nested ternary operators add newlines
-- Bug fix #13600: Extra space after close parenthesis on function definition deleted.
-- Bug fix #13602: Pear filter breaks output - for valid, curly syntax "$this->{$method}();"
-- Bug fix #13795: "else echo" gets turned into "elseecho"
-- Bug fix #13805: Pear filter doesn't follow example for switch format
-- Bug fix #14175: HEREDOC: failure when heredoc string enclosed in function call
+ <notes>
+ First Release Version!
+- Bug fix #14429: string with two variables in braces and one of them is an array and this string is within a switch statement, then the braces become indented as if they were ending the switch statement (PEAR Filter)
+- Bug fix #14293: Minor typo in documentation (PHP_Beautifier_Filter_Default)
 
-+ New phpBB filter, courtesy of Jim Wigginton
-</notes>
+ </notes>
  <contents>
   <dir name="/">
    <dir name="Beautifier">
@@ -94,11 +79,11 @@ This is the last beta release, before going to stable. This package has more tha
      </file>
      <file baseinstalldir="PHP" name="NewLines.filter.php" role="php">
       <tasks:replace from="@package_version@" to="version" type="package-info" />
-	  </file>
-	 <file baseinstalldir="PHP" name="phpBB.filter.php" role="php">
-      <tasks:replace from="@package_version@" to="version" type="package-info" />	  
      </file>
      <file baseinstalldir="PHP" name="Pear.filter.php" role="php">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
+     <file baseinstalldir="PHP" name="phpBB.filter.php" role="php">
       <tasks:replace from="@package_version@" to="version" type="package-info" />
      </file>
     </dir> <!-- /Beautifier/Filter -->
@@ -147,13 +132,13 @@ This is the last beta release, before going to stable. This package has more tha
    </dir> <!-- /licenses -->
    <dir name="scripts">
     <file baseinstalldir="/" name="php_beautifier" role="script">
-     <tasks:replace from='"@php_bin@"' to="php_bin" type="pear-config" />
+     <tasks:replace from="&quot;@php_bin@&quot;" to="php_bin" type="pear-config" />
      <tasks:replace from="@package_version@" to="version" type="package-info" />
     </file>
     <file baseinstalldir="/" name="php_beautifier.bat" role="script">
-     <tasks:replace from='"@php_bin@"' to="php_bin" type="pear-config" />
-     <tasks:replace from='"@bin_dir@"' to="bin_dir" type="pear-config" />
-	 <tasks:windowseol />
+     <tasks:replace from="&quot;@php_bin@&quot;" to="php_bin" type="pear-config" />
+     <tasks:replace from="&quot;@bin_dir@&quot;" to="bin_dir" type="pear-config" />
+     <tasks:windowseol />
     </file>
    </dir> <!-- /scripts -->
    <dir name="tests">
@@ -216,11 +201,6 @@ This is the last beta release, before going to stable. This package has more tha
   </optional>
  </dependencies>
  <phprelease>
-  <!--<installconditions>
-   <os>
-    <name>windows</name>
-   </os>
-  </installconditions>-->
   <filelist>
    <install as="php_beautifier" name="scripts/php_beautifier" />
    <install as="php_beautifier.bat" name="scripts/php_beautifier.bat" />
@@ -233,48 +213,69 @@ This is the last beta release, before going to stable. This package has more tha
   </filelist>
  </phprelease>
  <changelog>
- <release>
- <version>
-<release>0.1.13</release>
-<api>0.1.12</api>
-</version>
-<stability>
-<release>beta</release>
-<api>beta</api>
-</stability>
-<date>2007-02-14</date>
-<license uri="http://www.php.net/license">PHP License</license>
-<notes>
-Small Rolf bug fix release:
+  <release>
+   <version>
+    <release>1.0.0RC1</release>
+    <api>0.1.12</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-06-22</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Big bug fix release: &quot;Thanks for the patience, bug reporters. The fishes were good, too!&quot;
+This is the last beta release, before going to stable. This package has more than 3 years!!!!
+ 
+- Bug fix #10091: CS issue: throw should not have parens
+- Bug fix #10839: T_CLONE and T_ARRAY formatting bugs with default filter
+- Bug fix #11661: Function getPreviousWhitespace Overly Aggressive
+- Bug fix #11662: Please add T_DOUBLE_QUOTE to $aTokensToChange
+- Bug fix #11941: Nested ternary operators add newlines
+- Bug fix #13600: Extra space after close parenthesis on function definition deleted.
+- Bug fix #13602: Pear filter breaks output - for valid, curly syntax &quot;$this-&gt;{$method}();&quot;
+- Bug fix #13795: &quot;else echo&quot; gets turned into &quot;elseecho&quot;
+- Bug fix #13805: Pear filter doesn&apos;t follow example for switch format
+- Bug fix #14175: HEREDOC: failure when heredoc string enclosed in function call
+
++ New phpBB filter, courtesy of Jim Wigginton</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.13</release>
+    <api>0.1.12</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-02-14</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Small Rolf bug fix release:
 - Bug fix[rolfhub_at_web.de 2007-02-07-2/pear]: Pear filter delete the space between break and a number.
 - Bug fix[rolfhub_at_web.de 2007-02-12]: function wsToString($sText) to public static function wsToString($sText)
-+ Two new settings on Pear filter: "newline_class" and "newline_class"
-</notes>
-</release>
- <release>
-<version>
-  <release>0.1.12</release>
-  <api>0.1.12</api>
- </version>
- <stability>
-  <release>beta</release>
-  <api>beta</api>
- </stability>
-<date>2007-02-10</date>
- <license uri="http://www.php.net/license">PHP License</license>
- <notes>Bug fix release
++ Two new settings on Pear filter: &quot;newline_class&quot; and &quot;newline_class&quot;</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.12</release>
+    <api>0.1.12</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-02-10</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Bug fix release
 - Bug fix[9078]:php_beautifier script use addFilter defore addFilterDirectory. Fixed file php_beautifier
-- Bug fix[7706 and rolfhub_at_web.de 2007-02-07-1]: The beautifer removes the whitespaces left and right of the operator, so for example "echo 2 . 1 . 0 . "\n";" becomes "echo 2.1.0."\n";". Added space after and before questions.
-- Bug fix[rolfhub_at_web.de 2007-02-07-2]: When using the "break" command, the command takes an optional parameter, see http://de.php.net/break for details. But this doesn't work when using the beautifier, because, for example "break 2;" morphs to "break2;"
+- Bug fix[7706 and rolfhub_at_web.de 2007-02-07-1]: The beautifer removes the whitespaces left and right of the operator, so for example &quot;echo 2 . 1 . 0 . &quot;\n&quot;;&quot; becomes &quot;echo 2.1.0.&quot;\n&quot;;&quot;. Added space after and before questions.
+- Bug fix[rolfhub_at_web.de 2007-02-07-2]: When using the &quot;break&quot; command, the command takes an optional parameter, see http://de.php.net/break for details. But this doesn&apos;t work when using the beautifier, because, for example &quot;break 2;&quot; morphs to &quot;break2;&quot;
 - Bug fix[rolfhub_at_web.de 2007-01-31]: I think that I have found and fixed a bug in the PHP Beautifier, in the file Common.php in the function getFilesByGlob(). It fails if used under MS-Windows because of the different path separators.
 - Bug fix[8327]: There is one extra space before semicolon in Pear filter
 + Added -h option on php_beautifier for usage message
-+ New package2.xml 
-
- </notes> 
- </release>
- 
- 
++ New package2.xml</notes>
+  </release>
   <release>
    <version>
     <release>0.1.11</release>
@@ -292,9 +293,7 @@ Small Rolf bug fix release:
 * Author email changed to cdx _at _users.sourceforge.com
 - Bug fix[7759]: Adding a comment after a case statement in a switch causes the indenting to be wrong. Know issue: Line comment (//) after a case cause a extra new line if the next statement have T_CASE or T_DEFAULT token.
 - Bug fix[7818]: Where curly brackets are used to indicate a variable class  property, PHP_Beautifier adds extra whitespace as if it were  parsing a class method or function.
-- Feature Request [#7854]: Rewrite T_OPEN_TAG_WITH_ECHO in the default filter, specially &quot;&lt;%=&quot; because it will be removed in PHP6. Currently implemented on Pear filter
-		
-   </notes>
+- Feature Request [#7854]: Rewrite T_OPEN_TAG_WITH_ECHO in the default filter, specially &quot;&lt;%=&quot; because it will be removed in PHP6. Currently implemented on Pear filter</notes>
   </release>
   <release>
    <version>
@@ -312,9 +311,7 @@ Small Rolf bug fix release:
 property, PHP_Beautifier adds extra whitespace as if it were 
 parsing a class method or function.
 - Internal Bug 3: Removed log messages on command line. Use -v to get the verbose output (messages with PEAR_DEBUG_INFO level).
-! Bug 7759 remains open, only when one or more case doesn&apos;t ends with a break.
-
-   </notes>
+! Bug 7759 remains open, only when one or more case doesn&apos;t ends with a break.</notes>
   </release>
   <release>
    <version>
@@ -335,10 +332,7 @@ parsing a class method or function.
 - Bug fix[#7312]: missing spaces with lower and greater than operator. missing spaces with after ; in for statemants
 - Bug fix[#7759]: Adding a comment after a case statement in a switch causes the
 indenting to be wrong.
-+ New Lowercase Filter[requested on #7348]: Lowercase all control structures. Parse the output of this filter with a new instance of the object or with a pipe in a new php_beautifier.
-
-
-   </notes>
++ New Lowercase Filter[requested on #7348]: Lowercase all control structures. Parse the output of this filter with a new instance of the object or with a pipe in a new php_beautifier.</notes>
   </release>
   <release>
    <version>
@@ -353,8 +347,7 @@ indenting to be wrong.
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>Bug fix release
 - Bug fix [#6237]: Extra space before a variable inside a double quote section
-- Bug fix [#5711]: Add newline with indent after class definition, with pear filter.
-   </notes>
+- Bug fix [#5711]: Add newline with indent after class definition, with pear filter.</notes>
   </release>
   <release>
    <version>
@@ -371,8 +364,7 @@ indenting to be wrong.
 - Bug fix [#4621]: I ran the command line to update my pages and wanted to add the php license to them. The only problem is it only added the license to the
 first file and not the rest of the files.
 - Bug fix [#4931]: Switch again! empty case before a  default statement breaks the indentation
--
-   </notes>
+-</notes>
   </release>
   <release>
    <version>
@@ -398,9 +390,7 @@ first file and not the rest of the files.
 	$oBatch-&gt;save();
     $oBatch-&gt;setOutputFile(&apos;files.tgz&apos;);
 	$oBatch-&gt;save();
-+ Using get() or show() on a Batch object send the contents of the files, one after another.
-		
-   </notes>
++ Using get() or show() on a Batch object send the contents of the files, one after another.</notes>
   </release>
   <release>
    <version>
@@ -416,9 +406,7 @@ first file and not the rest of the files.
    <notes>- Bug fix [#4151]: Lot of NOTICES when use IndentStyles filter(silly me!)
 - Bug fix [#4501]: Fixed online docs and command line arguments mismatch
 - Bug fix [#4572]: Verify cli before access to STDOUT on Batch.php
-- Bug fix [#4573]: Removed default indent, to maintain coding standars of PEAR.
-		
-   </notes>
+- Bug fix [#4573]: Removed default indent, to maintain coding standars of PEAR.</notes>
   </release>
   <release>
    <version>
@@ -437,9 +425,7 @@ first file and not the rest of the files.
 - Bug fix: You could use, now, colons to separate contents and/or tokens
 * Example of use with command line: 
 php_beautifier --filters &quot;NewLines(before=if:switch:T_CLASS,after=T_COMMENT:function)
-! Know issue: the comments have special rules for spacing. So, newlines before a token after a comment won&apos;t be created. ¿Feature? ¿Bug? You decide
-
-   </notes>
+! Know issue: the comments have special rules for spacing. So, newlines before a token after a comment won&apos;t be created. Â¿Feature? Â¿Bug? You decide</notes>
   </release>
   <release>
    <version>
@@ -454,9 +440,7 @@ php_beautifier --filters &quot;NewLines(before=if:switch:T_CLASS,after=T_COMMENT
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>Bug fix release for CGI mode
 + Added test on script &apos;php_beautifier&apos;, to verify that the php interpreter is the &apos;cli&apos; one.
-* Bug fix: References of STDIN and STDOUT generates Notices on cgi mode. Reported by Tobias Bielohlawek (ted42 at web.de). 
-    
-   </notes>
+* Bug fix: References of STDIN and STDOUT generates Notices on cgi mode. Reported by Tobias Bielohlawek (ted42 at web.de).</notes>
   </release>
   <release>
    <version>
@@ -478,9 +462,7 @@ php_beautifier --filters &quot;NewLines(before=if:switch:T_CLASS,after=T_COMMENT
         Children, don&apos;t do it at home!
 3*)The new &quot;RFC Header Comment Blocks&quot; is a success, so all the headers are
    changed to adjust. A new license is available on licences, for PEAR Filter.
-4-)Bug fix [3257]: Comments between if and elseif screws up formatting.
-    
-   </notes>
+4-)Bug fix [3257]: Comments between if and elseif screws up formatting.</notes>
   </release>
   <release>
    <version>
@@ -494,9 +476,7 @@ php_beautifier --filters &quot;NewLines(before=if:switch:T_CLASS,after=T_COMMENT
    <date>2005-01-15</date>
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>- Bug fix [3181]: Added dependency for tokenizer extension on package.xml and a test in PHP_Beautifier.php. The tokenizer extension is disabled in FreeBsd, so, if application can&apos;t find de tokenizer, throws an exception.
-- Bug fix [3186]: Replaced custom glob function with standard PHP glob function. Advice: RTFM!
-    
-   </notes>
+- Bug fix [3186]: Replaced custom glob function with standard PHP glob function. Advice: RTFM!</notes>
   </release>
   <release>
    <version>
@@ -516,9 +496,7 @@ php_beautifier --filters &quot;NewLines(before=if:switch:T_CLASS,after=T_COMMENT
 + Added preliminary support for tokenikers. See PHP_Beautifier::process() and PHP_Beautifier_Tokenizer()
 * Test for package can use the version on include path or a local one, on ../Beautifier.php. Useful for debug.
 - Bug fix: HP_Beautifier_Filter_IndentStyles::_call() doesn&apos;t have to return a value on success
-- Bug fix: Addes T_OBJECT_OPERATOR as token and t_object_operator on Default Filter.
-    
-   </notes>
+- Bug fix: Addes T_OBJECT_OPERATOR as token and t_object_operator on Default Filter.</notes>
   </release>
  </changelog>
 </package>

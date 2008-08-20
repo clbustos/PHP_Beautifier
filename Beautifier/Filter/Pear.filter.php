@@ -33,7 +33,7 @@ require_once ('PEAR/Config.php');
  * - Add 2 newlines after Break in switch statements. Break indent is the same of previous line
  * - Brace in function definition put on a new line, same indent of 'function' construct
  * - Comments started with '#' are replaced with '//'
- * - Open tags are replaced with '<?php'
+ * - Open tags are replaced with <?php
  * - T_OPEN_TAG_WITH_ECHO replaced with <?php echo
  * - With setting 'add_header', the filter add one of the standard PEAR comment header
  *   (php, bsd, apache, lgpl, pear) or any file as licence header. Use:
@@ -67,7 +67,10 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
     }
     function t_close_brace($sTag) 
     {
-        if($this->oBeaut->getControlSeq() == T_SWITCH and $this->getSetting('switch_without_indent')) {
+        if ($this->oBeaut->getMode('string_index') or $this->oBeaut->getMode('double_quote')) {
+            $this->oBeaut->add($sTag);
+
+        }elseif($this->oBeaut->getControlSeq() == T_SWITCH and $this->getSetting('switch_without_indent')) {
             $this->oBeaut->removeWhitespace();
             $this->oBeaut->decIndent();
             $this->oBeaut->addNewLineIndent();
