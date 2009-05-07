@@ -26,6 +26,8 @@
 - Bug fix #14429: string with two variables in braces and one of them is an array and this string is within a switch statement, then the braces become indented as if they were ending the switch statement (PEAR Filter)
 - Bug fix #14293: Minor typo in documentation (PHP_Beautifier_Filter_Default)
 
+
+
  </notes>
  <contents>
   <dir name="/">
