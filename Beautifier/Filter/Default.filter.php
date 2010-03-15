@@ -285,6 +285,10 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter
         $this->oBeaut->removeWhitespace();
         $this->oBeaut->add(' ' . $sTag . ' ');
     }
+    function t_foreach($sTag) 
+    {
+        $this->oBeaut->add($sTag . ' ');
+    }
     function t_for($sTag) 
     {
         $this->oBeaut->add($sTag . ' ');
