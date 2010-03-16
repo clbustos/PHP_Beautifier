@@ -36,10 +36,10 @@ pre {
 <h2>Sourceforge</h2>
 <ul><li>Project page:<a href='http://sourceforge.net/projects/beautifyphp'>http://sourceforge.net/projects/beautifyphp</a></li>
 <li>News:<a href='http://sourceforge.net/news/?group_id=65412'>http://sourceforge.net/news/?group_id=65412</a></li>
-<li>CVS (obsolete): <a href='http://beautifyphp.cvs.sourceforge.net/beautifyphp'>http://beautifyphp.cvs.sourceforge.net/beautifyphp</a></li>
-<li>SVN: <a href="http://svn.sourceforge.net/viewcvs.cgi/beautifyphp/">http://svn.sourceforge.net/viewcvs.cgi/beautifyphp/</a></p>
+<li>SVN: 
+<br /><code>svn co https://beautifyphp.svn.sourceforge.net/svnroot/beautifyphp beautifyphp</code>
 </li>
-<li>Forum: <a href='http://sourceforge.net/forum/?group_id=65412'>http://sourceforge.net/forum/?group_id=65412</a></li>
+<li>Forum: <a href='https://sourceforge.net/projects/beautifyphp/forums'>https://sourceforge.net/projects/beautifyphp/forums</a></li>
 </ul>
 <ul>
 <?php
@@ -93,5 +93,14 @@ border="0" width="96" height="36">
 <p>
 <a href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=65412&amp;type=2" width="125" height="37" border="0" alt="SourceForge.net Logo" /></a>
 </p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5764936-7");
+pageTracker._trackPageview();
+} catch(err) {}</script>
 </body>
 </html>

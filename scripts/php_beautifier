@@ -69,6 +69,7 @@
     //end default_options
     $argv = Console_Getopt::readPHPArgv();
     $aLongOptions = array(
+        'version',
         'input=',
         'output=',
         'indent_tabs==',
@@ -153,6 +154,9 @@
             case '?':
 			case 'h':
                 usage();
+            break;
+            case 'version':
+                version();
             break;
 			case 'v':
 			case 'verbose':
@@ -243,11 +247,17 @@
           "     --directory_filters or -d <path>    Include dirs for filters\n".
           "     --compress          or -c <type>    Compress output\n".
           "     --recursive         or -r           Search in subdir recursively\n".
+          "     --version                           Show program version\n".
           "     --help              or -?           display help/usage (this message)\n\n".
           "Filter definition:\n".
-          "     --filters \"Filter1(setting1=value1,setting2=value2) Filter2()\"".
-          "\n");
+          "     --filters \"Filter1(setting1=value1,setting2=value2) Filter2()\"".PHP_EOL);
         // php_beautifier->setBeautify(true)
         exit;
+    }
+    function version() {
+        fputs(STDERR,
+        "PHP_Beautifier @package_version@".PHP_EOL
+         );
+         exit;
     }
 ?>

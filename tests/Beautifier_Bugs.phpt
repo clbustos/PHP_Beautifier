@@ -18,18 +18,20 @@
 // +----------------------------------------------------------------------+
 //
 // $Id:
-require_once "PHPUnit.php";
+require_once "PHPUnit/Framework.php";
 if (file_exists('../Beautifier.php')) {
     include_once '../Beautifier.php';
 } else {
     include_once "PHP/Beautifier.php";
 }
-class Beautifier_Bugs extends PHPUnit_TestCase
+
+class PHP_Beautifier_Filter_BBY extends PHP_Beautifier_Filter {
+function t_access($sTag) { $this->oBeaut->add($this->oBeaut->getTokenName($this->oBeaut->getControlSeq())); return PHP_Beautifier_Filter::BYPASS; } 
+} 
+
+class Beautifier_Bugs extends PHPUnit_Framework_TestCase
 {
-    function Beautifier_Bugs($name) 
-    {
-        $this->PHPUnit_TestCase($name);
-    }
+    
     function setUp() 
     {
         $this->oBeaut = new PHP_Beautifier();
@@ -55,8 +57,15 @@ HEREDOC;
 ?>
 SCRIPT;
         $this->setText($sText);
-        $sActual = $this->oBeaut->get();
-        $this->assertTrue(preg_match("/HEREDOC;\n\s*?\?>/ms", $sActual));
+        $sExpected = <<<SCRIPT
+<?php
+\$a = <<<HEREDOC
+sdsdsds
+HEREDOC;
+
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
      * Bug 1597
@@ -442,12 +451,13 @@ SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
-     * Will be great if you can rewrite T_OPEN_TAG_WITH_ECHO in the default
-     filter, specially "<?=" because it will be removed in
-     PHP6.
+     * Will be great if you can rewrite T_OPEN_TAG_WITH_ECHO 
+     * in the default filter, specially <?= because it will be 
+     * removed in PHP6.
      */
     function testBug7854() 
     {
+        if(ini_get("short_open_tag")) {
         $this->oBeaut->addFilter("Pear");
         $sText = <<<SCRIPT
 <?= \$var ?>
@@ -457,6 +467,11 @@ SCRIPT;
 <?php echo \$var ?>
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
+        } else {
+            $this->markTestSkipped(
+          'Needs short_open_tag php.ini set.'
+        );
+        }
     }
     /**
      * the first lines are intended if -l "ListClassFunction()"
@@ -1015,9 +1030,116 @@ echo "Curly {" . \$bye . "}.";
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
-
+    /**
+    * Lowercase filter prepends the control structure with ugly space
+    */
+    
+    function testBug11245() {
+        $this->oBeaut->addFilter('Lowercase');        
+        $sText = <<<SCRIPT
+<?php
+IF (\$a OR \$b) { echo 'foo'; } ELSE IF (\$b AND \$c AND \$d) { echo 'bar'; }
+?>
+SCRIPT;
+$this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+if (\$a or \$b) {
+    echo 'foo';
+} else if (\$b and \$c and \$d) {
+    echo 'bar';
+}
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
     }
-$suite = new PHPUnit_TestSuite('Beautifier_Bugs');
-$result = PHPUnit::run($suite);
-echo $result->toString();
+    /**
+    * Lowercase filter prepends the control structure with ugly space
+    */
+    
+    function testBug14396() {
+        //$this->oBeaut->startLog();
+        $this->oBeaut->addFilter('Lowercase');        
+        $sText = <<<SCRIPT
+<?php
+\$a==FALSE;
+\$b==TRUE;
+?>
+SCRIPT;
+$this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+\$a == false;
+\$b == true;
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    
+    /** 
+    * Bug 14537 
+    * PHP_Beautifier breaks code with namespace and/or use statements
+    */
+    function testBug14537() { 
+        
+        if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
+                
+            $sText = <<<SCRIPT
+<?php
+namespace MyTestnamespace.someSubNS; use OtherNamespace::ClassA; use AnotherNamespace::Class1 as Class2; ?>
+SCRIPT;
+            $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+namespace MyTestnamespace.someSubNS;
+use OtherNamespace::ClassA;
+use AnotherNamespace::Class1 as Class2;
+?>
+SCRIPT;
+            $this->assertEquals($sExpected, $this->oBeaut->get());
+        } else {
+             $this->markTestSkipped(
+              'Needs PHP5.3+');
+        }
+    }
+    
+    function testBug14754() {
+        $this->oBeaut->startLog();
+$sText = <<<SCRIPT
+<?php
+class Z {
+    public function a() {
+        echo "hi";
+    }
+    private function b() {
+        echo "hi"; // Comment
+    }
+    private function c() {
+        echo "hi";
+    }
+}
+?>
+SCRIPT;
+$this->oBeaut->addFilter('BBY');
+$this->setText($sText);
+$sExpected = <<<SCRIPT
+<?php
+class Z {
+    T_CLASSpublic function a() {
+        echo "hi";
+    }
+    T_CLASSprivate function b() {
+        echo "hi"; // Comment
+        
+    }
+    T_CLASSprivate function c() {
+        echo "hi";
+    }
+}
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    
+}
 ?>

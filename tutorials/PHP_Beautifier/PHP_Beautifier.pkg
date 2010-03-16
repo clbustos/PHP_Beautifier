@@ -118,6 +118,10 @@
   <para>The package have a test suite to verify all the important functions. Any bug have a test to verify the fix.</para>
   <para>So, IMHO, you can use this application with confidence. Anyway, you always should make regular backups of your files and use some control version system, like CVS or Subversion.</para>
   </refsect1>
+  <refsect1 id="{@id short_tags}">
+  <title>Why the beautify doesn't do anything with my code?</title>
+  <para>This package uses native PHP Tokenizer, so needs valid php code, inside php tags. The most frequent problem is the use of short tags, with php.ini 'short_open_tag' set to Off.</para>
+  </refsect1>
   
 </refentry>
 

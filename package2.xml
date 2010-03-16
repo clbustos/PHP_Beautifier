@@ -10,8 +10,8 @@
   <email>clbustos@surnet.cl</email>
   <active>yes</active>
  </lead>
- <date>2008-08-20</date>
- <time>00:12:35</time>
+ <date>2010-03-16</date>
+ <time>10:00:00</time>
  <version>
   <release>1.0.0RC1</release>
   <api>0.1.12</api>
@@ -25,8 +25,11 @@
  First Release Version!
 - Bug fix #14429: string with two variables in braces and one of them is an array and this string is within a switch statement, then the braces become indented as if they were ending the switch statement (PEAR Filter)
 - Bug fix #14293: Minor typo in documentation (PHP_Beautifier_Filter_Default)
-
-
+- Bug fix #11245: Lowercase filter prepends the control structure with ugly ' '
+- Bug fix #13601: cannot trivially find the current version [on command line]
+- Bug fix #14396: Lowercase filter to handle TRUE and FALSE
+- Bug fix #14357: PHP_Beautifier breaks php 5.3 code [needs more testing]
+- Bug fix #14754: Comment at end of function throws off control sequence
 
  </notes>
  <contents>

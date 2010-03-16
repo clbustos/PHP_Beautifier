@@ -13,7 +13,7 @@
  * @package PHP_Beautifier
  * @subpackage Filter
  * @author Claudio Bustos <cdx@users.sourceforge.com>
- * @copyright  2004-2006 Claudio Bustos
+ * @copyright  2004-2010 Claudio Bustos
  * @link     http://pear.php.net/package/PHP_Beautifier
  * @link     http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
@@ -183,14 +183,14 @@ abstract class PHP_Beautifier_Filter
         $sMethod = $sValue = false;
         if (array_key_exists($token[0], $this->aFilterTokenFunctions)) {
             $sMethod = $this->aFilterTokenFunctions[$token[0]];
-            $sValue = $token[1];
+            //$sValue = $token[1];
         } elseif ($this->oBeaut->getTokenFunction($token[0])) {
             $sMethod = $this->oBeaut->getTokenFunction($token[0]);
         }
         $sValue = $token[1];
         if ($sMethod) {
             if ($this->oBeaut->iVerbose > 5) {
-                echo $sMethod . ":" . trim($sValue) . "\n";
+                echo $sMethod . ":" . trim($sValue) . PHP_EOL;
             }
             // return false if PHP_Beautifier_Filter::BYPASS
             return ($this->$sMethod($sValue) !== PHP_Beautifier_Filter::BYPASS);

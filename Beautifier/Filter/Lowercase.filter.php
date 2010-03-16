@@ -14,7 +14,7 @@
  * @package PHP_Beautifier
  * @subpackage Filter
  * @author Claudio Bustos <cdx@users.sourceforge.com>
- * @copyright  2004-2006 Claudio Bustos
+ * @copyright  2004-2010 Claudio Bustos
  * @link     http://pear.php.net/package/PHP_Beautifier
  * @link     http://php.apsique.com/PHP_Beautifier
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
@@ -32,7 +32,7 @@
  * @package PHP_Beautifier
  * @subpackage Filter
  * @author Claudio Bustos <cdx@users.sourceforge.com>
- * @copyright  2004-2006 Claudio Bustos
+ * @copyright  2004-2010 Claudio Bustos
  * @link     http://pear.php.net/package/PHP_Beautifier
  * @link     http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
@@ -107,16 +107,23 @@ class PHP_Beautifier_Filter_Lowercase extends PHP_Beautifier_Filter
         parent::__construct($oBeaut, $aSettings);
         $this->oLog = PHP_Beautifier_Common::getLog();
     }
+    public function t_string($sTag) {
+        if($sTag=='TRUE' or $sTag=='FALSE') {
+            $this->oBeaut->aCurrentToken[1]=strtolower($sTag);
+        }
+        return PHP_Beautifier_Filter::BYPASS;
+        
+    }
     public function __call($sMethod, $aArgs) 
     {
         $iToken = $this->aToken[0];
         $sContent = $this->aToken[1];
         if (in_array($iToken, $this->aControlSeq)) {
             $this->oLog->log("Lowercase:" . $sContent, PEAR_LOG_DEBUG);
-            $this->oBeaut->add(" " . strtolower($sContent) . " ");
-        } else {
-            return PHP_Beautifier_Filter::BYPASS;
+            $this->oBeaut->aCurrentToken[1]=strtolower($sContent);
+            
         }
+        return PHP_Beautifier_Filter::BYPASS;
     }
 }
 ?>

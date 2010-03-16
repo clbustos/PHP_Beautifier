@@ -14,7 +14,7 @@
  * @package PHP_Beautifier
  * @subpackage Filter
  * @author Claudio Bustos <cdx@users.sourceforge.com>
- * @copyright  2004-2006 Claudio Bustos
+ * @copyright  2004-2010 Claudio Bustos
  * @link     http://pear.php.net/package/PHP_Beautifier
  * @link     http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
@@ -49,7 +49,7 @@ require_once ('PEAR/Config.php');
  * @package PHP_Beautifier
  * @subpackage Filter
  * @author Claudio Bustos <cdx@users.sourceforge.com>
- * @copyright  2004-2006 Claudio Bustos
+ * @copyright  2004-2010 Claudio Bustos
  * @link     http://pear.php.net/package/PHP_Beautifier
  * @link     http://beautifyphp.sourceforge.net
  * @link http://pear.php.net/manual/en/standards.php
