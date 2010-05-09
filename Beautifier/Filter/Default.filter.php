@@ -361,6 +361,13 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter
             $this->oBeaut->add(" ");
         }
     }
+    function t_continue($sTag) 
+    {
+        $this->oBeaut->add($sTag);
+        if ($this->oBeaut->isNextTokenConstant(T_LNUMBER)) {
+            $this->oBeaut->add(" ");
+        }
+    }
     function t_default($sTag) 
     {
         $this->t_case($sTag);
