@@ -154,7 +154,11 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter
             }
             $this->oBeaut->addNewLineIndent();
             $this->oBeaut->add($sTag);
-            $this->oBeaut->addNewLineIndent();
+            if ($this->oBeaut->getControlSeq() == T_DO) {
+                $this->oBeaut->add(' ');
+            }else{
+                $this->oBeaut->addNewLineIndent();
+            }
         }
     }
     function t_semi_colon($sTag) 

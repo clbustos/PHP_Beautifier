@@ -237,6 +237,8 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
     private $sBeforeNewLine = null;
     /** Activate or deactivate 'no delete previous space' */
     private $bNdps = false;
+    /** Mark the begin of the end of a DoWhile sequence **/
+    private $doWhileBeginEnd;
     // Methods
     
     /**
@@ -956,6 +958,30 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
                     $this->oLog->log('end bracket:' . $this->getPreviousTokenContent($prevIndex) , PEAR_LOG_DEBUG);
                     
                     if ($this->isPreviousTokenContent(array(';','}','{'), $prevIndex)) {
+                        if (end($this->aControlSeq)!=T_DO) {
+                            $this->popControlSeq();
+                        } else {
+                            $this->DoWhileBeginEnd=true;
+                        }
+                    }
+                }
+                break;
+
+            case ';':
+                // If is a while in a do while structure
+                if (isset($this->aControlSeq) && (end($this->aControlSeq)==T_WHILE)) {
+                    $counter = 0;
+                    $openParenthesis = 0;
+                    do {
+                        $counter++;
+                        $prevToken = $this->getPreviousTokenContent($counter);
+                        if ($prevToken == "(") { $openParenthesis++; }
+                    } while($prevToken!="{" && $prevToken!="while");
+                    if ($prevToken=="while" && $openParenthesis==1) {
+                        if ($this->DoWhileBeginEnd) {
+                            $this->popControlSeq();
+                            $this->DoWhileBeginEnd=false;
+                        }
                         $this->popControlSeq();
                     }
                 }
