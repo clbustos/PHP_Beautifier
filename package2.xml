@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>PHP_Beautifier</name>
  <channel>pear.php.net</channel>
  <summary>Beautifier for Php</summary>
@@ -11,7 +11,7 @@
   <active>yes</active>
  </lead>
  <date>2010-03-16</date>
- <time>10:00:00</time>
+ <time>07:04:23</time>
  <version>
   <release>1.0.0RC1</release>
   <api>0.1.12</api>
@@ -23,13 +23,13 @@
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
  First Release Version!
-- Bug fix #14429: string with two variables in braces and one of them is an array and this string is within a switch statement, then the braces become indented as if they were ending the switch statement (PEAR Filter)
-- Bug fix #14293: Minor typo in documentation (PHP_Beautifier_Filter_Default)
-- Bug fix #11245: Lowercase filter prepends the control structure with ugly ' '
-- Bug fix #13601: cannot trivially find the current version [on command line]
-- Bug fix #14396: Lowercase filter to handle TRUE and FALSE
-- Bug fix #14357: PHP_Beautifier breaks php 5.3 code [needs more testing]
-- Bug fix #14754: Comment at end of function throws off control sequence
+- Fix Bug #14429: string with two variables in braces and one of them is an array and this string is within a switch statement, then the braces become indented as if they were ending the switch statement (PEAR Filter)
+- Fix Bug #14293: Minor typo in documentation (PHP_Beautifier_Filter_Default)
+- Fix Bug #11245: Lowercase filter prepends the control structure with ugly ' '
+- Fix Bug #14357: PHP_Beautifier breaks php 5.3 code [needs more testing]
+- Fix Bug #14754: Comment at end of function throws off control sequence
+- Implement Feature #13601: cannot trivially find the current version [on command line]
+- Implement Feature  #14396: Lowercase filter to handle TRUE and FALSE
 
  </notes>
  <contents>
