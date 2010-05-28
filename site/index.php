@@ -23,6 +23,11 @@ pre {
 <h2>Purpose</h2>
 <p>This program reformat and beautify PHP source code files automatically. The program is Open Source and distributed under the terms of PHP Licence. It is written in PHP 5 and has a command line tool.</p>
 <p>If you need a PHP 4 tool to beautify files, use <a href='http://www.bierkandt.org/beautify/'>Beautify PHP</a>, made by Jens Bierkandt</p>
+<h2>Team</h2>
+<ul>
+<li>Claudio Bustos: Lead Developer</li>
+<li>Jes&uacute;s Espino: Developer</li>
+</ul>
 <h2>Pear</h2>
 <ul>
 <li>Main page:<a href='http://pear.php.net/package/PHP_Beautifier'>http://pear.php.net/package/PHP_Beautifier</a></li>
@@ -33,11 +38,10 @@ pre {
 <!--<h2>Demostration</h2>
 <p>Test the code on <a href='demo/'>demo page</a></p>
 -->
-<h2>Sourceforge</h2>
+<h2>Related</h2>
 <ul><li>Project page:<a href='http://sourceforge.net/projects/beautifyphp'>http://sourceforge.net/projects/beautifyphp</a></li>
 <li>News:<a href='http://sourceforge.net/news/?group_id=65412'>http://sourceforge.net/news/?group_id=65412</a></li>
-<li>SVN: 
-<br /><code>svn co https://beautifyphp.svn.sourceforge.net/svnroot/beautifyphp beautifyphp</code>
+<li>Source code (GIT): <a href='http://github.com/clbustos/PHP_Beautifier'>http://github.com/clbustos/PHP_Beautifier</a>
 </li>
 <li>Forum: <a href='https://sourceforge.net/projects/beautifyphp/forums'>https://sourceforge.net/projects/beautifyphp/forums</a></li>
 </ul>
