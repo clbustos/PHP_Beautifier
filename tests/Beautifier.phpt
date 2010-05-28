@@ -109,7 +109,8 @@
                 'Pear',
                 'ArrayNested',
                 'IndentStyles',
-                'Lowercase'
+                'Lowercase',
+                'phpBB'
             );
             sort($aEspFilters);
             $aRealFilters = $this->oBeaut->getFilterListTotal();
