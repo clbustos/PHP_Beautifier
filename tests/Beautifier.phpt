@@ -110,7 +110,8 @@
                 'ArrayNested',
                 'IndentStyles',
                 'Lowercase',
-                'phpBB'
+                'phpBB',
+                'DocBlock'
             );
             sort($aEspFilters);
             $aRealFilters = $this->oBeaut->getFilterListTotal();
