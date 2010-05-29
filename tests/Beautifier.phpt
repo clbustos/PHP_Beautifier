@@ -176,6 +176,13 @@
 /*
 Long comment 3
 */
+/*
+Indented
+  Comment
+    With some levels
+  Now
+   Works
+*/
 ?>
 SCRIPT;
             $sTextExpected = <<<SCRIPT
@@ -186,6 +193,13 @@ SCRIPT;
 \$b = 6; /* long comment 2 */
 /*
 Long comment 3
+*/
+/*
+Indented
+  Comment
+    With some levels
+  Now
+   Works
 */
 ?>
 SCRIPT;

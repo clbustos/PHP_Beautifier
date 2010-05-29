@@ -563,6 +563,10 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
     {
         return $this->iIndentNumber;
     }
+    public function getIndent() 
+    {
+        return $this->iIndent;
+    }
     public function getNewLine() 
     {
         return $this->sNewLine;

@@ -12,3 +12,14 @@ task :test do
   }
   puts "Passed:#{passed}, Failed:#{failed}"
 end
+
+task :install do
+    system "pear install package2.xml"
+end
+
+task :uninstall do
+    system "pear uninstall PHP_Beautifier"
+end
+
+task :reinstall => [:uninstall, :install] do
+end

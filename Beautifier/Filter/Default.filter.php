@@ -233,8 +233,28 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter
             $this->oBeaut->addNewLineIndent();
         } else {
             $aLines = explode("\n", $sTag);
+
+            $allWithAsterisk=true;
+            for($x=1;$x<(count($aLines)-1);$x++) {
+                if (substr(trim($aLines[$x]),0,1)!="*") {
+                    $allWithAsterisk=false;
+                }
+            }
+
             foreach($aLines as $sLinea) {
-                $this->oBeaut->add(trim($sLinea));
+                if (substr(trim($sLinea),0,2)=="/*") {
+                    $this->oBeaut->add(trim($sLinea));
+                } elseif (substr(trim($sLinea),0,2)=="*/") {
+                    $this->oBeaut->add(trim($sLinea));
+                } elseif ($allWithAsterisk) {
+                    $this->oBeaut->add(" ".trim($sLinea));
+                } else {
+                    if (trim(substr($sLinea,0,$this->oBeaut->getIndent()))=="") {
+                        $this->oBeaut->add(substr($sLinea,$this->oBeaut->getIndent()));
+                    } else {
+                        $this->oBeaut->add(trim($sLinea));
+                    }
+                }
                 $this->oBeaut->addNewLineIndent();
             }
         }
