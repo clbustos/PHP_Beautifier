@@ -1,9 +1,0 @@
-#!/bin/bash
-DESTINO=/home/cdx/cvs/PHP_Beautifier
-cp -urp *.php  $DESTINO
-cp -urp Beautifier/* $DESTINO/Beautifier
-cp -urp tutorials/*  $DESTINO/tutorials
-cp -urp scripts/* $DESTINO/scripts
-cp -urp licenses/* $DESTINO/licenses
-cp -urp package.xml $DESTINO/
-cp -urp tests/* $DESTINO/tests

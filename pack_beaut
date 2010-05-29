@@ -1,6 +1,0 @@
-rm *.tgz &> /dev/null
-. /etc/profile
-pear package
-pear uninstall PHP_Beautifier
-pear install -f PHP_Beautifier-0.1.9.tgz
-echo 'Ok'

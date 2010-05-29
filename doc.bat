@@ -1,1 +1,0 @@
-j:\php5\php.exe "j:\php\phpdoc" -c J:\php\pear\data\PhpDocumentor\user\PHP_Beautifier.ini

@@ -23,3 +23,11 @@ end
 
 task :reinstall => [:uninstall, :install] do
 end
+
+task :doc do
+    system "phpdoc -c Doc_PHP_Beautifier.ini"
+end
+
+task :package do
+    system "pear package package2.xml"
+end
