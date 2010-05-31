@@ -21,7 +21,7 @@
 require_once(dirname(__FILE__).'/../Helpers.php');
 
     
-    class BeautifierStreamWrapperTarzTest extends PHPUnit_Framework_TestCase {
+    class StreamWrapperTarzTest extends PHPUnit_Framework_TestCase {
         var $sFile;
         var $sFileBz2;
         function setUp() {

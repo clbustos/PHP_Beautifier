@@ -210,13 +210,13 @@ SCRIPT;
 <?php
 /** Doc comment inline */
 /** First line
-* Other line
-*/
+ * Other line
+ */
 /**
-* Doc normal comment
-*
-* Other line
-*/
+ * Doc normal comment
+ *
+ * Other line
+ */
 ?>
 SCRIPT;
         $this->oBeaut->setInputString($sTextOriginal);
@@ -230,21 +230,21 @@ switch(\$a) {
 case 1:
 case 2:
 switch(\$b) {
-    case 1:
-    case 2:
-        switch(\$c) {
-            case 1:
-            case 2:
-                echo "hola";
-            break;
-            default:
-                echo "leso";
-            break;
-        }
-    break;
-    case 3:
-        echo "hola";
-    break;
+case 1:
+case 2:
+switch(\$c) {
+case 1:
+case 2:
+echo "hola";
+break;
+default:
+echo "leso";
+break;
+}
+break;
+case 3:
+echo "hola";
+break;
 }
 break;
 }
@@ -253,26 +253,26 @@ SCRIPT;
         $sTextExpected = <<<SCRIPT
 <?php
 switch (\$a) {
-case 1:
-case 2:
-    switch (\$b) {
-        case 1:
-        case 2:
-            switch (\$c) {
-                case 1:
-                case 2:
-                    echo "hola";
-                break;
-                default:
-                    echo "leso";
-                break;
-            }
-        break;
-        case 3:
-            echo "hola";
-        break;
-    }
-break;
+    case 1:
+    case 2:
+        switch (\$b) {
+            case 1:
+            case 2:
+                switch (\$c) {
+                    case 1:
+                    case 2:
+                        echo "hola";
+                    break;
+                    default:
+                        echo "leso";
+                    break;
+                }
+            break;
+            case 3:
+                echo "hola";
+            break;
+        }
+    break;
 }
 ?>
 SCRIPT;
