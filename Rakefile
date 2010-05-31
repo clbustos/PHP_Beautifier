@@ -5,6 +5,11 @@ task :test do
   system "phpunit ."
 end
 
+task :coverage do
+  Dir.chdir('tests')
+  system "phpunit --coverage-html ../site/coverage ."
+end
+
 task :install do
     system "pear install package2.xml"
 end
