@@ -29,7 +29,7 @@ require_once(dirname(__FILE__).'/../Helpers.php');
             $this->sFileBz2 = dirname(__FILE__) ."/Beautifier.tar.bz2";
         }
         function testopen() {
-            $this->assertTrue(@fopen('tarz://'.$this->sFile."#Beautifier.php", 'r'));
+            $this->assertTrue((boolean)@fopen('tarz://'.$this->sFile."#Beautifier.php", 'r'));
             $this->assertfalse(@fopen('tarz://'.$this->sFile."#package2.xml", 'r'));
         }
         function testclose() {
@@ -47,7 +47,7 @@ require_once(dirname(__FILE__).'/../Helpers.php');
             unset($oTar);
             $sActual = '';
             $fp = @fopen('tarz://'.$this->sFile."#Beautifier.php", 'rb');
-            $this->assertTrue($fp);
+            $this->assertTrue((boolean)$fp);
             if ($fp) {
                 while (!feof($fp)) {
                     $sBuffer = fread($fp, 8192);
@@ -80,12 +80,14 @@ require_once(dirname(__FILE__).'/../Helpers.php');
             $this->assertTrue($sExpected == $sActual, 'file_get_contents');
         }
         function testOpenDir() {
-            $this->assertTrue($oDir = opendir('tarz://'.$this->sFile));
+            $oDir = opendir('tarz://'.$this->sFile);
+            $this->assertTrue((boolean)$oDir);
         }
         function testReadDir() {
             if ($dh = opendir('tarz://'.$this->sFile)) {
                 while (($file = readdir($dh)) !== false) {
-                    $this->assertTrue($fp = fopen('tarz://'.$this->sFile.'#'.$file, 'r'));
+                    $fp = fopen('tarz://'.$this->sFile.'#'.$file, 'r');
+                    $this->assertTrue((boolean)$fp);
                     $this->assertTrue(fclose($fp));
                 }
                 closedir($dh);
