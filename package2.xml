@@ -73,6 +73,13 @@
      <file baseinstalldir="PHP" name="Default.filter.php" role="php">
       <tasks:replace from="@package_version@" to="version" type="package-info" />
      </file>
+     <file baseinstalldir="PHP" name="DocBlock.filter.php" role="php">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
+     <file baseinstalldir="PHP" name="EqualsAlign.filter.php" role="php">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
+     
      <file baseinstalldir="PHP" name="IndentStyles.filter.php" role="php">
       <tasks:replace from="@package_version@" to="version" type="package-info" />
      </file>
@@ -147,28 +154,37 @@
     </file>
    </dir> <!-- /scripts -->
    <dir name="tests">
-    <file baseinstalldir="PHP" name="Beautifier.phpt" role="test">
+    <file baseinstalldir="PHP" name="BeautifierBugs.php" role="test">
      <tasks:replace from="@package_version@" to="version" type="package-info" />
     </file>
-    <file baseinstalldir="PHP" name="Beautifier_Bugs.phpt" role="test">
+    <file baseinstalldir="PHP" name="BeautifierCommon.php" role="test">
      <tasks:replace from="@package_version@" to="version" type="package-info" />
     </file>
-    <file baseinstalldir="PHP" name="Beautifier_Common.phpt" role="test">
+    <file baseinstalldir="PHP" name="BeautifierInternal.php" role="test">
      <tasks:replace from="@package_version@" to="version" type="package-info" />
     </file>
-    <file baseinstalldir="PHP" name="Beautifier_Pear.phpt" role="test">
+    <file baseinstalldir="PHP" name="BeautifierTest.php" role="test">
      <tasks:replace from="@package_version@" to="version" type="package-info" />
     </file>
-    <file baseinstalldir="PHP" name="Beautifier_StreamWrapper.phpt" role="test">
+    <file baseinstalldir="PHP" name="Helpers.php" role="test">
      <tasks:replace from="@package_version@" to="version" type="package-info" />
     </file>
-    <file baseinstalldir="PHP" name="pear_sample_file.phps" role="test">
-     <tasks:replace from="@package_version@" to="version" type="package-info" />
-    </file>
-   </dir> <!-- /tests -->
-   <file baseinstalldir="PHP" name="Beautifier.php" role="php">
-    <tasks:replace from="@package_version@" to="version" type="package-info" />
-   </file>
+    <dir name='Beautifier'>
+        <file baseinstalldir="PHP" name="StreamWrapperTest.php" role="test">
+         <tasks:replace from="@package_version@" to="version" type="package-info" />
+        </file>
+        <file baseinstalldir="PHP" name="Beautifier.tar.bz2" role="data" />
+        <file baseinstalldir="PHP" name="Beautifier.tar.gz" role="data" />
+        <dir name='Filter'>
+            <file baseinstalldir="PHP" name="PearTest.php" role="test">
+             <tasks:replace from="@package_version@" to="version" type="package-info" />
+            </file>
+            <file baseinstalldir="PHP" name="pear_sample_file.phps" role="data" />
+        </dir>
+    </dir>
+    
+    </dir>
+    
   </dir> <!-- / -->
  </contents>
  <dependencies>

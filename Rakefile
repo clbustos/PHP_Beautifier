@@ -21,7 +21,7 @@ task :doc do
 end
 
 task :package do
-  FileUtils.mkdir "pkg"  
+  FileUtils.mkdir_p "pkg"  
   system "pear package package2.xml"
   system "mv PHP_Beautifier*.tgz pkg"
 end
