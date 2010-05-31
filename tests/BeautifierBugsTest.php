@@ -1074,18 +1074,19 @@ SCRIPT;
     */
     function testBug14537() { 
         
-        if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
+        if (version_compare(PHP_VERSION, '5.2.0') >= 0) {
                 
             $sText = <<<SCRIPT
 <?php
-namespace MyTestnamespace.someSubNS; use OtherNamespace::ClassA; use AnotherNamespace::Class1 as Class2; ?>
+namespace MyTestnamespace\someSubNS; use OtherNamespace\ClassA; use AnotherNamespace\Class1 as Class2; 
+?>
 SCRIPT;
             $this->setText($sText);
         $sExpected = <<<SCRIPT
 <?php
-namespace MyTestnamespace.someSubNS;
-use OtherNamespace::ClassA;
-use AnotherNamespace::Class1 as Class2;
+namespace MyTestnamespace\someSubNS;
+use OtherNamespace\ClassA;
+use AnotherNamespace\Class1 as Class2;
 ?>
 SCRIPT;
             $this->assertEquals($sExpected, $this->oBeaut->get());

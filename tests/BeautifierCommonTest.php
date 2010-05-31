@@ -31,17 +31,17 @@
         {
             $sDir = PHP_Beautifier_Common::normalizeDir(dirname(__FILE__));
             $aExpected = array(
-                $sDir.'Beautifier.phpt'
+                $sDir.'BeautifierTest.php'
             );
-            $this->assertEquals($aExpected, PHP_Beautifier_Common::getFilesByPattern($sDir, 'Beautifier\.....', false));
+            $this->assertEquals($aExpected, PHP_Beautifier_Common::getFilesByPattern($sDir, 'BeautifierTest\....', false));
         }
         function testgetFilesByGlob() 
         {
             $sDir = PHP_Beautifier_Common::normalizeDir(dirname(__FILE__));
             $aExpected = array(
-                $sDir.'Beautifier_Common.phpt'
+                $sDir.'BeautifierCommonTest.php'
             );
-            $this->assertEquals($aExpected, PHP_Beautifier_Common::getFilesByGlob($sDir.basename(__FILE__, '.phpt') .'.????', false));
+            $this->assertEquals($aExpected, PHP_Beautifier_Common::getFilesByGlob($sDir.basename(__FILE__, '.php') .'.???', false));
         }
         function testWsToString() {
             $this->assertEquals(' \t\r\n',PHP_Beautifier_Common::wsToString(" \t\r\n"));

@@ -154,13 +154,13 @@
     </file>
    </dir> <!-- /scripts -->
    <dir name="tests">
-    <file baseinstalldir="PHP" name="BeautifierBugs.php" role="test">
+    <file baseinstalldir="PHP" name="BeautifierBugsTest.php" role="test">
      <tasks:replace from="@package_version@" to="version" type="package-info" />
     </file>
-    <file baseinstalldir="PHP" name="BeautifierCommon.php" role="test">
+    <file baseinstalldir="PHP" name="BeautifierCommonTest.php" role="test">
      <tasks:replace from="@package_version@" to="version" type="package-info" />
     </file>
-    <file baseinstalldir="PHP" name="BeautifierInternal.php" role="test">
+    <file baseinstalldir="PHP" name="BeautifierInternalTest.php" role="test">
      <tasks:replace from="@package_version@" to="version" type="package-info" />
     </file>
     <file baseinstalldir="PHP" name="BeautifierTest.php" role="test">
@@ -208,6 +208,12 @@
    </extension>
   </required>
   <optional>
+  <package>
+    <name>PHP_DocBlockGenerator</name>
+    <channel>pear.php.net</channel>
+    <min>1</min>
+    <exclude>1</exclude>
+   </package>
    <package>
     <name>Console_Getopt</name>
     <channel>pear.php.net</channel>
