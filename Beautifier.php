@@ -305,6 +305,7 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
             '|' => 'T_OPERATOR',
             '^' => 'T_OPERATOR',
             '~' => 'T_OPERATOR',
+            '!' => 'T_OPERATOR_NEGATION',
             T_SL => 'T_OPERATOR',
             T_SR => 'T_OPERATOR',
             T_OBJECT_OPERATOR => 'T_OBJECT_OPERATOR',

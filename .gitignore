@@ -1,4 +1,5 @@
 docs/*
+site/docs
 tests/*.log
 create_doc
 subir_sitio

@@ -24,6 +24,7 @@
 /**
  * Filter Doc Blocks: Use DocBlockGenerator for beautify the phpdoc comments.
  * Ex.
+ * <pre>
  * /**
  *  * @category   PHP
  *  * @package    PHP_Beautifier
@@ -35,7 +36,7 @@
  *  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  *  * @version    Release: @package_version@
  *  *'/
- * </CODE>
+ * </pre>
  * @category   PHP
  * @package    PHP_Beautifier
  * @subpackage Filter

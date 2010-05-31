@@ -23,19 +23,7 @@
  */
 /**
  * Filter EqualsAlign: Align the equals symbols in contiguous lines.
- * Ex.
- * /**
- *  * @category   PHP
- *  * @package    PHP_Beautifier
- *  * @subpackage Filter
- *  * @author     Jesús Espino <jespinog@gmail.com>
- *  * @copyright  2010 Jesús Espino
- *  * @link       http://pear.php.net/package/PHP_Beautifier
- *  * @link       http://beautifyphp.sourceforge.net
- *  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- *  * @version    Release: @package_version@
- *  *'/
- * </CODE>
+ * 
  * @category   PHP
  * @package    PHP_Beautifier
  * @subpackage Filter

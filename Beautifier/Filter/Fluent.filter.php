@@ -23,7 +23,7 @@
 /**
  * Filter Fluent: Create fluent style for multi-level object access.
  * Ex.
- * </CODE>
+ * <CODE>
  * $this
  *     ->addFile("a.txt")
  *     ->addFile("b.txt")
