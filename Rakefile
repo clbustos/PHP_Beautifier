@@ -1,8 +1,10 @@
 require 'rake'
 require 'fileutils'
 task :test do
-  Dir.chdir('tests')
+  Dir.chdir(File.dirname(__FILE__)+'/tests')
   system "phpunit ."
+  Dir.chdir(File.dirname(__FILE__))
+  system "pear package-validate package2.xml"
 end
 
 task :coverage do

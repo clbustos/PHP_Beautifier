@@ -10,10 +10,17 @@
   <email>clbustos_at_gmail</email>
   <active>yes</active>
  </lead>
+ <lead>
+  <name>Jesús Espino</name>
+  <user>jespino</user>
+  <email>jespinog_at_gmail</email>
+  <active>yes</active>
+ </lead>
+
  <date>2010-06-04</date>
  <time>16:13:00</time>
  <version>
-  <release>0.1.15</release>
+  <release>0.1.16</release>
   <api>0.1.12</api>
  </version>
  <stability>
