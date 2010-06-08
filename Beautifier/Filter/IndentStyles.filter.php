@@ -286,7 +286,7 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
     {
         $sStyle = strtolower($this->getSetting('style'));
         if (!array_key_exists($sStyle, $this->aAllowedStyles)) {
-            throw (new Exception("Style " . $sStyle . "doesn't exists"));
+            throw (new Exception("Style " . $sStyle . " doesn't exists"));
         }
         return $sMethod . "_" . $this->aAllowedStyles[$sStyle];
     }
