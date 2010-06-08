@@ -11,30 +11,38 @@
 * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
 * the PHP License and are unable to obtain it through the web, please
 * send a note to license@php.net so we can mail you a copy immediately.
+*
 * @category   PHP
-* @package PHP_Beautifier
+* @package    PHP_Beautifier
 * @subpackage Batch
-* @author Claudio Bustos <cdx@users.sourceforge.com>
+* @author     Claudio Bustos <cdx@users.sourceforge.com>
 * @copyright  2004-2010 Claudio Bustos
-* @link     http://pear.php.net/package/PHP_Beautifier
-* @link     http://beautifyphp.sourceforge.net
 * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
 * @version    CVS: $Id:$
+* @link       http://pear.php.net/package/PHP_Beautifier
+* @link       http://beautifyphp.sourceforge.net
 */
 /**
 * PHP_Beautifier_Batch_Files
 * Handle the batch process for multiple php files to one directory
 *
-* @category   PHP
-* @package PHP_Beautifier
-* @author Claudio Bustos <cdx@users.sourceforge.com>
-* @copyright  2004-2010 Claudio Bustos
-* @link     http://pear.php.net/package/PHP_Beautifier
-* @link     http://beautifyphp.sourceforge.net
-* @license    http://www.php.net/license/3_0.txt  PHP License 3.0
-* @version    Release: @package_version@
+* @category  PHP
+* @package   PHP_Beautifier
+* @author    Claudio Bustos <cdx@users.sourceforge.com>
+* @copyright 2004-2010 Claudio Bustos
+* @license   http://www.php.net/license/3_0.txt  PHP License 3.0
+* @version   Release: @package_version@
+* @link      http://pear.php.net/package/PHP_Beautifier
+* @link      http://beautifyphp.sourceforge.net
 */
-class PHP_Beautifier_Batch_Output_Directory extends PHP_Beautifier_Batch_Output {
+class PHP_Beautifier_Batch_Output_Directory extends PHP_Beautifier_Batch_Output
+{
+    /**
+     * save 
+     * 
+     * @access public
+     * @return bool
+     */
     public function save() 
     {
         $aInputFiles = $this->oBatch->getInputFiles();
@@ -49,21 +57,24 @@ class PHP_Beautifier_Batch_Output_Directory extends PHP_Beautifier_Batch_Output 
                 $this->beautifierSave($aOutputFiles[$x]);
             }
             catch(Exception $oExp) {
-                $oLog->log($oExp->getMessage() , PEAR_LOG_ERR);
+                $oLog->log($oExp->getMessage(), PEAR_LOG_ERR);
             }
         }
         return true;
     }
+
     /**
-    * Send the output of the files, one after another
-    * With a little header
-    * @return string
-    */
+     * Send the output of the files, one after another
+     * With a little header
+     * 
+     * @access public
+     * @return string
+     */
     public function get() 
     {
         $aInputFiles = $this->oBatch->getInputFiles();
         $sText = '';
-        foreach($aInputFiles as $sFile) {
+        foreach ($aInputFiles as $sFile) {
             $this->beautifierSetInputFile($sFile);
             $this->beautifierProcess();
             $sText.= $this->beautifierGet()."\n";

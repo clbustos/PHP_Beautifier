@@ -9,31 +9,33 @@
  * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
+ *
  * @category   PHP
- * @package PHP_Beautifier
+ * @package    PHP_Beautifier
  * @subpackage Filter
- * @author Claudio Bustos <cdx@users.sourceforge.com>
+ * @author     Claudio Bustos <cdx@users.sourceforge.com>
  * @copyright  2004-2010 Claudio Bustos
- * @link     http://pear.php.net/package/PHP_Beautifier
- * @link     http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    CVS: $Id:$
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  */
 /**
  * PHP_Beautifier_Filter
  *
  * Definition for creation of Filters
  * For concrete details, please see {@link PHP_Beautifier_Filter_Default}
- * @category     PHP
- * @package      PHP_Beautifier
- * @subpackage   Filter
- * @tutorial     PHP_Beautifier/Filter/Filter.create.pkg
- * @author       Claudio Bustos <cdx@users.sourceforge.com>
- * @copyright    2004-2006 Claudio Bustos
- * @link         http://pear.php.net/package/PHP_Beautifier
- * @link         http://beautifyphp.sourceforge.net
- * @license      http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version      Release: @package_version@
+ *
+ * @category   PHP
+ * @package    PHP_Beautifier
+ * @subpackage Filter
+ * @tutorial   PHP_Beautifier/Filter/Filter.create.pkg
+ * @author     Claudio Bustos <cdx@users.sourceforge.com>
+ * @copyright  2004-2006 Claudio Bustos
+ * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @version    Release: @package_version@
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  */
 abstract class PHP_Beautifier_Filter
 {
@@ -79,6 +81,11 @@ abstract class PHP_Beautifier_Filter
      */
     protected $aToken = false;
     /**
+     * @param PHP_Beautifier
+     * @param array settings for the Filter
+     */
+
+    /**
      * Constructor
      * If you need to overload this (for example, to create a
      * definition for setting with {@link addSettingDefinition()}
@@ -86,8 +93,12 @@ abstract class PHP_Beautifier_Filter
      * <code>
      * parent::__construct($oBeaut, $aSettings)
      * </code>
-     * @param PHP_Beautifier
-     * @param array settings for the Filter
+     * 
+     * @param PHP_Beautifier $oBeaut    PHP_Beautifier Object
+     * @param array          $aSettings Settings for the PHP_Beautifier
+     *
+     * @access public
+     * @return void
      */
     public function __construct(PHP_Beautifier $oBeaut, $aSettings = array())
     {
@@ -98,7 +109,13 @@ abstract class PHP_Beautifier_Filter
     }
     /**
      * Add a setting definition
-     * @param string
+     * 
+     * @param mixed $sSetting     Name of setting
+     * @param mixed $sType        Type of setting
+     * @param mixed $sDescription Description of setting 
+     *
+     * @access protected
+     * @return void
      */
     protected function addSettingDefinition($sSetting, $sType, $sDescription)
     {
@@ -108,7 +125,10 @@ abstract class PHP_Beautifier_Filter
         );
     }
     /**
-     * return @string
+     * getName 
+     * 
+     * @access public
+     * @return string
      */
     public function getName()
     {
@@ -123,6 +143,10 @@ abstract class PHP_Beautifier_Filter
      * // ArrayNested->on()
      * ...other code ...
      * </code>
+     * 
+     * @final
+     * @access public
+     * @return void
      */
     final public function on()
     {
@@ -137,6 +161,9 @@ abstract class PHP_Beautifier_Filter
      * // ArrayNested->off()
      * ...other code ...
      * </code>
+     * 
+     * @access public
+     * @return void
      */
     public function off()
     {
@@ -144,7 +171,11 @@ abstract class PHP_Beautifier_Filter
     }
     /**
      * Get a setting of the Filter
-     * @param string name of setting
+     * 
+     * @param mixed $sSetting Name of setting
+     *
+     * @final
+     * @access public
      * @return mixed value of setting or false
      */
     final public function getSetting($sSetting)
@@ -153,8 +184,13 @@ abstract class PHP_Beautifier_Filter
     }
     /**
      * Set a value of a Setting
-     * @param string name of setting
-     * @param mixed value of setting
+     * 
+     * @param mixed $sSetting Name of setting
+     * @param mixed $sValue   Value of setting
+     *
+     * @final
+     * @access public
+     * @return void
      */
     final public function setSetting($sSetting, $sValue)
     {
@@ -170,7 +206,10 @@ abstract class PHP_Beautifier_Filter
      * If the method doesn't exists, {@link __call()} is called, and return
      * {@link PHP_Beautifier_Filter::BYPASS}. PHP_Beautifier, now, call the next Filter is its list.
      * If the method exists, it can return true or {@link PHP_Beautifier_Filter::BYPASS}.
-     * @param array token
+     * 
+     * @param array $token Token to be handled
+     *
+     * @access public
      * @return bool true if the token is processed, false bypass to the next Filter
      * @see PHP_Beautifier::process()
      */
@@ -196,15 +235,19 @@ abstract class PHP_Beautifier_Filter
             return ($this->$sMethod($sValue) !== PHP_Beautifier_Filter::BYPASS);
         } else { // WEIRD!!! -> Add the same received
             $this->oBeaut->add($token[1]);
-            PHP_Beautifier_Common::getLog()->log("Add same received:" . trim($token[1]) , PEAR_LOG_DEBUG);
+            PHP_Beautifier_Common::getLog()->log("Add same received:" . trim($token[1]), PEAR_LOG_DEBUG);
             return true;
         }
         // never go here
         return false;
     }
     /**
-     * @param string metodo
-     * @param array arguments
+     * __call 
+     * 
+     * @param mixed $sMethod Method name
+     * @param mixed $aArgs   Method arguments
+     *
+     * @access public
      * @return mixed null or {@link PHP_Beautifier_Filter::BYPASS}
      */
     public function __call($sMethod, $aArgs)
@@ -214,6 +257,8 @@ abstract class PHP_Beautifier_Filter
     /**
      * Called from {@link PHP_Beautifier::process()} at the beginning
      * of the processing
+     * 
+     * @access public
      * @return void
      */
     public function preProcess()
@@ -222,34 +267,57 @@ abstract class PHP_Beautifier_Filter
     /**
      * Called from {@link PHP_Beautifier::process()} at the end of processing
      * The post-process must be made in {@link PHP_Beautifier::$aOut}
+     * 
+     * @access public
      * @return void
      */
     public function postProcess()
     {
     }
+
+    /**
+     * __sleep 
+     * 
+     * @access public
+     * @return void
+     */
     public function __sleep()
     {
         return array(
             'aSettings'
         );
     }
+
+    /**
+     * getDescription 
+     * 
+     * @access public
+     * @return void
+     */
     public function getDescription()
     {
         return $this->sDescription;
     }
+
+    /**
+     * __toString 
+     * 
+     * @access public
+     * @return void
+     */
     public function __toString()
     {
         // php_beautifier->setBeautify(false);
-            $sOut='Filter:      '.$this->getName()."\n".
-                  "Description: ".$this->getDescription()."\n";
-                  if (!$this->aSettingsDefinition) {
-                      $sOut.= "Settings:    No declared settings";
-                  } else {
-                      $sOut.="Settings:\n";
-                      foreach($this->aSettingsDefinition as $sSetting=>$aSettings) {
-                          $sOut.=sprintf("- %s : %s (type %s)\n",$sSetting, $aSettings['description'], $aSettings['type']);
-                      }
-                  }
+        $sOut='Filter:      '.$this->getName()."\n".
+              "Description: ".$this->getDescription()."\n";
+        if (!$this->aSettingsDefinition) {
+            $sOut.= "Settings:    No declared settings";
+        } else {
+            $sOut.="Settings:\n";
+            foreach ($this->aSettingsDefinition as $sSetting=>$aSettings) {
+                $sOut.=sprintf("- %s : %s (type %s)\n", $sSetting, $aSettings['description'], $aSettings['type']);
+            }
+        }
         // php_beautifier->setBeautify(true);
         return $sOut;
     }

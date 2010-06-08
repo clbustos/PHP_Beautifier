@@ -9,15 +9,16 @@
  * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
+ *
  * @category   PHP
- * @package PHP_Beautifier
+ * @package    PHP_Beautifier
  * @subpackage Tokenizer
- * @author Claudio Bustos <cdx@users.sourceforge.com>
+ * @author     Claudio Bustos <cdx@users.sourceforge.com>
  * @copyright  2004-2010 Claudio Bustos
- * @link     http://pear.php.net/package/PHP_Beautifier
- * @link     http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    CVS: $Id:$
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  */
 /**
  * Interface for Tokenizer
@@ -26,17 +27,33 @@
  * The function getTokens() should send the tokens for the code, like
  * token_get_all()
  *
- * @category   PHP
- * @package PHP_Beautifier
- * @author Claudio Bustos <cdx@users.sourceforge.com>
- * @copyright  2004-2010 Claudio Bustos
- * @link     http://pear.php.net/package/PHP_Beautifier
- * @link     http://beautifyphp.sourceforge.net
- * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: @package_version@
+ * @category  PHP
+ * @package   PHP_Beautifier
+ * @author    Claudio Bustos <cdx@users.sourceforge.com>
+ * @copyright 2004-2010 Claudio Bustos
+ * @license   http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @version   Release: @package_version@
+ * @link      http://pear.php.net/package/PHP_Beautifier
+ * @link      http://beautifyphp.sourceforge.net
  */
-interface PHP_Beautifier_Tokenizer_Interface {
+interface PHP_Beautifier_Tokenizer_Interface
+{
+    /**
+     * __construct 
+     * 
+     * @param mixed $sText Data to be tokenized
+     *
+     * @access public
+     * @return void
+     */
     public function __construct($sText);
+
+    /**
+     * getTokens 
+     * 
+     * @access public
+     * @return void
+     */
     public function getTokens();
 }
 ?>

@@ -1,32 +1,33 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 /**
-* Definition of  PHP_Beautifier_Batch
-*
-* PHP version 5
-*
-* LICENSE: This source file is subject to version 3.0 of the PHP license
-* that is available through the world-wide-web at the following URI:
-* http://www.php.net/license/3_0.txt.  If you did not receive a copy of
-* the PHP License and are unable to obtain it through the web, please
-* send a note to license@php.net so we can mail you a copy immediately.
-* @category   PHP
-* @package PHP_Beautifier
-* @subpackage Batch
-* @author Claudio Bustos <cdx@users.sourceforge.com>
-* @copyright  2004-2010 Claudio Bustos
-* @link     http://pear.php.net/package/PHP_Beautifier
-* @link     http://beautifyphp.sourceforge.net
-* @license    http://www.php.net/license/3_0.txt  PHP License 3.0
-* @version    CVS: $Id:$
-*/
+ * Definition of  PHP_Beautifier_Batch
+ *
+ * PHP version 5
+ *
+ * LICENSE: This source file is subject to version 3.0 of the PHP license
+ * that is available through the world-wide-web at the following URI:
+ * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
+ * the PHP License and are unable to obtain it through the web, please
+ * send a note to license@php.net so we can mail you a copy immediately.
+ *
+ * @category   PHP
+ * @package    PHP_Beautifier
+ * @subpackage Batch
+ * @author     Claudio Bustos <cdx@users.sourceforge.com>
+ * @copyright  2004-2010 Claudio Bustos
+ * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @version    CVS: $Id:$
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
+ */
 /**
-* Require PHP_Beautifier_Decorator
-*/
+ * Require PHP_Beautifier_Decorator
+ */
 require_once 'Decorator.php';
 /**
-* Require PHP_Beautifier_Batch_Output
-*/
+ * Require PHP_Beautifier_Batch_Output
+ */
 require_once 'Batch/Output.php';
 // ArrayNested->off();
 // ArrayNested->on();
@@ -57,17 +58,18 @@ require_once 'Batch/Output.php';
 * $oBatch->save();
 * </code>
 *
-* @category     PHP
-* @package      PHP_Beautifier
-* @subpackage   Batch
-* @author       Claudio Bustos <cdx@users.sourceforge.com>
-* @copyright    2004-2006 Claudio Bustos
-* @link         http://pear.php.net/package/PHP_Beautifier
-* @link         http://beautifyphp.sourceforge.net
-* @license      http://www.php.net/license/3_0.txt  PHP License 3.0
-* @version      Release: @package_version@
+* @category   PHP
+* @package    PHP_Beautifier
+* @subpackage Batch
+* @author     Claudio Bustos <cdx@users.sourceforge.com>
+* @copyright  2004-2006 Claudio Bustos
+* @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+* @version    Release: @package_version@
+* @link       http://pear.php.net/package/PHP_Beautifier
+* @link       http://beautifyphp.sourceforge.net
 */
-class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
+class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator
+{
     /**
     * Compression method (for now, false, 'gz' and 'bz2')
     * @var string
@@ -106,17 +108,25 @@ class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
     // public methods, overloaded from PHP_Beautifier
     
     /**
-    * Set recursive search for files in dirs on
-    * @param bool
-    */
+     * Set recursive search for files in dirs on
+     * 
+     * @param bool $bRecursive set recursive to true or false
+     *
+     * @access public
+     * @return void
+     */
     public function setRecursive($bRecursive = true) 
     {
         $this->bRecursive = $bRecursive;
     }
     /**
-    * Set compression on/off
-    * @param mixed bool(false, true for gzip) or string ('gz' or 'gz2')
-    */
+     * Set compression on/off
+     * 
+     * @param mixed $mCompress bool(false, true for gzip) or string ('gz' or 'gz2')
+     *
+     * @access public
+     * @return void
+     */
     public function setCompress($mCompress = true) 
     {
         if ($mCompress === true) {
@@ -129,11 +139,14 @@ class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
         $this->sCompress = $mCompress;
     }
     /**
-    * Set the input(s) files
-    * Could be STDIN or a name, with special chars (?,*)
-    * @param mixed STDIN or string(path)
-    * @return bool
-    */
+     * Set the input(s) files
+     * Could be STDIN or a name, with special chars (?,*)
+     * 
+     * @param mixed $mFiles STDIN or string(path)
+     *
+     * @access public
+     * @return bool
+     */
     public function setInputFile($mFiles) 
     {
         $bCli = (php_sapi_name() == 'cli');
@@ -154,9 +167,12 @@ class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
     /**
     * Set the output file
     * Could be STDOUT or a path to a file or dir (with '/' at the end)
-    * @param mixed STDOUT or string (path)
-    * @return true
-    */
+     * 
+     * @param mixed $sFile STDOUT or string (path)
+     *
+     * @access public
+     * @return bool
+     */
     public function setOutputFile($sFile) 
     {
         if (!is_string($sFile) and !(php_sapi_name() == 'cli' and $sFile == STDOUT)) {
@@ -165,6 +181,13 @@ class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
         $this->sPreOutputFile = $sFile;
         return true;
     }
+
+    /**
+     * setInputFilePost 
+     * 
+     * @access private
+     * @return void
+     */
     private function setInputFilePost() 
     {
         $bCli = php_sapi_name() == 'cli';
@@ -173,23 +196,23 @@ class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
             $mInputFiles = array(STDIN);
         } else {
             $mInputFiles = array();
-            foreach($this->mPreInputFiles as $sPath) {
+            foreach ($this->mPreInputFiles as $sPath) {
                 $mInputFiles = array_merge($mInputFiles, PHP_Beautifier_Common::getFilesByGlob($sPath, $this->bRecursive));
             }
         }
         // now, we create stream references for compressed files....
-        foreach($mInputFiles as $sFile) {
+        foreach ($mInputFiles as $sFile) {
             // First, tar files
             if (!($bCli and $sFile == STDIN) and preg_match("/(.tgz|\.tar\.gz|\.tar\.bz2|\.tar)$/", $sFile, $aMatch)) {
-                if (strpos($aMatch[1], 'gz') !== FALSE) {
+                if (strpos($aMatch[1], 'gz') !== false) {
                     $sCompress = 'gz';
-                } elseif (strpos($aMatch[1], 'bz2') !== FALSE) {
+                } elseif (strpos($aMatch[1], 'bz2') !== false) {
                     $sCompress = 'bz2';
-                } elseif (strpos($aMatch[1], 'tar') !== FALSE) {
+                } elseif (strpos($aMatch[1], 'tar') !== false) {
                     $sCompress = false;
                 }
                 $oTar = new Archive_Tar($sFile, $sCompress);
-                foreach($oTar->listContent() as $aInput) {
+                foreach ($oTar->listContent() as $aInput) {
                     if (empty($aInput['typeflag'])) {
                         $this->mInputFiles[] = 'tarz://'.$sFile.'#'.$aInput['filename'];
                     }
@@ -205,6 +228,13 @@ class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
         // ArrayNested->on()
         
     }
+
+    /**
+     * setOutputFilePost 
+     * 
+     * @access private
+     * @return void
+     */
     private function setOutputFilePost() 
     {
         if (php_sapi_name() == 'cli' and $this->sPreOutputFile == STDOUT) {
@@ -227,11 +257,14 @@ class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
         }
         return true;
     }
+
     /**
-    * Create the real references to files
-    * @return bool
-    * @throws Exception
-    */
+     * Create the real references to files
+     * 
+     * @access public
+     * @return bool
+     * @throws Exception
+     */
     public function process() 
     {
         if (!$this->mPreInputFiles) {
@@ -246,6 +279,12 @@ class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
             return true;
         }
     }
+    /**
+     * getBatchEngine 
+     * 
+     * @access private
+     * @return void
+     */
     private function getBatchEngine() 
     {
         $sCompress = ($this->sCompress) ? ucfirst($this->sCompress) : '';
@@ -255,7 +294,7 @@ class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
         if (!file_exists($sClassFile)) {
             throw (new Exception("Doesn't exists file definition for $sClass ($sClassFile)"));
         } else {
-            include_once ($sClassFile);
+            include_once $sClassFile;
             if (!class_exists($sClassEngine)) {
                 throw (new Exception("$sClassFile exists, but $sClassEngine isn't defined"));
             } else {
@@ -264,46 +303,77 @@ class PHP_Beautifier_Batch extends PHP_Beautifier_Decorator {
         }
     }
     /**
-    * Save the beautified sources to file(s)
-    * @return bool
-    * @throws Exception
-    */
+     * Save the beautified sources to file(s)
+     * 
+     * @param mixed $sFile STDOUT or string(path)
+     *
+     * @access public
+     * @return bool
+     * @throws Exception
+     */
     public function save($sFile = null) 
     {
         $oBatchEngine = $this->getBatchEngine();
         return $oBatchEngine->save();
     }
     /**
-    * Return a string with the content of the file(s)
-    * @return string
-    */
+     * Return a string with the content of the file(s)
+     * 
+     * @access public
+     * @return string
+     */
     public function get() 
     {
         $oBatchEngine = $this->getBatchEngine();
         return $oBatchEngine->get();
     }
+    /**
+     * show 
+     * 
+     * @access public
+     * @return void
+     */
     public function show() 
     {
         echo $this->get();
     }
+
     /**
-    * Allows subclass of {@link PHP_Beautifier_Batch_Engine} call methods of {@link $oBeaut}
-    * @param    PHP_Beautifier_Batch_Engine
-    * @param    string method to call
-    * @param    array  array of args
-    * @return   mixed
-    */
+     * Allows subclass of {@link PHP_Beautifier_Batch_Engine} call methods of {@link $oBeaut}
+     * 
+     * @param PHP_Beautifier_Batch_Output $oEngine PHP_Beautifier_Batch_Engine
+     * @param mixed                       $sMethod Method to call
+     * @param array                       $aArgs   Array of arguments
+     *
+     * @access public
+     * @return mixed
+     */
     public function callBeautifier(PHP_Beautifier_Batch_Output $oEngine, $sMethod, $aArgs = array()) 
     {
-        return @call_user_func_array(array(
-            $this->oBeaut,
-            $sMethod
-        ) , $aArgs);
+        return @call_user_func_array(
+            array(
+                $this->oBeaut,
+                $sMethod
+            ),
+            $aArgs
+        );
     }
+    /**
+     * getInputFiles 
+     * 
+     * @access public
+     * @return void
+     */
     public function getInputFiles() 
     {
         return $this->mInputFiles;
     }
+    /**
+     * getOutputPath 
+     * 
+     * @access public
+     * @return void
+     */
     public function getOutputPath() 
     {
         return $this->sPreOutputFile;

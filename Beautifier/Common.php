@@ -1,45 +1,51 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 /**
-* PHP_Beautifier_Common and PHP_Beautifier_Interface
-*
-* PHP version 5
-*
-* LICENSE: This source file is subject to version 3.0 of the PHP license
-* that is available through the world-wide-web at the following URI:
-* http://www.php.net/license/3_0.txt.  If you did not receive a copy of
-* the PHP License and are unable to obtain it through the web, please
-* send a note to license@php.net so we can mail you a copy immediately.
-* @category   PHP
-* @package PHP_Beautifier
-* @author Claudio Bustos <cdx@users.sourceforge.com>
-* @copyright  2004-2010 Claudio Bustos
-* @link     http://pear.php.net/package/PHP_Beautifier
-* @link     http://beautifyphp.sourceforge.net
-* @license    http://www.php.net/license/3_0.txt  PHP License 3.0
-* @version    CVS: $Id:$
-*/
+ * PHP_Beautifier_Common and PHP_Beautifier_Interface
+ *
+ * PHP version 5
+ *
+ * LICENSE: This source file is subject to version 3.0 of the PHP license
+ * that is available through the world-wide-web at the following URI:
+ * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
+ * the PHP License and are unable to obtain it through the web, please
+ * send a note to license@php.net so we can mail you a copy immediately.
+ *
+ * @category  PHP
+ * @package   PHP_Beautifier
+ * @author    Claudio Bustos <cdx@users.sourceforge.com>
+ * @copyright 2004-2010 Claudio Bustos
+ * @license   http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @version   CVS: $Id:$
+ * @link      http://pear.php.net/package/PHP_Beautifier
+ * @link      http://beautifyphp.sourceforge.net
+ */
 /**
-* Wraps commons method por PHP_Beautifier
-*
-* Common methods for PHP_Beautifier, almost file management.
-* All the methods are static
-*
-* @category   PHP
-* @package PHP_Beautifier
-* @author Claudio Bustos <cdx@users.sourceforge.com>
-* @copyright  2004-2010 Claudio Bustos
-* @link     http://pear.php.net/package/PHP_Beautifier
-* @link     http://beautifyphp.sourceforge.net
-* @license    http://www.php.net/license/3_0.txt  PHP License 3.0
-* @version    Release: @package_version@
-*/
-class PHP_Beautifier_Common {
+ * Wraps commons method por PHP_Beautifier
+ *
+ * Common methods for PHP_Beautifier, almost file management.
+ * All the methods are static
+ *
+ * @category  PHP
+ * @package   PHP_Beautifier
+ * @author    Claudio Bustos <cdx@users.sourceforge.com>
+ * @copyright 2004-2010 Claudio Bustos
+ * @license   http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @version   Release: @package_version@
+ * @link      http://pear.php.net/package/PHP_Beautifier
+ * @link      http://beautifyphp.sourceforge.net
+ */
+class PHP_Beautifier_Common
+{
     /**
-    * Normalize reference to directories
-    * @param  string path to directory
-    * @return string normalized path to directory
-    */
+     * Normalize reference to directories
+     * 
+     * @param mixed $sDir Path to a directory
+     *
+     * @static
+     * @access public
+     * @return string normalized path to directory
+     */
     public static function normalizeDir($sDir) 
     {
         $sDir = str_replace(DIRECTORY_SEPARATOR, '/', $sDir);
@@ -49,17 +55,21 @@ class PHP_Beautifier_Common {
         return $sDir;
     }
     /**
-    * Search, inside a dir, for a file pattern, using regular expresion
-    * Example:
-    *
-    * <code>PHP_Beautifier_Common::getFilesByPattern('.','*.php',true);</code>
-    * Search recursively for all the files with php extensions
-    * in the current dir
-    * @param    string  path to a dir
-    * @param    string  file pattern
-    * @param    bool    recursive?
-    * @return   array   path to files
-    */
+     * Search, inside a dir, for a file pattern, using regular expresion
+     * Example:
+     *
+     * <code>PHP_Beautifier_Common::getFilesByPattern('.','*.php',true);</code>
+     * Search recursively for all the files with php extensions
+     * in the current dir
+     * 
+     * @param mixed $sDir         Path to a dir
+     * @param mixed $sFilePattern File patter
+     * @param mixed $bRecursive   Recursive?
+     *
+     * @static
+     * @access public
+     * @return array path to files
+     */
     public static function getFilesByPattern($sDir, $sFilePattern, $bRecursive = false) 
     {
         if (substr($sDir, -1) == '/') {
@@ -84,12 +94,17 @@ class PHP_Beautifier_Common {
         }
         return $matches;
     }
+
     /**
-    * Create a dir for a file path
-    * @param    string  file path
-    * @return   bool
-    * @throws   Exception
-    */
+     * Create a dir for a file path
+     * 
+     * @param mixed $sFile File path
+     *
+     * @static
+     * @access public
+     * @return bool
+     * @throws Exception
+     */
     public static function createDir($sFile) 
     {
         $sDir = dirname($sFile);
@@ -98,7 +113,7 @@ class PHP_Beautifier_Common {
         } else {
             $aPaths = explode('/', $sDir);
             $sCurrentPath = '';
-            foreach($aPaths as $sPartialPath) {
+            foreach ($aPaths as $sPartialPath) {
                 $sCurrentPath.= $sPartialPath.'/';
                 if (file_exists($sCurrentPath)) {
                     continue;
@@ -112,46 +127,54 @@ class PHP_Beautifier_Common {
         return true;
     }
     /**
-    * Return an array with the paths to save for an array of files
-    * @param    array  Array of files (input)
-    * @param    string Init path
-    * @return   array  Array of files (output)
-    */
+     * Return an array with the paths to save for an array of files
+     * 
+     * @param array  $aFiles Array of files (input)
+     * @param string $sPath  Init path
+     *
+     * @static
+     * @access public
+     * @return array Array of files (output)
+     */
     public static function getSavePath($aFiles, $sPath = './') 
     {
         $sPath = PHP_Beautifier_Common::normalizeDir($sPath);
         // get the lowest denominator..
         $sPrevious = '';
         $iCut = 0;
-        foreach($aFiles as $i=>$sFile) {
+        foreach ($aFiles as $i=>$sFile) {
             $sFile = preg_replace("/^.*?#/", '', $sFile);
             $aFiles[$i] = $sFile;
             if (!$sPrevious) {
                 $sPrevious = dirname($sFile);
                 continue;
             }
-            $aPreviousParts=explode("/",$sPrevious);
-            $aCurrentParts=explode("/",dirname($sFile));
-            for($x=0;$x<count($aPreviousParts);$x++) {
-                if($aPreviousParts[$x]!=$aCurrentParts[$x]) {
-                    $sPrevious=implode("/",array_slice($aPreviousParts,0,$x));                    
+            $aPreviousParts=explode("/", $sPrevious);
+            $aCurrentParts=explode("/", dirname($sFile));
+            for ($x=0;$x<count($aPreviousParts);$x++) {
+                if ($aPreviousParts[$x]!=$aCurrentParts[$x]) {
+                    $sPrevious=implode("/", array_slice($aPreviousParts, 0, $x));
                 }
             }
         }
         $iCut = strlen($sPrevious);
         $aPathsOut = array();
-        foreach($aFiles as $sFile) {
+        foreach ($aFiles as $sFile) {
             $sFileOut = preg_replace("/^(\w:\/|\.\/|\/)/", "", substr($sFile, $iCut));
             $aPathsOut[] = $sPath.$sFileOut;
         }
         return $aPathsOut;
     }
     /**
-    * Search, inside a dir, for a file pattern using glob(* and ?)
-    * @param    string  path
-    * @param    bool    recursive
-    * @return   array   path to files
-    */
+     * Search, inside a dir, for a file pattern using glob(* and ?)
+     * 
+     * @param mixed $sPath      Paht to the directory
+     * @param mixed $bRecursive Set recursive to true or false
+     *
+     * @static
+     * @access public
+     * @return array path to file
+     */
     public static function getFilesByGlob($sPath, $bRecursive = false) 
     {
         if (!$bRecursive) {
@@ -159,7 +182,7 @@ class PHP_Beautifier_Common {
         } else {
             $sDir = (dirname($sPath)) ? realpath(dirname($sPath)) : realpath('./');
             $sDir = PHP_Beautifier_Common::normalizeDir($sDir);
-			$sDir = substr($sDir, 0, -1); // strip last slash
+            $sDir = substr($sDir, 0, -1); // strip last slash
             $sGlob = basename($sPath);
             $dh = @opendir($sDir);
             if (!$dh) {
@@ -176,22 +199,31 @@ class PHP_Beautifier_Common {
             return $aMatches;
         }
     }
+
     /**
-    * Get a {@link Log_composite} object for PHP_Beautifier
-    * Always return the same object (Singleton pattern)
-    * @return Log_composite
-    */
+     * Get a {@link Log_composite} object for PHP_Beautifier
+     * Always return the same object (Singleton pattern)
+     * 
+     * @static
+     * @access public
+     * @return Log_composite
+     */
     public static function getLog() 
     {
         return Log::singleton('composite', 'PHP_Beautifier');
     }
+
     /**
-    * Transform whitespaces into its representation
-    * So, tabs becomes \t, newline \n and feed \r
-    * Useful for log
-    * @param string
-    * @return string
-    */
+     * Transform whitespaces into its representation
+     * So, tabs becomes \t, newline \n and feed \r
+     * Useful for log
+     * 
+     * @param string $sText Text to transform
+     *
+     * @static
+     * @access public
+     * @return string
+     */
     public static function wsToString($sText) 
     {
         // ArrayNested->off();
@@ -203,36 +235,52 @@ class PHP_Beautifier_Common {
 // Interfaces
 
 /**
-* Interface for PHP_Beautifier and subclasses.
-* Created to made a 'legal' Decorator implementation
-*
-* @category   PHP
-* @package PHP_Beautifier
-* @author Claudio Bustos <cdx@users.sourceforge.com>
-* @copyright  2004-2010 Claudio Bustos
-* @link     http://pear.php.net/package/PHP_Beautifier
-* @link     http://beautifyphp.sourceforge.net
-* @license    http://www.php.net/license/3_0.txt  PHP License 3.0
-* @version    Release: @package_version@
-*/
-interface PHP_Beautifier_Interface {
+ * Interface for PHP_Beautifier and subclasses.
+ * Created to made a 'legal' Decorator implementation
+ *
+ * @category  PHP
+ * @package   PHP_Beautifier
+ * @author    Claudio Bustos <cdx@users.sourceforge.com>
+ * @copyright 2004-2010 Claudio Bustos
+ * @license   http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @version   Release: @package_version@
+ * @link      http://pear.php.net/package/PHP_Beautifier
+ * @link      http://beautifyphp.sourceforge.net
+ */
+interface PHP_Beautifier_Interface
+{
     /**
-    * Process the file(s) or string
-    */
+     * Process the file(s) or string
+     * 
+     * @access public
+     * @return void
+     */
     public function process();
+
     /**
-    * Show on screen the output
-    */
+     * Show on screen the output
+     * 
+     * @access public
+     * @return void
+     */
     public function show();
+
     /**
-    * Get the output on a string
-    * @return string
-    */
+     * Get the output on a string
+     * 
+     * @access public
+     * @return string
+     */
     public function get();
+
     /**
-    * Save the output to a file
-    * @param string path to file
-    */
+     * Save the output to a file
+     * 
+     * @param mixed $sFile path to file
+     *
+     * @access public
+     * @return void
+     */
     public function save($sFile = null);
 }
 ?>
