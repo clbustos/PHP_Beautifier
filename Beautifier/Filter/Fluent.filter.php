@@ -10,15 +10,16 @@
  * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
+ *
  * @category   PHP
  * @package    PHP_Beautifier
  * @subpackage Filter
  * @author     Jesús Espino <jespinog@gmail.com>
  * @copyright  2010 Jesús Espino
- * @link       http://pear.php.net/package/PHP_Beautifier
- * @link       http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt PHP License 3.0
  * @version    CVS: $Id:$
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  */
 /**
  * Filter Fluent: Create fluent style for multi-level object access.
@@ -30,18 +31,29 @@
  *     ->addFile("c.txt");
  * $this->addFile("d.txt");
  * </CODE>
+ *
  * @category   PHP
  * @package    PHP_Beautifier
  * @subpackage Filter
  * @author     Jesús Espino <jespinog@gmail.com>
  * @copyright  2010 Jesús Espino
- * @link       http://pear.php.net/package/PHP_Beautifier
- * @link       http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt PHP License 3.0
  * @version    Release: @package_version@
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  */
-class PHP_Beautifier_Filter_Fluent extends PHP_Beautifier_Filter {
-    public function t_object_operator($sTag) {
+class PHP_Beautifier_Filter_Fluent extends PHP_Beautifier_Filter
+{
+    /**
+     * t_object_operator 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
+    public function t_object_operator($sTag)
+    {
         $counter = 1;
         $next = $this->oBeaut->getToken($this->oBeaut->iCount + $counter);
         while (($next[0] != T_OBJECT_OPERATOR) && ($next != ";")) {

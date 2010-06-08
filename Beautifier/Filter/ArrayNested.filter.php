@@ -10,15 +10,16 @@
  * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
+ *
  * @category   PHP
- * @package PHP_Beautifier
+ * @package    PHP_Beautifier
  * @subpackage Filter
- * @author Claudio Bustos <cdx@users.sourceforge.com>
+ * @author     Claudio Bustos <cdx@users.sourceforge.com>
  * @copyright  2004-2010 Claudio Bustos
- * @link     http://pear.php.net/package/PHP_Beautifier
- * @link     http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    CVS: $Id:$
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  */
 /**
  * Filter Array Nested: Indent the array structures
@@ -35,18 +36,27 @@
  *        )
  *    );
  * </CODE>
+ *
  * @category   PHP
- * @package PHP_Beautifier
+ * @package    PHP_Beautifier
  * @subpackage Filter
- * @author Claudio Bustos <cdx@users.sourceforge.com>
+ * @author     Claudio Bustos <cdx@users.sourceforge.com>
  * @copyright  2004-2010 Claudio Bustos
- * @link     http://pear.php.net/package/PHP_Beautifier
- * @link     http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    Release: @package_version@
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  */
 class PHP_Beautifier_Filter_ArrayNested extends PHP_Beautifier_Filter
 {
+    /**
+     * t_parenthesis_open 
+     * 
+     * @param mixed $sTag The tag to be procesed
+     *
+     * @access public
+     * @return void
+     */
     public function t_parenthesis_open($sTag) 
     {
         $this->oBeaut->add($sTag);
@@ -56,6 +66,14 @@ class PHP_Beautifier_Filter_ArrayNested extends PHP_Beautifier_Filter
             $this->oBeaut->addIndent();
         }
     }
+    /**
+     * t_parenthesis_close 
+     * 
+     * @param mixed $sTag The tag to be procesed
+     *
+     * @access public
+     * @return void
+     */
     public function t_parenthesis_close($sTag) 
     {
         $this->oBeaut->removeWhitespace();
@@ -70,6 +88,14 @@ class PHP_Beautifier_Filter_ArrayNested extends PHP_Beautifier_Filter
             $this->oBeaut->add($sTag . ' ');
         }
     }
+    /**
+     * t_comma 
+     * 
+     * @param mixed $sTag The tag to be procesed
+     *
+     * @access public
+     * @return void
+     */
     public function t_comma($sTag) 
     {
         if ($this->oBeaut->getControlParenthesis() != T_ARRAY) {

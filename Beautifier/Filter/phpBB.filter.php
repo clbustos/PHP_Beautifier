@@ -9,37 +9,47 @@
  * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
+ *
  * @category   PHP
- * @package PHP_Beautifier
+ * @package    PHP_Beautifier
  * @subpackage Filter
- * @author Jim Wigginton <terrafrost@php.net>
+ * @author     Jim Wigginton <terrafrost@php.net>
  * @copyright  2008 Jim Wigginton
- * @link     http://pear.php.net/package/PHP_Beautifier
  * @license    http://www.gnu.org/licenses/lgpl.html  LGPL
  * @version    CVS: $Id:$
+ * @link       http://pear.php.net/package/PHP_Beautifier
  */
 /**
  * Require PEAR_Config
  */
-require_once ('PEAR/Config.php');
+require_once 'PEAR/Config.php';
 /**
  * Filter the code to make it compatible with phpBB Coding Standards
  *
  * Among other differences from the PEAR Coding Standards, the phpBB coding standards use BSD style indenting.
  *
  * @category   PHP
- * @package PHP_Beautifier
+ * @package    PHP_Beautifier
  * @subpackage Filter
- * @author Jim Wigginton <terrafrost@php.net>
+ * @author     Jim Wigginton <terrafrost@php.net>
  * @copyright  2008 Jim Wigginton
- * @link     http://pear.php.net/package/PHP_Beautifier
  * @license    http://www.gnu.org/licenses/lgpl.html  LGPL
  * @version    Release: 0.0.1
+ * @link       http://pear.php.net/package/PHP_Beautifier
  */
 class PHP_Beautifier_Filter_phpBB extends PHP_Beautifier_Filter
 {
     protected $sDescription = 'Filter the code to make it compatible with phpBB Coding Standards';
-    private $iNestedIfs = 0;
+    private $_iNestedIfs = 0;
+    /**
+     * __construct 
+     * 
+     * @param PHP_Beautifier $oBeaut    PHP_Beautifier Object
+     * @param array          $aSettings Settings for the PHP_Beautifier
+     *
+     * @access public
+     * @return void
+     */
     public function __construct(PHP_Beautifier $oBeaut, $aSettings = array())
     {
         parent::__construct($oBeaut, $aSettings);
@@ -47,6 +57,14 @@ class PHP_Beautifier_Filter_phpBB extends PHP_Beautifier_Filter
         $oBeaut->setIndentNumber(1);
         $oBeaut->setNewLine(PHP_EOL);
     }
+    /**
+     * t_open_brace 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_open_brace($sTag)
     {
         $this->oBeaut->addNewLineIndent();
@@ -54,6 +72,14 @@ class PHP_Beautifier_Filter_phpBB extends PHP_Beautifier_Filter
         $this->oBeaut->incIndent();
         $this->oBeaut->addNewLineIndent();
     }
+    /**
+     * t_close_brace 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_close_brace($sTag)
     {
         if ($this->oBeaut->getMode('string_index') or $this->oBeaut->getMode('double_quote')) {
@@ -66,6 +92,14 @@ class PHP_Beautifier_Filter_phpBB extends PHP_Beautifier_Filter
             $this->oBeaut->addNewLineIndent();
         }
     }
+    /**
+     * t_else 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_else($sTag)
     {
         $this->oBeaut->add($sTag);
@@ -74,26 +108,41 @@ class PHP_Beautifier_Filter_phpBB extends PHP_Beautifier_Filter
             $this->oBeaut->add('{');
             $this->oBeaut->incIndent();
             $this->oBeaut->addNewLineIndent();
-            $this->iNestedIfs++;
+            $this->_iNestedIfs++;
         }
     }
+    /**
+     * t_semi_colon 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_semi_colon($sTag)
     {
         $this->oBeaut->removeWhitespace();
         $this->oBeaut->add($sTag);
         if ($this->oBeaut->getControlParenthesis() != T_FOR) {
-            if ($this->iNestedIfs > 0) {
+            if ($this->_iNestedIfs > 0) {
                 $this->oBeaut->decIndent();
                 $this->oBeaut->addNewLineIndent();
                 $this->oBeaut->add('}');
-                $this->iNestedIfs--;
+                $this->_iNestedIfs--;
             }
             $this->oBeaut->addNewLineIndent();
         }
     }
+
+    /**
+     * preProcess 
+     * 
+     * @access public
+     * @return void
+     */
     function preProcess()
     {
-        $this->iNestedIfs = 0;
+        $this->_iNestedIfs = 0;
     }
 }
 ?>

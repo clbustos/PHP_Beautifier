@@ -9,24 +9,31 @@
  * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
+ *
  * @category   PHP
- * @package PHP_Beautifier
+ * @package    PHP_Beautifier
  * @subpackage Filter
- * @author Claudio Bustos <cdx@users.sourceforge.com>
+ * @author     Claudio Bustos <cdx@users.sourceforge.com>
  * @copyright  2004-2010 Claudio Bustos
- * @link     http://pear.php.net/package/PHP_Beautifier
- * @link     http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    CVS: $Id:$
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  */
 /**
  * Filter Indent Styles: Indent the code in k&r, allman, gnu or whitesmiths
  *
  * Use 'style' setting to select the style. You can change the style inside
  * the file, using the callbacks features.
- * The following is a description taken from {@link http://catb.org/~esr/jargon/html/I/indent-style.html }
+ * The following is a description taken from {@link
+ * http://catb.org/~esr/jargon/html/I/indent-style.html }
  *
- * K&R style <b>['k&r']</b> Named after Kernighan & Ritchie, because the examples in K&R are formatted this way. Also called kernel style because the Unix kernel is written in it, and the "One True Brace Style" (abbrev. 1TBS) by its partisans. In C code, the body is typically indented by eight spaces (or one tab) per level, as shown here. Four spaces are occasionally seen in C, but in C++ and Java four tends to be the rule rather than the exception.
+ * K&R style <b>['k&r']</b> Named after Kernighan & Ritchie, because the
+ * examples in K&R are formatted this way. Also called kernel style because the
+ * Unix kernel is written in it, and the "One True Brace Style" (abbrev. 1TBS)
+ * by its partisans. In C code, the body is typically indented by eight spaces
+ * (or one tab) per level, as shown here. Four spaces are occasionally seen in
+ * C, but in C++ and Java four tends to be the rule rather than the exception.
  *
  *<CODE>
  *if (<cond>) {
@@ -34,7 +41,12 @@
  *   }
  *</CODE>
  *
- *   Allman style <b>['allman' or 'bsd']</b> Named for Eric Allman, a Berkeley hacker who wrote a lot of the BSD utilities in it (it is sometimes called BSD style). Resembles normal indent style in Pascal and Algol. It is the only style other than K&R in widespread use among Java programmers. Basic indent per level shown here is eight spaces, but four (or sometimes three) spaces are generally preferred by C++ and Java programmers.
+ *   Allman style <b>['allman' or 'bsd']</b> Named for Eric Allman, a Berkeley
+ *   hacker who wrote a lot of the BSD utilities in it (it is sometimes called
+ *   BSD style). Resembles normal indent style in Pascal and Algol. It is the
+ *   only style other than K&R in widespread use among Java programmers. Basic
+ *   indent per level shown here is eight spaces, but four (or sometimes three)
+ *   spaces are generally preferred by C++ and Java programmers.
  *
  *<CODE>
  *   if (<cond>)
@@ -44,7 +56,9 @@
  * </CODE>
  *
  *
- * Whitesmiths style <b>['whitesmiths']</b>? popularized by the examples that came with Whitesmiths C, an early commercial C compiler. Basic indent per level shown here is eight spaces, but four spaces are occasionally seen.
+ * Whitesmiths style <b>['whitesmiths']</b>? popularized by the examples that
+ * came with Whitesmiths C, an early commercial C compiler. Basic indent per
+ * level shown here is eight spaces, but four spaces are occasionally seen.
  *
  * <CODE>
  * if (<cond>)
@@ -53,7 +67,9 @@
  *     }
  * </CODE>
  *
- * GNU style <b>['gnu']</b>  Used throughout GNU EMACS and the Free Software Foundation code, and just about nowhere else. Indents are always four spaces per level, with { and } halfway between the outer and inner indent levels.
+ * GNU style <b>['gnu']</b>  Used throughout GNU EMACS and the Free Software
+ * Foundation code, and just about nowhere else. Indents are always four spaces
+ * per level, with { and } halfway between the outer and inner indent levels.
  *
  *<CODE>
  * if (<cond>)
@@ -63,14 +79,14 @@
  * </CODE>
  *
  * @category   PHP
- * @package PHP_Beautifier
+ * @package    PHP_Beautifier
  * @subpackage Filter
- * @author Claudio Bustos <cdx@users.sourceforge.com>
+ * @author     Claudio Bustos <cdx@users.sourceforge.com>
  * @copyright  2004-2010 Claudio Bustos
- * @link     http://pear.php.net/package/PHP_Beautifier
- * @link     http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    Release: @package_version@
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  */
 class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
 {
@@ -86,11 +102,29 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
         "ws" => "ws"
     );
     protected $sDescription = 'Filter the code in 4 different indent styles: K&R, Allman, Whitesmiths and GNU';
+    /**
+     * __construct 
+     * 
+     * @param PHP_Beautifier $oBeaut    PHP_Beautifier Object
+     * @param array          $aSettings Settings for the PHP_Beautifier
+     *
+     * @access public
+     * @return void
+     */
     public function __construct(PHP_Beautifier $oBeaut, $aSettings = array()) 
     {
         parent::__construct($oBeaut, $aSettings);
         $this->addSettingDefinition('style', 'text', 'Style for indent: K&R, Allman, Whitesmiths, GNU');
     }
+    /**
+     * __call 
+     * 
+     * @param mixed $sMethod Method name
+     * @param mixed $aArgs   Method arguments
+     *
+     * @access public
+     * @return void
+     */
     public function __call($sMethod, $aArgs) 
     {
         if (strtolower($this->getSetting('style')) == 'k&r') {
@@ -98,17 +132,24 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
         }
         $sNewMethod = $this->_getFunctionForStyle($sMethod);
         if (method_exists($this, $sNewMethod)) {
-            call_user_func_array(array(
-                $this,
-                $sNewMethod
-            ) , $aArgs);
+            call_user_func_array(
+                array(
+                    $this,
+                    $sNewMethod
+                ),
+                $aArgs
+            );
         } else {
             return PHP_Beautifier_Filter::BYPASS;
         }
     }
     /**
-     * Open braces in BSD style
-     * @param    string  '{'
+     * t_open_brace_bsd: Open braces in BSD style
+     * 
+     * @param mixed $sTag The tag to be processed (}) 
+     *
+     * @access public
+     * @return void
      */
     function t_open_brace_bsd($sTag) 
     {
@@ -118,8 +159,12 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
         $this->oBeaut->addNewLineIndent();
     }
     /**
-     * Close braces in BSD style
-     * @param    string  '}'
+     * t_close_brace_bsd: Close braces in BSD style
+     * 
+     * @param mixed $sTag The tag to be processed ({) 
+     *
+     * @access public
+     * @return void
      */
     function t_close_brace_bsd($sTag) 
     {
@@ -134,8 +179,12 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
         }
     }
     /**
-     * Open braces in Whitesmiths style
-     * @param    string  '{'
+     * t_open_brace_ws: Open braces in Whitesmiths style
+     * 
+     * @param mixed $sTag The tag to be processed ({) 
+     *
+     * @access public
+     * @return void
      */
     function t_open_brace_ws($sTag) 
     {
@@ -146,8 +195,12 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
         $this->oBeaut->addNewLineIndent();
     }
     /**
-     * Close braces in Whitesmiths style
-     * @param    string  '}'
+     * t_close_brace_ws: Close braces in Whitesmiths style
+     * 
+     * @param mixed $sTag The tag to be processed (}) 
+     *
+     * @access public
+     * @return void
      */
     function t_close_brace_ws($sTag) 
     {
@@ -162,8 +215,12 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
         }
     }
     /**
-     * Close braces in GNU style
-     * @param    string  '}'
+     * t_close_brace_gnu: Close braces in GNU style
+     * 
+     * @param mixed $sTag The tag to be processed (}) 
+     *
+     * @access public
+     * @return void
      */
     function t_close_brace_gnu($sTag) 
     {
@@ -180,8 +237,12 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
         }
     }
     /**
-     * Open braces in GNU style
-     * @param    string  '{'
+     * t_open_brace_gnu: Open braces in GNU style
+     * 
+     * @param mixed $sTag The tag to be processed ({) 
+     *
+     * @access public
+     * @return void
      */
     function t_open_brace_gnu($sTag) 
     {
@@ -193,9 +254,12 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
         $this->oBeaut->addNewLineIndent();
     }
     /**
-     * Else for bds, gnu & ws
-     * @param    string  else or elseif
-     * @return   void|PHP_Beautifier_Filter::BYPASS
+     * t_else: Else for bds, gnu & ws
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void|PHP_Beautifier_Filter::BYPASS
      */
     function t_else($sTag) 
     {
@@ -212,8 +276,11 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
     }
     /**
      * Return the method for the defined style
-     * @param    string  method to search
-     * @return   string  method renamed for the defined style
+     *
+     * @param string $sMethod method to search
+     *
+     * @access private
+     * @return string method renamed for the defined style
      */
     private function _getFunctionForStyle($sMethod) 
     {

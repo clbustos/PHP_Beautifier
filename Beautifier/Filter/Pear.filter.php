@@ -10,20 +10,21 @@
  * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
+ *
  * @category   PHP
- * @package PHP_Beautifier
+ * @package    PHP_Beautifier
  * @subpackage Filter
- * @author Claudio Bustos <cdx@users.sourceforge.com>
+ * @author     Claudio Bustos <cdx@users.sourceforge.com>
  * @copyright  2004-2010 Claudio Bustos
- * @link     http://pear.php.net/package/PHP_Beautifier
- * @link     http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    CVS: $Id:$
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  */
 /**
  * Require PEAR_Config
  */
-require_once ('PEAR/Config.php');
+require_once 'PEAR/Config.php';
 /**
  * Filter the code to make it compatible with PEAR Coding Standards
  *
@@ -45,32 +46,49 @@ require_once ('PEAR/Config.php');
  * <code>
  * $oBeaut->addFilter('Pear',array('newline_class'=>false, 'newline_function'=>false));
  * </code> 
+ *
  * @category   PHP
- * @package PHP_Beautifier
+ * @package    PHP_Beautifier
  * @subpackage Filter
- * @author Claudio Bustos <cdx@users.sourceforge.com>
+ * @author     Claudio Bustos <cdx@users.sourceforge.com>
  * @copyright  2004-2010 Claudio Bustos
- * @link     http://pear.php.net/package/PHP_Beautifier
- * @link     http://beautifyphp.sourceforge.net
- * @link http://pear.php.net/manual/en/standards.php
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id:$
+ * @version    Release: @package_version@
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
+ * @link       http://pear.php.net/manual/en/standards.php
  */
 class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
 {
     protected $aSettings = array('add_header' => false, 'newline_class' => true, 'newline_function' => true, 'switch_without_indent'=> true);
     protected $sDescription = 'Filter the code to make it compatible with PEAR Coding Specs';
-    private $bOpenTag = false;
+    private $_bOpenTag = false;
+    /**
+     * t_open_tag_with_echo 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_open_tag_with_echo($sTag) 
     {
         $this->oBeaut->add("<?php echo ");
     }
+    /**
+     * t_close_brace 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_close_brace($sTag) 
     {
         if ($this->oBeaut->getMode('string_index') or $this->oBeaut->getMode('double_quote')) {
             $this->oBeaut->add($sTag);
 
-        }elseif($this->oBeaut->getControlSeq() == T_SWITCH and $this->getSetting('switch_without_indent')) {
+        } elseif ($this->oBeaut->getControlSeq() == T_SWITCH and $this->getSetting('switch_without_indent')) {
             $this->oBeaut->removeWhitespace();
             $this->oBeaut->decIndent();
             $this->oBeaut->addNewLineIndent();
@@ -80,6 +98,14 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
             return PHP_Beautifier_Filter::BYPASS;
         }
     }
+    /**
+     * t_semi_colon 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_semi_colon($sTag) 
     {
         // A break statement and the next statement are separated by an empty line
@@ -97,6 +123,14 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
             return PHP_Beautifier_Filter::BYPASS;
         }
     }
+    /**
+     * t_case 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_case($sTag) 
     {
         $this->oBeaut->removeWhitespace();
@@ -109,10 +143,26 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
         //$this->oBeaut->incIndent();
         
     }
+    /**
+     * t_default 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_default($sTag) 
     {
         $this->t_case($sTag);
     }
+    /**
+     * t_break 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_break($sTag) 
     {
         $this->oBeaut->add($sTag);
@@ -120,6 +170,14 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
             $this->oBeaut->add(" ");
         }        
     }
+    /**
+     * t_open_brace 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_open_brace($sTag) 
     {
         if ($this->oBeaut->openBraceDontProcess()) {
@@ -145,6 +203,14 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
             $this->oBeaut->addNewLineIndent();
         }
     }
+    /**
+     * t_comment 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_comment($sTag) 
     {
         if ($sTag{0} != '#') {
@@ -154,13 +220,21 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
         $sTag = '//' . substr($sTag, 1);
         return $oFilterDefault->t_comment($sTag);
     }
+    /**
+     * t_open_tag 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     function t_open_tag($sTag) 
     {
         // find PEAR header comment
         $this->oBeaut->add("<?php");
         $this->oBeaut->addNewLineIndent();
-        if (!$this->bOpenTag) {
-            $this->bOpenTag = true;
+        if (!$this->_bOpenTag) {
+            $this->_bOpenTag = true;
             // store the comment and search for word 'license'
             $sComment = '';
             $x = 1;
@@ -168,15 +242,27 @@ class PHP_Beautifier_Filter_Pear extends PHP_Beautifier_Filter
                 $sComment.= $this->oBeaut->getNextTokenContent($x);
                 $x++;
             }
-            if (stripos($sComment, 'license') === FALSE) {
+            if (stripos($sComment, 'license') === false) {
                 $this->addHeaderComment();
             }
         }
     }
+    /**
+     * preProcess 
+     * 
+     * @access public
+     * @return void
+     */
     function preProcess() 
     {
-        $this->bOpenTag = false;
+        $this->_bOpenTag = false;
     }
+    /**
+     * addHeaderComment 
+     * 
+     * @access public
+     * @return void
+     */
     function addHeaderComment() 
     {
         if (!($sLicense = $this->getSetting('add_header'))) {

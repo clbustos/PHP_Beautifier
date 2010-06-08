@@ -10,16 +10,17 @@
  * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
+ *
  * @category   PHP
- * @package PHP_Beautifier
+ * @package    PHP_Beautifier
  * @subpackage Filter
- * @author Claudio Bustos <cdx@users.sourceforge.com>
+ * @author     Claudio Bustos <cdx@users.sourceforge.com>
  * @copyright  2004-2010 Claudio Bustos
- * @link     http://pear.php.net/package/PHP_Beautifier
- * @link     http://php.apsique.com/PHP_Beautifier
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @since      File available since Release 0.1.9
  * @version    CVS: $Id:$
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://php.apsique.com/PHP_Beautifier
+ * @since      File available since Release 0.1.9
  */
 /**
  * Lowercase: lowercase all control structures.
@@ -28,21 +29,22 @@
  * Command line example:
  *
  * <code>php_beautifier --filters "Lowercase()"</code>
+ *
  * @category   PHP
- * @package PHP_Beautifier
+ * @package    PHP_Beautifier
  * @subpackage Filter
- * @author Claudio Bustos <cdx@users.sourceforge.com>
+ * @author     Claudio Bustos <cdx@users.sourceforge.com>
  * @copyright  2004-2010 Claudio Bustos
- * @link     http://pear.php.net/package/PHP_Beautifier
- * @link     http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    Release: @package_version@
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  * @since      Class available since Release 0.1.9
  */
 class PHP_Beautifier_Filter_Lowercase extends PHP_Beautifier_Filter
 {
     protected $sDescription = 'Lowercase all control structures. Parse the output with another Filters';
-    private $aControlSeq = array(
+    private $_aControlSeq = array(
         T_IF,
         T_ELSE,
         T_ELSEIF,
@@ -101,25 +103,55 @@ class PHP_Beautifier_Filter_Lowercase extends PHP_Beautifier_Filter
         T_BOOLEAN_OR,
         T_BOOLEAN_AND,
     );
-    private $oLog;
+    private $_oLog;
+
+    /**
+     * __construct 
+     * 
+     * @param PHP_Beautifier $oBeaut    PHP_Beautifier Object
+     * @param array          $aSettings Settings for the PHP_Beautifier
+     *
+     * @access public
+     * @return void
+     */
     public function __construct(PHP_Beautifier $oBeaut, $aSettings = array()) 
     {
         parent::__construct($oBeaut, $aSettings);
-        $this->oLog = PHP_Beautifier_Common::getLog();
+        $this->_oLog = PHP_Beautifier_Common::getLog();
     }
-    public function t_string($sTag) {
-        if($sTag=='TRUE' or $sTag=='FALSE') {
+    
+    /**
+     * t_string 
+     * 
+     * @param mixed $sTag The tag to be procesed
+     *
+     * @access public
+     * @return void
+     */
+    public function t_string($sTag)
+    {
+        if ($sTag=='TRUE' or $sTag=='FALSE') {
             $this->oBeaut->aCurrentToken[1]=strtolower($sTag);
         }
         return PHP_Beautifier_Filter::BYPASS;
         
     }
+
+    /**
+     * __call 
+     * 
+     * @param mixed $sMethod Method name
+     * @param mixed $aArgs   Method arguments
+     *
+     * @access public
+     * @return void
+     */
     public function __call($sMethod, $aArgs) 
     {
         $iToken = $this->aToken[0];
         $sContent = $this->aToken[1];
-        if (in_array($iToken, $this->aControlSeq)) {
-            $this->oLog->log("Lowercase:" . $sContent, PEAR_LOG_DEBUG);
+        if (in_array($iToken, $this->_aControlSeq)) {
+            $this->_oLog->log("Lowercase:" . $sContent, PEAR_LOG_DEBUG);
             $this->oBeaut->aCurrentToken[1]=strtolower($sContent);
             
         }

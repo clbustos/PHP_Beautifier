@@ -11,15 +11,16 @@
  * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
+ *
  * @category   PHP
  * @package    PHP_Beautifier
  * @subpackage Filter
  * @author     Jesús Espino <jespinog@gmail.com>
  * @copyright  2010 Jesús Espino
- * @link       http://pear.php.net/package/PHP_Beautifier
- * @link       http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt PHP License 3.0
  * @version    CVS: $Id:$
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  */
 /**
  * Filter Doc Blocks: Use DocBlockGenerator for beautify the phpdoc comments.
@@ -37,18 +38,27 @@
  *  * @version    Release: @package_version@
  *  *'/
  * </pre>
+ *
  * @category   PHP
  * @package    PHP_Beautifier
  * @subpackage Filter
  * @author     Jesús Espino <jespinog@gmail.com>
  * @copyright  2010 Jesús Espino
- * @link       http://pear.php.net/package/PHP_Beautifier
- * @link       http://beautifyphp.sourceforge.net
  * @license    http://www.php.net/license/3_0.txt PHP License 3.0
  * @version    Release: @package_version@
+ * @link       http://pear.php.net/package/PHP_Beautifier
+ * @link       http://beautifyphp.sourceforge.net
  */
 class PHP_Beautifier_Filter_DocBlock extends PHP_Beautifier_Filter
 {
+    /**
+     * t_doc_comment 
+     * 
+     * @param mixed $sTag The tag to be processed
+     *
+     * @access public
+     * @return void
+     */
     public function t_doc_comment($sTag)
     {
         include_once "PHP/DocBlockGenerator/Align.php";
