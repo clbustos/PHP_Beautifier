@@ -60,6 +60,33 @@ SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     /**
+     * HEREDOC before parenthesis
+     * Close tag after heredoc remove whitespace,
+     * breaking the script.
+     *
+     */
+    function testBugHEREDOCparen() 
+    {
+        $sText = <<<SCRIPT
+<?php
+\$a = someFunction(<<<HEREDOC
+sdsdsds
+HEREDOC
+);
+?>
+SCRIPT;
+        $this->setText($sText);
+        $sExpected = <<<SCRIPT
+<?php
+\$a = someFunction(<<<HEREDOC
+sdsdsds
+HEREDOC
+);
+?>
+SCRIPT;
+        $this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    /**
      * Bug 1597
      * Brace after short comment in new line was appended to
      * the comment, breaking the code
@@ -1074,7 +1101,7 @@ SCRIPT;
     */
     function testBug14537() { 
         
-        if (version_compare(PHP_VERSION, '5.2.0') >= 0) {
+        if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
                 
             $sText = <<<SCRIPT
 <?php

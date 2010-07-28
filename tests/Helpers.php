@@ -3,7 +3,7 @@ require_once 'PHPUnit/Framework.php';
 # use pear or local version of php_beautifier
 
 if (file_exists(dirname(__FILE__).'/../Beautifier.php')) {
-    include_once dirname(__FILE).'/../Beautifier.php';
+    include_once dirname(__FILE__).'/../Beautifier.php';
 } else {
     include_once "PHP/Beautifier.php";
 }

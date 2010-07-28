@@ -281,6 +281,9 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
             $this->aTokenNames[constant($sToken) ] = $sToken;
             $this->aTokenFunctions[constant($sToken) ] = $sToken;
         }
+        if (!defined('T_NAMESPACE')) { // like pre 5.3.0
+            define('T_NAMESPACE', 377);
+        }
         $aTokensToChange = array(
             /* QUOTES */
             '"' => "T_DOUBLE_QUOTE",
@@ -1191,7 +1194,11 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
     private function popControlSeq() 
     {
         $aEl = array_pop($this->aControlSeq);
-        $this->oLog->log('Pop Control:' . $this->getTokenName($aEl), PEAR_LOG_DEBUG);
+        if ($aEl) {
+            $this->oLog->log('Pop Control:' . $this->getTokenName($aEl) , PEAR_LOG_DEBUG);
+        } else {
+            $this->oLog->log('Pop Unknown Control', PEAR_LOG_DEBUG);
+        }
         return $aEl;
     }
     /**
@@ -1761,6 +1768,8 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
         // don't remove whitespace!
         //
         if ($this->isPreviousTokenConstant(T_COMMENT) and preg_match("/^(\/\/|#)/", $this->getPreviousTokenContent())) { // Here for short comment
+            return false;
+        } elseif ($this->isPreviousTokenConstant(T_END_HEREDOC) && $this->getToken($this->iCount) != ';') { 
             return false;
         } elseif ($this->getPreviousTokenConstant(2) == T_END_HEREDOC) { // And here for heredoc
             return false;
