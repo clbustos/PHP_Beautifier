@@ -1819,5 +1819,16 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
             or ($this->isPreviousTokenConstant(T_STRING) and $this->getPreviousTokenConstant(2) == T_OBJECT_OPERATOR) 
             or $this->getMode('double_quote');
     }
+
+    /**
+     * getLastSeq: Return the last sequence block opened and not closed
+     * 
+     * @access public
+     * @return int
+     */
+    public function getLastSeq()
+    {
+        return $this->aControlSeq[count($this->aControlSeq)-1];
+    }
 }
 ?>
