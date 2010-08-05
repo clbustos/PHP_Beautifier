@@ -155,7 +155,7 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
     {
         $this->oBeaut->addNewLineIndent();
         $this->oBeaut->add($sTag);
-        if ($this->oBeaut->getLastSeq() == T_SWITCH) {
+        if ($this->oBeaut->getControlSeq() == T_SWITCH) {
             $this->oBeaut->incIndent();
         }
         $this->oBeaut->incIndent();
@@ -176,7 +176,7 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
         } else {
             $this->oBeaut->removeWhitespace();
             $this->oBeaut->decIndent();
-            if ($this->oBeaut->getLastSeq() == T_SWITCH) {
+            if ($this->oBeaut->getControlSeq() == T_SWITCH) {
                 $this->oBeaut->decIndent();
             }
             $this->oBeaut->addNewLineIndent();
