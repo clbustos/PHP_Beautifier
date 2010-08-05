@@ -381,10 +381,11 @@ class PHP_Beautifier implements PHP_Beautifier_Interface
             T_ENDDECLARE => 'T_END_SUFFIX',
             T_ENDSWITCH => 'T_END_SUFFIX',
             T_ENDIF => 'T_END_SUFFIX',
-            // for PHP 5.3
-            T_NAMESPACE => 'T_INCLUDE', 
-            T_USE => 'T_INCLUDE', 
         );
+        if (version_compare(PHP_VERSION, '5.3.0', '>=')) {
+            $aTokensToChange[T_NAMESPACE] = 'T_INCLUDE';
+            $aTokensToChange[T_USE] = 'T_INCLUDE';
+        }
         foreach ($aTokensToChange as $iToken => $sFunction) {
             $this->aTokenFunctions[$iToken] = $sFunction;
         }
