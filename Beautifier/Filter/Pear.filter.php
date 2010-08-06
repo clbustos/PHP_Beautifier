@@ -44,7 +44,7 @@ require_once 'PEAR/Config.php';
  * Two extra options allows to break the spec about newline before braces
  * on function and classes. By default, they are set to true. Use 
  * <code>
- * $oBeaut->addFilter('Pear',array('newline_class'=>false, 'newline_function'=>false));
+ * $oBeaut->addFilter('Pear', array('newline_class'=>false, 'newline_function'=>false));
  * </code> 
  *
  * @category   PHP

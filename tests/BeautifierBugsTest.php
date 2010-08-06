@@ -1160,6 +1160,50 @@ class Z {
 SCRIPT;
         $this->assertEquals($sExpected, $this->oBeaut->get());
     }
+    /**
+    * Pear filter PHP_Beautifier_Filter_Pear with enabled
+    * "switch_without_indent" setting, this is enabled by default, 
+    * results in invalid code, if the case block contains 
+    * closing brackets in strings. 
+    */
     
+    function testBug17063() {
+        //$this->oBeaut->startLog();
+        $this->oBeaut->addFilter('Pear');        
+        $sText = <<<SCRIPT
+function testFunction() {
+    \$foo = 'foo'; 
+    \$bar = 'bar'; 
+    switch (\$foo) {
+        case 'foo': 
+            return "string with var having braces {\$foo}{\$bar}"; 
+        break;
+        case 'bar': 
+            return \$foo{0} . \$bar{0};
+        break;
+        default:
+            return "\\$\${var}";
+    }
+}
+SCRIPT;
+$this->setText($sText);
+        $sExpected = <<<SCRIPT
+function testFunction() {
+    \$foo = 'foo'; 
+    \$bar = 'bar'; 
+    switch (\$foo) {
+        case 'foo': 
+            return "string with var having braces {\$foo}{\$bar}"; 
+        break;
+        case 'bar': 
+            return \$foo{0} . \$bar{0};
+        break;
+        default:
+            return "\\$\${var}";
+    }
+}
+SCRIPT;
+$this->assertEquals($sExpected, $this->oBeaut->get());
+    }
 }
 ?>
