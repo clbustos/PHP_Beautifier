@@ -256,6 +256,7 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter
             $this->oBeaut->decIndent();
             if ($this->oBeaut->getControlSeq() == T_SWITCH) {
                 $this->oBeaut->decIndent();
+                
             }
             $this->oBeaut->addNewLineIndent();
             $this->oBeaut->add($sTag);

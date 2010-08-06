@@ -1205,5 +1205,68 @@ function testFunction() {
 SCRIPT;
 $this->assertEquals($sExpected, $this->oBeaut->get());
     }
+    
+    
+    /**
+    * When using PHP_Beautifier on this code, the indenting of the switch
+    * does not return to normal after the switch. Other switch code works
+    * fine, so maybe it has something to do with the fact that 
+    * there is no "break", or that there is an if without brackets or "else". 
+    */
+    
+    function testBug14575() {
+        //$this->oBeaut->startLog();
+        $sText = <<<SCRIPT
+<?php
+define("dim", 3);
+define("blank", " ");
+\$hexdigits = str_repeat(" ",100);
+function showno(\$no) {
+    global \$hexdigits;
+    
+    if (\$no == blank) return '_';
+    switch (dim) {
+        case 3:
+        case 4:
+            return \$hexdigits[\$no % 16]; // (custom modulo?)
+        case 5:
+            return \$hexdigits[\$no + 9];
+        case 6:
+            if (\$no < 11) return \$hexdigits[\$no % 10]; // (custom modulo?)
+            if (\$no > 10) return \$hexdigits[\$no - 1 ];
+    }
+    return "_";
+}
+echo showno(rand(0, 100));
+?>
+SCRIPT;
+$this->setText($sText);
+        $sExpected = <<<SCRIPT
+define("dim", 3);
+define("blank", " ");
+\$hexdigits = str_repeat(" ", 100);
+function showno(\$no) {
+    global \$hexdigits;
+    if (\$no == blank) return '_';
+    switch (dim) {
+        case 3:
+        case 4:
+            return \$hexdigits[\$no % 16]; // (custom modulo?)
+            
+        case 5:
+            return \$hexdigits[\$no + 9];
+        case 6:
+            if (\$no < 11) return \$hexdigits[\$no % 10]; // (custom modulo?)
+            if (\$no > 10) return \$hexdigits[\$no - 1];
+    }
+    return "_";
+}
+echo showno(rand(0, 100));
+?>
+SCRIPT;
+echo $this->oBeaut->get();
+$this->assertEquals($sExpected, $this->oBeaut->get());
+    }
+    
 }
 ?>
