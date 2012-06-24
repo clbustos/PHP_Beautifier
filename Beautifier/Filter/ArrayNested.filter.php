@@ -98,6 +98,7 @@ class PHP_Beautifier_Filter_ArrayNested extends PHP_Beautifier_Filter
      */
     public function t_comma($sTag) 
     {
+        $this->oBeaut->removeWhitespace();
         if ($this->oBeaut->getControlParenthesis() != T_ARRAY) {
             $this->oBeaut->add($sTag . ' ');
         } else {
