@@ -279,7 +279,9 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter
     {
         $this->oBeaut->removeWhitespace();
         $this->oBeaut->add($sTag);
-        if ($this->oBeaut->getControlParenthesis() != T_FOR) {
+        if ($this->oBeaut->getControlParenthesis() == T_FOR) {
+            $this->oBeaut->add(' ');
+        } else {
             $this->oBeaut->addNewLineIndent();
         }
     }
