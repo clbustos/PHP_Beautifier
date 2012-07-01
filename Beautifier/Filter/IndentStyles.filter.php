@@ -153,13 +153,18 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
      */
     function t_open_brace_bsd($sTag) 
     {
-        $this->oBeaut->addNewLineIndent();
-        $this->oBeaut->add($sTag);
-        if ($this->oBeaut->getControlSeq() == T_SWITCH) {
+        if ($this->oBeaut->openBraceDontProcess()) {
+            $this->oBeaut->add($sTag);
+        } else {
+            $this->oBeaut->removeWhitespace();
+            $this->oBeaut->addNewLineIndent();
+            $this->oBeaut->add($sTag);
+            if ($this->oBeaut->getControlSeq() == T_SWITCH) {
+                $this->oBeaut->incIndent();
+            }
             $this->oBeaut->incIndent();
+            $this->oBeaut->addNewLineIndent();
         }
-        $this->oBeaut->incIndent();
-        $this->oBeaut->addNewLineIndent();
     }
     /**
      * t_close_brace_bsd: Close braces in BSD style
@@ -194,11 +199,16 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
      */
     function t_open_brace_ws($sTag) 
     {
-        $this->oBeaut->addNewLine();
-        $this->oBeaut->incIndent();
-        $this->oBeaut->addIndent();
-        $this->oBeaut->add($sTag);
-        $this->oBeaut->addNewLineIndent();
+        if ($this->oBeaut->openBraceDontProcess()) {
+            $this->oBeaut->add($sTag);
+        } else {
+            $this->oBeaut->removeWhitespace();
+            $this->oBeaut->addNewLine();
+            $this->oBeaut->incIndent();
+            $this->oBeaut->addIndent();
+            $this->oBeaut->add($sTag);
+            $this->oBeaut->addNewLineIndent();
+        }
     }
     /**
      * t_close_brace_ws: Close braces in Whitesmiths style
@@ -252,12 +262,17 @@ class PHP_Beautifier_Filter_IndentStyles extends PHP_Beautifier_Filter
      */
     function t_open_brace_gnu($sTag) 
     {
-        $iHalfSpace = floor($this->oBeaut->iIndentNumber/2);
-        $this->oBeaut->addNewLineIndent();
-        $this->oBeaut->add(str_repeat($this->oBeaut->sIndentChar, $iHalfSpace));
-        $this->oBeaut->add($sTag);
-        $this->oBeaut->incIndent();
-        $this->oBeaut->addNewLineIndent();
+        if ($this->oBeaut->openBraceDontProcess()) {
+            $this->oBeaut->add($sTag);
+        } else {
+            $this->oBeaut->removeWhitespace();
+            $iHalfSpace = floor($this->oBeaut->iIndentNumber/2);
+            $this->oBeaut->addNewLineIndent();
+            $this->oBeaut->add(str_repeat($this->oBeaut->sIndentChar, $iHalfSpace));
+            $this->oBeaut->add($sTag);
+            $this->oBeaut->incIndent();
+            $this->oBeaut->addNewLineIndent();
+        }
     }
     /**
      * t_else: Else for bds, gnu & ws
