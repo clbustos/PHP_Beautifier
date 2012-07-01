@@ -1264,7 +1264,6 @@ function showno(\$no) {
 echo showno(rand(0, 100));
 ?>
 SCRIPT;
-echo $this->oBeaut->get();
 $this->assertEquals($sExpected, $this->oBeaut->get());
     }
     
