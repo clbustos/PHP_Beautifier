@@ -228,11 +228,12 @@ abstract class PHP_Beautifier_Filter
         }
         $sValue = $token[1];
         if ($sMethod) {
-            if ($this->oBeaut->iVerbose > 5) {
-                echo $sMethod . ":" . trim($sValue) . PHP_EOL;
-            }
+            PHP_Beautifier_Common::getLog()->log($this->getName()."->".$sMethod."(".trim($sValue).")", PEAR_LOG_DEBUG);
             // return false if PHP_Beautifier_Filter::BYPASS
-            return ($this->$sMethod($sValue) !== PHP_Beautifier_Filter::BYPASS);
+	    $result = ($this->$sMethod($sValue) !== PHP_Beautifier_Filter::BYPASS);
+	    if ($result)
+		PHP_Beautifier_Common::getLog()->log($this->getName()."->".$sMethod." done", PEAR_LOG_DEBUG);
+            return $result;
         } else { // WEIRD!!! -> Add the same received
             $this->oBeaut->add($token[1]);
             PHP_Beautifier_Common::getLog()->log("Add same received:" . trim($token[1]), PEAR_LOG_DEBUG);
