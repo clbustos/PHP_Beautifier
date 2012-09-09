@@ -230,9 +230,9 @@ abstract class PHP_Beautifier_Filter
         if ($sMethod) {
             PHP_Beautifier_Common::getLog()->log($this->getName()."->".$sMethod."(".trim($sValue).")", PEAR_LOG_DEBUG);
             // return false if PHP_Beautifier_Filter::BYPASS
-	    $result = ($this->$sMethod($sValue) !== PHP_Beautifier_Filter::BYPASS);
-	    if ($result)
-		PHP_Beautifier_Common::getLog()->log($this->getName()."->".$sMethod." done", PEAR_LOG_DEBUG);
+            $result = ($this->$sMethod($sValue) !== PHP_Beautifier_Filter::BYPASS);
+            if ($result)
+                PHP_Beautifier_Common::getLog()->log($this->getName()."->".$sMethod." done", PEAR_LOG_DEBUG);
             return $result;
         } else { // WEIRD!!! -> Add the same received
             $this->oBeaut->add($token[1]);
