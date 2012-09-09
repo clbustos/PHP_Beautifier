@@ -65,7 +65,7 @@
     $bRecursive = false;
     $sCompress = false;
     $aFiltersDirectory = array();
-	$iVerbose=PEAR_LOG_WARNING;
+    $iVerbose=PEAR_LOG_WARNING;
     //end default_options
     $argv = Console_Getopt::readPHPArgv();
     $aLongOptions = array(
@@ -79,16 +79,16 @@
         'recursive',
         'help',
         'compress==',
-		'verbose'
+	'verbose'
     );
-    $options = Console_Getopt::getopt($argv, "f:o:d:l:t::s::c::r?hv", $aLongOptions);
+    $options = Console_Getopt::getopt($argv, "f:o:d:l:t::s::c::v::r?h", $aLongOptions);
     if (PEAR::isError($options)) {
         usage($options);
     }
     foreach($options[0] as $opt) {
         $sArgument = str_replace('-', '', $opt[0]);
         $sParam = $opt[1];
-        $oLog->log("Arg: ".$sArgument."[$sParam]", PEAR_LOG_DEBUG);
+        $oLog->log("Arg: ".$sArgument."[$sParam]", 6);
         switch ($sArgument) {
             case 'input':
             case 'f':
@@ -158,10 +158,10 @@
             case 'version':
                 version();
             break;
-			case 'v':
-			case 'verbose':
-				$iVerbose=PEAR_LOG_INFO;
-			break;
+            case 'v':
+            case 'verbose':
+                $iVerbose = ($sParam) ? (int) $sParam : PEAR_LOG_INFO;
+            break;
         }
     }
 	// add the console logger
