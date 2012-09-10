@@ -110,5 +110,28 @@ class PHP_Beautifier_Filter_NewLines extends PHP_Beautifier_Filter
         }
         return PHP_Beautifier_Filter::BYPASS;
     }
+
+    /**
+     * Called from {@link PHP_Beautifier::process()} at the end of processing
+     * The post-process must be made in {@link PHP_Beautifier::$aOut}
+     *
+     * @access public
+     * @return void
+     */
+    public function postProcess()
+    {
+        foreach ($this->oBeaut->aOut as $i => &$out)
+        {
+            if (is_string($out) && $out != '' && trim($out) == '')
+            {
+                $trimed = trim($out, $this->oBeaut->getIndentChar());
+                if ($trimed != $out && strpos($this->oBeaut->aOut[$i-1],"\n") !== false
+                                    && strpos($this->oBeaut->aOut[$i+1],"\n") !== false )
+                {
+                    $out = $trimed; 
+                }
+            }
+        }
+    }
 }
 ?>
