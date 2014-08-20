@@ -28,7 +28,7 @@
  * @package    PHP_Beautifier
  * @subpackage Filter
  * @author     Elod Csirmaz <https://github.com/csirmaz>
- * @copyright  2014 Elod Csirmaz, based on ArrayNested by Claudio Bustos
+ * @copyright  2014 Elod Csirmaz
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    1.0
  * @link       http://pear.php.net/package/PHP_Beautifier
