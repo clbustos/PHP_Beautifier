@@ -102,6 +102,7 @@ class PHP_Beautifier_Filter_BreakLongLists extends PHP_Beautifier_Filter
             $this->oBeaut->incIndent();
             $this->oBeaut->addIndent();
             array_push($this->stack, count($this->oBeaut->aOut));
+            array_push($this->stack, $this->oBeaut->iCount);
         }
     }
     /**
@@ -117,35 +118,49 @@ class PHP_Beautifier_Filter_BreakLongLists extends PHP_Beautifier_Filter
         $this->oBeaut->removeWhitespace();
         $isShortArray = false;
         if ($this->in_scope()) {
-            $begCount = array_pop($this->stack);
-            // Check how long the array is, without whitespace
-            $arraystr = '';
-            for ($i = $begCount; $i < count($this->oBeaut->aOut); $i++) {
-                $arraystr.= $this->oBeaut->aOut[$i];
-            }
-            $arraystr = preg_replace('/\s/', '', $arraystr);
-            // If it is too short, remove whitespace we added before.
-            // The aOut[] elements are:
-            //        -2: newline
-            //        -1: indent
-            // $begCount: FIRST ELEMENT
-            //        +1: comma
-            //        +2: newline
-            //        +3: indent
-            //        +4: SECOND ELEMENT
-            if (strlen($arraystr) < $this->aSettings['maxlen']) {
-                $isShortArray = true;
-                $begCount2 = $begCount - 2;
-                if ($begCount2 < 0) {
-                    $begCount2 = 0;
-                }
-                for ($i = $begCount2; $i < count($this->oBeaut->aOut); $i++) {
-                    $new = $this->oBeaut->aOut[$i];
-                    $new = preg_replace('/^\r?\n$/', '', $new);
-                    $new = preg_replace('/^[ \t]+$/', ($i < $begCount ? '' : ' '), $new);
-                    $this->oBeaut->aOut[$i] = $new;
+            $begiCount = array_pop($this->stack);
+            $begOutCount = array_pop($this->stack);
+            // Check if there are embedded comments
+            // It is unsafe to delete newlines if there are
+            $hasComment = false;
+            for ($i = $begiCount; $i < $this->oBeaut->iCount; $i++) {
+                $p = $this->oBeaut->getToken($i);
+                if ($p[0] == T_COMMENT) {
+                    $hasComment = true;
+                    break;
                 }
             }
+            if (!$hasComment) {
+                // Check how long the array is, without whitespace
+                $arraystr = '';
+                for ($i = $begOutCount; $i < count($this->oBeaut->aOut); $i++) {
+                    $arraystr.= $this->oBeaut->aOut[$i];
+                }
+                $arraystr = preg_replace('/\s/', '', $arraystr);
+                // If it is too short, remove whitespace we added before.
+                // The aOut[] elements are:
+                //           -2: newline
+                //           -1: indent
+                // $begOutCount: FIRST ELEMENT
+                //           +1: comma
+                //           +2: newline
+                //           +3: indent
+                //           +4: SECOND ELEMENT
+                if (strlen($arraystr) < $this->aSettings['maxlen']) {
+                    $isShortArray = true;
+                    $begCount2 = $begOutCount - 2;
+                    if ($begCount2 < 0) {
+                        $begCount2 = 0;
+                    }
+                    for ($i = $begCount2; $i < count($this->oBeaut->aOut); $i++) {
+                        $new = $this->oBeaut->aOut[$i];
+                        $new = preg_replace('/^\r?\n$/', '', $new);
+                        $new = preg_replace('/^[ \t]+$/', ($i < $begOutCount ? '' : ' '), $new);
+                        $this->oBeaut->aOut[$i] = $new;
+                    }
+                }
+            }
+            //
             $this->oBeaut->decIndent();
             if ($this->oBeaut->getPreviousTokenContent() != '(' && !$isShortArray) {
                 $this->oBeaut->addNewLine();
