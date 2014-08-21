@@ -37,11 +37,6 @@
 class PHP_Beautifier_Filter_SpaceOpAssignments extends PHP_Beautifier_Filter
 {
     protected $sDescription = 'Add space before operator+assignments';
-    public function __construct(PHP_Beautifier $oBeaut, $aSettings = array())
-    {
-        parent::__construct($oBeaut, $aSettings);
-        $this->oBeaut->setNoDeletePreviousSpaceHack();
-    }
     /**
      * t_assigment_pre
      *
