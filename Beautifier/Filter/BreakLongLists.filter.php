@@ -96,8 +96,8 @@ class PHP_Beautifier_Filter_BreakLongLists extends PHP_Beautifier_Filter
      */
     public function t_parenthesis_open($sTag)
     {
+        $this->oBeaut->add($sTag);
         if ($this->in_scope()) {
-            $this->oBeaut->add($sTag);
             $this->oBeaut->addNewLine();
             $this->oBeaut->incIndent();
             $this->oBeaut->addIndent();
