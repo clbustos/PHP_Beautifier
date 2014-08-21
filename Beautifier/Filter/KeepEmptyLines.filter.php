@@ -37,13 +37,17 @@
 class PHP_Beautifier_Filter_KeepEmptyLines extends PHP_Beautifier_Filter
 {
     protected $sDescription = 'Keep a single empty line where empty lines can be found';
+    public function __construct(PHP_Beautifier $oBeaut, $aSettings = array())
+    {
+        parent::__construct($oBeaut, $aSettings);
+        $this->oBeaut->setNoDeletePreviousSpaceHack();
+    }
     public function t_whitespace($sTag)
     {
         if (preg_match('/\n\s*\r?\n/', $sTag)) {
-            // The indent has already been added
-            $new = $this->oBeaut->aOut[count($this->oBeaut->aOut) - 1];
-            $new = "\n" . $new;
-            $this->oBeaut->aOut[count($this->oBeaut->aOut) - 1] = $new;
+            $this->oBeaut->removeWhitespace();
+            $this->oBeaut->aOut[count($this->oBeaut->aOut) - 1].= "\n/**ndps**/\n"; // see setNoDeletePreviousSpaceHack
+            $this->oBeaut->addIndent();
         }
     }
 }
