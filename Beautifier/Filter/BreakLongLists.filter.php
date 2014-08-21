@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 /**
- * Filter Long Array Nested: Indent long array structures only
+ * Break long arrays, function definitions and function calls
  *
  * PHP version 5
  *
@@ -22,13 +22,13 @@
  * @link       http://beautifyphp.sourceforge.net
  */
 /**
- * Filter Long Array Nested: Indent long array structures only
+ * Break long arrays, function definitions and function calls
  *
- * Break array()s into multiple lines that, on a single line, would be longer
- * than a given limit. This limit defaults to 50, and can be specified using
- * the 'maxlen' parameter:
+ * Break array()s, function definitions and function calls into multiple lines that,
+ * on a single line, would be longer than a given limit. This limit defaults to 70,
+ * and can be specified using the 'maxlen' parameter:
  *
- * --filters="LongArrayNested(maxlen=20)"
+ * --filters="BreakLongLists(maxlen=20)"
  *
  * @category   PHP
  * @package    PHP_Beautifier
@@ -67,15 +67,24 @@
  * @link       http://pear.php.net/package/PHP_Beautifier
  * @link       http://beautifyphp.sourceforge.net
  */
-class PHP_Beautifier_Filter_LongArrayNested extends PHP_Beautifier_Filter
+class PHP_Beautifier_Filter_BreakLongLists extends PHP_Beautifier_Filter
 {
-    protected $aSettings = array('maxlen' => '50');
+    protected $aSettings = array('maxlen' => '70');
     var $stack = array();
-    protected $sDescription = 'Break array()s into multiple lines that, on a single line, would be longer than a given limit';
+    protected $sDescription = 'Break long arrays, function definitions and function calls';
     public function __construct(PHP_Beautifier $oBeaut, $aSettings = array())
     {
         parent::__construct($oBeaut, $aSettings);
         $this->addSettingDefinition('maxlen', 'text', 'Break array()s into multiple lines above this length');
+    }
+    // This method determines whether the breaking should take place
+    private function in_scope($control)
+    {
+        $control = $this->oBeaut->getControlParenthesis();
+        if ($control == T_ARRAY || $control == T_FUNCTION || $control == T_STRING) {
+            return true;
+        }
+        return false;
     }
     /**
      * t_parenthesis_open
@@ -87,8 +96,8 @@ class PHP_Beautifier_Filter_LongArrayNested extends PHP_Beautifier_Filter
      */
     public function t_parenthesis_open($sTag)
     {
-        $this->oBeaut->add($sTag);
-        if ($this->oBeaut->getControlParenthesis() == T_ARRAY) {
+        if ($this->in_scope()) {
+            $this->oBeaut->add($sTag);
             $this->oBeaut->addNewLine();
             $this->oBeaut->incIndent();
             $this->oBeaut->addIndent();
@@ -105,8 +114,9 @@ class PHP_Beautifier_Filter_LongArrayNested extends PHP_Beautifier_Filter
      */
     public function t_parenthesis_close($sTag)
     {
+        $this->oBeaut->removeWhitespace();
         $isShortArray = false;
-        if ($this->oBeaut->getControlParenthesis() == T_ARRAY) {
+        if ($this->in_scope()) {
             $begCount = array_pop($this->stack);
             // Check how long the array is, without whitespace
             $arraystr = '';
@@ -156,13 +166,13 @@ class PHP_Beautifier_Filter_LongArrayNested extends PHP_Beautifier_Filter
      */
     public function t_comma($sTag)
     {
-        if ($this->oBeaut->getControlParenthesis() != T_ARRAY) {
-            $this->oBeaut->add($sTag . ' ');
-        } else {
-            $this->oBeaut->removeWhitespace();
+        $this->oBeaut->removeWhitespace();
+        if ($this->in_scope()) {
             $this->oBeaut->add($sTag);
             $this->oBeaut->addNewLine();
             $this->oBeaut->addIndent();
+        } else {
+            $this->oBeaut->add($sTag . ' ');
         }
     }
 }
