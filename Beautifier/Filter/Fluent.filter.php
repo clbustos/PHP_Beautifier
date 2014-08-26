@@ -56,14 +56,37 @@ class PHP_Beautifier_Filter_Fluent extends PHP_Beautifier_Filter
     {
         $counter = 1;
         $next = $this->oBeaut->getToken($this->oBeaut->iCount + $counter);
-        while (($next[0] != T_OBJECT_OPERATOR) && ($next != ";")) {
+        $parenthesis = 0;
+        $brace = 0;
+        while ($next && ($parenthesis > 0 || $brace > 0 || $next[0] != T_OBJECT_OPERATOR)
+                     && ($next != ";" )) {
             $counter++;
+            switch ($next) {
+              case '(' : $parenthesis += 1; break;
+              case ')' : $parenthesis -= 1; break;
+              case '[' : $brace += 1; break;
+              case ']' : $brace -= 1; break;            
+            }
+            if ($parenthesis <= 0 && $brace == 0 && !in_array($next[0],
+                  array(T_VARIABLE,T_PAAMAYIM_NEKUDOTAYIM,T_WHITESPACE,T_DOUBLE_COLON,T_STRING)))
+              break;
             $next = $this->oBeaut->getToken($this->oBeaut->iCount + $counter);
         }
         $counter = 1;
         $prev = $this->oBeaut->getToken($this->oBeaut->iCount - $counter);
-        while (($prev[0] != T_OBJECT_OPERATOR) && ($prev[0] != T_VARIABLE)) {
+        $parenthesis = 0;
+        $brace = 0;
+        while ($prev && (($prev[0] != T_OBJECT_OPERATOR) && ($prev[0] != T_VARIABLE))) {
             $counter++;
+            switch ($next) {
+              case '(' : $parenthesis += 1; break;
+              case ')' : $parenthesis -= 1; break;
+              case '[' : $brace += 1; break;
+              case ']' : $brace -= 1; break;
+            }
+            if ($parenthesis >= 0 && $brace == 0 && !in_array($next[0],
+                  array(T_PAAMAYIM_NEKUDOTAYIM,T_WHITESPACE,T_DOUBLE_COLON,T_STRING)))
+              break;
             $prev = $this->oBeaut->getToken($this->oBeaut->iCount - $counter);
         }
         $this->oBeaut->removeWhiteSpace();
