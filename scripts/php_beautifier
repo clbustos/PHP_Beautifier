@@ -259,7 +259,7 @@
           "     --directory_filters or -d <path>    Include dirs for filters\n".
           "     --compress          or -c <type>    Compress output\n".
           "     --recursive         or -r           Search in subdir recursively\n".
-          "     --list                              List installed filters\n".
+          "     --list              or -i           List installed filters\n".
           "     --version                           Show program version\n".
           "     --help              or -?           display help/usage (this message)\n\n".
           "Filter definition:\n".
