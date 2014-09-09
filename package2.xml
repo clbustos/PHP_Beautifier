@@ -86,6 +86,9 @@
      <file baseinstalldir="PHP" name="ArrayNested.filter.php" role="php">
       <tasks:replace from="@package_version@" to="version" type="package-info" />
      </file>
+     <file baseinstalldir="PHP" name="BreakLongLists.filter.php" role="php">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
      <file baseinstalldir="PHP" name="Default.filter.php" role="php">
       <tasks:replace from="@package_version@" to="version" type="package-info" />
      </file>
@@ -95,8 +98,13 @@
      <file baseinstalldir="PHP" name="EqualsAlign.filter.php" role="php">
       <tasks:replace from="@package_version@" to="version" type="package-info" />
      </file>
-     
+     <file baseinstalldir="PHP" name="Fluent.filter.php" role="php">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
      <file baseinstalldir="PHP" name="IndentStyles.filter.php" role="php">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
+     <file baseinstalldir="PHP" name="KeepEmptyLines.filter.php" role="php">
       <tasks:replace from="@package_version@" to="version" type="package-info" />
      </file>
      <file baseinstalldir="PHP" name="ListClassFunction.filter.php" role="php">
@@ -112,6 +120,9 @@
       <tasks:replace from="@package_version@" to="version" type="package-info" />
      </file>
      <file baseinstalldir="PHP" name="phpBB.filter.php" role="php">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
+     <file baseinstalldir="PHP" name="SpaceOpAssignments.filter.php" role="php">
       <tasks:replace from="@package_version@" to="version" type="package-info" />
      </file>
     </dir> <!-- Beautifier/Filter -->
