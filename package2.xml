@@ -122,6 +122,9 @@
      <file baseinstalldir="PHP" name="phpBB.filter.php" role="php">
       <tasks:replace from="@package_version@" to="version" type="package-info" />
      </file>
+     <file baseinstalldir="PHP" name="SpaceCasts.filter.php" role="php">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
      <file baseinstalldir="PHP" name="SpaceOpAssignments.filter.php" role="php">
       <tasks:replace from="@package_version@" to="version" type="package-info" />
      </file>
