@@ -1,5 +1,9 @@
-#!@php_bin@ -Cq
+#!/usr/bin/env php
 <?php
+    if("@package_version@" !== "@package"."_"."version@")
+        define("VERSION_NUMBER", "@package_version@");
+    if(! defined("VERSION_NUMBER"))
+        define("VERSION_NUMBER", "0.1.15");
     /**
     * Console script to use PHP_Beautifier from the command line
     *
@@ -31,6 +35,22 @@
 		use this software within a script\n";
         exit();
     }
+
+    function includeIfExists($file)
+    {
+        if (file_exists($file)) {
+            return include $file;
+        }
+    }
+
+    if ((!$loader = includeIfExists(__DIR__.'/../vendor/autoload.php')) && (!$loader = includeIfExists(__DIR__.'/../../../autoload.php'))) {
+        $msg = 'You must set up the project dependencies, run the following commands:'.PHP_EOL.
+            'curl -sS https://getcomposer.org/installer | php'.PHP_EOL.
+            'php composer.phar install'.PHP_EOL;
+        fwrite(STDERR, $msg);
+        exit(1);
+    }
+
     /**
     * Require PEAR Class
     */
@@ -46,13 +66,13 @@
     /**
     * Require the beautify_php class....
     */
-    require_once 'PHP/Beautifier.php';
+    @include_once 'PHP/Beautifier.php';
     /**
     * Require for PHP_Beautifier_Batch
     */
-    require_once 'PHP/Beautifier/Batch.php';
+    @include_once 'PHP/Beautifier/Batch.php';
     define('PHP_Beautifier_WINDOWS', substr(PHP_OS, 0, 3) == 'WIN');
-    error_reporting(E_ALL);
+    error_reporting (E_ALL & ~(E_DEPRECATED | E_STRICT));
     // get log object
     $oLog = PHP_Beautifier_Common::getLog();
     
@@ -256,7 +276,7 @@
     }
     function version() {
         fputs(STDERR,
-        "PHP_Beautifier @package_version@".PHP_EOL
+        "PHP_Beautifier ".VERSION_NUMBER.PHP_EOL
          );
          exit;
     }
