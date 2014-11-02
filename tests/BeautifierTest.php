@@ -23,6 +23,8 @@ require_once('Helpers.php');
 class BeautifierTest extends PHPUnit_Framework_TestCase {
     function setUp() 
     {
+        error_reporting (E_ALL & ~(E_DEPRECATED | E_STRICT));
+
         $this->oBeaut = new PHP_Beautifier();
         $this->oBeaut->setInputFile(__FILE__);
     }
@@ -54,7 +56,11 @@ class BeautifierTest extends PHPUnit_Framework_TestCase {
     {
         if(file_exists('../Beautifier/Filter/ArrayNested.filter.php')) {
             include_once('../Beautifier/Filter/ArrayNested.filter.php');
-        } else {
+        }
+        elseif(file_exists('./Beautifier/Filter/ArrayNested.filter.php')) {
+            @include_once('./Beautifier/Filter/ArrayNested.filter.php');
+        }
+        else {
         include_once ('PHP/Beautifier/Filter/ArrayNested.filter.php');
 
         }            // Include filter by string
@@ -89,7 +95,10 @@ class BeautifierTest extends PHPUnit_Framework_TestCase {
             'phpBB',
             'DocBlock',
             'Fluent',
-            'EqualsAlign'
+            'EqualsAlign',
+            'SpaceOpAssignments',
+            'KeepEmptyLines',
+            'BreakLongLists',
         );
         sort($aEspFilters);
         $aRealFilters = $this->oBeaut->getFilterListTotal();
@@ -181,14 +190,15 @@ Works
 */
 ?>
 SCRIPT;
-        $sTextExpected = str_replace("\r\n", "\n", $sTextExpected);
+        $sTextExpected = str_replace(array("\r\n","\r","\n"), PHP_EOL, $sTextExpected);
         $this->oBeaut->setInputString($sTextOriginal);
         $this->oBeaut->process();
         $sTextActual = $this->oBeaut->get();
+//        $sTextActual = str_replace("\r\n", "\n", $sTextActual);
         /*for ($x = 0;$x<strlen($sTextExpected);$x++) {
             $this->assertEquals($sTextExpected{$x}, $sTextActual{$x});
         }*/
-            $this->assertEquals($sTextExpected, $sTextActual);
+        $this->assertEquals($sTextExpected, $sTextActual);
 
     }
 function testDocComment() 
@@ -219,9 +229,11 @@ SCRIPT;
  */
 ?>
 SCRIPT;
+        $sTextExpected = str_replace(array("\r\n","\r","\n"), PHP_EOL, $sTextExpected);
         $this->oBeaut->setInputString($sTextOriginal);
         $this->oBeaut->process();
-        $this->assertEquals($sTextExpected,$this->oBeaut->get());
+        $sTextActual = $this->oBeaut->get();
+        $this->assertEquals($sTextExpected,$sTextActual);
     }
     function testNestedSwitch() {
 $sTextOriginal = <<<SCRIPT
@@ -276,9 +288,11 @@ switch (\$a) {
 }
 ?>
 SCRIPT;
+        $sTextExpected = str_replace(array("\r\n","\r","\n"), PHP_EOL, $sTextExpected);
         $this->oBeaut->setInputString($sTextOriginal);
         $this->oBeaut->process();
-        $this->assertEquals($sTextExpected,$this->oBeaut->get());            
+        $sTextActual = $this->oBeaut->get();
+        $this->assertEquals($sTextExpected,$sTextActual);
     
     }
     /*
@@ -343,4 +357,4 @@ SCRIPT;
     }
     */
 }
-?>
+

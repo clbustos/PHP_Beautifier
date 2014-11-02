@@ -25,6 +25,7 @@ class ArrayNestedTest extends PHPUnit_Framework_TestCase
 {
     function setUp() 
     {
+        error_reporting (E_ALL & ~(E_DEPRECATED | E_STRICT));
         $this->oBeaut = new PHP_Beautifier();
     }
     /**
@@ -39,7 +40,9 @@ class ArrayNestedTest extends PHPUnit_Framework_TestCase
         $this->oBeaut->setInputFile($sSample);
         $this->oBeaut->addFilter("ArrayNested");
         $this->oBeaut->process();
-        $this->assertEquals($sContent, $this->oBeaut->get());
+        $sTextActual = $this->oBeaut->get();
+        $sTextActual = str_replace(PHP_EOL, "\n", $sTextActual);
+        $this->assertEquals($sContent, $sTextActual);
     }
 }
 

@@ -25,6 +25,7 @@ class IndentStylesTest extends PHPUnit_Framework_TestCase
 {
     function setUp() 
     {
+        error_reporting (E_ALL & ~(E_DEPRECATED | E_STRICT));
         $this->oBeaut = new PHP_Beautifier();
     }
     /**
@@ -39,7 +40,9 @@ class IndentStylesTest extends PHPUnit_Framework_TestCase
         $this->oBeaut->setInputFile($sSample);
         $this->oBeaut->addFilter("IndentStyles",array("style"=>"bsd"));
         $this->oBeaut->process();
-        $this->assertEquals($sContent, $this->oBeaut->get());
+        $sTextActual = $this->oBeaut->get();
+        $sTextActual = str_replace(PHP_EOL, "\n", $sTextActual);
+        $this->assertEquals($sContent, $sTextActual);
     }
 
     function testIndentStylesGNUSample() 
@@ -49,7 +52,9 @@ class IndentStylesTest extends PHPUnit_Framework_TestCase
         $this->oBeaut->setInputFile($sSample);
         $this->oBeaut->addFilter("IndentStyles",array("style"=>"gnu"));
         $this->oBeaut->process();
-        $this->assertEquals($sContent, $this->oBeaut->get());
+        $sTextActual = $this->oBeaut->get();
+        $sTextActual = str_replace(PHP_EOL, "\n", $sTextActual);
+        $this->assertEquals($sContent, $sTextActual);
     }
 
     function testIndentStylesWSSample() 
@@ -59,7 +64,9 @@ class IndentStylesTest extends PHPUnit_Framework_TestCase
         $this->oBeaut->setInputFile($sSample);
         $this->oBeaut->addFilter("IndentStyles",array("style"=>"ws"));
         $this->oBeaut->process();
-        $this->assertEquals($sContent, $this->oBeaut->get());
+        $sTextActual = $this->oBeaut->get();
+        $sTextActual = str_replace(PHP_EOL, "\n", $sTextActual);
+        $this->assertEquals($sContent, $sTextActual);
     }
 
     function testIndentStylesKRSample() 
@@ -69,7 +76,9 @@ class IndentStylesTest extends PHPUnit_Framework_TestCase
         $this->oBeaut->setInputFile($sSample);
         $this->oBeaut->addFilter("IndentStyles");
         $this->oBeaut->process();
-        $this->assertEquals($sContent, $this->oBeaut->get());
+        $sTextActual = $this->oBeaut->get();
+        $sTextActual = str_replace(PHP_EOL, "\n", $sTextActual);
+        $this->assertEquals($sContent, $sTextActual);
     }
 
     function testIndentStylesBadSample() 

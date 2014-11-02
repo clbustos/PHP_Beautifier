@@ -1,5 +1,5 @@
 <?php
-require_once 'PHPUnit/Framework.php';
+@include_once 'PHPUnit/Autoload.php';
 # use pear or local version of php_beautifier
 
 if (file_exists(dirname(__FILE__).'/../Beautifier.php')) {
@@ -29,6 +29,3 @@ class PHP_Beautifier_Filter_BBY extends PHP_Beautifier_Filter {
         $this->oBeaut->add($this->oBeaut->getTokenName($this->oBeaut->getControlSeq())); return PHP_Beautifier_Filter::BYPASS; 
     } 
 } 
-
-
-?>

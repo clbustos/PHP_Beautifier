@@ -25,6 +25,7 @@ class DocBlockTest extends PHPUnit_Framework_TestCase
 {
     function setUp() 
     {
+        error_reporting (E_ALL & ~(E_DEPRECATED | E_STRICT));
         $this->oBeaut = new PHP_Beautifier();
     }
     /**
