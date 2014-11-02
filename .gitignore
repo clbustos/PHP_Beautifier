@@ -1,7 +1,13 @@
 docs/*
 site/docs
-tests/*.log
+*.log
 create_doc
 subir_sitio
 *~
 pkg
+*.tgz
+*.phar
+composer.lock
+/vendor
+/bin
+
