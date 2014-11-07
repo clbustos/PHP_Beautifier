@@ -85,6 +85,7 @@
     $bRecursive = false;
     $sCompress = false;
     $aFiltersDirectory = array();
+    $bListFilters = false;
     $iVerbose=PEAR_LOG_WARNING;
     //end default_options
     $argv = Console_Getopt::readPHPArgv();
@@ -99,9 +100,10 @@
         'recursive',
         'help',
         'compress==',
+        'list',
 	'verbose'
     );
-    $options = Console_Getopt::getopt($argv, "f:o:d:l:t::s::c::v::r?h", $aLongOptions);
+    $options = Console_Getopt::getopt($argv, "f:o:d:l:t::s::c::v::r?h:i", $aLongOptions);
     if (PEAR::isError($options)) {
         usage($options);
     }
@@ -175,6 +177,10 @@
 			case 'h':
                 usage();
             break;
+            case 'list':
+            case 'i':
+                $bListFilters = true;
+            break;
             case 'version':
                 version();
             break;
@@ -184,6 +190,11 @@
             break;
         }
     }
+
+    if ($bListFilters) {
+        listFilters($aFiltersDirectory, $bRecursive);
+        exit;
+    }
 	// add the console logger
     $oLogConsole = Log::factory('console', '', 'php_beautifier', array(
         'stream'=>STDERR
@@ -191,6 +202,7 @@
     $oLog->addChild($oLogConsole);	
 	
     if (!empty($options[1])) {
+
         $aFiles = $options[1];
         if (count($options[1]) == 1) {
             $aInputFiles = ($aFiles[0] == '-') ? STDIN : array(
@@ -267,6 +279,7 @@
           "     --directory_filters or -d <path>    Include dirs for filters\n".
           "     --compress          or -c <type>    Compress output\n".
           "     --recursive         or -r           Search in subdir recursively\n".
+          "     --list              or -i           List installed filters\n".
           "     --version                           Show program version\n".
           "     --help              or -?           display help/usage (this message)\n\n".
           "Filter definition:\n".
@@ -279,5 +292,35 @@
         "PHP_Beautifier ".VERSION_NUMBER.PHP_EOL
          );
          exit;
+    }
+    function listFilters($aFiltersDirectory, $bRecursive) {
+        $oBeautSingle = new PHP_Beautifier();
+        $oBeaut = new PHP_Beautifier_Batch($oBeautSingle);
+        $oBeaut->setRecursive($bRecursive);
+        if ($aFiltersDirectory) {
+            foreach($aFiltersDirectory as $sDirectory) {
+                $oBeaut->addFilterDirectory($sDirectory);
+            }
+        }
+        $aFilterDirectories = $oBeautSingle->getFilterDirectories();
+        $aFilterList = array();
+        foreach($aFilterDirectories as $directory) {
+            foreach(new DirectoryIterator($directory) as $fileInfo) {
+                $file = $fileInfo->getFilename();
+                if (strpos($file, '.filter.php') !== false) {
+                    $stub = str_replace(".filter.php", '', $file);
+                    $oBeaut->addFilter($stub);
+                }
+            }
+            $aFilterList = $oBeaut->getFilterList();
+        }
+        $aFilterList = array_unique($aFilterList);
+        asort($aFilterList);
+        echo "\nThe installed PHP_Beautifier filters are:\n\n";
+        foreach($aFilterList as $filter) {
+            $desc = $oBeaut->getFilterDescription($filter)->getDescription();
+            echo str_pad($filter,25), " - ", $desc , "\n";
+        }
+        echo "\n";
     }
 ?>
