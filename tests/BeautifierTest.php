@@ -295,6 +295,26 @@ SCRIPT;
         $this->assertEquals($sTextExpected,$sTextActual);
     
     }
+    function testForSpacing() {
+        $sTextOriginal = <<<SCRIPT
+<?php
+for(\$i=0;\$i<5;\$i++){print"\$i\n";for(\$j=0;\$j<5;\$j++){print"\$j\n";}}
+?>
+SCRIPT;
+        $sTextExpected = <<<SCRIPT
+<?php
+for (\$i = 0; \$i < 5; \$i++) {
+    print "\$i\n";
+    for (\$j = 0; \$j < 5; \$j++) {
+        print "\$j\n";
+    }
+}
+?>
+SCRIPT;
+        $this->oBeaut->setInputString($sTextOriginal);
+        $this->oBeaut->process();
+        $this->assertEquals($sTextExpected,$this->oBeaut->get());
+    }
     /*
     function testresetProperties() {
     }
