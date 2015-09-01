@@ -31,11 +31,8 @@
         "fabpot/php-cs-fixer": "0.5.7"
     },
     "bin": [
-        "scripts/beautifier"
+        "scripts/php_beautifier"
     ],
-    "config": {
-        "bin-dir": "bin/"
-    },
     "preferred-install": "dist",
     "autoload": {
         "classmap": [
