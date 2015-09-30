@@ -1,6 +1,6 @@
 = What is PHP_Beautifier?
 
-PHP_Beautifier is a Open Source PHP aplication, distributed under the terms of PHP Licence 3.0. This program tries to reformat and beautify PHP 4 and PHP 5 code automatically.
+PHP_Beautifier is a Open Source PHP application, distributed under the terms of PHP Licence 3.0. This program tries to reformat and beautify PHP 4 and PHP 5 code automatically.
 Who needs it?
 
     * developers who get PHP code from other coders and are slightly confused
