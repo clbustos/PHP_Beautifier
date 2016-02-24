@@ -17,12 +17,12 @@
     "license": "PHP-3.0",
     "require": {
         "php": ">=5",
-        "pear/pear": "dev-master",
-        "pear/log": "dev-master"
+        "pear/pear": "*",
+        "pear/log": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "dev-master",
-        "fabpot/php-cs-fixer": "dev-master"
+        "phpunit/phpunit": "3.*",
+        "fabpot/php-cs-fixer": "0.5.7"
     },
     "bin": [
         "scripts/beautifier"
