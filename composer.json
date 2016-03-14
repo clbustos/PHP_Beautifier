@@ -16,9 +16,7 @@
     ],
     "license": "PHP-3.0",
     "require": {
-        "php": ">=5",
-        "pear/pear": "*",
-        "pear/log": "*"
+        "php": ">=5"
     },
     "require-dev": {
         "phpunit/phpunit": "3.*",
