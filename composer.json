@@ -15,16 +15,8 @@
         }
     ],
     "license": "PHP-3.0",
-    "repositories": [
-        {
-            "type": "pear",
-            "url": "http://pear.php.net"
-        }
-    ],
     "require": {
-        "php": ">=5",
-        "pear-pear.php.net/PEAR": "*",
-        "pear-pear.php.net/Log": "*"
+        "php": ">=5"
     },
     "require-dev": {
         "phpunit/phpunit": "3.*",
